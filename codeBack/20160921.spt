@@ -1,0 +1,128 @@
+import java.io.{File,PrintWriter}
+import scala.io.Source
+
+import org.apache.spark.{SparkConf, SparkContext}
+// $example on$
+import org.apache.spark.mllib.classification.{NaiveBayes, NaiveBayesModel}
+import org.apache.spark.mllib.util.MLUtils
+// $example off$
+
+val path = new File("").getAbsolutePath
+val path = "D:\\Docs\\Works_And_Jobs\\Sina\\Betn_code\\NaiveBayesModelExport"
+val dataPath = path + "\\data"
+val fs = new File(dataPath).listFiles
+
+val abFile = new File(dataPath + "\\abnormal_sample.txt")
+val normalFile = new File(dataPath + "\\normal_sample.txt")
+
+def sample2libsvm( _line : String ) : String = {
+  val arr = _line.split('\t').tail.tail
+  val lineData = arr.zipWithIndex.filter(!_._1.equals("0")).map( x => ( x._2 + 1 ).toString + ":" + x._1 ).mkString(" ")
+  lineData
+}
+
+def data2libsvm0( _label : Int, _in : String, _out :String ) = {
+  val iter = scala.io.Source.fromFile(_in).getLines
+  val w = new java.io.PrintWriter(_out)
+  while(iter.hasNext) w.write( _label.toString + "\t" + sample2libsvm(iter.next) + "\n" )
+  w.flush
+  w.close
+}
+def data2libsvm( _label : Int, _in : String, _out :String ) = {
+  val iter = scala.io.Source.fromFile(_in).getLines
+  val w = new java.io.PrintWriter(_out)
+  while(iter.hasNext) w.write( _label.toString + " " + sample2libsvm(iter.next) + "\n" )
+  w.flush
+  w.close
+}
+val normalData = dataPath + "\\normal_data.rst"
+val abnormalData = dataPath + "\\abnormal_data.rst"
+// data2libsvm( 1, abFile.toString, dataPath + "\\abnormal_data.rst" )
+// data2libsvm( -1, normalFile.toString, dataPath + "\\normal_data.rst" )
+def combineFiles( _normal : String, _abnormal : String, _out : String ) = {
+  val iterNormal = Source.fromFile(_normal).getLines
+  val iterAbnormal = Source.fromFile(_abnormal).getLines
+  val w = new java.io.PrintWriter(_out)
+  while(iterNormal.hasNext && iterAbnormal.hasNext) {
+    w.write(iterNormal.next + "\n")
+    w.write(iterAbnormal.next + "\n")
+  }
+  while(iterNormal.hasNext) w.write(iterNormal.next + "\n")
+  while(iterAbnormal.hasNext) w.write(iterAbnormal.next + "\n")
+  w.flush
+  w.close
+}
+val combinedData = dataPath + "\\combined_data.rst"
+combineFiles(normalData,abnormalData,combinedData)
+
+val data = MLUtils.loadLibSVMFile(sc, combinedData)
+
+// Split data into training (60%) and test (40%).
+val Array(training, test) = data.randomSplit(Array(0.6, 0.4))
+
+val model = NaiveBayes.train(training, lambda = 1.0, modelType = "multinomial")
+
+val predictionAndLabel = test.map(p => (model.predict(p.features), p.label))
+val accuracy = 1.0 * predictionAndLabel.filter(x => x._1 == x._2).count() / test.count()
+// Double = 0.844538025768286
+def model2File( _model : org.apache.spark.mllib.classification.NaiveBayesModel, _out : String) = {
+  val w = new java.io.PrintWriter(_out)
+  var rst = ""
+  rst += "model_type " + model.modelType + "\n"
+  rst += "class_count " + model.labels.size.toString + "\n"
+  rst += "labels " + model.labels.mkString(" ") + "\n"
+  rst += "pi " + model.pi.mkString(" ") + "\n"
+  rst += "features_count " + model.theta.head.size.toString + "\n"
+  w.write(rst)
+  rst = ""
+  w.flush
+  // (0 until model.theta.size).indices.map{
+  //   k =>
+  //     rst += "theta(" + k.toString + ") " + "\n"
+  //     rst += model.theta(k).mkString("\n")
+  //     rst += "\n"
+  //     w.write(rst)
+  //     rst = ""
+  //     w.flush
+  // }
+  // val m = new org.apache.spark.mllib.linalg.DenseMatrix(
+  //   model.theta.head.size,
+  //   model.theta.size,
+  //   model.theta.flatMap(x => x)
+  //   )
+  val arr = model.theta
+  (0 until arr.head.size).indices.map{
+    i =>
+      (0 until arr.size).indices.map{
+        j =>
+          rst += arr(j)(i).toString + " "
+      }
+    rst += "\n"
+  }
+  w.write(rst)
+  rst = ""
+  w.flush
+  w.close
+}
+
+val saveFile = path + "\\rst\\save.model" 
+model2File(model,saveFile)
+class weiNaiveBayesModel( modelType : String,
+  labels : Array[Double],
+  pi : Array[Double],
+  theta : org.apache.spark.mllib.linalg.DenseMatrix) extends Serializable {
+  def predict( _test : Array[Double] ) : Double = {}
+  def predict( _testArr : Array[Array[Double]] ) : Array[Double] = {}
+}
+def readModel( _modelFile : String ) : weiNaiveBayesModel = {
+  val iter = scala.io.Source.fromFile(_modelFile).getLines
+  val modelType = iter.next.split(' ').last
+  val classCount = iter.next.split(' ').last.toInt
+  val labels = iter.next.split(' ').tail.map(_.toDouble)
+  val pi = iter.next.split(' ').tail.map(_.toDouble)
+  val featuresCount = iter.next.split(' ').last.toDouble
+  val wArr = iter.toArray.map(_.split(' ')).flatMap(x => x).map(_.toDouble)
+  val theta = new org.apache.spark.mllib.linalg.DenseMatrix(classCount,featuresCount,wArr).transpose
+  val weiNBC = new weiNaiveBayesModel(model_type,labels,pi,theta)
+  weiNBC
+}

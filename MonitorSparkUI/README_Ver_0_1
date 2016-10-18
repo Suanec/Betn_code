@@ -1,0 +1,28 @@
+name := "JsoupSparkUI"
+
+author := "suanec_Betn"
+
+version := "0.1"
+
+scalaVersion := "2.10.4"
+    
+使用方式： scala JsoupSparkUI-assembly-0.1.jar
+	  或： scala JsoupSparkUI-assembly-0.1.jar $WebUI_mainPage
+使用assembly编译，依赖库均已打包，在scala环境下即可运行。
+根据集群WebUI内容，生成关于Job有关信息，初版仅针对集群中有且仅有一个任务编码，未考虑多个任务监控。
+Spark版本1.3.1, Scala 版本2.10.4, hadoop 版本2.4.1, jdk版本1.8.0_40
+
+运行结果示例												注释
+
+Total Duration: 1.2 h										任务总持续时间		
+Scheduling Mode: FIFO										spark 任务调度方式		
+Active Jobs: 2												当前活动任务数
+Completed Jobs: 382											已完成任务数	
+Started at: 1473750131306									任务开始时间戳			
+Time since start: 1 hour 9 minutes 52 seconds				任务已运行时间								
+Network receivers: 1										网络接收者		
+Batch interval: 10 ms										时间窗口		
+Processed batches: 13541									处理数据流窗口数			
+Waiting batches: 1											待处理数据流窗口数	
+Received records: 1181266									接收数据数			
+Processed records: 1166760									处理数据数			

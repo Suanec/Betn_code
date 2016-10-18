@@ -1,0 +1,68 @@
+{
+  "conf" : {
+    "ui" : "http://h107716109.cluster.ds.weibo.com:8088",
+    "mail_info" : {
+      "mailto" : "daoguang1,lihan3,huangbo2,zhiqiang19,jingjie3,huangbo2,gaolin3,guobao,",
+      "mailsv" : "微博数据系统",
+      "service" : "spark",
+      "object" : "spark-streaming集群作业信息"
+    }
+  },
+  "ApplicationInfo" : [ {
+    "Processed records" : " 996834",
+    "JobId" : " application_1466682549428_0217",
+    "Time since start" : " 1 hour 23 minutes 27 seconds",
+    "Total Duration" : " 1.4 h",
+    "Network receivers" : " 1",
+    "Active Jobs" : " 2",
+    "Scheduling Mode" : " FIFO",
+    "Completed Jobs" : " 913",
+    "Started at" : " 1474287723984",
+    "Batch interval" : " 10 ms",
+    "Received records" : " 996834",
+    "Processed batches" : " 25657",
+    "Waiting batches" : " 0"
+  }, {
+    "Processed records" : " 1087548",
+    "JobId" : " application_1466682549428_0216",
+    "Time since start" : " 1 hour 28 minutes 30 seconds",
+    "Total Duration" : " 1.5 h",
+    "Network receivers" : " 1",
+    "Active Jobs" : " 1",
+    "Scheduling Mode" : " FIFO",
+    "Completed Jobs" : " 966",
+    "Started at" : " 1474287433827",
+    "Batch interval" : " 10 ms",
+    "Received records" : " 1091109",
+    "Processed batches" : " 29693",
+    "Waiting batches" : " 1"
+  }, {
+    "Processed records" : " 1110319",
+    "JobId" : " application_1466682549428_0214",
+    "Time since start" : " 1 hour 28 minutes 50 seconds",
+    "Total Duration" : " 1.5 h",
+    "Network receivers" : " 1",
+    "Active Jobs" : " 2",
+    "Scheduling Mode" : " FIFO",
+    "Completed Jobs" : " 884",
+    "Started at" : " 1474287429581",
+    "Batch interval" : " 10 ms",
+    "Received records" : " 1111360",
+    "Processed batches" : " 27957",
+    "Waiting batches" : " 1"
+  }, {
+    "Processed records" : " 1330881",
+    "JobId" : " application_1466682549428_0215",
+    "Time since start" : " 1 hour 29 minutes 12 seconds",
+    "Total Duration" : " 1.5 h",
+    "Network receivers" : " 1",
+    "Active Jobs" : " 1",
+    "Scheduling Mode" : " FIFO",
+    "Completed Jobs" : " 656",
+    "Started at" : " 1474287432588",
+    "Batch interval" : " 10 ms",
+    "Received records" : " 1330881",
+    "Processed batches" : " 20540",
+    "Waiting batches" : " 0"
+  } ]
+}

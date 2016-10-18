@@ -1,0 +1,1 @@
+scala -cp ./lib/json4sJackson_Lib-assembly-1.0.jar:./lib/jsoup-1.9.2.jar monitorsparkui_2.10-0.3.jar ./conf/config.json ./rst/rst.json

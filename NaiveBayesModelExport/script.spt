@@ -1,0 +1,850 @@
+import java.io.{File,PrintWriter}
+import scala.io.Source
+
+import org.apache.spark.{SparkConf, SparkContext}
+// $example on$
+import org.apache.spark.mllib.classification.{NaiveBayes, NaiveBayesModel}
+import org.apache.spark.mllib.util.MLUtils
+// $example off$
+
+import org.apache.spark.mllib.feature.StandardScaler
+
+val scaler = new StandardScaler(withMean = true, withStd = true).fit(vectors)
+val scaledData = data.map( lp => LabeledPoint(lp.label,scaler.transform(lp.features) ) )
+
+val path = new File("").getAbsolutePath
+val path = "D:\\Docs\\Works_And_Jobs\\Sina\\Betn_code\\NaiveBayesModelExport"
+val dataPath = path + "\\data"
+val fs = new File(dataPath).listFiles
+
+val abFile = new File(dataPath + "\\abnormal_sample.txt")
+val normalFile = new File(dataPath + "\\normal_sample.txt")
+
+def sample2libsvm( _line : String ) : String = {
+  val arr = _line.split('\t').tail.tail
+  val lineData = arr.zipWithIndex.filter(!_._1.equals("0")).map( x => ( x._2 + 1 ).toString + ":" + x._1 ).mkString(" ")
+  lineData
+}
+
+def data2libsvm0( _label : Int, _in : String, _out :String ) = {
+  val iter = scala.io.Source.fromFile(_in).getLines
+  val w = new java.io.PrintWriter(_out)
+  while(iter.hasNext) w.write( _label.toString + "\t" + sample2libsvm(iter.next) + "\n" )
+  w.flush
+  w.close
+}
+def data2libsvm( _label : Int, _in : String, _out :String ) = {
+  val iter = scala.io.Source.fromFile(_in).getLines
+  val w = new java.io.PrintWriter(_out)
+  while(iter.hasNext) w.write( _label.toString + " " + sample2libsvm(iter.next) + "\n" )
+  w.flush
+  w.close
+}
+val normalData = dataPath + "\\normal_data.rst"
+val abnormalData = dataPath + "\\abnormal_data.rst"
+// data2libsvm( 1, abFile.toString, dataPath + "\\abnormal_data.rst" )
+// data2libsvm( 0, normalFile.toString, dataPath + "\\normal_data.rst" )
+def combineFiles( _normal : String, _abnormal : String, _out : String ) = {
+  val iterNormal = Source.fromFile(_normal).getLines
+  val iterAbnormal = Source.fromFile(_abnormal).getLines
+  val w = new java.io.PrintWriter(_out)
+  while(iterNormal.hasNext && iterAbnormal.hasNext) {
+    w.write(iterNormal.next + "\n")
+    w.write(iterAbnormal.next + "\n")
+  }
+  while(iterNormal.hasNext) w.write(iterNormal.next + "\n")
+  while(iterAbnormal.hasNext) w.write(iterAbnormal.next + "\n")
+  w.flush
+  w.close
+}
+
+val combinedData = dataPath + "\\combined_data.rst"
+combineFiles(normalData,abnormalData,combinedData)
+
+val data = MLUtils.loadLibSVMFile(sc, combinedData)
+
+// Split data into training (60%) and test (40%).
+val Array(training, test) = data.randomSplit(Array(0.6, 0.4))
+
+val model = NaiveBayes.train(training, lambda = 1.0, modelType = "multinomial")
+
+val predictionAndLabel = test.map(p => (model.predict(p.features), p.label))
+val accuracy = 1.0 * predictionAndLabel.filter(x => x._1 == x._2).count() / test.count()
+// Double = 0.844538025768286
+def model2File( _model : org.apache.spark.mllib.classification.NaiveBayesModel, _out : String) = {
+  val w = new java.io.PrintWriter(_out)
+  var rst = ""
+  rst += "model_type " + model.modelType + "\n"
+  rst += "class_count " + model.labels.size.toString + "\n"
+  rst += "labels " + model.labels.mkString(" ") + "\n"
+  rst += "pi " + model.pi.mkString(" ") + "\n"
+  rst += "features_count " + model.theta.head.size.toString + "\n"
+  w.write(rst)
+  rst = ""
+  w.flush
+  // (0 until model.theta.size).indices.map{
+  //   k =>
+  //     rst += "theta(" + k.toString + ") " + "\n"
+  //     rst += model.theta(k).mkString("\n")
+  //     rst += "\n"
+  //     w.write(rst)
+  //     rst = ""
+  //     w.flush
+  // }
+  // val m = new org.apache.spark.mllib.linalg.DenseMatrix(
+  //   model.theta.head.size,
+  //   model.theta.size,
+  //   model.theta.flatten
+  //   )
+  val arr = model.theta
+  (0 until arr.head.size).indices.map{
+    i =>
+      (0 until arr.size).indices.map{
+        j =>
+          rst += arr(j)(i).toString + " "
+      }
+    rst += "\n"
+  }
+  w.write(rst)
+  rst = ""
+  w.flush
+  w.close
+}
+
+val saveFile = path + "\\rst\\save.model" 
+model2File(model,saveFile)
+class weiNaiveBayesModel( modelType : String,
+  labels : Array[Double],
+  pi : Array[Double],
+  theta : org.apache.spark.mllib.linalg.DenseMatrix) extends Serializable {
+  def predict( _test : Array[Double] ) : Double = {}
+  def predict( _testArr : Array[Array[Double]] ) : Array[Double] = {}
+}
+def readModel( _modelFile : String ) : weiNaiveBayesModel = {
+  val iter = scala.io.Source.fromFile(_modelFile).getLines
+  val modelType = iter.next.split(' ').last
+  val classCount = iter.next.split(' ').last.toInt
+  val labels = iter.next.split(' ').tail.map(_.toDouble)
+  val pi = iter.next.split(' ').tail.map(_.toDouble)
+  val featuresCount = iter.next.split(' ').last.toDouble
+  val wArr = iter.toArray.map(_.split(' ')).flatten.map(_.toDouble)
+  val theta = new org.apache.spark.mllib.linalg.DenseMatrix(classCount,featuresCount,wArr).transpose
+  val weiNBC = new weiNaiveBayesModel(model_type,labels,pi,theta)
+  weiNBC
+}
+
+val ab20file = dataPath + "\\abnormal-20.rst"
+val nor20file = dataPath + "\\normal-20.rst"
+def filter20AddW( _in : String, _out : String, _w : Array[Double], _size : Int, _label : Int = 0 ) = {
+  val iter = scala.io.Source.fromFile(_in).getLines.take(_size)
+  val writer = new java.io.PrintWriter(_out)
+  while(iter.hasNext){
+    val line = iter.next.split('\t').tail.tail.map(_.toInt).map( x => if(x > 20) 20 else x )
+    val str = line.indices.map{
+      i =>
+        line(i) * _w(i)
+    }.zipWithIndex.filter(_._1 != 0).map( x => ( x._2 + 1 ).toString + ":" + x._1 ).mkString(" ")
+    writer.write(_label.toString + " " + str + "\n")
+  }
+  writer.flush
+  writer.close
+}
+// dev = [10,5,1,1,1,1,5,1,5,1,1,1,1,1,1,5,5]
+val _w = Array(10,5,1,1,1,1,5,1,5,1,1,1,1,1,1,5,5).map(_.toDouble)
+filter20AddW(abFile.toString,ab20file,_w,30000,1)
+filter20AddW(normalFile.toString,nor20file,_w,30000,0)
+combineFiles(nor20file,ab20file,dataPath + "\\20file.rst")
+val data = MLUtils.loadLibSVMFile(sc, dataPath + "\\20file.rst")
+
+// Split data into training (60%) and test (40%).
+val Array(training, test) = data.randomSplit(Array(0.6, 0.4))
+
+val model = NaiveBayes.train(training, lambda = 1.0, modelType = "multinomial")
+
+val predictionAndLabel = test.map(p => (model.predict(p.features), p.label))
+val accuracy = 1.0 * predictionAndLabel.filter(x => x._1 == x._2).count() / test.count()
+// accuracy: Double = 0.8740157480314961 0.99:0.01
+// accuracy: Double = 0.8445011077206036 0.6:0.4
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+/// 20160923
+scala -cp .\libs\spark-core_2.11-2.0.0.jar;.\libs\spark-mllib_2.11-2.0.0.jar;.\libs\spark-mllib-local_2.11-2.0.0.jar;
+
+import java.io.{File,PrintWriter}
+import scala.io.Source
+
+import org.apache.spark.{SparkConf, SparkContext}
+// $example on$
+import org.apache.spark.mllib.classification.{NaiveBayes, NaiveBayesModel}
+import org.apache.spark.mllib.util.MLUtils
+// $example off$
+import org.apache.spark.mllib.feature.StandardScaler
+
+val path = "D:\\Docs\\Works_And_Jobs\\Sina\\Betn_code\\NaiveBayesModelExport"
+val dataPath = path + "\\data"
+val originalDataPath = path + "\\data\\original"
+
+val abFile = new File(originalDataPath + "\\abnormal_sample.rst")
+val normalFile = new File(originalDataPath + "\\normal_sample.rst")
+// one line in String type convert to libsvm, split by space 
+// features'indices start from 1
+def str2libsvm( _line : String ) : String = {
+  val splits = _line.split(' ')
+  val lineData = splits.zipWithIndex.filter(!_._1.equals("0")).map( x => (x._2 + 1).toString + ":" + x._1 ).mkString(" ")
+  lineData
+}
+// generate LabeledPoint in libsvm format by data String 
+def str2LPlibsvm( _label : Int, _line : String ) : String = _label.toString + " " + str2libsvm(_line)
+// Array[String] by DenseData convert to Array[String] by libsvm format
+def data2libsvm( _arr : Array[String] ) : Array[String] = _arr.map(str2libsvm)
+// convert data strings to LabeledPoint in libsvm, get an Array 
+def data2LPlivsvm( _label : Int, _arr : Array[String] ) = _arr.map( x => str2LPlibsvm(_label,x) )
+
+def data2libsvm( _in : String, _out : String ) = {
+  val iter = scala.io.Source.fromFile(_in).getLines
+  val writer = new java.io.PrintWriter(_out,"utf-8")
+  writer.write(str2libsvm(iter.next))
+  writer.flush
+  writer.close
+}
+def data2libsvm( _in : String, _out : String, _label : Int ) = {
+  val iter = scala.io.Source.fromFile(_in).getLines
+  val writer = new java.io.PrintWriter(_out,"utf-8")
+  writer.write(str2LPlibsvm(_label,iter.next))
+  writer.flush
+  writer.close
+}
+// sample.txt to sample.rst, remove the uid and timestamp
+def sample2data( _in : String, _out : String ) = {
+  val iter = scala.io.Source.fromFile(_in).getLines
+  val writer = new java.io.PrintWriter(_out,"utf-8")
+  while(iter.hasNext) writer.write(iter.next.split('\t').tail.tail.mkString(" ") + "\n")
+  writer.flush
+  writer.close
+}
+// extract the features
+def extractFeatures( _str : String ) : String = {
+  val arrt = new Array[Array[Int]](17).map( x => new Array[Int](21) )
+  val splits = _str.split(' ').map( x => if(x.toInt >= 20) 20 else x.toInt )
+  splits.indices.map{
+    i =>
+      arrt(i)(splits(i)) = 1
+  }
+  arrt.flatten.mkString(" ")
+}
+// (ab)normal_sample.rst to extract_(ab)normal_data.rst - libsvm 
+val rstN = originalDataPath + "\\normal_sample.rst"
+val rstA = originalDataPath + "\\abnormal_sample.rst"
+val exN = dataPath + "\\extract_normal_data.rst"
+val exA = dataPath + "\\extract_abnormal_data.rst"
+val exC = dataPath + "\\extract_combined_data.rst"
+def testFile(_f : String) = new java.io.File(_f).isFile
+def data2libsvm( _in : String, _out : String, _label : Int ) = {
+  val iter = scala.io.Source.fromFile(_in).getLines
+  val writer = new java.io.PrintWriter(_out,"utf-8")
+  while(iter.hasNext) writer.write(str2LPlibsvm(_label, extractFeatures(iter.next)) + "\n")
+  writer.flush
+  writer.close
+}
+// combine the normal data and the abnormal data 
+def combineFiles( _normal : String, _abnormal : String, _out : String ) = {
+  val iterNormal = Source.fromFile(_normal).getLines
+  val iterAbnormal = Source.fromFile(_abnormal).getLines
+  val w = new java.io.PrintWriter(_out)
+  while(iterNormal.hasNext && iterAbnormal.hasNext) {
+    w.write(iterNormal.next + "\n")
+    w.write(iterAbnormal.next + "\n")
+  }
+  while(iterNormal.hasNext) w.write(iterNormal.next + "\n")
+  while(iterAbnormal.hasNext) w.write(iterAbnormal.next + "\n")
+  w.flush
+  w.close
+}
+def getNBCAcc( _in : String, _trainRate : Array[Double] ) = {
+  import org.apache.spark.mllib.classification.{NaiveBayes, NaiveBayesModel}
+  import org.apache.spark.mllib.util.MLUtils
+  val data = MLUtils.loadLibSVMFile(sc, _in)
+
+  // Split data into training (60%) and test (40%).
+  val Array(training, test) = data.randomSplit(_trainRate)
+
+  val model = NaiveBayes.train(training, lambda = 1.0, modelType = "multinomial")
+
+  val predictionAndLabel = test.map(p => (model.predict(p.features), p.label))
+  val accuracy = 1.0 * predictionAndLabel.filter(x => x._1 == x._2).count() / test.count()
+  println("accuracy : " + ( ( accuracy * 10000 ).toInt/100 ).toString )
+  (model,accuracy)
+  /// use exC Acc = 99%
+}
+def trainModel( _in : org.apache.spark.rdd.RDD[
+  org.apache.spark.mllib.regression.LabeledPoint], 
+  _trainRate : Array[Double] ) = {
+  val Array(training,test) = _in.randomSplit(_trainRate)
+  val model = NaiveBayes.train(training, lambda = 1d, modelType = "multinomial")
+  model 
+}
+def modelPredict( _m :  org.apache.spark.mllib.classification.NaiveBayesModel, 
+  _test : org.apache.spark.rdd.RDD[
+  org.apache.spark.mllib.regression.LabeledPoint] ) = {
+  val predictionAndLabel = _test.map(p => (_m.predict(p.features), p.label))
+  1.0 * predictionAndLabel.filter(x => x._1 == x._2).count() / _test.count()
+}
+def genModel( _in : org.apache.spark.rdd.RDD[
+  org.apache.spark.mllib.regression.LabeledPoint],
+  _trainRate : Array[Double] = Array(0.8,0.2) ) = {
+  val Array(training, test) = _in.randomSplit(_trainRate)
+  val model = NaiveBayes.train(training, lambda = 1d, modelType = "multinomial")
+  val predictionAndLabel = test.map(p => (model.predict(p.features), p.label))
+  val accuracy = 1.0 * predictionAndLabel.filter(x => x._1 == x._2).count/test.count
+  accuracy
+}
+def findLimit( _data : org.apache.spark.rdd.RDD[
+  org.apache.spark.mllib.regression.LabeledPoint], 
+  _sampleRate : Double,
+  _trainRate : Array[Double] = Array(0.8,0.2)) = {
+  val k = _data.sample(true, _sampleRate)
+  // val acc = genModel(k,_trainRate)
+  val model = NaiveBayes.train(k, lambda = 1d, modelType = "multinomial")
+  val acc = modelPredict(model, data)
+  println("Acc : " + acc)
+  println("sampleRate : " + _sampleRate + ", sampleCount : " + k.count)
+}
+// 1 : 0.5
+// 11 : 0.84621
+// 87 : 0.98.089
+// 976 : 0.99783
+// 10046 : 0.99804
+// 99702 : 0.99811
+def model2File( _model : org.apache.spark.mllib.classification.NaiveBayesModel, _out : String) = {
+  val w = new java.io.PrintWriter(_out)
+  var rst = ""
+  rst += "model_type " + _model.modelType + "\n"
+  rst += "class_count " + _model.labels.size.toString + "\n"
+  rst += "labels " + _model.labels.mkString(" ") + "\n"
+  rst += "pi " + _model.pi.mkString(" ") + "\n"
+  rst += "features_count " + _model.theta.head.size.toString + "\n"
+  w.write(rst)
+  rst = ""
+  w.flush
+  val arr = _model.theta
+  (0 until arr.head.size).indices.map{
+    i =>
+      (0 until arr.size).indices.map{
+        j =>
+          rst += arr(j)(i).toString + " "
+      }
+    rst += "\n"
+  }
+  w.write(rst)
+  rst = ""
+  w.flush
+  w.close
+}
+val saveFile = path + "\\rst\\save.model" 
+val (m,acc) = getNBCAcc(exC,Array(0.6,0.4))
+model2File(model,saveFile)
+case class weiNaiveBayesModel( modelType : String,
+  labels : Array[Double],
+  pi : Array[Double],
+  theta : org.apache.spark.mllib.linalg.DenseMatrix) extends Serializable {
+  def predict( _test : SelfLabeledPoint ) : Double = {
+    labels(theta.transpose.multiply(_test.features).argmax)
+  }
+  def predict( _testArr : Array[SelfLabeledPoint] ) : Array[Double] = {
+    _testArr.map(predict)
+  }
+  def validACC( _testArr : Array[SelfLabeledPoint] ) : Double = {
+    _testArr.filter( x => x.label == predict(x) ).size.toDouble / _testArr.size
+  }
+}
+def readModel( _modelFile : String ) : weiNaiveBayesModel = {
+  val iter = scala.io.Source.fromFile(_modelFile).getLines
+  val modelType = iter.next.split(' ').last
+  val classCount = iter.next.split(' ').last.toInt
+  val labels = iter.next.split(' ').tail.map(_.toDouble)
+  val pi = iter.next.split(' ').tail.map(_.toDouble)
+  val featuresCount = iter.next.split(' ').last.toInt
+  val wArr = iter.toArray.map(_.split(' ')).flatten.map(_.toDouble)
+  val theta = new org.apache.spark.mllib.linalg.DenseMatrix(classCount,featuresCount,wArr).transpose
+  val weiNBC = new weiNaiveBayesModel(modelType,labels,pi,theta)
+  weiNBC
+}
+/// single line libsvm to Sparse Vector Format 
+def parseLibSVMRecord(line: String): (Double, Array[Int], Array[Double]) = {
+  val items = line.split(' ')
+  val label = items.head.toDouble
+  val (indices, values) = items.tail.filter(_.nonEmpty).map { item =>
+    val indexAndValue = item.split(':')
+    val index = indexAndValue(0).toInt - 1 // Convert 1-based indices to 0-based.
+    val value = indexAndValue(1).toDouble
+    (index, value)
+  }.unzip
+
+  // check if indices are one-based and in ascending order
+  var previous = -1
+  var i = 0
+  val indicesLength = indices.length
+  while (i < indicesLength) {
+    val current = indices(i)
+    require(current > previous, s"indices should be one-based and in ascending order;"
+      + " found current=$current, previous=$previous; line=\"$line\"")
+    previous = current
+    i += 1
+  }
+  (label, indices.toArray, values.toArray)
+}
+// get the libsvm dimision(the max indices)
+def computeNumFeatures(_arr : Array[(Double, Array[Int], Array[Double])]): Int = {
+  _arr.map { case (label, indices, values) =>
+    indices.lastOption.getOrElse(0)
+  }.reduce(math.max) + 1
+}
+def parseLibSVMFile( path: String ): Array[(Double, Array[Int], Array[Double])] = {
+  scala.io.Source.fromFile(path).getLines
+    .map(_.trim)
+    .filter(line => !(line.isEmpty || line.startsWith("#")))
+    .map(parseLibSVMRecord)
+    .toArray
+}
+case class SelfLabeledPoint(
+  label : Double,
+  features : org.apache.spark.mllib.linalg.Vector)
+def loadLibSVMFile( path: String, numFeatures: Int = -1): Array[SelfLabeledPoint] = {
+  val parsed = parseLibSVMFile(path)
+
+  // Determine number of features.
+  val d = if (numFeatures > 0) {
+    numFeatures
+  } else {
+    computeNumFeatures(parsed)
+  }
+
+  parsed.map { case (label, indices, values) =>
+    new SelfLabeledPoint(label.toDouble,org.apache.spark.mllib.linalg.Vectors.sparse(d, indices, values))
+  }
+}
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+/// 20160926
+
+import java.io.{File,PrintWriter}
+import scala.io.Source
+
+val path = "D:\\Docs\\Works_And_Jobs\\Sina\\Betn_code\\NaiveBayesModelExport"
+val dataPath = path + "\\data"
+val originalDataPath = path + "\\data\\original"
+
+val abFile = originalDataPath + "\\abnormal_sample.txt"
+val normalFile = originalDataPath + "\\normal_sample.txt"
+
+// (ab)normal_sample.rst to extract_(ab)normal_data.rst - libsvm 
+val rstN = originalDataPath + "\\normal_sample.rst"
+val rstA = originalDataPath + "\\abnormal_sample.rst"
+
+val exN = dataPath + "\\extract_normal_data.rst"
+val exA = dataPath + "\\extract_abnormal_data.rst"
+val exC = dataPath + "\\extract_combined_data.rst"
+
+def testFile(_f : String) = new java.io.File(_f).isFile
+
+val saveFile = path + "\\rst\\save.model" 
+
+// one line in String type convert to libsvm, split by space 
+// features'indices start from 1
+def str2libsvm( _line : String ) : String = {
+  val splits = _line.split(' ')
+  val lineData = splits.zipWithIndex.filter(!_._1.equals("0")).map( x => (x._2 + 1).toString + ":" + x._1 ).mkString(" ")
+  lineData
+}
+// generate LabeledPoint in libsvm format by data String 
+def str2LPlibsvm( _label : Int, _line : String ) : String = _label.toString + " " + str2libsvm(_line)
+// Array[String] by DenseData convert to Array[String] by libsvm format
+def data2libsvm( _arr : Array[String] ) : Array[String] = _arr.map(str2libsvm)
+// convert data strings to LabeledPoint in libsvm, get an Array 
+def data2LPlivsvm( _label : Int, _arr : Array[String] ) = _arr.map( x => str2LPlibsvm(_label,x) )
+
+def data2libsvm( _in : String, _out : String ) = {
+  val iter = scala.io.Source.fromFile(_in).getLines
+  val writer = new java.io.PrintWriter(_out,"utf-8")
+  writer.write(str2libsvm(iter.next))
+  writer.flush
+  writer.close
+}
+def data2libsvm( _in : String, _out : String, _label : Int ) = {
+  val iter = scala.io.Source.fromFile(_in).getLines
+  val writer = new java.io.PrintWriter(_out,"utf-8")
+  while(iter.hasNext) writer.write(str2LPlibsvm(_label, extractFeatures(iter.next)) + "\n")
+  writer.flush
+  writer.close
+}
+// sample.txt to sample.rst, remove the uid and timestamp
+def sample2data( _in : String, _out : String ) = {
+  val iter = scala.io.Source.fromFile(_in).getLines
+  val writer = new java.io.PrintWriter(_out,"utf-8")
+  while(iter.hasNext) writer.write(iter.next.split('\t').tail.tail.mkString(" ") + "\n")
+  writer.flush
+  writer.close
+}
+// extract the features
+def extractFeatures( _str : String ) : String = {
+  val arrt = new Array[Array[Int]](17).map( x => new Array[Int](21) )
+  val splits = _str.split(' ').map( x => if(x.toInt >= 20) 20 else x.toInt )
+  splits.indices.map{
+    i =>
+      arrt(i)(splits(i)) = 1
+  }
+  arrt.flatten.mkString(" ")
+}
+// combine the normal data and the abnormal data 
+def combineFiles( _normal : String, _abnormal : String, _out : String ) = {
+  val iterNormal = scala.io.Source.fromFile(_normal).getLines
+  val iterAbnormal = scala.io.Source.fromFile(_abnormal).getLines
+  val w = new java.io.PrintWriter(_out)
+  while(iterNormal.hasNext && iterAbnormal.hasNext) {
+    w.write(iterNormal.next + "\n")
+    w.write(iterAbnormal.next + "\n")
+  }
+  while(iterNormal.hasNext) w.write(iterNormal.next + "\n")
+  while(iterAbnormal.hasNext) w.write(iterAbnormal.next + "\n")
+  w.flush
+  w.close
+}
+case class WeiLabeledPoint(
+  label : Double,
+  features : org.apache.spark.mllib.linalg.Vector) extends Serializable
+
+/// single line libsvm to Sparse Vector Format 
+def parseLibSVMRecord(line: String): (Double, Array[Int], Array[Double]) = {
+  val items = line.split(' ')
+  val label = items.head.toDouble
+  val (indices, values) = items.tail.filter(_.nonEmpty).map { item =>
+    val indexAndValue = item.split(':')
+    val index = indexAndValue(0).toInt - 1 // Convert 1-based indices to 0-based.
+    val value = indexAndValue(1).toDouble
+    (index, value)
+  }.unzip
+
+  // check if indices are one-based and in ascending order
+  var previous = -1
+  var i = 0
+  val indicesLength = indices.length
+  while (i < indicesLength) {
+    val current = indices(i)
+    require(current > previous, s"indices should be one-based and in ascending order;"
+      + " found current=$current, previous=$previous; line=\"$line\"")
+    previous = current
+    i += 1
+  }
+  (label, indices.toArray, values.toArray)
+}
+// get the libsvm dimision(the max indices)
+def computeNumFeatures(_arr : Array[(Double, Array[Int], Array[Double])]): Int = {
+  _arr.map { case (label, indices, values) =>
+    indices.lastOption.getOrElse(0)
+  }.reduce(math.max) + 1
+}
+def parseLibSVMFile( path: String ): Array[(Double, Array[Int], Array[Double])] = {
+  scala.io.Source.fromFile(path).getLines
+    .map(_.trim)
+    .filter(line => !(line.isEmpty || line.startsWith("#")))
+    .map(parseLibSVMRecord)
+    .toArray
+}
+def loadLibSVMFile( path: String, numFeatures: Int = -1): Array[WeiLabeledPoint] = {
+  val parsed = parseLibSVMFile(path)
+
+  // Determine number of features.
+  val d = if (numFeatures > 0) {
+    numFeatures
+  } else {
+    computeNumFeatures(parsed)
+  }
+
+  parsed.map { case (label, indices, values) =>
+    new WeiLabeledPoint(label.toDouble,org.apache.spark.mllib.linalg.Vectors.sparse(d, indices, values))
+  }
+}
+
+import org.apache.spark.{SparkConf, SparkContext}
+import org.apache.spark.mllib.classification.{NaiveBayes, NaiveBayesModel}
+import org.apache.spark.mllib.util.MLUtils
+
+def getNBCAcc( _in : String, _trainRate : Array[Double] ) = {
+  import org.apache.spark.mllib.classification.{NaiveBayes, NaiveBayesModel}
+  import org.apache.spark.mllib.util.MLUtils
+  val data = MLUtils.loadLibSVMFile(sc, _in)
+
+  // Split data into training (60%) and test (40%).
+  val Array(training, test) = data.randomSplit(_trainRate)
+
+  val model = NaiveBayes.train(training, lambda = 1.0, modelType = "multinomial")
+
+  val predictionAndLabel = test.map(p => (model.predict(p.features), p.label))
+  val accuracy = 1.0 * predictionAndLabel.filter(x => x._1 == x._2).count() / test.count()
+  println("accuracy : " + ( ( accuracy * 10000 ).toInt/100 ).toString )
+  (model,accuracy)
+  /// use exC Acc = 99%
+}
+def trainModel( _in : org.apache.spark.rdd.RDD[
+  org.apache.spark.mllib.regression.LabeledPoint], 
+  _trainRate : Array[Double] ) = {
+  val Array(training,test) = _in.randomSplit(_trainRate)
+  val model = NaiveBayes.train(training, lambda = 1d, modelType = "multinomial")
+  model 
+}
+def modelPredict( _m :  org.apache.spark.mllib.classification.NaiveBayesModel, 
+  _test : org.apache.spark.rdd.RDD[
+  org.apache.spark.mllib.regression.LabeledPoint] ) = {
+  val predictionAndLabel = _test.map(p => (_m.predict(p.features), p.label))
+  1.0 * predictionAndLabel.filter(x => x._1 == x._2).count() / _test.count()
+}
+def genModel( _in : org.apache.spark.rdd.RDD[
+  org.apache.spark.mllib.regression.LabeledPoint],
+  _trainRate : Array[Double] = Array(0.8,0.2) ) = {
+  val Array(training, test) = _in.randomSplit(_trainRate)
+  val model = NaiveBayes.train(training, lambda = 1d, modelType = "multinomial")
+  val predictionAndLabel = test.map(p => (model.predict(p.features), p.label))
+  val accuracy = 1.0 * predictionAndLabel.filter(x => x._1 == x._2).count/test.count
+  accuracy
+}
+def findLimit( _data : org.apache.spark.rdd.RDD[
+  org.apache.spark.mllib.regression.LabeledPoint], 
+  _sampleRate : Double,
+  _trainRate : Array[Double] = Array(0.8,0.2)) = {
+  val k = _data.sample(true, _sampleRate)
+  // val acc = genModel(k,_trainRate)
+  val model = NaiveBayes.train(k, lambda = 1d, modelType = "multinomial")
+  val acc = modelPredict(model, _data)
+  println("Acc : " + acc)
+  println("sampleRate : " + _sampleRate + ", sampleCount : " + k.count)
+}
+def findLimit( _train : org.apache.spark.rdd.RDD[
+  org.apache.spark.mllib.regression.LabeledPoint],
+  _test : org.apache.spark.rdd.RDD[
+  org.apache.spark.mllib.regression.LabeledPoint] ) = {
+  val model = NaiveBayes.train(_train, lambda = 1d, modelType = "multinomial")
+  val acc = modelPredict(model, _test)
+  println("Acc : " + acc)
+  println("train/test : " + _train.count/_test.count.toDouble + ", sampleCount : " + _train.count)
+}
+// 1 : 0.5
+// 11 : 0.84621
+// 87 : 0.98.089
+// 976 : 0.99783
+// 10046 : 0.99804
+// 99702 : 0.99811
+
+
+case class weiNaiveBayesModel( modelType : String,
+  labels : Array[Double],
+  pi : Array[Double],
+  theta : org.apache.spark.mllib.linalg.DenseMatrix) extends Serializable {
+  def predict( _test : WeiLabeledPoint ) : Double = {
+    labels(theta.transpose.multiply(_test.features).argmax)
+  }
+  def predict( _testArr : Array[WeiLabeledPoint] ) : Array[Double] = {
+    _testArr.map(predict)
+  }
+  def validACC( _testArr : Array[WeiLabeledPoint] ) : Double = {
+    _testArr.filter( x => x.label == predict(x) ).size.toDouble / _testArr.size
+  }
+}
+
+def readModel( _modelFile : String ) : weiNaiveBayesModel = {
+  val iter = scala.io.Source.fromFile(_modelFile).getLines
+  val modelType = iter.next.split(' ').last
+  val classCount = iter.next.split(' ').last.toInt
+  val labels = iter.next.split(' ').tail.map(_.toDouble)
+  val pi = iter.next.split(' ').tail.map(_.toDouble)
+  val featuresCount = iter.next.split(' ').last.toInt
+  iter.next
+  val wArr = iter.toArray.map(_.split(' ')).flatten.map(_.toDouble)
+  val theta = new org.apache.spark.mllib.linalg.DenseMatrix(classCount,featuresCount,wArr).transpose
+  val weiNBC = new weiNaiveBayesModel(modelType,labels,pi,theta)
+  weiNBC
+}
+
+def model2File( _model : org.apache.spark.mllib.classification.NaiveBayesModel, _out : String) = {
+  val w = new java.io.PrintWriter(_out)
+  var rst = ""
+  rst += "model_type " + _model.modelType + "\n"
+  rst += "class_count " + _model.labels.size.toString + "\n"
+  rst += "labels " + _model.labels.mkString(" ") + "\n"
+  rst += "pi " + _model.pi.mkString(" ") + "\n"
+  rst += "features_count " + _model.theta.head.size.toString + "\n"
+  w.write(rst)
+  rst = ""
+  rst += "theta : \n"
+  w.write(rst)
+  rst = ""
+  w.flush
+  val arr = _model.theta
+  (0 until arr.head.size).indices.map{
+    i =>
+      (0 until arr.size).indices.map{
+        j =>
+          rst += arr(j)(i).toString + " "
+      }
+    rst += "\n"
+  }
+  w.write(rst)
+  rst = ""
+  w.flush
+  w.close
+}
+sample2data(abFile.toString, rstA)
+data2libsvm(rstA, exA, 0)
+sample2data(normalFile.toString, rstN)
+data2libsvm(rstN, exN, 1)
+combineFiles(exN,exA,exC)
+val (m,acc) = getNBCAcc(exC,Array(0.6,0.4))
+model2File(m,saveFile)
+val model = readModel(saveFile)
+model.validACC(loadLibSVMFile(exC))
+
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+// 20160929
+
+import java.io.{File,PrintWriter}
+import scala.io.Source
+
+val path = "D:\\Docs\\Works_And_Jobs\\Sina\\Betn_code\\NaiveBayesModelExport"
+val dataPath = path + "\\data"
+val originalDataPath = path + "\\data\\original"
+
+val abFile = originalDataPath + "\\abnormal_sample.txt"
+val normalFile = originalDataPath + "\\normal_sample.txt"
+
+// (ab)normal_sample.rst to extract_(ab)normal_data.rst - libsvm 
+val rstN = originalDataPath + "\\normal_sample.rst"
+val rstA = originalDataPath + "\\abnormal_sample.rst"
+
+val exN = dataPath + "\\extract_normal_data.rst"
+val exA = dataPath + "\\extract_abnormal_data.rst"
+val exC = dataPath + "\\extract_combined_data.rst"
+
+def testFile(_f : String) = new java.io.File(_f).isFile
+def readFile(_f : String) = scala.io.Source.fromFile(_f).getLines
+def fileWriter(_f : String) = new java.io.PrintWriter(_f)
+def getOutName(_f : Array[Int]) = dataPath + "\\" + _f.mkString + ".rst"
+val saveFile = path + "\\rst\\save.model" 
+
+// one line in String type convert to libsvm, split by space 
+// features'indices start from 1
+def str2libsvm( _line : String ) : String = {
+  val splits = _line.split(' ')
+  val lineData = splits.zipWithIndex.filter(!_._1.equals("0")).map( x => (x._2 + 1).toString + ":" + x._1 ).mkString(" ")
+  lineData
+}
+// generate LabeledPoint in libsvm format by data String 
+def str2LPlibsvm( _label : Int, _line : String ) : String = _label.toString + " " + str2libsvm(_line)
+// Array[String] by DenseData convert to Array[String] by libsvm format
+// extract the features
+def extractFeatures( _str : String ) : String = {
+  val arrt = new Array[Array[Int]](17).map( x => new Array[Int](21) )
+  val splits = _str.split(' ').map( x => if(x.toInt >= 20) 20 else x.toInt )
+  splits.indices.map{
+    i =>
+      arrt(i)(splits(i)) = 1
+  }
+  arrt.flatten.mkString(" ")
+}
+// combine the normal data and the abnormal data 
+def combineFiles( _normal : String, _abnormal : String, _out : String ) = {
+  val iterNormal = scala.io.Source.fromFile(_normal).getLines
+  val iterAbnormal = scala.io.Source.fromFile(_abnormal).getLines
+  val w = new java.io.PrintWriter(_out)
+  while(iterNormal.hasNext && iterAbnormal.hasNext) {
+    w.write(iterNormal.next + "\n")
+    w.write(iterAbnormal.next + "\n")
+  }
+  while(iterNormal.hasNext) w.write(iterNormal.next + "\n")
+  while(iterAbnormal.hasNext) w.write(iterAbnormal.next + "\n")
+  w.flush
+  w.close
+}
+def extractFeatures( _str : String, _range : Array[Int] ) : String = {
+  val arrt = new Array[Array[Int]](_range.size).map( x => new Array[Int](21) )
+  val splits = _str.split(' ').map( x => if(x.toInt >= 20) 20 else x.toInt )
+  val sps = _range.map(splits(_))
+  sps.indices.map{
+    i =>
+      arrt(i)(sps(i)) = 1
+  }
+  arrt.flatten.mkString(" ")
+}
+def getFeaturesLibsvm(_in : String, _out : String = "", _range : Array[Int] ) = {
+  val iter = readFile(_in)
+  val writer = fileWriter(_out)
+  while(iter.hasNext) writer.write(extractFeatures(iter.next,_range) + "\n")
+  writer.flush
+  writer.close
+}
+def getFcombineLibsvm(_inA : String, _inN : String,
+  _out : String, _labelA : Int, _labelN : Int, _range : Array[Int]) = {
+  val iterA = readFile(_inA)
+  val iterN = readFile(_inN)
+  val writer = fileWriter(_out)
+  while(iterA.hasNext && iterN.hasNext){
+    writer.write(str2LPlibsvm(_labelA,extractFeatures(iterA.next,_range)) + "\n")
+    writer.write(str2LPlibsvm(_labelN,extractFeatures(iterN.next,_range)) + "\n")
+  }
+  while(iterA.hasNext) writer.write(str2LPlibsvm(_labelA,extractFeatures(iterA.next,_range)) + "\n")
+  while(iterN.hasNext) writer.write(str2LPlibsvm(_labelN,extractFeatures(iterN.next,_range)) + "\n")
+  writer.flush
+  writer.close
+}
+def featuresMACC(_inA : String, _inN : String,
+  _out : String, 
+  _labelA : Int, _labelN : Int, 
+  _range : Array[Int], _trainRate : Array[Double]) : 
+  (org.apache.spark.mllib.classification.NaiveBayesModel,Double) = {
+  getFcombineLibsvm(_inA,_inN,_out,_labelA,_labelN,_range)
+  getNBCAcc(_out,_trainRate)
+}
+val rArr = Array(Array(1, 2, 3), Array(4, 5, 6), Array(7, 8, 9), Array(10, 11, 12), Array(13, 14, 15, 16))
+val rArr = Array(Array(1,2,3,4,5),Array(6,7,8,9,10),Array(11,12,13,14,15,16))
+val rArr = Array(Array(0),Array(1),Array(2),Array(3),Array(4),Array(5),Array(6),Array(7),Array(8),Array(9),Array(10),Array(11),Array(12),Array(13),Array(14),Array(15),Array(16))
+val rArr = Array(Array(0,5,6,16),Array(5,6,16),Array(5,6,16,1,8,7))
+// 0,1,5,6,7,8,16
+val rArr = Array(Array(0,1),Array(0,5),Array(0,6),Array(0,7),Array(0,8),Array(0,16),Array(1,5),Array(1,6),Array(1,7),Array(1,8),Array(1,16),Array(5,6),Array(5,7),Array(5,8),Array(5,16),Array(6,7),Array(6,8),Array(6,16),Array(7,8),Array(7,16),Array(8,16))
+val rArr = Array(Array(1,5,6,16),Array(1,5,6,7,8,16),Array(5,6,16))
+val rArr = Array(Array(7,8,16),Array(1,7,8,16),Array(5,6,16),Array(3,6,7,10))
+val rsts = rArr.map(x => featuresMACC(rstA,rstN,getOutName(x),1,0,x,Array(0.8,0.2)))
+rArr.indices.foreach( i => println((rArr(i).mkString(",") + " : " + rsts(i)._2)))
+
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================

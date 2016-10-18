@@ -1,0 +1,26 @@
+{
+  "conf" : {
+    "ui" : "http://h107716109.cluster.ds.weibo.com:8088",
+    "mail_info" : {
+      "mailto" : "daoguang1,lihan3,huangbo2,zhiqiang19,jingjie3,huangbo2,gaolin3,guobao,",
+      "mailsv" : "微博数据系统",
+      "service" : "spark",
+      "object" : "spark-streaming集群作业信息"
+    }
+  },
+  "ApplicationInfo" : [ {
+    "Processed records" : " 607761",
+    "JobId" : " application_1466682549428_0224",
+    "Time since start" : " 31 minutes 18 seconds",
+    "Total Duration" : " 32 min",
+    "Network receivers" : " 1",
+    "Active Jobs" : " 2",
+    "Scheduling Mode" : " FIFO",
+    "Completed Jobs" : " 164",
+    "Started at" : " 1474351277057",
+    "Batch interval" : " 10 ms",
+    "Received records" : " 613795",
+    "Processed batches" : " 6863",
+    "Waiting batches" : " 1"
+  } ]
+}

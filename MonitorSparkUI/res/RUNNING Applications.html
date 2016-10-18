@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!-- saved from url=(0064)http://h107716109.cluster.ds.weibo.com:8088/cluster/apps/RUNNING -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <style type="text/css">
+    #apps_paginate span {font-weight:normal}
+    #apps .progress {width:8em}
+    #apps_processing {top:-1.5em; font-size:1em;
+      color:#000; background:rgba(255, 255, 255, 0.8)}
+    #apps .queue {width:6em}
+    #apps .ui {width:8em}
+  </style>
+  <title>
+    RUNNING Applications
+  </title>
+  <link rel="stylesheet" href="./RUNNING Applications_files/yarn.css">
+  <style type="text/css">
+    #layout { height: 100%; }
+    #layout thead td { height: 3em; }
+    #layout #navcell { width: 11em; padding: 0 1em; }
+    #layout td.content { padding-top: 0 }
+    #layout tbody { vertical-align: top; }
+    #layout tfoot td { height: 4em; }
+  </style>
+  <link rel="stylesheet" href="./RUNNING Applications_files/jquery-ui.css">
+  <link rel="stylesheet" href="./RUNNING Applications_files/jui-dt.css">
+  <script type="text/javascript" src="./RUNNING Applications_files/jquery-1.8.2.min.js">
+  </script>
+  <script type="text/javascript" src="./RUNNING Applications_files/jquery-ui-1.9.1.custom.min.js">
+  </script>
+  <script type="text/javascript" src="./RUNNING Applications_files/jquery.dataTables.min.js">
+  </script>
+  <script type="text/javascript" src="./RUNNING Applications_files/yarn.dt.plugins.js">
+  </script>
+  <style type="text/css">
+    #jsnotice { padding: 0.2em; text-align: center; }
+    .ui-progressbar { height: 1em; min-width: 5em }
+  </style>
+  <script type="text/javascript">
+    $(function() {
+      $('#nav').accordion({autoHeight:false, active:0});
+    appsDataTable =  $('#apps').dataTable({bStateSave : true, "fnStateSave": function (oSettings, oData) { sessionStorage.setItem( oSettings.sTableId, JSON.stringify(oData) ); }, "fnStateLoad": function (oSettings) { return JSON.parse( sessionStorage.getItem(oSettings.sTableId) );}, bJQueryUI:true, sPaginationType: 'full_numbers', iDisplayLength:20, aLengthMenu:[20, 40, 60, 80, 100], 'aaData': appsTableData, bDeferRender: true, bProcessing: true
+, aoColumnDefs: [
+{'sType':'numeric', 'aTargets': [0], 'mRender': parseHadoopID }
+, {'sType':'numeric', 'aTargets': [5, 6], 'mRender': renderHadoopDate }
+, {'sType':'numeric', bSearchable:false, 'aTargets': [9], 'mRender': parseHadoopProgress }], aaSorting: [[0, 'desc']]}).fnSetFilteringDelay(188);
+    });
+  </script>
+  </head><body><div id="jsnotice" class="ui-state-error" style="display: none;">
+    This page works best with javascript enabled.
+  </div>
+  <script type="text/javascript">
+    $('#jsnotice').hide();
+  </script>
+  <table id="layout" class="ui-widget-content">
+    <thead>
+      <tr>
+        <td colspan="2">
+          <div id="header" class="ui-widget">
+            <div id="user">
+              Logged in as: dr.who
+            </div>
+            <div id="logo">
+              <img src="./RUNNING Applications_files/hadoop-st.png">
+            </div>
+            <h1>
+              RUNNING Applications
+            </h1>
+          </div>
+    </td></tr></thead><tfoot>
+      <tr>
+        <td colspan="2">
+          <div id="footer" class="ui-widget">
+            <a href="http://hadoop.apache.org/">About Apache Hadoop</a>
+          </div>
+    </td></tr></tfoot><tbody>
+      <tr>
+        <td id="navcell">
+          <div id="nav" class="ui-accordion ui-widget ui-helper-reset" role="tablist">
+            <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-accordion-header-active ui-state-active ui-corner-top ui-accordion-icons" role="tab" id="ui-accordion-nav-header-0" aria-controls="ui-accordion-nav-panel-0" aria-selected="true" tabindex="0"><span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-s"></span>
+              Cluster
+            </h3>
+            <ul class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom ui-accordion-content-active" id="ui-accordion-nav-panel-0" aria-labelledby="ui-accordion-nav-header-0" role="tabpanel" aria-expanded="true" aria-hidden="false" style="display: block;">
+              <li>
+                <a href="http://h107716109.cluster.ds.weibo.com:8088/cluster/cluster">About</a>
+              </li><li>
+                <a href="http://h107716109.cluster.ds.weibo.com:8088/cluster/nodes">Nodes</a>
+              </li><li>
+                <a href="http://h107716109.cluster.ds.weibo.com:8088/cluster/apps">Applications</a>
+                <ul>
+                  <li>
+                  </li><li>
+                    <a href="http://h107716109.cluster.ds.weibo.com:8088/cluster/apps/NEW">NEW</a>
+                  </li><li>
+                    <a href="http://h107716109.cluster.ds.weibo.com:8088/cluster/apps/NEW_SAVING">NEW_SAVING</a>
+                  </li><li>
+                    <a href="http://h107716109.cluster.ds.weibo.com:8088/cluster/apps/SUBMITTED">SUBMITTED</a>
+                  </li><li>
+                    <a href="http://h107716109.cluster.ds.weibo.com:8088/cluster/apps/ACCEPTED">ACCEPTED</a>
+                  </li><li>
+                    <a href="http://h107716109.cluster.ds.weibo.com:8088/cluster/apps/RUNNING">RUNNING</a>
+                  </li><li>
+                    <a href="http://h107716109.cluster.ds.weibo.com:8088/cluster/apps/FINISHED">FINISHED</a>
+                  </li><li>
+                    <a href="http://h107716109.cluster.ds.weibo.com:8088/cluster/apps/FAILED">FAILED</a>
+                  </li><li>
+                    <a href="http://h107716109.cluster.ds.weibo.com:8088/cluster/apps/KILLED">KILLED</a>
+                </li></ul>
+              </li><li>
+                <a href="http://h107716109.cluster.ds.weibo.com:8088/cluster/scheduler">Scheduler</a>
+            </li></ul>
+            <h3 class="ui-accordion-header ui-helper-reset ui-state-default ui-corner-all ui-accordion-icons" role="tab" id="ui-accordion-nav-header-1" aria-controls="ui-accordion-nav-panel-1" aria-selected="false" tabindex="-1"><span class="ui-accordion-header-icon ui-icon ui-icon-triangle-1-e"></span>
+              Tools
+            </h3>
+            <ul class="ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom" id="ui-accordion-nav-panel-1" aria-labelledby="ui-accordion-nav-header-1" role="tabpanel" aria-expanded="false" aria-hidden="true" style="display: none;">
+              <li>
+                <a href="http://h107716109.cluster.ds.weibo.com:8088/conf">Configuration</a>
+              </li><li>
+                <a href="http://h107716109.cluster.ds.weibo.com:8088/logs">Local logs</a>
+              </li><li>
+                <a href="http://h107716109.cluster.ds.weibo.com:8088/stacks">Server stacks</a>
+              </li><li>
+                <a href="http://h107716109.cluster.ds.weibo.com:8088/metrics">Server metrics</a>
+            </li></ul>
+          </div>
+        </td><td class="content">
+          <style type="text/css">
+            .metrics {margin-bottom:5px}
+          </style>
+          <div class="metrics">
+            <h3>
+              Cluster Metrics
+            </h3>
+            <table id="metricsoverview">
+              <thead class="ui-widget-header">
+                <tr>
+                  <th class="ui-state-default">
+                    Apps Submitted
+                  </th><th class="ui-state-default">
+                    Apps Pending
+                  </th><th class="ui-state-default">
+                    Apps Running
+                  </th><th class="ui-state-default">
+                    Apps Completed
+                  </th><th class="ui-state-default">
+                    Containers Running
+                  </th><th class="ui-state-default">
+                    Memory Used
+                  </th><th class="ui-state-default">
+                    Memory Total
+                  </th><th class="ui-state-default">
+                    Memory Reserved
+                  </th><th class="ui-state-default">
+                    Active Nodes
+                  </th><th class="ui-state-default">
+                    Decommissioned Nodes
+                  </th><th class="ui-state-default">
+                    Lost Nodes
+                  </th><th class="ui-state-default">
+                    Unhealthy Nodes
+                  </th><th class="ui-state-default">
+                    Rebooted Nodes
+              </th></tr></thead><tbody class="ui-widget-content">
+                <tr>
+                  <td>
+                    179
+                  </td><td>
+                    0
+                  </td><td>
+                    3
+                  </td><td>
+                    176
+                  </td><td>
+                    33
+                  </td><td>
+                    186 GB
+                  </td><td>
+                    362 GB
+                  </td><td>
+                    0 B
+                  </td><td>
+                    <a href="http://h107716109.cluster.ds.weibo.com:8088/cluster/nodes">6</a>
+                  </td><td>
+                    <a href="http://h107716109.cluster.ds.weibo.com:8088/cluster/nodes/decommissioned">0</a>
+                  </td><td>
+                    <a href="http://h107716109.cluster.ds.weibo.com:8088/cluster/nodes/lost">0</a>
+                  </td><td>
+                    <a href="http://h107716109.cluster.ds.weibo.com:8088/cluster/nodes/unhealthy">0</a>
+                  </td><td>
+                    <a href="http://h107716109.cluster.ds.weibo.com:8088/cluster/nodes/rebooted">0</a>
+              </td></tr></tbody>
+            </table>
+          </div>
+          <div id="apps_wrapper" class="dataTables_wrapper" role="grid"><div class="fg-toolbar ui-toolbar ui-widget-header ui-corner-tl ui-corner-tr ui-helper-clearfix"><div id="apps_length" class="dataTables_length"><label>Show <select size="1" name="apps_length" aria-controls="apps"><option value="20" selected="selected">20</option><option value="40">40</option><option value="60">60</option><option value="80">80</option><option value="100">100</option></select> entries</label></div><div class="dataTables_filter" id="apps_filter"><label>Search: <input type="text" aria-controls="apps"></label></div><div id="apps_processing" class="dataTables_processing" style="visibility: hidden;">Processing...</div></div><table id="apps" class="dataTable" aria-describedby="apps_info">
+            <thead>
+              <tr role="row"><th class="id ui-state-default" role="columnheader" tabindex="0" aria-controls="apps" rowspan="1" colspan="1" aria-sort="descending" aria-label="
+                  ID
+                : activate to sort column ascending" style="width: 21.6px;"><div class="DataTables_sort_wrapper">
+                  ID
+                <span class="DataTables_sort_icon css_right ui-icon ui-icon-triangle-1-s"></span></div></th><th class="user ui-state-default" role="columnheader" tabindex="0" aria-controls="apps" rowspan="1" colspan="1" aria-label="
+                  User
+                : activate to sort column ascending" style="width: 39.6px;"><div class="DataTables_sort_wrapper">
+                  User
+                <span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="name ui-state-default" role="columnheader" tabindex="0" aria-controls="apps" rowspan="1" colspan="1" aria-label="
+                  Name
+                : activate to sort column ascending" style="width: 39.6px;"><div class="DataTables_sort_wrapper">
+                  Name
+                <span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="type ui-state-default" role="columnheader" tabindex="0" aria-controls="apps" rowspan="1" colspan="1" aria-label="
+                  Application Type
+                : activate to sort column ascending" style="width: 150.6px;"><div class="DataTables_sort_wrapper">
+                  Application Type
+                <span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="queue ui-state-default" role="columnheader" tabindex="0" aria-controls="apps" rowspan="1" colspan="1" aria-label="
+                  Queue
+                : activate to sort column ascending" style="width: 84.6px;"><div class="DataTables_sort_wrapper">
+                  Queue
+                <span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="starttime ui-state-default" role="columnheader" tabindex="0" aria-controls="apps" rowspan="1" colspan="1" aria-label="
+                  StartTime
+                : activate to sort column ascending" style="width: 85.6px;"><div class="DataTables_sort_wrapper">
+                  StartTime
+                <span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="finishtime ui-state-default" role="columnheader" tabindex="0" aria-controls="apps" rowspan="1" colspan="1" aria-label="
+                  FinishTime
+                : activate to sort column ascending" style="width: 94.6px;"><div class="DataTables_sort_wrapper">
+                  FinishTime
+                <span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="state ui-state-default" role="columnheader" tabindex="0" aria-controls="apps" rowspan="1" colspan="1" aria-label="
+                  State
+                : activate to sort column ascending" style="width: 48.6px;"><div class="DataTables_sort_wrapper">
+                  State
+                <span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="finalstatus ui-state-default" role="columnheader" tabindex="0" aria-controls="apps" rowspan="1" colspan="1" aria-label="
+                  FinalStatus
+                : activate to sort column ascending" style="width: 105.6px;"><div class="DataTables_sort_wrapper">
+                  FinalStatus
+                <span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="progress ui-state-default" role="columnheader" tabindex="0" aria-controls="apps" rowspan="1" colspan="1" aria-label="
+                  Progress
+                : activate to sort column ascending" style="width: 113.6px;"><div class="DataTables_sort_wrapper">
+                  Progress
+                <span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th><th class="ui ui-state-default" role="columnheader" tabindex="0" aria-controls="apps" rowspan="1" colspan="1" aria-label="
+                  Tracking UI
+            
+              var appsTableData=[
+[&quot;application_1466682549428_0200&quot;,&quot;hadoop&quot;,&quot;uid_fwd_mid&quot;,&quot;SPARK&quot;,&quot;default&quot;,&quot;1474272832617&quot;,&quot;0&quot;,&quot;RUNNING&quot;,&quot;UNDEFINED&quot;,&quot;    &quot;,&quot;ApplicationMaster&quot;],
+[&quot;application_1466682549428_0201&quot;,&quot;hadoop&quot;,&quot;uid_fwd_mid&quot;,&quot;SPARK&quot;,&quot;default&quot;,&quot;1474272832893&quot;,&quot;0&quot;,&quot;RUNNING&quot;,&quot;UNDEFINED&quot;,&quot;    &quot;,&quot;ApplicationMaster&quot;],
+[&quot;application_1466682549428_0202&quot;,&quot;hadoop&quot;,&quot;uid_fwd_mid&quot;,&quot;SPARK&quot;,&quot;default&quot;,&quot;1474272832734&quot;,&quot;0&quot;,&quot;RUNNING&quot;,&quot;UNDEFINED&quot;,&quot;    &quot;,&quot;ApplicationMaster&quot;]
+]
+            
+            : activate to sort column ascending" style="width: 113.6px;"><div class="DataTables_sort_wrapper">
+                  Tracking UI
+            
+            <span class="DataTables_sort_icon css_right ui-icon ui-icon-carat-2-n-s"></span></div></th></tr></thead>
+          <tbody role="alert" aria-live="polite" aria-relevant="all"><tr class="odd"><td class=" sorting_1"><a href="http://h107716109.cluster.ds.weibo.com:8088/cluster/app/application_1466682549428_0202">application_1466682549428_0202</a></td><td class="">hadoop</td><td class="">uid_fwd_mid</td><td class="">SPARK</td><td class="">default</td><td class="">Mon, 19 Sep 2016 08:13:52 GMT</td><td class="">N/A</td><td class="">RUNNING</td><td class="">UNDEFINED</td><td class=""><br title="10.0"> <div class="ui-progressbar ui-widget ui-widget-content ui-corner-all" title="10.0%"> <div class="ui-progressbar-value ui-widget-header ui-corner-left" style="width:10.0%"> </div> </div></td><td class=""><a href="http://h107716109.cluster.ds.weibo.com:8088/proxy/application_1466682549428_0202/">ApplicationMaster</a></td></tr><tr class="even"><td class=" sorting_1"><a href="http://h107716109.cluster.ds.weibo.com:8088/cluster/app/application_1466682549428_0201">application_1466682549428_0201</a></td><td class="">hadoop</td><td class="">uid_fwd_mid</td><td class="">SPARK</td><td class="">default</td><td class="">Mon, 19 Sep 2016 08:13:52 GMT</td><td class="">N/A</td><td class="">RUNNING</td><td class="">UNDEFINED</td><td class=""><br title="10.0"> <div class="ui-progressbar ui-widget ui-widget-content ui-corner-all" title="10.0%"> <div class="ui-progressbar-value ui-widget-header ui-corner-left" style="width:10.0%"> </div> </div></td><td class=""><a href="http://h107716109.cluster.ds.weibo.com:8088/proxy/application_1466682549428_0201/">ApplicationMaster</a></td></tr><tr class="odd"><td class=" sorting_1"><a href="http://h107716109.cluster.ds.weibo.com:8088/cluster/app/application_1466682549428_0200">application_1466682549428_0200</a></td><td class="">hadoop</td><td class="">uid_fwd_mid</td><td class="">SPARK</td><td class="">default</td><td class="">Mon, 19 Sep 2016 08:13:52 GMT</td><td class="">N/A</td><td class="">RUNNING</td><td class="">UNDEFINED</td><td class=""><br title="10.0"> <div class="ui-progressbar ui-widget ui-widget-content ui-corner-all" title="10.0%"> <div class="ui-progressbar-value ui-widget-header ui-corner-left" style="width:10.0%"> </div> </div></td><td class=""><a href="http://h107716109.cluster.ds.weibo.com:8088/proxy/application_1466682549428_0200/">ApplicationMaster</a></td></tr></tbody></table><div class="fg-toolbar ui-toolbar ui-widget-header ui-corner-bl ui-corner-br ui-helper-clearfix"><div class="dataTables_info" id="apps_info">Showing 1 to 3 of 3 entries</div><div class="dataTables_paginate fg-buttonset ui-buttonset fg-buttonset-multi ui-buttonset-multi paging_full_numbers" id="apps_paginate"><a tabindex="0" class="first ui-corner-tl ui-corner-bl fg-button ui-button ui-state-default ui-state-disabled" id="apps_first">First</a><a tabindex="0" class="previous fg-button ui-button ui-state-default ui-state-disabled" id="apps_previous">Previous</a><span><a tabindex="0" class="fg-button ui-button ui-state-default ui-state-disabled">1</a></span><a tabindex="0" class="next fg-button ui-button ui-state-default ui-state-disabled" id="apps_next">Next</a><a tabindex="0" class="last ui-corner-tr ui-corner-br fg-button ui-button ui-state-default ui-state-disabled" id="apps_last">Last</a></div></div></div>
+    </td></tr></tbody>
+  </table>
+
+</body></html>

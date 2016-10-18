@@ -1,0 +1,101 @@
+name := "Spark Monitor"
+
+author := "suanec_Betn"
+
+version := "0.2"
+
+scalaVersion := "2.10.4"
+    
+使用方式： (windows)
+		scala -cp .\lib\json4sJackson_Lib-assembly-1.0.jar;.\lib\jsoup-1.9.2.jar monitorsparkui_2.10-0.2.jar .\conf\config.json .\rst\rst.json
+	  或： (linux)
+		scala -cp ./lib/json4sJackson_Lib-assembly-1.0.jar:./lib/jsoup-1.9.2.jar monitorsparkui_2.10-0.2.jar ./conf/config.json ./rst/rst.json
+
+参数说明：
+monitorsparkui_2.10-0.2.jar -config -result 
+monitorsparkui_2.10-0.2.jar -配置文件目录 -结果文件目录
+
+assembly编译目前还有问题未解决，依赖库尚未打包，在scala环境下增加classpath后即可运行。
+根据集群WebUI内容，生成关于Job有关信息，并写入到./rst目录下的rst.json文件中。
+其中配置文件和结果文件的目录均可在程序启动变量中设置。
+目前针对指定集群可获取所有正在运行的任务，并根据JobId分别记录，最终结果写入json文件中。
+Spark版本1.3.1, Scala 版本2.10.4, hadoop 版本2.4.1, jdk版本1.8.0_40
+
+config文件示例：
+{
+        "ui":"http://h107716109.cluster.ds.weibo.com:8088",
+        "mail_info":{
+            "mailto":"daoguang1,lihan3,huangbo2,zhiqiang19,jingjie3,huangbo2,gaolin3,guobao,",
+            "mailsv":"微博数据系统",
+            "service":"spark",
+            "object":"spark-streaming集群作业信息" 
+         }
+}
+输出json文件示例：
+{
+  "ui" : "http://h107716109.cluster.ds.weibo.com:8088",
+  "mail_info" : {
+    "mailto" : "daoguang1,lihan3,huangbo2,zhiqiang19,jingjie3,huangbo2,gaolin3,guobao,",
+    "mailsv" : "微博数据系统",
+    "service" : "spark",
+    "object" : "spark-streaming集群作业信息"
+  },
+  "application_1466682549428_0192" : {
+    "Processed records" : " 1540248",
+    "Time since start" : " 1 hour 44 minutes 20 seconds",
+    "Total Duration" : " 1.7 h",
+    "Network receivers" : " 1",
+    "Active Jobs" : " 2",
+    "Scheduling Mode" : " FIFO",
+    "Completed Jobs" : " 845",
+    "Started at" : " 1473838848670",
+    "Batch interval" : " 10 ms",
+    "Received records" : " 1542399",
+    "Processed batches" : " 20267",
+    "Waiting batches" : " 1"
+  },
+  "application_1466682549428_0193" : {
+    "Processed records" : " 1166547",
+    "Time since start" : " 1 hour 23 minutes 8 seconds",
+    "Total Duration" : " 1.4 h",
+    "Network receivers" : " 1",
+    "Active Jobs" : " 2",
+    "Scheduling Mode" : " FIFO",
+    "Completed Jobs" : " 878",
+    "Started at" : " 1473840147734",
+    "Batch interval" : " 10 ms",
+    "Received records" : " 1166547",
+    "Processed batches" : " 26888",
+    "Waiting batches" : " 0"
+  },
+  "application_1466682549428_0191" : {
+    "Processed records" : " 1368430",
+    "Time since start" : " 1 hour 46 minutes 11 seconds",
+    "Total Duration" : " 1.8 h",
+    "Network receivers" : " 1",
+    "Active Jobs" : " 2",
+    "Scheduling Mode" : " FIFO",
+    "Completed Jobs" : " 559",
+    "Started at" : " 1473838830102",
+    "Batch interval" : " 10 ms",
+    "Received records" : " 1368431",
+    "Processed batches" : " 17012",
+    "Waiting batches" : " 1"
+  }
+}
+
+
+运行显示结果示例												注释
+
+Total Duration: 1.2 h										任务总持续时间		
+Scheduling Mode: FIFO										spark 任务调度方式		
+Active Jobs: 2												当前活动任务数
+Completed Jobs: 382											已完成任务数	
+Started at: 1473750131306									任务开始时间戳			
+Time since start: 1 hour 9 minutes 52 seconds				任务已运行时间								
+Network receivers: 1										网络接收者		
+Batch interval: 10 ms										时间窗口		
+Processed batches: 13541									处理数据流窗口数			
+Waiting batches: 1											待处理数据流窗口数	
+Received records: 1181266									接收数据数			
+Processed records: 1166760									处理数据数			
