@@ -1,0 +1,2 @@
+ val path = new java.io.File("").getAbsolutePath
+ val file = path + "\\config.ini"
