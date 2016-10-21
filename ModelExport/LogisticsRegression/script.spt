@@ -10,13 +10,13 @@
 ========================================================================================
 /// 20161013
 
-object colsOperate{
+object colsOperate {
 
   def testFile(_f : String) = new java.io.File(_f).isFile
 
   def readFile(_f : String) = scala.io.Source.fromFile(_f).getLines
 
-  def readFile(_f : String, _codec : String = "UTF-8") = scala.io.Source.fromFile(_f)(_codec).getLines
+  def readFile(_f : String, _codec : String) = scala.io.Source.fromFile(_f)(_codec).getLines
 
   def isFileExist(_f : String) = (new java.io.File(_f).isFile) || (new java.io.File(_f).isDirectory)
 
@@ -249,7 +249,7 @@ object readLibSVM {
 
 }
 
-object generateLibSVM /*extends Any*/{
+object generateLibSVM {
 
   // one vector in Array[Double] type convert to libsvm, split by space 
   // features'indices start from 1
@@ -465,6 +465,109 @@ object feature_map {
 ========================================================================================
 ========================================================================================
 ========================================================================================
-/// 20161019
+/// 20161020
 
+case class DataConf(
+  _idx : Int,
+  _name : String,
+  _category : String,
+  _operation : String = "")
 
+def loadDataConf( _path : String, _codec : String = "UTF-8" ) : Map[String,DataConf] = {
+  colsOperate.readFile(_path,_codec)
+    .toArray
+    .filterNot(x => x.startsWith("@") ||
+      x.startsWith("#") ||
+      x.size < 1)
+    .map(_.split('@'))
+    .filterNot(_.size < 3)
+    .map{
+      splits => 
+        splits.size match {
+          case 3 => new DataConf(splits(0).toInt,splits(1),splits(2))
+          case 4 => new DataConf(splits(0).toInt,splits(1),splits(2),splits(3))
+          case _ => {
+            println("error when read data.conf,format not match!!" + 
+              s"${splits.size}")
+            new DataConf(-1,"","")
+          }/// match case 
+        }/// match 
+    }/// map 
+    .map{
+      case(dcf) => dcf._name -> dcf 
+    }.toMap
+}
+
+case class FeatureConf(
+  _name : String,
+  _category : String,
+  _operation : String = "")
+
+case class FeatureContent(
+  _idx : Int,
+  _subIdx : Int,
+  _default : Int = 0,
+  _info : String = "")
+
+def loadFeatureMap( _path : String, _codec : String = "UTF-8" ) : Map[String,Map[Int,Int]] = {
+    colsOperate.readFile(_path,_codec)
+      .toArray
+      .filterNot( x =>  x.startsWith("@") ||x.split('\t').size < 2 )
+      .mkString("\n")
+      .split('#')
+      .map(_.split('\n'))
+      .filterNot(_.size < 2)
+      .map{
+        featureAndContent =>
+          val featureSplits = featureAndContent.head.split('\t')
+          val contentSplits = featureAndContent.tail.map(_.split('\t'))
+          val featureConf = featureSplits.size match {
+            case 2 => new FeatureConf(featureSplits(0),featureSplits(1))
+            case 3 => new FeatureConf(featureSplits(0),featureSplits(1),featureSplits(2))
+            case _ => {
+              println("error when read feature.map,format not match!!" + 
+              s"error with featureConf.size ${featureSplits.size}")
+            }/// match case _
+          }/// match 
+          val featureContent = contentSplits.map{
+            featureContentLine =>
+              featureContentLine.size match {
+                case 3 => new FeatureContent(
+                  featureContentLine(0).toInt,
+                  featureContentLine(1).toInt,
+                  featureContentLine(2).toInt)
+                case 4 => new FeatureContent(
+                  featureContentLine(0).toInt,
+                  featureContentLine(1).toInt,
+                  featureContentLine(2).toInt,
+                  featureContentLine(3))
+                case _ => {
+                  println("error when read feature.map,format not match!!" + 
+                  s"error with featureContent.size : ${featureSplits.size}")
+                  new FeatureContent(-1,-1)
+                }
+              }
+          }
+      }
+      .map{
+        feature_line =>
+          val splits = feature_line.split('\n').filter(_.size > 1)
+          (splits.size > 0) match {
+            case true => {
+              val headLine = splits.head.split('\t')
+              val features = splits.tail.map{
+                feature_line => 
+                  val feature_content = feature_line.split('\t')
+                  feature_content.head.toInt -> (feature_content(1) match {
+                    case "_other_" => 1
+                    case _ => feature_content(1).toInt
+                  } /// feature_content(1) match 
+                )/// feature_content.head -> feature_content(1)
+              }.toMap/// splits.tail.map 
+              headLine.head -> features
+            }/// splits.size > 0 match : case true
+            case false => "" -> new Array[(Int,Int)](0).toMap
+          }/// splits.size > 0 match 
+      }.filter(_._1.size > 0)/// filterNot.map 
+      .toMap
+  }

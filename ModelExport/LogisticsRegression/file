@@ -1,2 +1,5 @@
- val path = new java.io.File("").getAbsolutePath
- val file = path + "\\config.ini"
+val path = "D:\\Docs\\Works_And_Jobs\\Sina\\Betn_code\\ModelExport\\LogisticsRegression\\data"
+val dataConfFile = path + "\\data.conf"
+val featureMapFile = path + "\\feature.map"
+val dataFile = path + "\\data.sample"
+val outputFile = path + "\\..\\rst\\data.libsvm"
