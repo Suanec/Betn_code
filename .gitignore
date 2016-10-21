@@ -2,3 +2,5 @@ NaiveBayesModelExport/LogisticsRegression/data/sample_data
 ModelExport/LogisticsRegression/data/sample_data
 ModelExport/LogisticsRegression/rst/sample_data.libsvm
 ModelExport/LogisticsRegression/rst/sample_data.libsvm.iter
+sbtTest/
+ModelExport/LogisticsRegression/src/LRFeatureMap_2016_10_21_src.rar

@@ -1,3 +1,6 @@
+///author := "suanec_Betn"
+///data := 20160918
+
 object colsOperate {
 
   def testFile(_f : String) = new java.io.File(_f).isFile

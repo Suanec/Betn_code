@@ -1,5 +1,6 @@
-
-
+package 
+///author := "suanec_Betn"
+///data := 20160918
 object readLibSVM {
 
   /// single line libsvm to Sparse Vector Format 
