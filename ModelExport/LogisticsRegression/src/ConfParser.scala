@@ -112,12 +112,16 @@ object ConfParser {
 
   def getColsID( _dcc : Map[String,DataConf], 
     _fmc : Map[String,(FeatureConf,Array[FeatureContent])],
-    _isLabeld : Boolean = true,
-    _defaultLabel : Int = 0
+    _isLabeled : Boolean = true, /// @Deprecated 
+    _defaultLabel : Int = 0 /// @Deprecated 
     ) : Array[(String,Int)] = {
     val featureNames = _fmc.toArray.map(_._1)
     val rstIdxs = featureNames.map( x => _dcc.get(x).get._name -> _dcc.get(x).get._idx)
-    _isLabeld match {
+    val _isHasLabel = _dcc.get("label") match {
+      case None => false
+      case Some(_) => true
+    }
+    (_isLabeled && _isHasLabel) match {
       case true => ((_dcc.get("label").get._name -> _dcc.get("label").get._idx) +: rstIdxs ).sortBy{x => x._2}
       case false => rstIdxs.sortBy{_._2}
     }
