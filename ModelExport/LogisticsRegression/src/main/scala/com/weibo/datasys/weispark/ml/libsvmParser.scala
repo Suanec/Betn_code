@@ -1,6 +1,8 @@
-package 
-///author := "suanec_Betn"
-///data := 20160918
+package com.weibo.datasys.weispark.ml
+/// @author : suanec_Betn
+/// @version : 0.2
+/// @data : 2016/10/24
+
 object readLibSVM {
 
   /// single line libsvm to Sparse Vector Format 
@@ -127,3 +129,46 @@ object generateLibSVM /*extends Any*/{
   }
 }
 
+object RDDgenerateLibSVM extends Serializable {
+
+  // one vector in Array[Double] type convert to libsvm, split by space 
+  // features'indices start from 1
+  @transient
+  def vec2libsvm( _vec : Array[Double] ) : String = {
+    _vec
+      .zipWithIndex
+      .filterNot(_._1 == 0)
+      .map{ 
+        case( value, idx ) => 
+        (idx + 1).toString + ":" + value.toString
+      }
+      .mkString(" ")
+  }
+  @transient
+  // generate LabeledPoint in libsvm format by data String 
+  def vec2libsvm( _label : Int, _vec : Array[Double] ) : String = _label.toString + " " + vec2libsvm(_vec)
+
+  // // vector by DenseData convert to Array[String] by libsvm format
+  // def data2libsvm( _arr : Array[Array[Double]] ) : Array[String] = _arr.map(vec2libsvm)
+  // // convert data strings to LabeledPoint in libsvm, get an Array 
+  // def data2libsvm( _label : Int, _arr : Array[Array[Double]] ) : Array[String] = _arr.map( x => vec2libsvm(_label,x) )
+  // // vector by DenseData convert to Array[String] by libsvm format
+  // def data2libsvm( _arr : Iterator[Array[Double]] ) : Iterator[String] = _arr.map(vec2libsvm)
+  // // convert data strings to LabeledPoint in libsvm, get an Array 
+  // def data2libsvm( _label : Int, _arr : Iterator[Array[Double]] ) : Iterator[String] = _arr.map(x => vec2libsvm(_label,x))
+
+  // def write( _file : String, _label : Int, _arr : Array[Array[Double]] ) : Unit = {
+  //   val w = new java.io.PrintWriter(_file)
+  //   val content = data2libsvm(_label,_arr).mkString("\n")
+  //   w.write(content + "\n")
+  //   w.flush
+  //   w.close
+  // }
+  // def write( _file : String, _label : Int, _arr : Iterator[Array[Double]] ) : Unit = {
+  //   val w = new java.io.PrintWriter(_file)
+  //   val contentIter = data2libsvm(_label,_arr)
+  //   while(contentIter.hasNext) w.write(contentIter.next + "\n")
+  //   w.flush
+  //   w.close
+  // }
+}

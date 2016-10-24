@@ -88,7 +88,7 @@ object colsOperate {
     if(!testFile(_in)) {
       System.err.println(_in + " not a File!")
       // return
-      exit(1)
+      System.exit(1)
     }
     val iter = readFile(_in)
     val range = extractRange(_range, _in, _separator).map(_-1)
@@ -117,7 +117,7 @@ object colsOperate {
     if(!testFile(_in)) {
       System.err.println(_in + " not a File!")
       // return
-      exit(1)
+      System.exit(1)
     }
     val iter = readFile(_in)
     val range = extractRange(_range, _in, _separator).map(_-1)
@@ -142,7 +142,7 @@ object colsOperate {
     if(!testFile(_in)) {
       System.err.println(_in + " not a File!")
       // return
-      exit(1)
+      System.exit(1)
     }
     val iter = readFile(_in)
     val pIter = iter.map{
@@ -690,16 +690,431 @@ def loadFeatureMap( _path : String, _codec : String = "UTF-8" ) : Map[String,Arr
 ========================================================================================
 ========================================================================================
 /// 20161024
+///author := "suanec_Betn"
+///data := 20160918
 
-object ConfParser {
-    
-  case class DataConf(
-    _idx : Int,
-    _name : String,
-    _category : String = "",
-    _operation : String = "")
+  val path = "D:\\Docs\\Works_And_Jobs\\Sina\\Betn_code\\ModelExport\\LogisticsRegression\\data"
+  val dataConfFile = path + "\\data.conf"
+  val featureMapFile = path + "\\feature.map"
+  val dataFile = path + "\\data.sample"
 
+object colsOperate extends Serializable  {
+
+  def testFile(_f : String) = new java.io.File(_f).isFile
+
+  def readFile(_f : String) = scala.io.Source.fromFile(_f).getLines
+
+  def readFile(_f : String, _codec : String) = scala.io.Source.fromFile(_f)(_codec).getLines
+
+  // def isFileExist(_f : String) = (new java.io.File(_f).isFile) || (new java.io.File(_f).isDirectory)
+
+  // def fileWriter(_f : String) = new java.io.PrintWriter(_f)
+
+  // // example : 1.txt => 1.rst or 1.rst => 1-rst.rst
+  // def getRstName(_f : String) = {
+  //   val idx = _f.indices.map(i => if(_f(i) == '.') i else -1).filter(_ >= 0)
+  //   if(_f.substring(idx.last).equals(".rst"))
+  //     _f.substring(0,idx.last) + "-rst.rst"
+  //   else 
+  //     _f.substring(0,idx.last) + ".rst"
+  // }
+
+  // // split line by given _separator
+  // def splitLine( _line : String, _separator : Char ) : Array[String] = _line.split(_separator)
+
+  // // get the max cols' number
+  // def getMaxColNum(_f : String, _separator : Char = '\t') : Int = {
+  //   if(!testFile(_f)) {
+  //     System.err.println(_f + "is not a File to calculate the cols max num")
+  //     System.exit(1)
+  //   }
+  //   readFile(_f).map(splitLine(_,_separator).size).max
+  // }
+
+  // // range to Array[Int]
+  // // format of range : 
+  // //    1
+  // //    1,3
+  // //    1:3
+  // //    1:3,7:9
+  // //    1,3,7:9
+  // //     -1
+  // def extractRange(_range : String, _f : String = "", _separator : Char = '\t') : Array[Int] = {
+  //   val splits = _range.trim.split(',')
+  //   val sigleIdxSize = splits.filter(_.contains(':')).size
+  //   val range = sigleIdxSize match {
+  //     case 0 => splits.map(_.toInt)
+  //     case _ => {
+  //       val sigleIdx = splits.filter(!_.contains(':')).map(_.toInt)
+  //       val multiIdxs = splits.filter(_.contains(':')).map{
+  //         line => 
+  //           val Array(start,end) = line.split(':')
+  //           var sInt = start.toInt
+  //           var eInt = end.toInt
+  //           if( sInt < 0 && eInt < 0 ){
+  //             val maxColNum = getMaxColNum(_f,_separator)
+  //             sInt += maxColNum + 1 
+  //             eInt += maxColNum + 1
+  //           }
+  //           else if(sInt < 0) sInt += getMaxColNum(_f,_separator) + 1
+  //           else if(eInt < 0) eInt += getMaxColNum(_f,_separator) + 1
+  //           sInt to eInt
+  //       }.flatten
+  //       (sigleIdx.toList ::: multiIdxs.toList toArray).sorted.distinct
+  //     }
+  //   }
+  //   range
+  // }
+
+  // def delCols2File( 
+  //   _in : String, 
+  //   _range : String = "1", 
+  //   _isDel : Boolean = true,  
+  //   _separator : Char = '\t', 
+  //   _out : String = ""
+  //   ) : Unit = {
+  //   if(!testFile(_in)) {
+  //     System.err.println(_in + " not a File!")
+  //     // return
+  //     System.exit(1)
+  //   }
+  //   val iter = readFile(_in)
+  //   val range = extractRange(_range, _in, _separator).map(_-1)
+  //   val pIter = iter.map{
+  //     line =>
+  //       val splits = splitLine(line,_separator)
+  //       _isDel match {
+  //         case true => {splits.indices.filterNot(range.filter( i => i < splits.size).contains).map(splits).toArray}
+  //         case false => range.filter( i => i < splits.size).map( i => splits(i) )
+  //       }
+  //   }
+  //   val printer = _out match {
+  //     case "" => fileWriter(getRstName(_in))
+  //     case _ => fileWriter(_out)
+  //   }
+  //   while(pIter.hasNext) printer.write(pIter.next.mkString(_separator.toString) + "\n")
+  //   printer.flush
+  //   printer.close
+  // }
+  // def delCols( 
+  //   _in : String, 
+  //   _range : String = "1", 
+  //   _isDel : Boolean = true,  
+  //   _separator : Char = '\t'
+  //   ) : Iterator[Array[String]] = {
+  //   if(!testFile(_in)) {
+  //     System.err.println(_in + " not a File!")
+  //     // return
+  //     System.exit(1)
+  //   }
+  //   val iter = readFile(_in)
+  //   val range = extractRange(_range, _in, _separator).map(_-1)
+  //   val pIter = iter.map{
+  //     line =>
+  //       val splits = splitLine(line,_separator)
+  //       _isDel match {
+  //         case true => {splits.indices.filterNot(range.filter( i => i < splits.size).contains).map(splits).toArray}
+  //         case false => range.filter( i => i < splits.size).map( i => splits(i) )
+  //       }
+  //   }
+  //   pIter
+  // }
+  
+  // // add the _value to the before _idx
+  // def addCols(
+  //   _in : String, 
+  //   _value : String,
+  //   _idx : Int,
+  //   _separator : Char = '\t', 
+  //   _out : String = "") : Unit = {
+  //   if(!testFile(_in)) {
+  //     System.err.println(_in + " not a File!")
+  //     // return
+  //     System.exit(1)
+  //   }
+  //   val iter = readFile(_in)
+  //   val pIter = iter.map{
+  //     line =>
+  //       val splits = line.split(_separator)
+  //       val idx = (_idx > splits.size + 1) match {
+  //         case true => splits.size + 1
+  //         case false => _idx
+  //       }
+  //       (splits.take(idx) :+ _value) ++ splits.takeRight(splits.size - idx)
+  //   }
+  //   val printer = _out match {
+  //     case "" => fileWriter(getRstName(_in))
+  //     case _ => fileWriter(_out)
+  //   }
+  //   while(pIter.hasNext) printer.write(pIter.next.mkString(_separator.toString) + "\n")
+  //   printer.flush
+  //   printer.close
+  // }
+
+}
+
+object readLibSVM extends Serializable {
+
+  /// single line libsvm to Sparse Vector Format 
+  def parseLibSVMRecord(line: String): (Double, Array[Int], Array[Double]) = {
+    val items = line.split(' ')
+    val label = items.head.toDouble
+    val (indices, values) = items.tail.filter(_.nonEmpty).map { item =>
+      val indexAndValue = item.split(':')
+      val index = indexAndValue(0).toInt - 1 // Convert 1-based indices to 0-based.
+      val value = indexAndValue(1).toDouble
+      (index, value)
+    }.unzip
+
+    // check if indices are one-based and in ascending order
+    var previous = -1
+    var i = 0
+    val indicesLength = indices.length
+    while (i < indicesLength) {
+      val current = indices(i)
+      require(current > previous, s"indices should be one-based and in ascending order;"
+        + " found current=$current, previous=$previous; line=\"$line\"")
+      previous = current
+      i += 1
+    }
+    (label, indices.toArray, values.toArray)
+  }
+
+  // get the libsvm dimision(the max indices)
+  def computeNumFeatures(_arr : Array[(Double, Array[Int], Array[Double])]): Int = {
+    _arr.map { case (label, indices, values) =>
+      indices.lastOption.getOrElse(0)
+    }.reduce(math.max) + 1
+  }
+  def computeNumFeatures(_iter : Iterator[(Double, Array[Int], Array[Double])]): Int = {
+    _iter.map { case (label, indices, values) =>
+      indices.lastOption.getOrElse(0)
+    }.reduce(math.max) + 1
+  }
+
+  def parseLibSVMFile( _path: String ): Array[(Double, Array[Int], Array[Double])] = {
+    scala.io.Source.fromFile(_path).getLines
+      .map(_.trim)
+      .filter(line => !(line.isEmpty || line.startsWith("#")))
+      .map(parseLibSVMRecord)
+      .toArray
+  }
+
+  def libsvm2Data( _path : String = "", numFeatures: Int = -1) : Array[(Double,Array[Double])] = {
+    val parsed = parseLibSVMFile(_path)
+    // Determine number of features.
+    val d = if (numFeatures > 0) {
+      numFeatures
+    } else {
+      computeNumFeatures(parsed)
+    }
+    parsed.map { case (label, indices, values) =>
+      val datas = new Array[Double](d)
+      indices.indices.map( i => datas(indices(i)) = values(i) )
+      label.toDouble -> datas
+    }
+  }  
+
+  def readParsed( _file : String ) : Iterator[(Double, Array[Int], Array[Double])] = {
+    scala.io.Source.fromFile(_file).getLines
+      .map(_.trim)
+      .filter(line => !(line.isEmpty || line.startsWith("#")))
+      .map(parseLibSVMRecord)
+  }
+  def read( _file : String = "", numFeatures : Int = -1 ) : Iterator[(Double,Array[Double])] = {
+    val parsed = readParsed(_file)
+    val d = if (numFeatures > 0) {
+      numFeatures
+    } else {
+      computeNumFeatures(readParsed(_file))
+    }
+    parsed.map { case (label, indices, values) =>
+      val datas = new Array[Double](d)
+      indices.indices.map( i => datas(indices(i)) = values(i) )
+      label.toDouble -> datas
+    }
+  }
+
+}
+
+object generateLibSVM extends Serializable {
+
+  // one vector in Array[Double] type convert to libsvm, split by space 
+  // features'indices start from 1
+  @transient
+  def vec2libsvm( _vec : Array[Double] ) : String = {
+    _vec
+      .zipWithIndex
+      .filterNot(_._1 == 0)
+      .map{ 
+        case( value, idx ) => 
+        (idx + 1).toString + ":" + value.toString
+      }
+      .mkString(" ")
+  }
+  @transient
+  // generate LabeledPoint in libsvm format by data String 
+  def vec2libsvm( _label : Int, _vec : Array[Double] ) : String = _label.toString + " " + vec2libsvm(_vec)
+
+  // // vector by DenseData convert to Array[String] by libsvm format
+  // def data2libsvm( _arr : Array[Array[Double]] ) : Array[String] = _arr.map(vec2libsvm)
+  // // convert data strings to LabeledPoint in libsvm, get an Array 
+  // def data2libsvm( _label : Int, _arr : Array[Array[Double]] ) : Array[String] = _arr.map( x => vec2libsvm(_label,x) )
+  // // vector by DenseData convert to Array[String] by libsvm format
+  // def data2libsvm( _arr : Iterator[Array[Double]] ) : Iterator[String] = _arr.map(vec2libsvm)
+  // // convert data strings to LabeledPoint in libsvm, get an Array 
+  // def data2libsvm( _label : Int, _arr : Iterator[Array[Double]] ) : Iterator[String] = _arr.map(x => vec2libsvm(_label,x))
+
+  // def write( _file : String, _label : Int, _arr : Array[Array[Double]] ) : Unit = {
+  //   val w = new java.io.PrintWriter(_file)
+  //   val content = data2libsvm(_label,_arr).mkString("\n")
+  //   w.write(content + "\n")
+  //   w.flush
+  //   w.close
+  // }
+  // def write( _file : String, _label : Int, _arr : Iterator[Array[Double]] ) : Unit = {
+  //   val w = new java.io.PrintWriter(_file)
+  //   val contentIter = data2libsvm(_label,_arr)
+  //   while(contentIter.hasNext) w.write(contentIter.next + "\n")
+  //   w.flush
+  //   w.close
+  // }
+}
+
+case class DataConf(
+  _idx : Int,
+  _name : String,
+  _category : String = "",
+  _operation : String = "") extends Serializable
+
+case class FeatureConf(
+  _name : String,
+  _category : String,
+  _operation : String = "") extends Serializable
+
+case class FeatureContent(
+  _idx : Int,
+  _subIdx : Int,
+  _default : Int = 0,
+  _info : String = "") extends Serializable
+
+object ConfParser0 extends Serializable {
   val seperator = '\t'
+  def loadDataConf( _path : String, _codec : String = "UTF-8" ) : Map[String,ConfUtil.DataConf] = {
+    val contents = colsOperate.readFile(_path,_codec)
+      .toArray
+      .filterNot(x => x.startsWith("@") ||
+        x.startsWith("#") ||
+        x.size < 1)
+      .map(_.split('@'))
+      .filterNot(_.size < 2)
+      .map{
+        splits => 
+          splits.size match {
+            case 2 => new ConfUtil.DataConf(splits(0).toInt,splits(1))
+            case 3 => new ConfUtil.DataConf(splits(0).toInt,splits(1),splits(2))
+            case 4 => new ConfUtil.DataConf(splits(0).toInt,splits(1),splits(2),splits(3))
+            case _ => {
+              println("error when read data.conf,format not match!!" + 
+                s"${splits.size}")
+              new ConfUtil.DataConf(-1,"","")
+            }
+          }
+      } 
+      .map{
+        case(dcf) => dcf._name -> dcf 
+      }.toMap
+      contents
+  }
+
+  def loadFeatureMap( _path : String, _codec : String = "UTF-8" ) : Map[String,(ConfUtil.FeatureConf,Array[ConfUtil.FeatureContent])] = {
+    colsOperate.readFile(_path,_codec)
+      .toArray
+      .filterNot( x =>  x.startsWith("@") ||
+        (x.split(seperator).size < 2 && x.split(seperator).size < 2))
+      .mkString("\n")
+      .split('#')
+      .map(_.split('\n'))
+      .filterNot(_.size < 2)
+      .map{
+        featureAndContent =>
+          val featureSplits = featureAndContent.head.split(seperator).size match {
+            case 1 => featureAndContent.head.split(seperator)
+            case _ => featureAndContent.head.split(seperator)
+          }
+          val contentSplits = featureAndContent.tail.map(_.split(seperator).size).max  match {
+            case 1 => featureAndContent.tail.map(_.split(seperator))
+            case _ => featureAndContent.tail.map(_.split(seperator))
+          }
+          val featureConf = featureSplits.size match {
+            case 2 => new ConfUtil.FeatureConf(featureSplits(0),featureSplits(1))
+            case 3 => new ConfUtil.FeatureConf(featureSplits(0),featureSplits(1),featureSplits(2))
+            case _ => {
+              println("error when read feature.map,format not match!!" + 
+              s"error with featureConf.size ${featureSplits.size}")
+              new ConfUtil.FeatureConf("","")
+            }/// match case _
+          }/// match 
+          val featureContent = contentSplits.map{
+            featureContentLine =>
+              // println(featureContentLine.head)
+              featureContentLine.size match {
+                case 2 => contentSplits(1).size.equals("_other_") match {
+                  case true => new ConfUtil.FeatureContent(
+                    featureContentLine(0).toInt,
+                    featureContentLine(1).toInt,0,
+                    "")
+                  case false => new ConfUtil.FeatureContent(
+                    featureContentLine(0).toInt,
+                    featureContentLine.size -1, 0,
+                    featureContentLine(1))
+                }
+                case 3 => new ConfUtil.FeatureContent(
+                  featureContentLine(0).toInt,
+                  featureContentLine(1).toInt,
+                  featureContentLine(2).toInt)
+                case 4 => new ConfUtil.FeatureContent(
+                  featureContentLine(0).toInt,
+                  featureContentLine(1).toInt,
+                  featureContentLine(2).toInt,
+                  featureContentLine(3))
+                case _ => {
+                  println("error when read feature.map,format not match!!" + 
+                  s"error with featureContentLine.size : ${featureContentLine.size}")
+                  new ConfUtil.FeatureContent(-1,-1)
+                }/// match case
+              }/// match 
+          }/// contentSplits.map 
+          // .toMap
+          featureConf -> featureContent
+      }/// filterNot.map 
+      .map( x => x._1._name -> x )
+      .toMap
+  }
+
+  def getColsID( _dcc : Map[String,ConfUtil.DataConf], 
+    _fmc : Map[String,(ConfUtil.FeatureConf,Array[ConfUtil.FeatureContent])],
+    _isLabeled : Boolean = true, /// @Deprecated 
+    _defaultLabel : Int = 0 /// @Deprecated 
+    ) : Array[(String,Int)] = {
+    val featureNames = _fmc.toArray.map(_._1)
+    val rstIdxs = featureNames.map( x => _dcc.get(x).get._name -> _dcc.get(x).get._idx)
+    val _isHasLabel = _dcc.get("label") match {
+      case None => false
+      case Some(_) => true
+    }
+    (_isLabeled && _isHasLabel) match {
+      case true => ((_dcc.get("label").get._name -> _dcc.get("label").get._idx) +: rstIdxs ).sortBy{x => x._2}
+      case false => rstIdxs.sortBy{_._2}
+    }
+  }
+
+  def readMaxColNum( _fmc : Map[String,(ConfUtil.FeatureConf,Array[ConfUtil.FeatureContent])] ) : Int = _fmc.map(_._2._2.map(_._idx)).flatten.max 
+}
+
+object ConfParser extends Serializable {
+  val seperator = '\t'
+  @transient
   def loadDataConf( _path : String, _codec : String = "UTF-8" ) : Map[String,DataConf] = {
     val contents = colsOperate.readFile(_path,_codec)
       .toArray
@@ -726,18 +1141,7 @@ object ConfParser {
       }.toMap
       contents
   }
-
-  case class FeatureConf(
-    _name : String,
-    _category : String,
-    _operation : String = "")
-
-  case class FeatureContent(
-    _idx : Int,
-    _subIdx : Int,
-    _default : Int = 0,
-    _info : String = "")
-
+  @transient
   def loadFeatureMap( _path : String, _codec : String = "UTF-8" ) : Map[String,(FeatureConf,Array[FeatureContent])] = {
     colsOperate.readFile(_path,_codec)
       .toArray
@@ -802,32 +1206,36 @@ object ConfParser {
       .map( x => x._1._name -> x )
       .toMap
   }
-
+  @transient
   def getColsID( _dcc : Map[String,DataConf], 
     _fmc : Map[String,(FeatureConf,Array[FeatureContent])],
-    _isLabeld : Boolean = true,
-    _defaultLabel : Int = 0
+    _isLabeled : Boolean = true, /// @Deprecated 
+    _defaultLabel : Int = 0 /// @Deprecated 
     ) : Array[(String,Int)] = {
     val featureNames = _fmc.toArray.map(_._1)
     val rstIdxs = featureNames.map( x => _dcc.get(x).get._name -> _dcc.get(x).get._idx)
-    _isLabeld match {
+    val _isHasLabel = _dcc.get("label") match {
+      case None => false
+      case Some(_) => true
+    }
+    (_isLabeled && _isHasLabel) match {
       case true => ((_dcc.get("label").get._name -> _dcc.get("label").get._idx) +: rstIdxs ).sortBy{x => x._2}
       case false => rstIdxs.sortBy{_._2}
     }
   }
-
+  @transient
   def readMaxColNum( _fmc : Map[String,(FeatureConf,Array[FeatureContent])] ) : Int = _fmc.map(_._2._2.map(_._idx)).flatten.max 
 }
 
-object DataMappor {
+object DataMappor0 extends Serializable {
   def initDataByFmc(
-    _fmc : Map[String,(ConfParser.FeatureConf,Array[ConfParser.FeatureContent])]
+    _fmc : Map[String,(ConfUtil.FeatureConf,Array[ConfUtil.FeatureContent])]
     ) : Array[(String,Array[Int])] = {
     _fmc.toArray.map(x => x._1 -> Array.fill[Int](x._2._2.size)(0))
   }
   def featureMapToData(
-    _fmc : Map[String,(ConfParser.FeatureConf,Array[ConfParser.FeatureContent])],
-    _dcc : Map[String,ConfParser.DataConf], 
+    _fmc : Map[String,(ConfUtil.FeatureConf,Array[ConfUtil.FeatureContent])],
+    _dcc : Map[String,ConfUtil.DataConf], 
     _data : Array[String]) : Array[(String,String)] = {
     val bool_fmc = _fmc.filter( x => x._2._1._category == "bool")
     val enum_fmc = _fmc.filter( x => x._2._1._category == "enum")
@@ -896,8 +1304,8 @@ object DataMappor {
     sortedData
   }/// function featureMapToData over
   def featureMapToData(
-    _fmc : Map[String,(ConfParser.FeatureConf,Array[ConfParser.FeatureContent])],
-    _dcc : Map[String,ConfParser.DataConf], 
+    _fmc : Map[String,(ConfUtil.FeatureConf,Array[ConfUtil.FeatureContent])],
+    _dcc : Map[String,ConfUtil.DataConf], 
     _data : Iterator[String]) : Iterator[(String,String)] = {
     val bool_fmc = _fmc.filter( x => x._2._1._category == "bool")
     val enum_fmc = _fmc.filter( x => x._2._1._category == "enum")
@@ -973,4 +1381,558 @@ object DataMappor {
      generateLibSVM.vec2libsvm(_label.toInt,_data.split(' ').map(_.toDouble))
   }
 
+  def RDDSingleLineMappor( 
+    _fmc : Map[String,(ConfUtil.FeatureConf,Array[ConfUtil.FeatureContent])],
+    _dcc : Map[String,ConfUtil.DataConf], 
+    _idxs : Array[(String,Int)], 
+    _str : String ) : String = {
+    // val bool_fmc = _fmc.filter( x => x._2._1._category == "bool")
+    // val enum_fmc = _fmc.filter( x => x._2._1._category == "enum")
+    val kdata_line = _str.split('\t')
+    val key_data_line = _idxs.map{
+      x =>
+        var x1 = ""
+        x1 = x._1 match {
+          case "u_gender" => kdata_line(x._2) match {
+            case "m" => "1"
+            case "f" => "0"
+            case _ => "2"
+          }
+          case _ => kdata_line(x._2) match {
+            case "\\N" => (Int.MaxValue-1000).toString
+            case _ => kdata_line(x._2)
+          }
+        }
+        x._1 -> x1
+    }/// Array((Key,value)) sortedBy colNum
+    val rst_line = key_data_line.map{
+      featureLine =>
+        val label = featureLine.head._2
+        val features = featureLine.tail
+        val featuresValue = features.map{
+          featurePair =>
+            val featureConf = _fmc.get(featurePair._1).get
+            val dataDim = featureConf._2.size
+            val data = Array.fill[Double](dataDim)(0)
+            val featureCategory = featureConf._1._category
+            val featureFormula = featureConf._1._operation
+            featureCategory match {
+              case "bool" => {
+                val subIdx = featurePair._2.toInt
+                (subIdx >= 0 && subIdx <= 1) match {
+                  case true => data(subIdx) = 1
+                  case false => data(data.size-1) = 1
+                }
+              }/// case bool 
+              case "enum" => {
+                featureFormula match {
+                  case "log10" => {
+                    val subIdx = scala.math.log10(featurePair._2.toDouble).toInt
+                    (subIdx >= 0 && subIdx < dataDim) match {
+                      case true => data(subIdx) = 1
+                      case false => data(dataDim-1) = 1
+                    }/// subIdx match 
+                  }/// featureFormula match case "log10"
+                  case _ => {/// featureFormula match case _ 
+                    val subIdx = scala.math.log10(featurePair._2.toDouble).toInt
+                    (subIdx >= 0 && subIdx < dataDim) match {
+                      case true => data(subIdx) = 1
+                      case false => data(dataDim-1) = 1
+                    }/// subIdx match 
+                  }/// featureFormula match case _
+                }/// featureFormula match 
+              }/// featureCategory match case enum 
+              case "origin" => { data(0) = featurePair._2.toDouble } 
+              case _ => {/**featureCategory match case _ **/ }
+            }/// match case 
+            featurePair._1 -> data
+        }/// featuresValue
+        label -> featuresValue
+    }/// rst_data : return label -> Array[(String,Array[(key,data)])]
+    val sortedLine = rst_line._1 -> (rst_line._2.sortBy{
+      x =>
+        _fmc.get(x._1).get._2.maxBy(_._idx)._idx
+    }.map(_._2).flatten.mkString(" "))/// sortedData : label + data : String + Array[String]
+    val rstData = dataToLibsvm(sortedLine._1,sortedLine._2)
+    rstData
+  }/// RDDSingleLineMappor
+}
+
+object DataMappor extends Serializable {
+  def initDataByFmc(
+    _fmc : Map[String,(FeatureConf,Array[FeatureContent])]
+    ) : Array[(String,Array[Int])] = {
+    _fmc.toArray.map(x => x._1 -> Array.fill[Int](x._2._2.size)(0))
+  }
+  def featureMapToData(
+    _fmc : Map[String,(FeatureConf,Array[FeatureContent])],
+    _dcc : Map[String,DataConf], 
+    _data : Array[String]) : Array[(String,String)] = {
+    val bool_fmc = _fmc.filter( x => x._2._1._category == "bool")
+    val enum_fmc = _fmc.filter( x => x._2._1._category == "enum")
+    val idxs = ConfParser.getColsID(_dcc,_fmc)
+    val kdata = _data.map(_.split('\t'))
+    val key_data = kdata.map{
+      line => 
+        idxs.map{
+          x =>
+            var x1 = ""
+            x1 = x._1 match {
+              case "u_gender" => line(x._2) match {
+                case "m" => "1"
+                case "f" => "0"
+                case _ => "2"
+              }
+              case _ => line(x._2) match {
+                case "\\N" => (Int.MaxValue-1000).toString
+                case _ => line(x._2)
+              }
+            }
+            x._1 -> x1
+        }
+    }/// return Array[Array[(Key,Value)]] in Array[Array[(String,String)]]
+    val rst_data = key_data.map{
+      // line => 
+      /// Array[(String,String)]
+      featureLine =>
+        val label = featureLine.head._2
+        val features = featureLine.tail
+        val featuresValue = features.map{
+          featurePair =>
+            val featureConf = _fmc.get(featurePair._1).get
+            val dataDim = featureConf._2.size
+            val data = Array.fill[Int](dataDim)(0)
+            val featureCategory = featureConf._1._category
+            featureCategory match {
+              case "bool" => {
+                val subIdx = featurePair._2.toInt
+                (subIdx >= 0 && subIdx <= 1) match {
+                  case true => data(subIdx) = 1
+                  case false => data(data.size-1) = 1
+                }
+              }/// case bool 
+              case "enum" => {
+                val subIdx = scala.math.log10(featurePair._2.toDouble).toInt
+                (subIdx >= 0 && subIdx < dataDim) match {
+                  case true => data(subIdx) = 1
+                  case false => data(dataDim-1) = 1
+                }
+              }/// case enum 
+              case "origin" => {}/// data(0) = featurePair._2.toDouble
+              case _ => {}
+            }/// match case 
+            featurePair._1 -> data
+        }/// featuresValue
+        label -> featuresValue
+    }/// rst_data : return label -> Array[(String,Array[(key,data)])]
+    val sortedData = rst_data.map{
+      line =>
+        line._1 -> (line._2.sortBy{
+          x =>
+            _fmc.get(x._1).get._2.maxBy(_._idx)._idx
+        }.map(_._2).flatten.mkString(" "))
+    }/// sortedData : label + data : String + Array[String]
+    sortedData
+  }/// function featureMapToData over
+  def featureMapToData(
+    _fmc : Map[String,(FeatureConf,Array[FeatureContent])],
+    _dcc : Map[String,DataConf], 
+    _data : Iterator[String]) : Iterator[(String,String)] = {
+    val bool_fmc = _fmc.filter( x => x._2._1._category == "bool")
+    val enum_fmc = _fmc.filter( x => x._2._1._category == "enum")
+    val idxs = ConfParser.getColsID(_dcc,_fmc)
+    val kdata = _data.map(_.split('\t'))
+    val key_data = kdata.map{
+      line => 
+        idxs.map{
+          x =>
+            var x1 = ""
+            x1 = x._1 match {
+              case "u_gender" => line(x._2) match {
+                case "m" => "1"
+                case "f" => "0"
+                case _ => "2"
+              }
+              case _ => line(x._2) match {
+                case "\\N" => (Int.MaxValue-1000).toString
+                case _ => line(x._2)
+              }
+            }
+            x._1 -> x1
+        }
+    }/// return Iterator[Array[(Key,Value)]] in Iterator[(String,String)]
+    val rst_data = key_data.map{
+      // line => 
+      /// Array[(String,String)]
+      featureLine =>
+        val label = featureLine.head._2
+        val features = featureLine.tail
+        val featuresValue = features.map{
+          featurePair =>
+            val featureConf = _fmc.get(featurePair._1).get
+            val dataDim = featureConf._2.size
+            val data = Array.fill[Int](dataDim)(0)
+            val featureCategory = featureConf._1._category
+            featureCategory match {
+              case "bool" => {
+                val subIdx = featurePair._2.toInt
+                (subIdx >= 0 && subIdx <= 1) match {
+                  case true => data(subIdx) = 1
+                  case false => data(data.size-1) = 1
+                }
+              }/// case bool 
+              case "enum" => {
+                val subIdx = scala.math.log10(featurePair._2.toDouble).toInt
+                (subIdx >= 0 && subIdx < dataDim) match {
+                  case true => data(subIdx) = 1
+                  case false => data(dataDim-1) = 1
+                }
+              }/// case enum 
+              case "origin" => {}/// data(0) = featurePair._2.toDouble
+              case _ => {}
+            }/// match case 
+            featurePair._1 -> data
+        }/// featuresValue
+        label -> featuresValue
+    }/// rst_data : return label -> Array[(String,Array[(key,data)])]
+    val sortedData = rst_data.map{
+      line =>
+        line._1 -> (line._2.sortBy{
+          x =>
+            _fmc.get(x._1).get._2.maxBy(_._idx)._idx
+        }.map(_._2).flatten.mkString(" "))
+    }/// sortedData : label + data : String + Array[String]
+    sortedData
+  }/// function featureMapToData over
+
+  def dataToLibsvm( 
+    _strData : (String,String) 
+    ) : String = dataToLibsvm(_strData._1,_strData._2)
+
+  def dataToLibsvm( _label : String, _data : String ) : String = {
+     generateLibSVM.vec2libsvm(_label.toInt,_data.split(' ').map(_.toDouble))
+  }
+
+  def RDDSingleLineMappor( 
+    _fmc : Map[String,(FeatureConf,Array[FeatureContent])],
+    _dcc : Map[String,DataConf], 
+    _idxs : Array[(String,Int)], 
+    _str : String ) : String = {
+    // val bool_fmc = _fmc.filter( x => x._2._1._category == "bool")
+    // val enum_fmc = _fmc.filter( x => x._2._1._category == "enum")
+    val kdata_line = _str.split('\t')
+    val key_data_line = _idxs.map{
+      x =>
+        var x1 = ""
+        x1 = x._1 match {
+          case "u_gender" => kdata_line(x._2) match {
+            case "m" => "1"
+            case "f" => "0"
+            case _ => "2"
+          }
+          case _ => kdata_line(x._2) match {
+            case "\\N" => (Int.MaxValue-1000).toString
+            case _ => kdata_line(x._2)
+          }
+        }
+        x._1 -> x1
+    }/// Array((Key,value)) sortedBy colNum
+    val label = key_data_line.head._2
+    val features = key_data_line.tail
+    val featuresValue = features.map{
+      featurePair =>
+        val featureConf = _fmc.get(featurePair._1).get
+        val dataDim = featureConf._2.size
+        val data = Array.fill[Double](dataDim)(0)
+        val featureCategory = featureConf._1._category
+        val featureFormula = featureConf._1._operation
+        featureCategory match {
+          case "bool" => {
+            val subIdx = featurePair._2.toInt
+            (subIdx >= 0 && subIdx <= 1) match {
+              case true => data(subIdx) = 1
+              case false => data(data.size-1) = 1
+            }
+          }/// case bool 
+          case "enum" => {
+            featureFormula match {
+              case "log10" => {
+                val subIdx = scala.math.log10(featurePair._2.toDouble).toInt
+                (subIdx >= 0 && subIdx < dataDim) match {
+                  case true => data(subIdx) = 1
+                  case false => data(dataDim-1) = 1
+                }/// subIdx match 
+              }/// featureFormula match case "log10"
+              case _ => {/// featureFormula match case _ 
+                val subIdx = scala.math.log10(featurePair._2.toDouble).toInt
+                (subIdx >= 0 && subIdx < dataDim) match {
+                  case true => data(subIdx) = 1
+                  case false => data(dataDim-1) = 1
+                }/// subIdx match 
+              }/// featureFormula match case _
+            }/// featureFormula match 
+          }/// featureCategory match case enum 
+          case "origin" => { data(0) = featurePair._2.toDouble } 
+          case _ => {/**featureCategory match case _ **/ }
+        }/// match case 
+        featurePair._1 -> data
+    }/// featuresValue
+    /// rst_data : return label -> Array[(String,Array[(key,data)])]
+    val rst_line = label -> featuresValue
+    val sortedLine = rst_line._1 -> (rst_line._2.sortBy{
+      x =>
+        _fmc.get(x._1).get._2.maxBy(_._idx)._idx
+    }.map(_._2).flatten.mkString(" "))/// sortedData : label + data : String + Array[String]
+    val rstData = dataToLibsvm(sortedLine._1,sortedLine._2)
+    rstData
+  }/// RDDSingleLineMappor
+}
+object RDDcolsOperate extends Serializable  {
+
+  def testFile(_f : String) = new java.io.File(_f).isFile
+
+  def readFile(_f : String) = scala.io.Source.fromFile(_f).getLines
+
+  def readFile(_f : String, _codec : String) = scala.io.Source.fromFile(_f)(_codec).getLines
+
+}
+object RDDgenerateLibSVM extends Serializable {
+
+  // one vector in Array[Double] type convert to libsvm, split by space 
+  // features'indices start from 1
+  @transient
+  def vec2libsvm( _vec : Array[Double] ) : String = {
+    _vec
+      .zipWithIndex
+      .filterNot(_._1 == 0)
+      .map{ 
+        case( value, idx ) => 
+        (idx + 1).toString + ":" + value.toString
+      }
+      .mkString(" ")
+  }
+  @transient
+  // generate LabeledPoint in libsvm format by data String 
+  def vec2libsvm( _label : Int, _vec : Array[Double] ) : String = _label.toString + " " + vec2libsvm(_vec)
+
+}
+
+
+  case class DataConf(
+    _idx : Int,
+    _name : String,
+    _category : String = "",
+    _operation : String = "") extends Serializable
+
+  case class FeatureConf(
+    _name : String,
+    _category : String,
+    _operation : String = "") extends Serializable
+
+  case class FeatureContent(
+    _idx : Int,
+    _subIdx : Int,
+    _default : Int = 0,
+    _info : String = "") extends Serializable
+
+
+
+object RDDConfParser extends Serializable {
+  val seperator = '\t'
+  @transient
+  def loadDataConf( _path : String, _codec : String = "UTF-8" ) : Map[String,DataConf] = {
+    val contents = RDDcolsOperate.readFile(_path,_codec)
+      .toArray
+      .filterNot(x => x.startsWith("@") ||
+        x.startsWith("#") ||
+        x.size < 1)
+      .map(_.split('@'))
+      .filterNot(_.size < 2)
+      .map{
+        splits => 
+          splits.size match {
+            case 2 => new DataConf(splits(0).toInt,splits(1))
+            case 3 => new DataConf(splits(0).toInt,splits(1),splits(2))
+            case 4 => new DataConf(splits(0).toInt,splits(1),splits(2),splits(3))
+            case _ => {
+              println("error when read data.conf,format not match!!" + 
+                s"${splits.size}")
+              new DataConf(-1,"","")
+            }
+          }
+      } 
+      .map{
+        case(dcf) => dcf._name -> dcf 
+      }.toMap
+      contents
+  }
+  @transient
+  def loadFeatureMap( _path : String, 
+    _codec : String = "UTF-8" ) : Map[String,(FeatureConf,Array[FeatureContent])] = {
+    RDDcolsOperate.readFile(_path,_codec)
+      .toArray
+      .filterNot( x =>  x.startsWith("@") ||
+        (x.split(seperator).size < 2 && x.split(seperator).size < 2))
+      .mkString("\n")
+      .split('#')
+      .map(_.split('\n'))
+      .filterNot(_.size < 2)
+      .map{
+        featureAndContent =>
+          val featureSplits = featureAndContent.head.split(seperator).size match {
+            case 1 => featureAndContent.head.split(seperator)
+            case _ => featureAndContent.head.split(seperator)
+          }
+          val contentSplits = featureAndContent.tail.map(_.split(seperator).size).max  match {
+            case 1 => featureAndContent.tail.map(_.split(seperator))
+            case _ => featureAndContent.tail.map(_.split(seperator))
+          }
+          val featureConf = featureSplits.size match {
+            case 2 => new FeatureConf(featureSplits(0),featureSplits(1))
+            case 3 => new FeatureConf(featureSplits(0),featureSplits(1),featureSplits(2))
+            case _ => {
+              println("error when read feature.map,format not match!!" + 
+              s"error with featureConf.size ${featureSplits.size}")
+              new FeatureConf("","")
+            }/// match case _
+          }/// match 
+          val featureContent = contentSplits.map{
+            featureContentLine =>
+              // println(featureContentLine.head)
+              featureContentLine.size match {
+                case 2 => contentSplits(1).size.equals("_other_") match {
+                  case true => new FeatureContent(
+                    featureContentLine(0).toInt,
+                    featureContentLine(1).toInt,0,
+                    "")
+                  case false => new FeatureContent(
+                    featureContentLine(0).toInt,
+                    featureContentLine.size -1, 0,
+                    featureContentLine(1))
+                }
+                case 3 => new FeatureContent(
+                  featureContentLine(0).toInt,
+                  featureContentLine(1).toInt,
+                  featureContentLine(2).toInt)
+                case 4 => new FeatureContent(
+                  featureContentLine(0).toInt,
+                  featureContentLine(1).toInt,
+                  featureContentLine(2).toInt,
+                  featureContentLine(3))
+                case _ => {
+                  println("error when read feature.map,format not match!!" + 
+                  s"error with featureContentLine.size : ${featureContentLine.size}")
+                  new FeatureContent(-1,-1)
+                }/// match case
+              }/// match 
+          }/// contentSplits.map 
+          // .toMap
+          featureConf -> featureContent
+      }/// filterNot.map 
+      .map( x => x._1._name -> x )
+      .toMap
+  }
+  @transient
+  def getColsID( _dcc : Map[String,DataConf], 
+    _fmc : Map[String,(FeatureConf,Array[FeatureContent])],
+    _isLabeled : Boolean = true, /// @Deprecated 
+    _defaultLabel : Int = 0 /// @Deprecated 
+    ) : Array[(String,Int)] = {
+    val featureNames = _fmc.toArray.map(_._1)
+    val rstIdxs = featureNames.map( x => _dcc.get(x).get._name -> _dcc.get(x).get._idx)
+    val _isHasLabel = _dcc.get("label") match {
+      case None => false
+      case Some(_) => true
+    }
+    (_isLabeled && _isHasLabel) match {
+      case true => ((_dcc.get("label").get._name -> _dcc.get("label").get._idx) +: rstIdxs ).sortBy{x => x._2}
+      case false => rstIdxs.sortBy{_._2}
+    }
+  }
+  @transient
+  def readMaxColNum( _fmc : Map[String,(FeatureConf,Array[FeatureContent])] ) : Int = _fmc.map(_._2._2.map(_._idx)).flatten.max 
+}
+object RDDDataMappor extends Serializable {
+
+  def dataToLibsvm( 
+    _strData : (String,String) 
+    ) : String = dataToLibsvm(_strData._1,_strData._2)
+
+  def dataToLibsvm( _label : String, _data : String ) : String = {
+     RDDgenerateLibSVM.vec2libsvm(_label.toInt,_data.split(' ').map(_.toDouble))
+  }
+
+  def RDDSingleLineMappor( 
+    _fmc : Map[String,(FeatureConf,Array[FeatureContent])],
+    _dcc : Map[String,DataConf], 
+    _idxs : Array[(String,Int)], 
+    _str : String ) : String = {
+    // val bool_fmc = _fmc.filter( x => x._2._1._category == "bool")
+    // val enum_fmc = _fmc.filter( x => x._2._1._category == "enum")
+    val kdata_line = _str.split('\t')
+    val key_data_line = _idxs.map{
+      x =>
+        var x1 = ""
+        x1 = x._1 match {
+          case "u_gender" => kdata_line(x._2) match {
+            case "m" => "1"
+            case "f" => "0"
+            case _ => "2"
+          }
+          case _ => kdata_line(x._2) match {
+            case "\\N" => (Int.MaxValue-1000).toString
+            case _ => kdata_line(x._2)
+          }
+        }
+        x._1 -> x1
+    }/// Array((Key,value)) sortedBy colNum
+    val label = key_data_line.head._2
+    val features = key_data_line.tail
+    val featuresValue = features.map{
+      featurePair =>
+        val featureConf = _fmc.get(featurePair._1).get
+        val dataDim = featureConf._2.size
+        val data = Array.fill[Double](dataDim)(0)
+        val featureCategory = featureConf._1._category
+        val featureFormula = featureConf._1._operation
+        featureCategory match {
+          case "bool" => {
+            val subIdx = featurePair._2.toInt
+            (subIdx >= 0 && subIdx <= 1) match {
+              case true => data(subIdx) = 1
+              case false => data(data.size-1) = 1
+            }
+          }/// case bool 
+          case "enum" => {
+            featureFormula match {
+              case "log10" => {
+                val subIdx = scala.math.log10(featurePair._2.toDouble).toInt
+                (subIdx >= 0 && subIdx < dataDim) match {
+                  case true => data(subIdx) = 1
+                  case false => data(dataDim-1) = 1
+                }/// subIdx match 
+              }/// featureFormula match case "log10"
+              case _ => {/// featureFormula match case _ 
+                val subIdx = scala.math.log10(featurePair._2.toDouble).toInt
+                (subIdx >= 0 && subIdx < dataDim) match {
+                  case true => data(subIdx) = 1
+                  case false => data(dataDim-1) = 1
+                }/// subIdx match 
+              }/// featureFormula match case _
+            }/// featureFormula match 
+          }/// featureCategory match case enum 
+          case "origin" => { data(0) = featurePair._2.toDouble } 
+          case _ => {/**featureCategory match case _ **/ }
+        }/// match case 
+        featurePair._1 -> data
+    }/// featuresValue
+    /// rst_data : return label -> Array[(String,Array[(key,data)])]
+    val rst_line = label -> featuresValue
+    val sortedLine = rst_line._1 -> (rst_line._2.sortBy{
+      x =>
+        _fmc.get(x._1).get._2.maxBy(_._idx)._idx
+    }.map(_._2).flatten.mkString(" "))/// sortedData : label + data : String + Array[String]
+    val rstData = dataToLibsvm(sortedLine._1,sortedLine._2)
+    rstData
+  }/// RDDSingleLineMappor
 }

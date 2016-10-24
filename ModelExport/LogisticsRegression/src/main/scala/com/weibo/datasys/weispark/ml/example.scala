@@ -1,3 +1,8 @@
+package com.weibo.datasys.weispark.ml
+/// @author : suanec_Betn
+/// @version : 0.2
+/// @data : 2016/10/24
+
 object example {
   val path = "D:\\Docs\\Works_And_Jobs\\Sina\\Betn_code\\ModelExport\\LogisticsRegression\\data"
   val dataConfFile = path + "\\data.conf"
@@ -34,6 +39,22 @@ object example {
     while(rst.hasNext) p.write(rst.next + "\n")
     p.flush
     p.close   
+  }
+
+  def RDDTest() = {
+    val sparkConf = new org.apache.spark.SparkConf().setAppName("FeatureMapporExample")
+    val sc = import org.apache.spark.SparkContext(sparkConf)
+    val data = sc.textFile(dataFile)
+    val dcc = RDDConfParser.loadDataConf(dataConfFile)
+    val fmc = RDDConfParser.loadFeatureMap(featureMapFile)
+    val idxs = RDDConfParser.getColsID(dcc,fmc)
+    val dcc_b = sc.broadcast(dcc)
+    val fmc_b = sc.broadcast(fmc)
+    val idxs_b = sc.broadcast(idxs)
+    // val strData = data.map(line => DataMappor.RDDSingleLineMappor(dcc_b.value,fmc_b.value,idxs_b.value,line))
+    val strData = data.map(line => RDDDataMappor.RDDSingleLineMappor(fmc_b.value,dcc_b.value,idxs_b.value,line))
+    // val strData = data.map(line => RDDSingleLineMappor(fmc,dcc,idxs,line))
+    strData.saveAsText(outputFile)
   }
 
   def main(args : Array[String]) : Unit = {

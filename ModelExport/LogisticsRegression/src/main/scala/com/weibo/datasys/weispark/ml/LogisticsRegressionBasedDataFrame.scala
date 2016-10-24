@@ -1,3 +1,8 @@
+package com.weibo.datasys.weispark.ml
+/// @author : suanec_Betn
+/// @version : 0.2
+/// @data : 2016/10/24
+
 import org.apache.spark.ml.classification.LogisticRegression
 
 // // Load training data
