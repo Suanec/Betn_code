@@ -141,6 +141,7 @@ class weiNaiveBayesModel(m_trainFile : String,
     rst_model
   }
 }
+
 object weiNaiveBayesModel {
   def trainModel( _dataFile : String ) : org.apache.spark.ml.classification.NaiveBayesModel = {
     val spark = org.apache.spark.sql.SparkSession
