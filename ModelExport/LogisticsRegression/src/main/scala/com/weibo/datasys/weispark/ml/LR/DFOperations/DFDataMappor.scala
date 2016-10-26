@@ -77,7 +77,10 @@ object DFDataMappor extends Serializable {
         featurePair._1 -> data
     }/// featuresValue
     /// rst_data : return label -> Array[(String,Array[(key,data)])]
-    val rst_line = label -> featuresValue
+    val rst_line = label.equals("-1") match {
+      case false => label -> featuresValue
+      case true => "0" -> featuresValue
+    }
     val sortedLine = rst_line._1 -> (rst_line._2.sortBy{
       x =>
         _fmc.get(x._1).get._2.maxBy(_._idx)._idx
