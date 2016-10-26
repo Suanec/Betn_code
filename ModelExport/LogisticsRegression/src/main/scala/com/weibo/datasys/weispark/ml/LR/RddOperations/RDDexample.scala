@@ -1,4 +1,4 @@
-package com.weibo.datasys.weispark.ml
+package com.weibo.datasys.weispark.ml.LogisticsRegression.RDDOperations
 /// @author : suanec_Betn
 /// @version : 0.2
 /// @data : 2016/10/24
@@ -12,7 +12,7 @@ object example {
   val file = path + "\\sample_data"
   val outputFile = path + "\\..\\rst\\sample_data.libsvm"
 
-  def DFTest() = {
+  def RDDTest() = {
     val sparkConf = new org.apache.spark.SparkConf()
       .setAppName("FeatureMapporExample")
       .setMaster("local")

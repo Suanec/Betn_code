@@ -1,4 +1,4 @@
-package com.weibo.datasys.weispark.ml
+package com.weibo.datasys.weispark.ml.LogisticsRegression.RDDOperations
 /// @author : suanec_Betn
 /// @version : 0.2
 /// @data : 2016/10/24

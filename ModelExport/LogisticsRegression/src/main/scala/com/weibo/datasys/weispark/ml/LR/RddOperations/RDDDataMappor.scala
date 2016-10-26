@@ -1,10 +1,10 @@
-package com.weibo.datasys.weispark.ml
+package com.weibo.datasys.weispark.ml.LogisticsRegression.RDDOperations
 /// @author : suanec_Betn
 /// @version : 0.2
 /// @data : 2016/10/24
 
  
-object DFDataMappor extends Serializable {
+object RDDDataMappor extends Serializable {
 
   def dataToLibsvm( 
     _strData : (String,String) 

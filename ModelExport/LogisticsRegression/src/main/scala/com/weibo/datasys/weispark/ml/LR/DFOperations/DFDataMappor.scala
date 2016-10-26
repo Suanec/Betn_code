@@ -1,20 +1,20 @@
-package com.weibo.datasys.weispark.ml
+package com.weibo.datasys.weispark.ml.LogisticsRegression.DFOperations
 /// @author : suanec_Betn
 /// @version : 0.2
 /// @data : 2016/10/24
 
  
-object RDDDataMappor extends Serializable {
+object DFDataMappor extends Serializable {
 
   def dataToLibsvm( 
     _strData : (String,String) 
     ) : String = dataToLibsvm(_strData._1,_strData._2)
 
   def dataToLibsvm( _label : String, _data : String ) : String = {
-     RDDgenerateLibSVM.vec2libsvm(_label.toInt,_data.split(' ').map(_.toDouble))
+     DFgenerateLibSVM.vec2libsvm(_label.toInt,_data.split(' ').map(_.toDouble))
   }
 
-  def RDDSingleLineMappor( 
+  def SingleLineMappor( 
     _fmc : ConfUtil.FeatureMapType,
     _dcc : ConfUtil.DataConfType, 
     _idxs : Array[(String,Int)], 

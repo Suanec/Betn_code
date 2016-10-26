@@ -1,10 +1,10 @@
-package com.weibo.datasys.weispark.ml
+package com.weibo.datasys.weispark.ml.LogisticsRegression.DFOperations
 /// @author : suanec_Betn
 /// @version : 0.2
 /// @data : 2016/10/24
 
 
-object RDDgenerateLibSVM extends Serializable {
+object DFgenerateLibSVM extends Serializable {
 
   // one vector in Array[Double] type convert to libsvm, split by space 
   // features'indices start from 1
