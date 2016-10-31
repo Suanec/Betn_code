@@ -54,7 +54,7 @@ object example {
     // val strData = data.map(line => DataMappor.RDDSingleLineMappor(dcc_b.value,fmc_b.value,idxs_b.value,line))
     val strData = data.map(line => RDDDataMappor.RDDSingleLineMappor(fmc_b.value,dcc_b.value,idxs_b.value,line))
     // val strData = data.map(line => RDDSingleLineMappor(fmc,dcc,idxs,line))
-    strData.saveAsText(outputFile)
+    strData.saveAsTextFile(outputFile)
   }
 
   def main(args : Array[String]) : Unit = {
