@@ -1936,3 +1936,107 @@ object RDDDataMappor extends Serializable {
     rstData
   }/// RDDSingleLineMappor
 }
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+/// 20161101
+import org.apache.spark.SparkContext
+import org.apache.spark.SparkConf
+import org.apache.spark.mllib.regression.LabeledPoint
+import org.apache.spark.mllib.linalg.Vectors
+import org.apache.spark.mllib.util.MLUtils
+import java.io._
+import org.apache.spark.mllib.classification.LogisticRegressionModel
+import org.apache.spark.mllib.optimization._
+import org.apache.log4j.Logger
+import org.apache.log4j.Level
+import org.apache.spark.rdd.RDD
+import org.apache.spark.storage.StorageLevel
+import org.apache.spark.mllib.evaluation.BinaryClassificationMetrics
+
+import org.apache.spark.mllib.classification.LogisticRegression
+import org.apache.spark.mllib.optimization.TronFunction
+import org.apache.spark.mllib.optimization.Tron
+import org.apache.spark.mllib.optimization.TronLR
+
+val inputPath = """D:\Docs\Works_And_Jobs\Sina\Betn_code\ModelExport\LogisticsRegression\rst\data.libsvm-2016-10-31-20-44-38"""
+val modelPath = """D:\Docs\Works_And_Jobs\Sina\Betn_code\ModelExport\LogisticsRegression\rst\LR.model-2016-10-31-20-44-38"""
+
+val data = MLUtils.loadLibSVMFile(sc, inputPath)
+val Array(training,test) = data.randomSplit(Array(0.8,0.2))
+
+val optimizer = new Tron()
+var haveIntercept = false
+// var partitionNum = 4
+// var featureNum = 95
+
+val model = new LogisticRegression(optimizer).setIntercept(haveIntercept).run(training.map(lbpoint=>{
+     if (lbpoint.label==(-1.0)) {
+        LabeledPoint(0, lbpoint.features)
+    } else {
+        lbpoint
+    }
+})).clearThreshold()
+// .persist(StorageLevel.MEMORY_AND_DISK )
+
+// model: org.apache.spark.mllib.classification.LogisticRegressionModel = org.apach
+// e.spark.mllib.classification.LogisticRegressionModel: intercept = 0.0, numFeatur
+// es = 95, numClasses = 2, threshold = None
+
+
+val scoreAndLabels = test.map { point =>
+  val score = model.predict(point.features)
+  point.label match {
+    case -1d => (score,0d)
+    case 1d =>  (score, point.label)
+    case _ => (score, point.label)
+  }
+}
+scoreAndLabels.filter(x => x._1 == x._2).count / scoreAndLabels.count.toDouble
+val metrics = new BinaryClassificationMetrics(scoreAndLabels)
+val auROC = metrics.areaUnderROC()
+
+
+
+import org.apache.spark.mllib.classification.{LogisticRegressionModel, LogisticRegressionWithLBFGS}
+
+// Run training algorithm to build the model
+val m = new LogisticRegressionWithLBFGS().setNumClasses(3).run(
+  training.map(lbpoint=>{
+     if (lbpoint.label==(-1.0)) {
+        LabeledPoint(0, lbpoint.features)
+    } else {
+        lbpoint
+    }
+})).clearThreshold()
+
+// m: org.apache.spark.mllib.classification.LogisticRegressionModel = org.apache.sp
+// ark.mllib.classification.LogisticRegressionModel: intercept = 0.0, numFeatures =
+//  380, numClasses = 5, threshold = 0.5
+
+val sALs = test.map { point =>
+  val score = m.predict(point.features)
+  point.label match {
+    case -1d => (score,0d)
+    case 1d =>  (score, point.label)
+    case _ => (score, point.label)
+  }
+}
+
+val mtrs = new BinaryClassificationMetrics(sALs)
+val auC = mtrs.areaUnderROC()
+
+
+
+
+
+
+
+
