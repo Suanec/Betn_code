@@ -2082,11 +2082,11 @@ val auC = mtrs.areaUnderROC()
     line => 
       val rst = (0 until line._2 ).map{
         i => 
-          (i > line._1) match {
-            case true => "0 " + line._3.split(' ').tail.mkString(" ")
-            case false => "1 " + line._3.split(' ').tail.mkString(" ")
+          (i < line._1) match {
+            case false => "0 " + line._3.split(' ').tail.mkString(" ")
+            case true => "1 " + line._3.split(' ').tail.mkString(" ")
           }
-      }.toArray
+      }//.toArray
       if(rst.size != line._2 ) println(line + "size error!")
       rst
   }
