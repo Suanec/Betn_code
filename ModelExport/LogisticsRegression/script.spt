@@ -2034,8 +2034,63 @@ val mtrs = new BinaryClassificationMetrics(sALs)
 val auC = mtrs.areaUnderROC()
 
 
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+/// 20161102
 
 
+  val path = "D:\\Docs\\Works_And_Jobs\\Sina\\Betn_code\\ModelExport\\LogisticsRegression\\data"
+  val dataConfFile = path + "\\data.conf"
+  val featureMapFile = path + "\\feature.map"
+  val dataFile = path + "\\data.sample"
+  val outputFile = path + "\\..\\rst\\sample_repeat_data.libsvm"
+
+
+  val Array(labelOne,labelZero) = scala.io.Source.fromFile(
+    dataConfFile).getLines.toArray.filter(
+    _.startsWith("@")).head.split(':').tail.map(_.toInt)
+  val data = sc.textFile(dataFile).map{ 
+    x =>
+      val splits = x.split('\t');
+      (splits(labelOne-1).toInt,splits(labelZero-1).toInt,x)
+    }
+  val dcc = RDDConfParser.loadDataConf(dataConfFile)
+  val fmc = RDDConfParser.loadFeatureMap(featureMapFile).filterNot( x => 
+    dcc.get(x._1).get._idx == labelOne ||
+    dcc.get(x._1).get._idx == labelZero )
+  val idxs = RDDConfParser.getColsID(dcc,fmc)
+  val dcc_b = sc.broadcast(dcc.filterNot( x => 
+    labelOne == x._2._idx || labelZero == x._2._idx ))
+  val fmc_b = sc.broadcast(fmc)
+  val idxs_b = sc.broadcast(idxs)
+  val strData = data.map{
+    line => 
+      val labelOneTimes = line._1
+      val labelZeroTimes = line._2
+      val features = RDDDataMappor.RDDSingleLineMappor(fmc_b.value,dcc_b.value,idxs_b.value,line._3)
+      (labelOneTimes,labelZeroTimes,features)
+  }
+  val rstData = strData.flatMap{
+    line => 
+      val rst = (0 until line._2 ).map{
+        i => 
+          (i > line._1) match {
+            case true => "0 " + line._3.split(' ').tail.mkString(" ")
+            case false => "1 " + line._3.split(' ').tail.mkString(" ")
+          }
+      }.toArray
+      if(rst.size != line._2 ) println(line + "size error!")
+      rst
+  }
+  rstData.saveAsTextFile(outputFile)
 
 
 

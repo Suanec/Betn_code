@@ -84,5 +84,50 @@ object LogisticsRegressionBasedDataFrame {
     writer.flush
     writer.close
   }
+
+  def model2file(
+    _lrModel : org.apache.spark.mllib.classification.LogisticRegressionModel,
+    _outPath : String) : Unit = {
+    // val writer = new java.io.PrintWriter(_outPath,"utf-8")
+    // var rst = ""
+    // rst += "solver_type " + "L2R_LR\n"
+    // rst += "nr_class " + _lrModel.numClasses.toString + "\n"
+    // rst += "label " + "0 1" + "\n"
+    // rst += "nr_feature " + _lrModel.coefficients.size.toString + "\n"
+    // rst += "bias " + _lrModel.intercept.toString + "\n"
+    // writer.write(rst)
+    // rst = ""
+    // rst += "w \n"
+    // writer.write(rst)
+    // rst = ""
+    // writer.flush
+    // rst += _lrModel.coefficients.toArray.mkString("\n")
+    // writer.write(rst)
+    // rst = ""
+    // writer.flush
+    // writer.close
+  }
+
+   def model2file(_lrModel : org.apache.spark.mllib.classification.LogisticRegressionModel,
+                 _outPath : String) : Unit = {
+    val writer = new java.io.PrintWriter(_outPath,"utf-8")
+    var rst = ""
+    rst += "solver_type " + "L2R_LR\n"
+    rst += "nr_class " + _lrModel.numClasses.toString + "\n"
+    rst += "label " + "0 1" + "\n"
+    rst += "nr_feature " + _lrModel.numFeatures.toString  + "\n"
+    rst += "bias " + _lrModel.intercept.toString + "\n"
+    writer.write(rst)
+    rst = ""
+    rst += "w \n"
+    writer.write(rst)
+    rst = ""
+    writer.flush
+    rst += _lrModel.weights.toArray.mkString("\n")
+    writer.write(rst)
+    rst = ""
+    writer.flush
+    writer.close
+  }
 }
 
