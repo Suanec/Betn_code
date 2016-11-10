@@ -315,86 +315,86 @@ extends Optimizer with HaveRegularize
     }
 
     breakable {
-    while(iter <= ITERATIONS && search == 1)
-    {
-      var (cgIter, s, r) = trcg(dataPoints, cValue, delta, w, g)
-      w_new = TronUtil.toBreeze(w) + s
-      gs = g dot s
-      prered = -0.5*(gs - (s dot r))
-      /* Function value */
-      fnew = function.functionValue(dataPoints, Vectors.fromBreeze(w_new), cValue)
+      while(iter <= ITERATIONS && search == 1)
+      {
+        var (cgIter, s, r) = trcg(dataPoints, cValue, delta, w, g)
+        w_new = TronUtil.toBreeze(w) + s
+        gs = g dot s
+        prered = -0.5*(gs - (s dot r))
+        /* Function value */
+        fnew = function.functionValue(dataPoints, Vectors.fromBreeze(w_new), cValue)
 
-      /* Compute the actual reduction. */
-      actred = f - fnew
+        /* Compute the actual reduction. */
+        actred = f - fnew
 
-      /* On the first iteration, adjust the initial step bound. */
-      snorm = dnrm2_(s)
-      if (iter == 1)
-      {
-        delta = math.min(delta, snorm)
-      }
-
-      /* Compute prediction alpha*snorm of the step. */
-      if(fnew - f - gs <= 0)
-      {
-        alpha = sigma3
-      }
-      else
-      {
-        alpha = math.max(sigma1, -0.5*(gs/(fnew - f - gs)))
-      }
-
-      /* Update the trust region bound according to the ratio of actual to predicted reduction. */
-      if (actred < eta0*prered)
-      {
-        delta = math.min(math.max(alpha, sigma1)*snorm, sigma2*delta);
-      }
-      else if(actred < eta1*prered)
-      {
-        delta = math.max(sigma1*delta, math.min(alpha*snorm, sigma2*delta))
-      }
-      else if (actred < eta2*prered)
-      {
-        delta = math.max(sigma1*delta, math.min(alpha*snorm, sigma3*delta))
-      }
-      else
-      {
-        delta = math.max(delta, math.min(alpha*snorm, sigma3*delta))
-      }
-
-      println("iter %2d act %5.3e pre %5.3e delta %5.3e f %5.3e |g| %5.3e CG %3d".format(iter, actred, prered, delta, f, gnorm, cgIter))
-
-      if (actred > eta0*prered)
-      {
-        iter += 1
-        w = Vectors.fromBreeze(w_new)
-        f = fnew
-        /* gradient */
-        g = function.gradient(dataPoints, w, cValue)
-
-        gnorm = dnrm2_(g)
-        if (gnorm <= eps*gnorm1)
+        /* On the first iteration, adjust the initial step bound. */
+        snorm = dnrm2_(s)
+        if (iter == 1)
         {
-          println("EXIT: gnorm <= eps*gnorm1")
+          delta = math.min(delta, snorm)
+        }
+
+        /* Compute prediction alpha*snorm of the step. */
+        if(fnew - f - gs <= 0)
+        {
+          alpha = sigma3
+        }
+        else
+        {
+          alpha = math.max(sigma1, -0.5*(gs/(fnew - f - gs)))
+        }
+
+        /* Update the trust region bound according to the ratio of actual to predicted reduction. */
+        if (actred < eta0*prered)
+        {
+          delta = math.min(math.max(alpha, sigma1)*snorm, sigma2*delta);
+        }
+        else if(actred < eta1*prered)
+        {
+          delta = math.max(sigma1*delta, math.min(alpha*snorm, sigma2*delta))
+        }
+        else if (actred < eta2*prered)
+        {
+          delta = math.max(sigma1*delta, math.min(alpha*snorm, sigma3*delta))
+        }
+        else
+        {
+          delta = math.max(delta, math.min(alpha*snorm, sigma3*delta))
+        }
+
+        println("iter %2d act %5.3e pre %5.3e delta %5.3e f %5.3e |g| %5.3e CG %3d".format(iter, actred, prered, delta, f, gnorm, cgIter))
+
+        if (actred > eta0*prered)
+        {
+          iter += 1
+          w = Vectors.fromBreeze(w_new)
+          f = fnew
+          /* gradient */
+          g = function.gradient(dataPoints, w, cValue)
+
+          gnorm = dnrm2_(g)
+          if (gnorm <= eps*gnorm1)
+          {
+            println("EXIT: gnorm <= eps*gnorm1")
+            break()
+          }
+        }
+        if (f < -1.0e+32)
+        {
+          println("WARNING: f < -1.0e+32")
+          break()
+        }
+        if (math.abs(actred) <= 0 && prered <= 0)
+        {
+          println("WARNING: actred and prered <= 0")
+          break()
+        }
+        if (math.abs(actred) <= 1.0e-12*math.abs(f) && math.abs(prered) <= 1.0e-12*math.abs(f))
+        {
+          println("WARNING: actred and prered too small")
           break()
         }
       }
-      if (f < -1.0e+32)
-      {
-        println("WARNING: f < -1.0e+32")
-        break()
-      }
-      if (math.abs(actred) <= 0 && prered <= 0)
-      {
-        println("WARNING: actred and prered <= 0")
-        break()
-      }
-      if (math.abs(actred) <= 1.0e-12*math.abs(f) && math.abs(prered) <= 1.0e-12*math.abs(f))
-      {
-        println("WARNING: actred and prered too small")
-        break()
-      }
-    }
     }
     w
   }

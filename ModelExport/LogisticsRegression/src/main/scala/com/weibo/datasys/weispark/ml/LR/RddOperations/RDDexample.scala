@@ -11,12 +11,12 @@ object example {
   val output_file_path = path + "\\..\\rst\\data.libsvm-"
   val file = path + "\\sample_data"
   val outputFile = path + "\\..\\rst\\sample_data.libsvm"
+  val sparkConf = new org.apache.spark.SparkConf()
+    .setAppName("FeatureMapporExample")
+    .setMaster("local")
+  val sc = new org.apache.spark.SparkContext(sparkConf)
 
   def RDDTest() = {
-    val sparkConf = new org.apache.spark.SparkConf()
-      .setAppName("FeatureMapporExample")
-      .setMaster("local")
-    val sc = new org.apache.spark.SparkContext(sparkConf)
     val data = sc.textFile(dataFile)
     val dcc = RDDConfParser.loadDataConf(dataConfFile)
     val fmc = RDDConfParser.loadFeatureMap(featureMapFile)
