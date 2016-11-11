@@ -53,6 +53,8 @@ public class weiNaiveBayesPredict {
     String[] splits = _data.split(" ");
     Double[] rst = new Double[theta[0].length];
     for(int i = 0; i < rst.length; i++) rst[i] = pi[i];
+
+    /// theta^T * x + pi => Vector(rst) 
     for(int i = 1; i < splits.length; i++){
       String[] values = splits[i].split(":");
       int idx = Integer.parseInt(values[0]);
