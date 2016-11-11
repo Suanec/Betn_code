@@ -300,7 +300,12 @@ object LabeledPointParser {
     //   new java.text.SimpleDateFormat("yyyy-MM-dd-HH-mm-ss")
     //   .format(System.currentTimeMillis))
     val ofp = _outputFile
-    rstData.saveAsTextFile(ofp)
+    try{
+      rstData.saveAsTextFile(ofp)
+      }catch{
+        case e : org.apache.hadoop.mapred.FileAlreadyExistsException => e.getMessage
+        case _ : Throwable => s"Output directory ${ofp} has some Error, please check it!!"
+      }
     println(s"LabeledPoint format data has been saved to: ${ofp} \n")
     ofp
   }
