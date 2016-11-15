@@ -3,7 +3,7 @@
 import org.apache.spark.ml.feature.LabeledPoint
 import org.apache.spark.ml.linalg.Vectors
 import org.apache.spark.broadcast.Broadcast
-import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql.{SparkSession,Dataset}
 
 import com.weibo.datasys.Common._
 import com.weibo.datasys.Common.ConfSpecs._
@@ -168,7 +168,35 @@ object LabeledPointParser {
         new LabeledPoint(0,Vectors.dense(Array(0d)))
       }
     }
+  } 
+
+  def parquet( 
+    _spark : SparkSession,
+    _inputFiles : String
+    ) : Dataset[org.apache.spark.ml.feature.LabeledPoint] = {
+    val dflbp = _spark.read.parquet(_inputFiles)
+    if(dflbp.head.size != 2) {
+      println(s"error of format with ${dflbp.schema}")
+    }
+    /** TO DO : judge the input legal **/
+    dflbp.head.schema.last.dataType match{
+      case dataType : 
+      org.apache.spark.mllib.linalg.VectorUDT => {
+        dflbp.map( x => 
+          new LabeledPoint(
+            x(0).asInstanceOf[Double],
+            x(1).asInstanceOf[org.apache.spark.mllib.linalg.Vector].asML)
+        )
+      }
+      case _ => {
+        dflbp.map( x => 
+          new LabeledPoint(
+            x(0).asInstanceOf[Double],
+            x(1).asInstanceOf[org.apache.spark.ml.linalg.Vector]))
+      }
+    }/// match 
   }
+
 
   def lbpWriter(
     _data : RDD[LabeledPoint], 

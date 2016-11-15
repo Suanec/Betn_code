@@ -848,3 +848,66 @@ rArr.indices.foreach( i => println((rArr(i).mkString(",") + " : " + rsts(i)._2))
 ========================================================================================
 ========================================================================================
 ========================================================================================
+/// 2016-11-14
+/// To ToYuXiang
+val path = """D:\Docs\Works_And_Jobs\Sina\Betn_code\ModelExport\data\original\ToYuXiang"""
+
+val abFile = path + "\\abnormal_sample.txt"
+val normalFile = path + "\\normal_sample.txt"
+
+// (ab)normal_sample.rst to extract_(ab)normal_data.rst - libsvm 
+val rstN = path + "\\normal_sampleKV.rst"
+val rstA = path + "\\abnormal_sampleKV.rst"
+val rstC = path + "\\sampleKV.rst"
+
+
+def readFile(_f : String) = scala.io.Source.fromFile(_f).getLines
+def fileWriter(_f : String) = new java.io.PrintWriter(_f)
+
+val keys = readFile(abFile).next.split('\t')
+
+def ori2kv( _str : String, _ks : Array[String] ) : Array[String] = {
+  val splits = _str.split('\t')
+  if(splits.size > _ks.size) return Array(s"error with ${_str}")
+  splits.indices.map{
+    i => 
+      _ks(i) + ":" + splits(i)
+  }.toArray
+}
+
+val iterN = readFile(normalFile).drop(1).map(x => ori2kv(x,keys))
+val iterA = readFile(abFile).drop(1).map(x => ori2kv(x,keys))
+val writer = fileWriter(rstC)
+while(iterN.hasNext && iterA.hasNext){
+  writer.write(iterA.next.mkString("\t") + "\n")
+  writer.write(iterN.next.mkString("\t") + "\n")
+}
+while(iterN.hasNext) writer.write(iterN.next.mkString("\t") + "\n")
+while(iterA.hasNext) writer.write(iterA.next.mkString("\t") + "\n")
+writer.flush
+writer.close
+
+val writer = fileWriter(rstA)
+val iterA = readFile(abFile).drop(1).map(x => ori2kv(x,keys))
+while(iterA.hasNext) writer.write(iterA.next.mkString("\t") + "\n")
+writer.flush
+writer.close
+
+val writer = fileWriter(rstN)
+val iterN = readFile(normalFile).drop(1).map(x => ori2kv(x,keys))
+while(iterN.hasNext) writer.write(iterN.next.mkString("\t") + "\n")
+writer.flush
+writer.close
+
+
+
+
+
+
+
+
+
+
+
+
+
