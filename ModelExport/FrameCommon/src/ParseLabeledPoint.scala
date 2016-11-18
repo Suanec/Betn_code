@@ -179,24 +179,48 @@ object LabeledPointParser {
       println(s"error of format with ${dflbp.schema}")
     }
     /** TO DO : judge the input legal **/
-    dflbp.head.schema.last.dataType match{
-      case dataType : 
-      org.apache.spark.mllib.linalg.VectorUDT => {
-        dflbp.map( x => 
-          new LabeledPoint(
-            x(0).asInstanceOf[Double],
-            x(1).asInstanceOf[org.apache.spark.mllib.linalg.Vector].asML)
-        )
-      }
-      case _ => {
-        dflbp.map( x => 
-          new LabeledPoint(
-            x(0).asInstanceOf[Double],
-            x(1).asInstanceOf[org.apache.spark.ml.linalg.Vector]))
-      }
-    }/// match 
+    // dflbp.head.schema.last.dataType match{
+    //   case dataType : 
+    //   org.apache.spark.mllib.linalg.VectorUDT => {
+    //     dflbp.map( x => 
+    //       new LabeledPoint(
+    //         x(0).asInstanceOf[Double],
+    //         x(1).asInstanceOf[org.apache.spark.mllib.linalg.Vector].asML)
+    //     )
+    //   }
+    //   case _ => {
+    //     dflbp.head(1).isInstanceOf[org.apache.spark.ml.linalg.Vec]
+    //     dflbp.map( x => 
+    //       new LabeledPoint(
+    //         x(0).asInstanceOf[Double],
+    //         x(1).asInstanceOf[org.apache.spark.ml.linalg.Vector]))
+    //   }
+    // }/// match 
+    dflbp.map{ 
+      x =>
+      val label = x(0).asInstanceOf[Double]
+      val feature = x(1) 
+      feature match {
+        case features : 
+          org.apache.spark.mllib.linalg.Vector => {
+              new LabeledPoint(
+                label,
+                feature.asInstanceOf[org.apache.spark.mllib.linalg.Vector].asML)
+            }
+        case features : 
+          org.apache.spark.ml.linalg.Vector => {
+            // dflbp.head(1).isInstanceOf[org.apache.spark.ml.linalg.Vec]
+              new LabeledPoint(
+                label,
+                feature.asInstanceOf[org.apache.spark.ml.linalg.Vector])
+          }
+        case _ => {
+          println(s"error in features from file : ${_inputFiles}, caused by line : ${dflbp.head}")
+          new LabeledPoint(label,Vectors.dense(Array(0d)))
+        }
+      }/// match
+    }
   }
-
 
   def lbpWriter(
     _data : RDD[LabeledPoint], 

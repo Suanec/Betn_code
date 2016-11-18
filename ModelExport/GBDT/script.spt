@@ -1,0 +1,137 @@
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+/// 20161114
+
+import org.apache.spark.mllib.clustering.{DistributedLDAModel, LDA}
+import org.apache.spark.mllib.linalg.Vectors
+val src  = """ 1 2 6 0 2 3 1 1 0 0 3
+1 3 0 1 3 0 0 2 0 0 1
+1 4 1 0 0 4 9 0 1 2 0
+2 1 0 3 0 0 5 0 2 3 9
+3 1 1 9 3 0 2 0 0 1 3
+4 2 0 3 4 5 1 1 1 4 0
+2 1 0 3 0 0 5 0 2 2 9
+1 1 1 9 2 1 2 0 0 1 3
+4 4 0 3 4 2 1 3 0 0 0
+2 8 2 0 3 0 2 0 2 7 2
+1 1 1 9 0 2 2 0 0 3 3
+4 1 0 0 4 5 1 3 0 1 0
+"""
+// Load and parse the data
+val data = sc.parallelize(src.split('\n'))
+val parsedData = data.map(s => Vectors.dense(s.trim.split(' ').map(_.toDouble)))
+// Index documents with unique IDs
+val corpus = parsedData.zipWithIndex.map(_.swap).cache()
+
+// Cluster the documents into three topics using LDA
+val ldaModel = new LDA().setK(3).run(corpus)
+
+// Output topics. Each is a distribution over words (matching word count vectors)
+println("Learned topics (as distributions over vocab of " + ldaModel.vocabSize + " words):")
+val topics = ldaModel.topicsMatrix
+for (topic <- Range(0, 3)) {
+  print("Topic " + topic + ":")
+  for (word <- Range(0, ldaModel.vocabSize)) { print(" " + topics(word, topic)); }
+  println()
+}
+
+
+import org.apache.spark.ml.clustering.LDA
+
+// Loads data.
+val dataset = spark.read.format("libsvm")
+  .load("data/mllib/sample_lda_libsvm_data.txt")
+
+// Trains a LDA model.
+val lda = new LDA().setK(10).setMaxIter(10)
+val model = lda.fit(dataset)
+
+val ll = model.logLikelihood(dataset)
+val lp = model.logPerplexity(dataset)
+println(s"The lower bound on the log likelihood of the entire corpus: $ll")
+println(s"The upper bound bound on perplexity: $lp")
+
+// Describe topics.
+val topics = model.describeTopics(3)
+println("The topics described by their top-weighted terms:")
+topics.show(false)
+
+// Shows the result.
+val transformed = model.transform(dataset)
+transformed.show(false)
+
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+/// 20161115
+
+def data2libsvm(_str : String) : Unit = {
+  val writer = new java.io.PrintWriter(_str + "-libsvm")
+  val rst = new scala.collection.mutable.HashMap[String,String]
+  val data = scala.io.Source.fromFile(_str).getLines.map{
+    line =>
+      val splits = line.split(' ')
+      val value = s" ${splits(1)}:${splits(2)}"
+      val idx = splits.head
+      rst.get(idx) match {
+        case None => {
+          rst += idx -> (idx + value)
+        }
+        case Some(_) => {
+          rst += idx -> (rst.get(idx).get + value)
+        }
+      }
+  }.size 
+  writer.write(rst.toArray.sortBy(x => x._1.toInt).map(_._2).mkString("\n") + "\n")
+  writer.flush
+  writer.close
+}
+
+val path = """D:\Docs\Works_And_Jobs\Sina\Betn_code\ModelExport\LDA\data\20news-bydate"""
+val file = path + "\\0train.data-libsvm"
+// Load and parse the data
+val data = MLUtils.loadLibSVMFile(sc,file)
+val parsedData = data.map(x => x.label.toLong -> x.features)
+// Index documents with unique IDs
+val corpus = parsedData.cache()
+
+// Cluster the documents into three topics using LDA
+val ldaModel = new LDA().setK(20).run(corpus)
+
+// Output topics. Each is a distribution over words (matching word count vectors)
+println("Learned topics (as distributions over vocab of " + ldaModel.vocabSize + " words):")
+val topics = ldaModel.topicsMatrix
+val colOne = topics.colIter.next.toArray
+val keys = colOne.indices.map( i => i -> colOne(i) ).sortWith((x,y) => x._2 > y._2).splitAt(15)._1.map(_._1)
+val vocab = path + "\\..\\vocabulary.txt"
+val vb = scala.io.Source.fromFile(vocab).getLines.toArray
+val show = keys.map( i => vb(i) ).toArray.mkString("\n")
+
+val cols = topics.colIter
+val rst = cols.map{
+  col =>
+    col.toArray.indices.
+      map( i => i -> col(i) ).
+      sortWith((x,y) => x._2 > y._2).
+      splitAt(50)._1.map(_._1).
+      map( i => vb(i) ).toArray.mkString("\n")
+}.toArray
+val pp = new java.io.PrintWriter(path + "\\vocab.rst")
+pp.write(rst.mkString("\n\n\n") + "\n")
+pp.flush
+pp.close
