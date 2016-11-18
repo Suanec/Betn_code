@@ -2092,6 +2092,66 @@ val auC = mtrs.areaUnderROC()
   }
   rstData.saveAsTextFile(outputFile)
 
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+/// 20161102
+
+import com.weibo.datasys.Common._
+import com.weibo.datasys.Etl._
+import scala.io.Source._
+// import com.weibo.datasys.Common.
+// import com.weibo.datasys.Common.
+  val path = "D:\\Docs\\Works_And_Jobs\\Sina\\Betn_code\\ModelExport\\LogisticsRegression\\data"
+  val dataConfFile = path + "\\data.conf"
+  val featureMapFile = path + "\\feature.map"
+  val raw_data = path + "\\data.sample"
+  val outputFile = path + "\\..\\rst\\sample_repeat_data.libsvm"
+
+    val label_token:String = fromFile(dataConfFile).getLines.toArray.filter(_.startsWith("@")).head
+    val inferredLabelType:String = label_token match {
+      case x if x.contains("flag")   => "flag"
+      case x if x.contains("repeat") => "repeat"
+      case x if x.contains("manual") => "manual"
+      case _ => "n/a"
+    }
+    val label_type:String = inferredLabelType
+
+    val dcc = ParseConfFiles.loadDataConf(dataConfFile)
+    val fmc = ParseConfFiles.loadFeatureConf(featureMapFile)
+    val idxs = ParseConfFiles.getColsID(dcc,fmc)
+    val operators = dcc.toArray.sortBy(_._2._idx).map(_._2._operation)
+    val maxSize = fmc.toArray.sortBy(x => dcc.get(x._1).get._idx).map(_._2._2.size)
+    val dcc_b = spark.sparkContext.broadcast(dcc)
+    val fmc_b = spark.sparkContext.broadcast(fmc)
+    val idxs_b = spark.sparkContext.broadcast(idxs)
+
+val rstData = label_type match {
+      case "flag" =>
+        val labelIndx:Int = label_token.split(':').last.toInt
+        val data = spark.sparkContext.textFile(raw_data).map{
+          x =>
+            val splits = x.split('\t');
+            val features = DataMappor.SingleLineMappor(dcc_b.value,fmc_b.value,idxs_b.value,x)
+            (splits(labelIndx).toInt, features)
+        }
+        val rstData = data.map{
+          line =>
+            val labelValue:String = if(line._1 == -1) "0" else line._1.toString
+            val rst:String = labelValue + " " + line._2
+            rst
+        }
+        rstData
+}
+  val sampledResultData = if(samplingRatio.contains(":")) PosNegSampling.startSampling(rstData, samplingRatio)else rstData
+
 
 
 
