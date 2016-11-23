@@ -1,9 +1,12 @@
 // import org.apache.spark.ml.feature.{LabeledPoint => mllp}
 // import org.apache.spark.ml.linalg.{Vectors => mlvs}
-import org.apache.spark.ml.feature.LabeledPoint
-import org.apache.spark.ml.linalg.Vectors
+import org.apache.spark.ml.feature.{LabeledPoint => mlLabeledPoint }
+import org.apache.spark.ml.linalg.{Vectors => mlVectos }
+import org.apache.spark.mllib.linalg.{Vectors => mllibVectors}
+import org.apache.spark.mllib.regression.{LabeledPoint => mllibLabeledPoint}
 import org.apache.spark.broadcast.Broadcast
 import org.apache.spark.sql.{SparkSession,Dataset}
+import org.apache.spark.rdd.RDD
 
 import com.weibo.datasys.Common._
 import com.weibo.datasys.Common.ConfSpecs._
@@ -15,40 +18,8 @@ import scala.io.Source._
   
 object LabeledPointParser {
 
-  /// LR 
-  val pathLR = """D:\Docs\Works_And_Jobs\Sina\Betn_code\ModelExport\LogisticsRegression"""
-  val rstPathLR = pathLR + "\\rst"
-  val dataPathLR = pathLR + "\\data"
-  val dataFlagConfFileLR = dataPathLR + "\\data-flag.conf"
-  val dataRepeatConfFileLR = dataPathLR + "\\data-repeat.conf"
-  val featureConfFileLR = dataPathLR + "\\feature.conf"
-  val dataFileLR = dataPathLR + "\\data.sample"
-  val output_file_pathLR = pathLR + "\\rst\\data.lbp-"
-
-  /// Bayes 
-  val pathBayes = """D:\Docs\Works_And_Jobs\Sina\Betn_code\ModelExport\NaiveBayes"""
-  val rstPathBayes = pathBayes + "\\rst"
-  val dataPathBayes = pathBayes + "\\data"
-  val dataConfFileBayes = dataPathBayes + "\\data.conf"
-  val featureConfFileBayes = dataPathBayes + "\\feature.conf"
-  val inputFilesBayes = Array("""D:\Docs\Works_And_Jobs\Sina\Betn_code\ModelExport\NaiveBayes\data\abnormal_sample.txt""",
-    """D:\Docs\Works_And_Jobs\Sina\Betn_code\ModelExport\NaiveBayes\data\normal_sample.txt""")
-  val output_file_pathBayes = pathBayes + "\\rst\\data.lbp-"
-
-  /**
-  val dataConfFile = dataFlagConfFileLR
-  val dataConfFile = dataRepeatConfFileLR
-  val featureConfFile = featureConfFileLR
-  val output_file_path = output_file_pathLR
-  val inputFiles = Array(dataFileLR)
-  **/
-  val inputFiles = inputFilesBayes
-  val dataConfFile = dataConfFileBayes
-  val featureConfFile = featureConfFileBayes
-  val output_file_path = output_file_pathBayes
-
-
   private[Common] def dataCleansing(_idxs : Array[(String,Int)], _str : String ) : Array[(String,String)] = {
+  // def dataCleansing(_idxs : Array[(String,Int)], _str : String ) : Array[(String,String)] = {
     val kdata_line = _str.split('\t')
     val key_data_line = _idxs.map{
       nameIdx =>
@@ -71,6 +42,7 @@ object LabeledPointParser {
   }
 
   private[Common] def featurePairsMappor(
+  // def featurePairsMappor(
                           _fmc : ConfSpecs.FeatureMapType,
                           _features : Array[(String,String)]) : Array[(String,Array[Double])] = {
     val featuresValue = _features.map{
@@ -108,8 +80,9 @@ object LabeledPointParser {
   }
 
   private[Common] def featureMappor(
-    _fmc_b : org.apache.spark.broadcast.Broadcast[com.weibo.datasys.Common.ConfSpecs.FeatureMapType], 
-    _idxs_b : org.apache.spark.broadcast.Broadcast[Array[(String, Int)]], 
+  // def featureMappor(
+    _fmc_b : Broadcast[com.weibo.datasys.Common.ConfSpecs.FeatureMapType], 
+    _idxs_b : Broadcast[Array[(String, Int)]], 
     _str : String) : Array[Double] = {
     val nameValue = dataCleansing(_idxs_b.value,_str)
     val featuresValue = featurePairsMappor(_fmc_b.value, nameValue)
@@ -120,14 +93,14 @@ object LabeledPointParser {
     sortedFV
   }
 
-  def lbpParser( _str : String ) : org.apache.spark.mllib.regression.LabeledPoint = {
+  def lbpParser( _str : String ) : mllibLabeledPoint = {
     _str.split('[').size match {
       case 2 => {
         val pattern = """\((.{0,}),\[(.{0,})\]\)""".r 
         val pattern(labelt,valuet) = _str
         val label = labelt.toDouble
         val value = valuet.split(',').map(_.toDouble)
-        new LabeledPoint(label,Vectors.dense(value))
+        new mllibLabeledPoint(label,mllibVectors.dense(value))
       }
       case 3 => {
         val pattern = """\((.{0,}),\((\d{0,}),\[(.{0,})\],\[(.{0,})\]\)\)""".r 
@@ -136,16 +109,16 @@ object LabeledPointParser {
         val size = sizet.toInt
         val idx = idxt.split(',').map(_.toInt)
         val value = valuet.split(',').map(_.toDouble)
-        new LabeledPoint(label,Vectors.sparse(size,idx,value))
+        new mllibLabeledPoint(label,mllibVectors.sparse(size,idx,value))
       }
       case _ => {
         println(s"source data error with ${_str}")
-        new LabeledPoint(0,Vectors.dense(Array(0d)))
+        new mllibLabeledPoint(0,mllibVectors.dense(Array(0d)))
       }
     }
   }
 
-  def mlLbpParser(_str : String) : org.apache.spark.ml.feature.LabeledPoint = {
+  def mlLbpParser(_str : String) : mlLabeledPoint = {
     _str.split('[').size match {
       case 2 => {
         val pattern = """\((.{0,}),\[(.{0,})\]\)""".r 
@@ -173,7 +146,7 @@ object LabeledPointParser {
   def parquet( 
     _spark : SparkSession,
     _inputFiles : String
-    ) : Dataset[org.apache.spark.ml.feature.LabeledPoint] = {
+    ) : Dataset[mlLabeledPoint] = {
     val dflbp = _spark.read.parquet(_inputFiles)
     if(dflbp.head.size != 2) {
       println(s"error of format with ${dflbp.schema}")
@@ -389,13 +362,16 @@ object LabeledPointParser {
         // System.exit(1)}
       }
     }
-
   }
+}
 
-  /**
-  sc.textFile("""D:\Docs\Works_And_Jobs\Sina\Betn_code\ModelExport\NaiveBayes\rst\data.lbp-2016-11-09-17-37-42""").map(mlLbpParser).count
-  sc.textFile("""D:\Docs\Works_And_Jobs\Sina\Betn_code\ModelExport\LogisticsRegression\rst\data.lbp-2016-11-09-17-30-59""").map(mlLbpParser).count
-  sc.textFile("""D:\Docs\Works_And_Jobs\Sina\Betn_code\ModelExport\LogisticsRegression\rst\data.lbp-2016-11-09-17-32-32""").map(mlLbpParser).count
+
+/**
+
+
+sc.textFile("""D:\Docs\Works_And_Jobs\Sina\Betn_code\ModelExport\NaiveBayes\rst\data.lbp-2016-11-09-17-37-42""").map(mlLbpParser).count
+sc.textFile("""D:\Docs\Works_And_Jobs\Sina\Betn_code\ModelExport\LogisticsRegression\rst\data.lbp-2016-11-09-17-30-59""").map(mlLbpParser).count
+sc.textFile("""D:\Docs\Works_And_Jobs\Sina\Betn_code\ModelExport\LogisticsRegression\rst\data.lbp-2016-11-09-17-32-32""").map(mlLbpParser).count
 
 val output_file_path = """D:\Docs\Works_And_Jobs\Sina\Betn_code\ModelExport\FrameCommon\rst\data.lbp-"""
 val rstArr = new Array[String](3)
@@ -417,5 +393,3 @@ rstArr(2) = GenLabeledPoint(inputFilesBayes,dataConfFileBayes,featureConfFileBay
 
 rstArr.map(x => sc.textFile(x).map(mlLbpParser).count).mkString("\n")
   */
-
-}
