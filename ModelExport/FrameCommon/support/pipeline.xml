@@ -1,0 +1,16 @@
+val strXML = """
+<configuration>
+    <processes>
+        <!-- process=每个步骤/阶段处理细节配置 -->
+        <process name="GenLibsvm">
+            <objectname>com.weibo.datasys.Etl.GenLibsvm</objectname>
+            <args>
+                <arg name="labelType">flag</arg>
+                <arg name="rawData">/home/hadoop/suanec/betn_code/data/data.sample</arg>
+                <arg name="dataConf">/home/hadoop/suanec/betn_code/data/data.conf</arg>
+                <arg name="featureConf">/home/hadoop/suanec/betn_code/data/feature.conf</arg>
+                <arg name="sampleData">/home/hadoop/suanec/betn_code/data/data.sample.libsvm</arg>
+            </args>
+        </process>
+    </processes>
+</configuration>"""
