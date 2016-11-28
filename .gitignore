@@ -40,3 +40,4 @@ ModelExport/LDA/data/20news-bydate/vocab.rst
 ModelExport/LDA/data/vocabulary.txt
 ModelExport/FrameCommon/spark-ml-wip-2016-11-18.jar
 ModelExport/FrameCommon/support/hdfsFileOperations.png
+ModelExport/LogisticsRegression/data/data.sample.libsvm/
