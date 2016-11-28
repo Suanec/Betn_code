@@ -1,0 +1,263 @@
+import com.weibo.Datasys._
+import com.weibo.datasys.Etl._
+import com.weibo.datasys.Pipeline._
+import com.weibo.datasys.Macros._
+import com.weibo.datasys.Common._
+import XmlConfig._
+// import Pipeline._
+// import Macros._
+// import 
+
+
+val localStrXML = """
+<configuration>
+    <spark>
+        <property name="">""</property>
+    </spark>
+    <pipeline> 
+        <!-- pipeline=处理流程配置 -->
+        <stage name="bug_fix">
+            <process id="1" preid="-1">GenLibsvm</process>
+        </stage>
+    </pipeline>
+    <processes>
+        <!-- process=每个步骤/阶段处理细节配置 -->
+        <process name="GenLibsvm">
+            <objectname>com.weibo.datasys.Etl.GenLibsvm</objectname>
+            <args>
+                <arg name="labelType">flag</arg>
+                <arg name="rawData">file:\\\D:\\Docs\\Works_And_Jobs\\Sina\\Betn_code\\ModelExport\\LogisticsRegression\\data\\data.sample</arg>
+                <arg name="dataConf">D:\\Docs\\Works_And_Jobs\\Sina\\Betn_code\\ModelExport\\LogisticsRegression\\data\\data.conf</arg>
+                <arg name="featureConf">D:\\Docs\\Works_And_Jobs\\Sina\\Betn_code\\ModelExport\\LogisticsRegression\\data\\feature.conf</arg>
+                <arg name="samplingRatio">0</arg>
+                <arg name="sampleData">file:\\\D:\\Docs\\Works_And_Jobs\\Sina\\Betn_code\\ModelExport\\LogisticsRegression\\data\\data.sample.libsvm</arg>
+            </args>
+        </process>
+    </processes>
+</configuration>
+"""
+
+val configFile = xml.XML.loadString(localStrXML)
+val pipelineConf = XmlConfig.loadPipelineConf(configFile)
+val pipelineRange = "[1]"
+val (pipelineName, pipelineCon) = pipelineConf.head
+println("Running pipeline: " + pipelineName + "\n")
+      try {
+pipelineCon.run(spark, pipelineRange)
+        
+      } catch {
+        case e : Throwable => println( s"runtimeMirror : taskObjName = ${pipelineCon.tasks.head.taskConf.objectname}" + e.getMessage )
+      }
+
+val strXML = """
+<configuration>
+    <spark>
+        <property name="">""</property>
+    </spark>
+    <pipeline> 
+        <!-- pipeline=处理流程配置 -->
+        <stage name="bug_fix">
+            <process id="1" preid="-1">GenLibsvm</process>
+        </stage>
+    </pipeline>
+    <processes>
+        <!-- process=每个步骤/阶段处理细节配置 -->
+        <process name="GenLibsvm">
+            <objectname>com.weibo.datasys.Etl.GenLibsvm</objectname>
+            <args>
+                <arg name="labelType">flag</arg>
+                <arg name="rawData">/user/hadoop/testSpark/data/data.sample</arg>
+                <arg name="dataConf">/home/hadoop/suanec/betn_code/data/data.conf</arg>
+                <arg name="featureConf">/home/hadoop/suanec/betn_code/data/feature.conf</arg>
+                <arg name="samplingRatio">0</arg>
+                <arg name="sampleData">/user/hadoop/testSpark/data/data.sample.libsvm</arg>
+            </args>
+        </process>
+    </processes>
+</configuration>
+"""
+
+val configFile = xml.XML.loadString(strXML)
+val pipelineConf = XmlConfig.loadPipelineConf(configFile)
+val pipelineRange = "[1]"
+val (pipelineName, pipelineCon) = pipelineConf.head
+println("Running pipeline: " + pipelineName + "\n")
+pipelineCon.run(spark, pipelineRange)
+
+val LRstrXML = """
+<configuration>
+    <spark>
+        <property name="">""</property>
+    </spark>
+    <pipeline> 
+        <!-- pipeline=处理流程配置 -->
+        <stage name="bug_fix_LogisticRegression">
+            <process id="1" preid="-1">LogisticRegression</process>
+        </stage>
+    </pipeline>
+    <processes>
+      <process name="LogisticRegression">
+          <objectname>com.weibo.datasys.Algorithms.LogisticRegressionWithLBFGS</objectname>
+          <!--<objectname>com.weibo.datasys.Algorithms.LogisticRegressionWithTron</objectname>-->
+          <args>
+              <arg name="trainPath">/user/hadoop/testSpark/data/data.sample.libsvm</arg>
+              <arg name="testPath">/user/hadoop/testSpark/data/data.sample.libsvm</arg>
+              <arg name="modelPath">logisticRegression.model.20161026</arg>
+              <arg name="regParam">0.01</arg>
+              <arg name="elasticNetParam">0.0</arg>
+          </args>
+       </process>
+     </processes>
+</configuration>
+"""
+val configFile = xml.XML.loadString(LRstrXML)
+val pipelineConf = XmlConfig.loadPipelineConf(configFile)
+val pipelineRange = "[1]"
+val (pipelineName, pipelineCon) = pipelineConf.head
+println("Running pipeline: " + pipelineName + "\n")
+pipelineCon.run(spark, pipelineRange)
+
+
+val GFCstrXML = """
+<configuration>
+    <spark>
+        <property name="">""</property>
+    </spark>
+    <pipeline> 
+        <!-- pipeline=处理流程配置 -->
+        <stage name="bug_fix_GenFeatureConf">
+            <process id="1" preid="-1">GenFeatureConf</process>
+        </stage>
+    </pipeline>
+    <processes>
+        <process name="GenFeatureConf">
+            <objectname>com.weibo.datasys.Etl.GenFeatureConf</objectname>
+            <args>
+                <arg name="table">feed_log_mainfeed_merge</arg>
+                <arg name="dataConf"></arg>
+                <arg name="featureConf"></arg>
+                <arg name="where">dt=20161011</arg>
+            </args>
+        </process>
+    </processes>
+</configuration>
+"""
+
+val configFile = xml.XML.loadString(GFCstrXML)
+val pipelineConf = XmlConfig.loadPipelineConf(configFile)
+val pipelineRange = "[1]"
+val (pipelineName, pipelineCon) = pipelineConf.head
+println("Running pipeline: " + pipelineName + "\n")
+pipelineCon.run(spark, pipelineRange)
+
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+========================================================================================
+/// 20161124
+
+import com.weibo.datasys._
+import com.weibo.datasys.etl._
+import com.weibo.datasys.pipeline._
+import com.weibo.datasys.macros._
+import com.weibo.datasys.common._
+import XmlConfig._
+// import Pipeline._
+// import Macros._
+// import 
+
+// val strXML = """
+// <configuration>
+//         <spark>
+//                 <property name="appname">Weipark ML: Debugging framework</property>
+//         </spark>
+
+//         <pipeline>
+//                 <stage name="ML training: Logistic Regression">
+//                         <process id="1" preid="-1">CreateDataConf</process>
+//                         <process id="2" preid="-1">RawDataCheck</process>
+//                         <process id="3" preid="-1">GenFeatureConf</process>
+//                         <process id="4" preid="-1">genLibsvm4LR</process>
+//                         <process id="5" preid="-1">LogisticRegression</process>
+//                         <process id="6" preid="-1">FeatureWeightsCheck</process>
+//                 </stage>
+//         </pipeline>
+//         <processes>
+//                 <process name="CreateDataConf">
+//                         <objectname>com.weibo.datasys.etl.CreateDataConf</objectname>
+//                         <args>
+//                 <arg name="table">zhangtong1_ranking</arg>
+//             </args>
+//                 </process>
+//                 <process name="RawDataCheck">
+//                         <objectname>com.weibo.datasys.etl.RawDataCheck</objectname>
+//                         <args>
+//                 <arg name="table">zhangtong1_ranking</arg>
+//                 <arg name="dataConf"></arg>
+//                 <arg name="where">dt=20161120</arg>
+//             </args>
+//                 </process>
+//                 <process name="GenFeatureConf">
+//                 <process name="GenFeatureConf">
+//                         <objectname>com.weibo.datasys.etl.GenFeatureConf</objectname>
+//                         <args>
+//                 <arg name="table">zhangtong1_ranking</arg>
+//                 <arg name="dataConf">zhangtong1_ranking.data.conf</arg>
+//                 <arg name="featureConf">zhangtong1_ranking.feature.conf</arg>
+//                 <arg name="where">dt=20161120</arg>
+//             </args>
+//                 </process>
+//                 <process name="genLibsvm4LR">
+//                         <objectname>com.weibo.datasys.etl.GenLibsvm</objectname>
+//                         <args>
+//                 <arg name="labelType"></arg>
+//                 <arg name="rawData">/user/weibo_bigdata_ds/zhangtong1/hive/u2u/dt=20161120</arg>
+//                 <arg name="dataConf">zhangtong1_ranking.data.conf</arg>
+//                 <arg name="featureConf">zhangtong1_ranking.feature.conf</arg>
+//                 <arg name="whereStmt">m_is_original=0</arg>
+//                 <arg name="samplingRatio">1:10</arg>
+//                 <arg name="fieldDelimiter">\u0001</arg>
+//                 <arg name="sampleData">/user/weibo_bigdata_ds/zhangtong1/libsvmfile/wulei3.01/enzhao_tmp</arg>
+//             </args>
+//                 </process>
+//                 <process name="LogisticRegression">
+//                         <objectname>com.weibo.datasys.algorithms.LogisticRegressionWithTron</objectname>
+//                         <!--<objectname>com.weibo.datasys.algorithms.LogisticRegressionWithLBFGS</objectname>-->
+//                         <args>
+//                 <arg name="trainPath">/user/weibo_bigdata_ds/zhangtong1/libsvmfile/0.1.0</arg>
+//                 <arg name="testPath">/user/weibo_bigdata_ds/zhangtong1/libsvmfile/0.1.0</arg>
+//                 <arg name="modelPath">LogisticRegression.model.0.1.0</arg>
+//                 <arg name="regParam">0.1</arg>
+//                 <arg name="elasticNetParam">0.3</arg>
+//             </args>
+//                 </process>
+
+//                 <process name="FeatureWeightsCheck">
+//                         <objectname>com.weibo.datasys.etl.FeatureWeightsCheck</objectname>
+//                         <args>
+//                 <arg name="featureConf">zhangtong1_ranking0.1.0.feature.conf</arg>
+//                 <arg name="modelPath">LogisticRegression.model.0.1.0</arg>
+//                 <arg name="featureWeightsPath">zhangtong1_ranking0.1.0.feature.csv</arg>
+//             </args>
+//                 </process>
+//         </processes>
+// </configuration>                 
+// """
+// val configFile = xml.XML.load("pipeline.xml")
+// val conf = XmlConfig.loadProcessConf(configFile).get("genLibsvm4LR").get
+
+try {
+  Framework.runJob("pipeline.xml","[4]")
+} catch {
+  case e : java.lang.UnsatisfiedLinkError => println( e.getMessage )
+
+  case e : Throwable => println( e.getMessage )
+}
+
+
