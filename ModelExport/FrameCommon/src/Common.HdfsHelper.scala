@@ -6,7 +6,14 @@ import java.net.URI
 
 
 object HdfsHelper {
-  
+
+  // val path = "/user/hadoop/testSpark/"
+  val wsp = "/home/hadoop/suanec/betn_code/data"
+  val dataPath = "file://" + wsp + "/data.sample"
+  val dataConf = wsp + "/data.conf"
+  val featureConf = wsp + "/feature.conf"
+
+
   /// check if the path exists on hdfs 
   def hdfsExists(_path : String) : Boolean = {
     val hdfs = FileSystem.get( new URI("/"),new hdfsConfig )
@@ -29,6 +36,23 @@ object HdfsHelper {
 
   def hdfsIsDir( _path : String ) : Boolean = {
     FileSystem.get(new URI("/"), new hdfsConfig).isDirectory(new Path(_path))
+  }
+
+  def showListFiles( _path : String ) : Unit = {
+    println(hdfsListFiles(_path).map{
+      x => 
+        val predix = x + "\t====>\t"
+        // val fileType = hdfsIsDir(x) match {
+        //   case true => "Dir." 
+        //   case false => "File."
+        // }
+        val fileType = if(hdfsIsDir(x)) "Dir." else "File."
+        predix + fileType
+    } .mkString("\n"))
+  }
+
+  def hdfsRename( _srcName : String , _targetName : String ) : Boolean = {
+    FileSystem.get(new URI("/"), new hdfsConfig).rename(new Path(_srcName), new Path(_targetName))
   }
 
   def hdfsSaveAsTextFile( _data : RDD[String], _out : String ) : Boolean = {
@@ -76,7 +100,7 @@ object HdfsHelper {
 
   /// a little more robust implements for check the path is a second-level directory.
   /// loadPath for read a pathList to a RDD
-  def loadPath(_sc : org.apache.spark.SparkContext, 
+  def loadPathRDD(_sc : org.apache.spark.SparkContext, 
     _path : String, _format : String = "text" ) : RDD[String] = {
     if(_path.size == 0) {
       println(s"input path can not be empty!!")
@@ -101,9 +125,16 @@ object HdfsHelper {
     }/// _path.size == 0 else
   }
 
-  def loadPath(_spark : org.apache.spark.sql.SparkSession, _path : String, _format : String = "text") = {
-    val _sc = _spark.SparkContext
-    loadPath(_sc,_path,_format)
+  def loadPathRDDBySparkSession(_spark : org.apache.spark.sql.SparkSession, _path : String, _format : String = "text") : RDD[String] = {
+    val _sc = _spark.sparkContext
+    loadPathRDD(_sc,_path,_format)
+  }
+
+  def loadPath(_spark : Any, _path : String, _format : String = "text") : RDD[String] = {
+    _spark match {
+      case org.apache.spark.SparkContext => loadPathRDD(_spark.asInstanceOf[org.apache.spark.SparkContext],_path,_format)
+      case org.apache.spark.sql.SparkSession => loadPathRDDBySparkSession(_spark.asInstanceOf[org.apache.spark.sql.SparkSession],_path,_format)
+    }
   }
 
   // def LoadPaths(_spark : SparkSession, _pathStr : String, _format : String = "text" ) = {
