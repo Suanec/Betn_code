@@ -1,6 +1,7 @@
 import org.apache.hadoop.fs.{FileSystem, Path}
 import org.apache.hadoop.conf.{Configuration => hdfsConfig}
 import org.apache.spark.rdd.RDD
+import org.apache.spark.sql.DataFrame
 // import org.apache.hadoop.
 import java.net.URI
 
@@ -12,7 +13,6 @@ object HdfsHelper {
   val dataPath = "file://" + wsp + "/data.sample"
   val dataConf = wsp + "/data.conf"
   val featureConf = wsp + "/feature.conf"
-
 
   /// check if the path exists on hdfs 
   def hdfsExists(_path : String) : Boolean = {
@@ -42,10 +42,6 @@ object HdfsHelper {
     println(hdfsListFiles(_path).map{
       x => 
         val predix = x + "\t====>\t"
-        // val fileType = hdfsIsDir(x) match {
-        //   case true => "Dir." 
-        //   case false => "File."
-        // }
         val fileType = if(hdfsIsDir(x)) "Dir." else "File."
         predix + fileType
     } .mkString("\n"))
@@ -100,7 +96,7 @@ object HdfsHelper {
 
   /// a little more robust implements for check the path is a second-level directory.
   /// loadPath for read a pathList to a RDD
-  def loadPathRDD(_sc : org.apache.spark.SparkContext, 
+  private def loadPathRDD(_sc : org.apache.spark.SparkContext, 
     _path : String, _format : String = "text" ) : RDD[String] = {
     if(_path.size == 0) {
       println(s"input path can not be empty!!")
@@ -125,24 +121,29 @@ object HdfsHelper {
     }/// _path.size == 0 else
   }
 
-  def loadPathRDDBySparkSession(_spark : org.apache.spark.sql.SparkSession, _path : String, _format : String = "text") : RDD[String] = {
+  private def loadPathRDDBySparkSession(_spark : org.apache.spark.sql.SparkSession, _path : String, _format : String = "text") : RDD[String] = {
     val _sc = _spark.sparkContext
     loadPathRDD(_sc,_path,_format)
   }
 
-  def loadPath(_spark : Any, _path : String, _format : String = "text") : RDD[String] = {
-    _spark match {
-      case org.apache.spark.SparkContext => loadPathRDD(_spark.asInstanceOf[org.apache.spark.SparkContext],_path,_format)
-      case org.apache.spark.sql.SparkSession => loadPathRDDBySparkSession(_spark.asInstanceOf[org.apache.spark.sql.SparkSession],_path,_format)
+  def loadPath[T](_spark : T, _path : String, _format : String = "text") : RDD[String] = {
+    _spark.getClass.getName match {
+      case "org.apache.spark.SparkContext" => 
+        println(_spark)
+        loadPathRDD(_spark.asInstanceOf[org.apache.spark.SparkContext],_path,_format)
+      case "org.apache.spark.sql.SparkSession" => 
+        println(_spark)
+        loadPathRDDBySparkSession(_spark.asInstanceOf[org.apache.spark.sql.SparkSession],_path,_format)
     }
   }
 
-  // def LoadPaths(_spark : SparkSession, _pathStr : String, _format : String = "text" ) = {
-  //   val datas = _pathStr.split(',').map{
-  //     s => 
-  //       _spark.read.format(_format).load(s)
-  //   }
-  //   val rst = datas.reduce( df => sc.read.format(_format).load )
-  // }
+  /// load path list to one DataFrame which list contains the fileName in same format
+  def LoadPaths(_spark : SparkSession, _pathStr : String, _format : String = "text" ) : DataFrame = {
+    val datas = _pathStr.split(',').map{
+      s => 
+        _spark.read.format(_format).load(s)
+    }
+    datas.reduce(_ union _)
+  }
   
 }
