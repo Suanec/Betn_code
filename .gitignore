@@ -41,3 +41,6 @@ ModelExport/LDA/data/vocabulary.txt
 ModelExport/FrameCommon/spark-ml-wip-2016-11-18.jar
 ModelExport/FrameCommon/support/hdfsFileOperations.png
 ModelExport/LogisticsRegression/data/data.sample.libsvm/
+ModelExport/FrameCommon/support/sparkSimplePackage/project/target/config-classes/$3c8183b22186fe675bb0$$anonfun$$sbtdef$1.class
+ModelExport/FrameCommon/support/sparkSimplePackage/project/
+ModelExport/FrameCommon/support/sparkSimplePackage/
