@@ -1,8 +1,8 @@
-import com.weibo.Datasys._
-import com.weibo.datasys.Etl._
-import com.weibo.datasys.Pipeline._
-import com.weibo.datasys.Macros._
-import com.weibo.datasys.Common._
+import com.weibo.datasys._
+import com.weibo.datasys.etl._
+import com.weibo.datasys.pipeline._
+import com.weibo.datasys.macros._
+import com.weibo.datasys.common._
 import XmlConfig._
 // import Pipeline._
 // import Macros._
@@ -97,7 +97,7 @@ val LRstrXML = """
     </pipeline>
     <processes>
       <process name="LogisticRegression">
-          <objectname>com.weibo.datasys.Algorithms.LogisticRegressionWithLBFGS</objectname>
+          <objectname>com.weibo.datasys.algorithms.LogisticRegressionWithLBFGS</objectname>
           <!--<objectname>com.weibo.datasys.Algorithms.LogisticRegressionWithTron</objectname>-->
           <args>
               <arg name="trainPath">/user/hadoop/testSpark/data/data.sample.libsvm</arg>
@@ -131,7 +131,7 @@ val GFCstrXML = """
     </pipeline>
     <processes>
         <process name="GenFeatureConf">
-            <objectname>com.weibo.datasys.Etl.GenFeatureConf</objectname>
+            <objectname>com.weibo.datasys.etl.GenFeatureConf</objectname>
             <args>
                 <arg name="table">feed_log_mainfeed_merge</arg>
                 <arg name="dataConf"></arg>
