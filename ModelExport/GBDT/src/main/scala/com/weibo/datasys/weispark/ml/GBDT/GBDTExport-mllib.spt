@@ -75,9 +75,8 @@ rst(3) = "GBDTacc" -> labelAndPreds.filter(r => r._1 == r._2).count.toDouble / t
 rst.mkString("\n")
 
 
-import org.apache.spark.mllib.tree.model.DecisionTreeModel
 
-class TreeModelMeta(var trees: Array[DecisionTreeModel], var treeWeights: Array[Double])  extends Serializable {
+class TreeModelMeta(var trees: Array[org.apache.spark.mllib.tree.model.DecisionTreeModel], var treeWeights: Array[Double]) extends Serializable {
   var version:String = "1.0";
   var loadedClassName:String = "";
   var storageType:String = "JSON"; //JSON, XML
@@ -947,3 +946,4 @@ object EnsembleModelReadWrite {
   }
 }
 
+f
