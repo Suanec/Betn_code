@@ -238,5 +238,69 @@ object overlapTest{
 
   featureOverlap.overlapFeatures(spark,dataConf,featureConf,dataPath,overlapName)
 }
+===========================================================
+===========================================================
+===========================================================
+===========================================================
+===========================================================
+===========================================================
+/// 2016-12-13
 
+val rand = new util.Random
+val idx = (0 until 100).toArray
+val a = idx.map{
+  i => 
+    val aa = Array.fill[Double](scala.math.abs(rand.nextInt %1024) + 1)(0d)
+    aa(scala.math.abs(rand.nextInt % aa.size)) = 1d
+    aa
+}
+val b = idx.map{
+  i => 
+    val bb = Array.fill[Double](scala.math.abs(rand.nextInt %1024) + 1)(0d)
+    bb(scala.math.abs(rand.nextInt % bb.size)) = 1d
+    bb
+}
+  def overlapCross0(contentA : Array[Double],
+                   contentB : Array[Double]) : Array[Double] = {
+    var rstValue : List[Double] = List.empty[Double]
+    contentA.map{
+      x =>
+        x match {
+          case 0 => rstValue ++= List.fill(contentB.size)(0d)
+          case 1 => rstValue ++= contentB
+          case _ => {
+            println(s"Raw feature mapped values have issue: ${x}.")
+            System.exit(1)
+          }
+        }
+    }
+    rstValue.toArray
+  }
+val c = idx.map{
+  i => overlapCross0(a(i),b(i)).indexOf(1)
+}
+def overlapCross(contentA : Array[Double],
+  contentB : Array[Double]) : Array[Double] = {
+  val rstValue : Array[Double] = Array.fill[Double](
+    contentA.size * contentB.size)(0d)
+  val checkA = contentA.filter(_ != 0)
+  val checkB = contentB.filter(_ != 0)
+  if(checkA.size != 1 ||
+    checkA.sum != 1 || 
+    checkB.size != 1 || 
+    checkB.sum != 1) {
+    println(s"error feature input while feature overlap.")
+    return Array.empty[Double]
+  }
+  val outerIdx = contentA.indexOf(1d)
+  val innerIdx = contentB.indexOf(1d)
+  val rstIdx = contentB.size * outerIdx + innerIdx
+  rstValue(rstIdx) = 1d
+  rstValue
+}
+val d = idx.map{
+  i => overlapCross(a(i),b(i)).indexOf(1)
+}
+
+idx.map(i => c(i) - d(i)).sum 
 
