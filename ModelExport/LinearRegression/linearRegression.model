@@ -1,0 +1,14 @@
+solver_type LinearRegression
+nr_feature 10
+bias 0.4930139720558882
+w 
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
+0.0
