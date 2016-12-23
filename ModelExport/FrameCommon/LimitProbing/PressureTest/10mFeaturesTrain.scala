@@ -59,7 +59,7 @@ def genVector(_sparseSize : Int, _featureSize : Int)  = {
   org.apache.spark.mllib.linalg.Vectors.sparse(_featureSize,dataT,Array.fill[Double](dataT.size)(1d))
 }
 def testLimit(_dataSize : Int) = {
-  org.apache.spark.mllib.classification.LogisticRegressionWithSGD.train(sc.parallelize(Array.fill(_dataSize)(new org.apache.spark.mllib.regression.LabeledPoint(1,genVector(featureSize)))),2)
+  org.apache.spark.mllib.classification.LogisticRegressionWithSGD.train(sc.parallelize(Array.fill(_dataSize)(new org.apache.spark.mllib.regression.LabeledPoint(1,genVector(sparseSize, featureSize)))),2)
   _dataSize
 }
 testLimit(8)
