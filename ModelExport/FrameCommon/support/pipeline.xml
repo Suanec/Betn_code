@@ -1,16 +1,90 @@
-val strXML = """
+<?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-    <processes>
-        <!-- process=每个步骤/阶段处理细节配置 -->
-        <process name="GenLibsvm">
-            <objectname>com.weibo.datasys.Etl.GenLibsvm</objectname>
+	<spark>
+		<property name="appname">Weipark ML: Resources Limit Probing</property>
+	</spark>
+
+	<pipeline> 
+		<stage name="ML training: Resources Limit Probing"> 
+			<process id="1" preid="-1">CreateDataConf</process>
+			<process id="2" preid="-1">RawDataCheck</process>
+			<process id="3" preid="-1">GenFeatureConf</process>
+			<process id="4" preid="-1">genLibsvm4LR</process>
+			<process id="5" preid="-1">LogisticRegression</process>
+			<process id="6" preid="-1">FeatureWeightsCheck</process>
+			<process id="7" preid="-1">LinearRegression</process>
+		</stage>
+	</pipeline>
+	<processes>
+		<process name="CreateDataConf">
+			<objectname>com.weibo.datasys.etl.CreateDataConf</objectname>
+			<args>
+                <arg name="table">mds_feed_strategy_zt_ranking_with_user_info</arg>
+            </args>
+		</process>
+		<process name="RawDataCheck">
+			<objectname>com.weibo.datasys.etl.RawDataCheck</objectname>
+			<args>
+                <arg name="table">mds_feed_strategy_zt_ranking_with_user_info</arg>
+                <arg name="dataConf"></arg>
+                <arg name="where">dt=20161128</arg>
+            </args>
+		</process>
+		<process name="GenFeatureConf">
+			<objectname>com.weibo.datasys.etl.GenFeatureConf</objectname>
+			<args>
+                <arg name="table">mds_feed_strategy_zt_ranking_with_user_info</arg>
+                <arg name="dataConf">mds_feed_strategy_zt_ranking_with_user_info.data.conf</arg>
+                <arg name="featureConf">mds_feed_strategy_zt_ranking_with_user_info.feature.conf</arg>
+                <arg name="where">dt=20161128</arg>
+            </args>
+		</process>
+		<process name="genLibsvm4LR">
+			<objectname>com.weibo.datasys.etl.GenLibsvm</objectname>
+			<args>
+                <arg name="labelType"></arg>
+                <arg name="rawData">hdfs://ns1/user/weibo_bigdata_ds/zhangtong1/hive/zhangtong1_ranking_with_user_info/dt=20161128</arg>
+                <arg name="dataConf">mds_feed_strategy_zt_ranking_with_user_info.data.conf</arg>
+                <arg name="featureConf">mds_feed_strategy_zt_ranking_with_user_info.feature.conf</arg>
+                <arg name="whereStmt"></arg>
+                <arg name="samplingRatio"></arg>
+                <arg name="divideThreshold"></arg>
+                <arg name="rateThreshold"></arg>
+
+                <arg name="fieldDelimiter"></arg>
+                <arg name="sampleData">/user/weibo_bigdata_ds/wulei3/shixi_enzhao/warehouse/libsvmfile/sampleData.201611281</arg>
+            </args>
+		</process>
+		<process name="LogisticRegression">
+			<!--<objectname>com.weibo.datasys.algorithms.LogisticRegressionWithTron</objectname>-->
+			-<objectname>com.weibo.datasys.algorithms.LogisticRegressionWithLBFGS</objectname>
+			<args>
+                <!--<arg name="trainPath">/user/weibo_bigdata_ds/wulei3/shixi_enzhao/warehouse/libsvmfile/sampleData-120Y-10W-903-libsvm/*</arg>-->
+                <arg name="trainPath">/user/weibo_bigdata_ds/wulei3/shixi_enzhao/warehouse/libsvmfile/sampleData-2Y-10W-903-libsvm</arg>
+                <arg name="testPath">/user/weibo_bigdata_ds/wulei3/shixi_enzhao/warehouse/libsvmfile/sampleData-120Y-10W-903-libsvm/test10W.libsvm</arg>
+                <arg name="modelPath">LogisticRegression.model.LimitProbing</arg>
+                <arg name="regParam">0.1</arg>
+                <arg name="elasticNetParam">0.3</arg>
+            </args>
+		</process>
+		<process name="FeatureWeightsCheck">
+			<objectname>com.weibo.datasys.etl.FeatureWeightsCheck</objectname>
+			<args>
+                <arg name="featureConf">mds_feed_strategy_zt_ranking_with_user_info.feature.conf</arg>
+                <arg name="modelPath">LogisticRegression.model.20161128</arg>
+                <arg name="featureWeightsPath">mds_feed_strategy_zt_ranking_with_user_info.feature.csv</arg>
+            </args>
+		</process>
+        <process name="LinearRegression">
+            <objectname>com.weibo.datasys.algorithms.LinearRegression</objectname>
             <args>
-                <arg name="labelType">flag</arg>
-                <arg name="rawData">/home/hadoop/suanec/betn_code/data/data.sample</arg>
-                <arg name="dataConf">/home/hadoop/suanec/betn_code/data/data.conf</arg>
-                <arg name="featureConf">/home/hadoop/suanec/betn_code/data/feature.conf</arg>
-                <arg name="sampleData">/home/hadoop/suanec/betn_code/data/data.sample.libsvm</arg>
+                <arg name="trainPath">/user/weibo_bigdata_ds/wulei3/shixi_enzhao/warehouse/libsvmfile/lir.libsvm</arg>
+                <arg name="testPath">/user/weibo_bigdata_ds/wulei3/shixi_enzhao/warehouse/libsvmfile/lir.libsvm</arg>
+                <arg name="modelPath">linearRegressionProbing.model</arg>
+                <arg name="regParam">0.1,0.3,0.5</arg>
+                <arg name="elasticNetParam">0.8,0.8,0.8</arg>
             </args>
         </process>
-    </processes>
-</configuration>"""
+	</processes>
+
+</configuration>
