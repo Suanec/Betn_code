@@ -1,0 +1,4 @@
+$ tar -xzvf hive-x.y.z.tar.gz
+$ cd hive-x.y.z
+$ export HIVE_HOME={{pwd}}
+$ export PATH=$HIVE_HOME/bin:$PATH
