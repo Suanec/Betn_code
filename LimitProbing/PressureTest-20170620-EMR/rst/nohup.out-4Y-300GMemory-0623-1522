@@ -1,0 +1,1123 @@
+jar: data-flow-2.0.0-SNAPSHOT-shade.jar
+xml: pipeline.xml
+node_name: 3
+app args: --class=com.weibo.datasys.engine.spark.node.NodeSparkRunner data-flow-2.0.0-SNAPSHOT-shade.jar pipeline.xml 3
+/home/hadoop/ksp/dataflow
+work dir: 0/home/hadoop/libs/spark-2.0.2-bin-hadoop2.7/bin/spark-submit 
+          --master yarn
+          --deploy-mode client
+          --files meta,data.conf,feature.conf,pipeline.xml,dataflow.jar
+          --num-executors 32
+          --executor-cores 4
+          --executor-memory 10g
+          --driver-memory 15g
+         --class=com.weibo.datasys.engine.spark.node.NodeSparkRunner data-flow-2.0.0-SNAPSHOT-shade.jar pipeline.xml 317/06/23 14:29:25 INFO spark.SparkContext: Running Spark version 2.0.2
+17/06/23 14:29:25 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+17/06/23 14:29:25 INFO spark.SecurityManager: Changing view acls to: hadoop
+17/06/23 14:29:25 INFO spark.SecurityManager: Changing modify acls to: hadoop
+17/06/23 14:29:25 INFO spark.SecurityManager: Changing view acls groups to: 
+17/06/23 14:29:25 INFO spark.SecurityManager: Changing modify acls groups to: 
+17/06/23 14:29:25 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(hadoop); groups with view permissions: Set(); users  with modify permissions: Set(hadoop); groups with modify permissions: Set()
+17/06/23 14:29:25 INFO util.Utils: Successfully started service 'sparkDriver' on port 36458.
+17/06/23 14:29:25 INFO spark.SparkEnv: Registering MapOutputTracker
+17/06/23 14:29:25 INFO spark.SparkEnv: Registering BlockManagerMaster
+17/06/23 14:29:25 INFO storage.DiskBlockManager: Created local directory at /tmp/blockmgr-6a38c16d-12c4-464c-9ab5-9727f648d7a5
+17/06/23 14:29:25 INFO memory.MemoryStore: MemoryStore started with capacity 7.8 GB
+17/06/23 14:29:26 INFO spark.SparkEnv: Registering OutputCommitCoordinator
+17/06/23 14:29:26 INFO util.log: Logging initialized @1649ms
+17/06/23 14:29:26 INFO server.Server: jetty-9.2.z-SNAPSHOT
+17/06/23 14:29:26 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@35d6ca49{/jobs,null,AVAILABLE}
+17/06/23 14:29:26 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@1950e8a6{/jobs/json,null,AVAILABLE}
+17/06/23 14:29:26 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@47289387{/jobs/job,null,AVAILABLE}
+17/06/23 14:29:26 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@12cd9150{/jobs/job/json,null,AVAILABLE}
+17/06/23 14:29:26 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@114a85c2{/stages,null,AVAILABLE}
+17/06/23 14:29:26 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@f415a95{/stages/json,null,AVAILABLE}
+17/06/23 14:29:26 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@cf65451{/stages/stage,null,AVAILABLE}
+17/06/23 14:29:26 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@724f138e{/stages/stage/json,null,AVAILABLE}
+17/06/23 14:29:26 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@37eeec90{/stages/pool,null,AVAILABLE}
+17/06/23 14:29:26 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@32fe9d0a{/stages/pool/json,null,AVAILABLE}
+17/06/23 14:29:26 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@c9413d8{/storage,null,AVAILABLE}
+17/06/23 14:29:26 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@64da2a7{/storage/json,null,AVAILABLE}
+17/06/23 14:29:26 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@46074492{/storage/rdd,null,AVAILABLE}
+17/06/23 14:29:26 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@d78795{/storage/rdd/json,null,AVAILABLE}
+17/06/23 14:29:26 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@2c715e84{/environment,null,AVAILABLE}
+17/06/23 14:29:26 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@47428937{/environment/json,null,AVAILABLE}
+17/06/23 14:29:26 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@3b9d6699{/executors,null,AVAILABLE}
+17/06/23 14:29:26 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@7caa550{/executors/json,null,AVAILABLE}
+17/06/23 14:29:26 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@21694e53{/executors/threadDump,null,AVAILABLE}
+17/06/23 14:29:26 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@72b16078{/executors/threadDump/json,null,AVAILABLE}
+17/06/23 14:29:26 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@22c86919{/static,null,AVAILABLE}
+17/06/23 14:29:26 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@70fab835{/,null,AVAILABLE}
+17/06/23 14:29:26 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@1b0a7baf{/api,null,AVAILABLE}
+17/06/23 14:29:26 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@62417a16{/stages/stage/kill,null,AVAILABLE}
+17/06/23 14:29:26 INFO server.ServerConnector: Started ServerConnector@74d4d507{HTTP/1.1}{0.0.0.0:4040}
+17/06/23 14:29:26 INFO server.Server: Started @1754ms
+17/06/23 14:29:26 INFO util.Utils: Successfully started service 'SparkUI' on port 4040.
+17/06/23 14:29:26 INFO ui.SparkUI: Bound SparkUI to 0.0.0.0, and started at http://10.85.123.43:4040
+17/06/23 14:29:26 INFO spark.SparkContext: Added JAR file:/home/hadoop/ksp/dataflow/data-flow-2.0.0-SNAPSHOT-shade.jar at spark://10.85.123.43:36458/jars/data-flow-2.0.0-SNAPSHOT-shade.jar with timestamp 1498199366272
+17/06/23 14:29:26 INFO client.RMProxy: Connecting to ResourceManager at /10.85.123.43:8032
+17/06/23 14:29:27 INFO yarn.Client: Requesting a new application from cluster with 4 NodeManagers
+17/06/23 14:29:27 INFO yarn.Client: Verifying our application has not requested more than the maximum memory capability of the cluster (22528 MB per container)
+17/06/23 14:29:27 INFO yarn.Client: Will allocate AM container, with 896 MB memory including 384 MB overhead
+17/06/23 14:29:27 INFO yarn.Client: Setting up container launch context for our AM
+17/06/23 14:29:27 INFO yarn.Client: Setting up the launch environment for our AM container
+17/06/23 14:29:27 INFO yarn.Client: Preparing resources for our AM container
+17/06/23 14:29:27 WARN yarn.Client: Neither spark.yarn.jars nor spark.yarn.archive is set, falling back to uploading libraries under SPARK_HOME.
+17/06/23 14:29:29 INFO yarn.Client: Uploading resource file:/tmp/spark-94d50411-7307-4e22-8535-4e35737f63f0/__spark_libs__4418270778450936899.zip -> hdfs://10.85.123.43:9000/user/hadoop/.sparkStaging/application_1498198857575_0002/__spark_libs__4418270778450936899.zip
+17/06/23 14:29:30 INFO yarn.Client: Uploading resource file:/home/hadoop/ksp/dataflow/meta -> hdfs://10.85.123.43:9000/user/hadoop/.sparkStaging/application_1498198857575_0002/meta
+17/06/23 14:29:30 INFO yarn.Client: Uploading resource file:/home/hadoop/ksp/dataflow/data.conf -> hdfs://10.85.123.43:9000/user/hadoop/.sparkStaging/application_1498198857575_0002/data.conf
+17/06/23 14:29:31 INFO yarn.Client: Uploading resource file:/home/hadoop/ksp/dataflow/feature.conf -> hdfs://10.85.123.43:9000/user/hadoop/.sparkStaging/application_1498198857575_0002/feature.conf
+17/06/23 14:29:31 INFO yarn.Client: Uploading resource file:/home/hadoop/ksp/dataflow/pipeline.xml -> hdfs://10.85.123.43:9000/user/hadoop/.sparkStaging/application_1498198857575_0002/pipeline.xml
+17/06/23 14:29:31 INFO yarn.Client: Uploading resource file:/home/hadoop/ksp/dataflow/dataflow.jar -> hdfs://10.85.123.43:9000/user/hadoop/.sparkStaging/application_1498198857575_0002/dataflow.jar
+17/06/23 14:29:31 INFO yarn.Client: Uploading resource file:/tmp/spark-94d50411-7307-4e22-8535-4e35737f63f0/__spark_conf__9062016870858638709.zip -> hdfs://10.85.123.43:9000/user/hadoop/.sparkStaging/application_1498198857575_0002/__spark_conf__.zip
+17/06/23 14:29:31 INFO spark.SecurityManager: Changing view acls to: hadoop
+17/06/23 14:29:31 INFO spark.SecurityManager: Changing modify acls to: hadoop
+17/06/23 14:29:31 INFO spark.SecurityManager: Changing view acls groups to: 
+17/06/23 14:29:31 INFO spark.SecurityManager: Changing modify acls groups to: 
+17/06/23 14:29:31 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(hadoop); groups with view permissions: Set(); users  with modify permissions: Set(hadoop); groups with modify permissions: Set()
+17/06/23 14:29:31 INFO yarn.Client: Submitting application application_1498198857575_0002 to ResourceManager
+17/06/23 14:29:31 INFO impl.YarnClientImpl: Submitted application application_1498198857575_0002
+17/06/23 14:29:31 INFO cluster.SchedulerExtensionServices: Starting Yarn extension services with app application_1498198857575_0002 and attemptId None
+17/06/23 14:29:32 INFO yarn.Client: Application report for application_1498198857575_0002 (state: ACCEPTED)
+17/06/23 14:29:32 INFO yarn.Client: 
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: N/A
+	 ApplicationMaster RPC port: -1
+	 queue: default
+	 start time: 1498199371518
+	 final status: UNDEFINED
+	 tracking URL: http://iZ2zeiw5e4vz16f86l4yw1Z:8088/proxy/application_1498198857575_0002/
+	 user: hadoop
+17/06/23 14:29:33 INFO yarn.Client: Application report for application_1498198857575_0002 (state: ACCEPTED)
+17/06/23 14:29:34 INFO yarn.Client: Application report for application_1498198857575_0002 (state: ACCEPTED)
+17/06/23 14:29:35 INFO yarn.Client: Application report for application_1498198857575_0002 (state: ACCEPTED)
+17/06/23 14:29:35 INFO cluster.YarnSchedulerBackend$YarnSchedulerEndpoint: ApplicationMaster registered as NettyRpcEndpointRef(null)
+17/06/23 14:29:35 INFO cluster.YarnClientSchedulerBackend: Add WebUI Filter. org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter, Map(PROXY_HOSTS -> iZ2zeiw5e4vz16f86l4yw1Z, PROXY_URI_BASES -> http://iZ2zeiw5e4vz16f86l4yw1Z:8088/proxy/application_1498198857575_0002), /proxy/application_1498198857575_0002
+17/06/23 14:29:35 INFO ui.JettyUtils: Adding filter: org.apache.hadoop.yarn.server.webproxy.amfilter.AmIpFilter
+17/06/23 14:29:36 INFO yarn.Client: Application report for application_1498198857575_0002 (state: RUNNING)
+17/06/23 14:29:36 INFO yarn.Client: 
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: 10.85.123.43
+	 ApplicationMaster RPC port: 0
+	 queue: default
+	 start time: 1498199371518
+	 final status: UNDEFINED
+	 tracking URL: http://iZ2zeiw5e4vz16f86l4yw1Z:8088/proxy/application_1498198857575_0002/
+	 user: hadoop
+17/06/23 14:29:36 INFO cluster.YarnClientSchedulerBackend: Application application_1498198857575_0002 has started running.
+17/06/23 14:29:36 INFO util.Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 44173.
+17/06/23 14:29:36 INFO netty.NettyBlockTransferService: Server created on 10.85.123.43:44173
+17/06/23 14:29:36 INFO storage.BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 10.85.123.43, 44173)
+17/06/23 14:29:36 INFO storage.BlockManagerMasterEndpoint: Registering block manager 10.85.123.43:44173 with 7.8 GB RAM, BlockManagerId(driver, 10.85.123.43, 44173)
+17/06/23 14:29:36 INFO storage.BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 10.85.123.43, 44173)
+17/06/23 14:29:36 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@459f703f{/metrics/json,null,AVAILABLE}
+17/06/23 14:29:39 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.85.123.45:49114) with ID 2
+17/06/23 14:29:39 INFO storage.BlockManagerMasterEndpoint: Registering block manager iZ2zeiw5e4vz16f86l4yw2Z:43383 with 5.2 GB RAM, BlockManagerId(2, iZ2zeiw5e4vz16f86l4yw2Z, 43383)
+17/06/23 14:29:39 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.85.123.44:50940) with ID 7
+17/06/23 14:29:39 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.85.123.44:50942) with ID 3
+17/06/23 14:29:40 INFO storage.BlockManagerMasterEndpoint: Registering block manager iZ2zeiw5e4vz16f86l4yw3Z:38751 with 5.2 GB RAM, BlockManagerId(7, iZ2zeiw5e4vz16f86l4yw3Z, 38751)
+17/06/23 14:29:40 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.85.123.46:43886) with ID 4
+17/06/23 14:29:40 INFO storage.BlockManagerMasterEndpoint: Registering block manager iZ2zeiw5e4vz16f86l4yw3Z:45186 with 5.2 GB RAM, BlockManagerId(3, iZ2zeiw5e4vz16f86l4yw3Z, 45186)
+17/06/23 14:29:40 INFO storage.BlockManagerMasterEndpoint: Registering block manager iZ2zeiw5e4vz16f86l4yw4Z:37579 with 5.2 GB RAM, BlockManagerId(4, iZ2zeiw5e4vz16f86l4yw4Z, 37579)
+17/06/23 14:29:40 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.85.123.46:43890) with ID 8
+17/06/23 14:29:40 INFO storage.BlockManagerMasterEndpoint: Registering block manager iZ2zeiw5e4vz16f86l4yw4Z:45235 with 5.2 GB RAM, BlockManagerId(8, iZ2zeiw5e4vz16f86l4yw4Z, 45235)
+17/06/23 14:29:41 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.85.123.43:34296) with ID 1
+17/06/23 14:29:41 INFO storage.BlockManagerMasterEndpoint: Registering block manager iZ2zeiw5e4vz16f86l4yw1Z:41499 with 5.2 GB RAM, BlockManagerId(1, iZ2zeiw5e4vz16f86l4yw1Z, 41499)
+17/06/23 14:29:42 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.85.123.43:34300) with ID 5
+17/06/23 14:29:42 INFO storage.BlockManagerMasterEndpoint: Registering block manager iZ2zeiw5e4vz16f86l4yw1Z:44758 with 5.2 GB RAM, BlockManagerId(5, iZ2zeiw5e4vz16f86l4yw1Z, 44758)
+17/06/23 14:29:42 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.85.123.45:49118) with ID 6
+17/06/23 14:29:42 INFO storage.BlockManagerMasterEndpoint: Registering block manager iZ2zeiw5e4vz16f86l4yw2Z:34427 with 5.2 GB RAM, BlockManagerId(6, iZ2zeiw5e4vz16f86l4yw2Z, 34427)
+17/06/23 14:29:43 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.85.123.43:34328) with ID 9
+17/06/23 14:29:43 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.85.123.45:49122) with ID 10
+17/06/23 14:29:43 INFO storage.BlockManagerMasterEndpoint: Registering block manager iZ2zeiw5e4vz16f86l4yw1Z:44600 with 5.2 GB RAM, BlockManagerId(9, iZ2zeiw5e4vz16f86l4yw1Z, 44600)
+17/06/23 14:29:43 INFO storage.BlockManagerMasterEndpoint: Registering block manager iZ2zeiw5e4vz16f86l4yw2Z:44718 with 5.2 GB RAM, BlockManagerId(10, iZ2zeiw5e4vz16f86l4yw2Z, 44718)
+17/06/23 14:29:43 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.85.123.44:50946) with ID 11
+17/06/23 14:29:44 INFO storage.BlockManagerMasterEndpoint: Registering block manager iZ2zeiw5e4vz16f86l4yw3Z:36310 with 5.2 GB RAM, BlockManagerId(11, iZ2zeiw5e4vz16f86l4yw3Z, 36310)
+17/06/23 14:29:44 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.85.123.46:43894) with ID 12
+17/06/23 14:29:44 INFO storage.BlockManagerMasterEndpoint: Registering block manager iZ2zeiw5e4vz16f86l4yw4Z:37380 with 5.2 GB RAM, BlockManagerId(12, iZ2zeiw5e4vz16f86l4yw4Z, 37380)
+17/06/23 14:29:46 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.85.123.45:49130) with ID 22
+17/06/23 14:29:46 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.85.123.45:49128) with ID 14
+17/06/23 14:29:47 INFO storage.BlockManagerMasterEndpoint: Registering block manager iZ2zeiw5e4vz16f86l4yw2Z:43191 with 5.2 GB RAM, BlockManagerId(22, iZ2zeiw5e4vz16f86l4yw2Z, 43191)
+17/06/23 14:29:47 INFO storage.BlockManagerMasterEndpoint: Registering block manager iZ2zeiw5e4vz16f86l4yw2Z:38024 with 5.2 GB RAM, BlockManagerId(14, iZ2zeiw5e4vz16f86l4yw2Z, 38024)
+17/06/23 14:29:47 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.85.123.46:43902) with ID 24
+17/06/23 14:29:47 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.85.123.46:43904) with ID 16
+17/06/23 14:29:47 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.85.123.44:50954) with ID 15
+17/06/23 14:29:47 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.85.123.44:50958) with ID 23
+17/06/23 14:29:47 INFO storage.BlockManagerMasterEndpoint: Registering block manager iZ2zeiw5e4vz16f86l4yw4Z:40127 with 5.2 GB RAM, BlockManagerId(24, iZ2zeiw5e4vz16f86l4yw4Z, 40127)
+17/06/23 14:29:47 INFO storage.BlockManagerMasterEndpoint: Registering block manager iZ2zeiw5e4vz16f86l4yw4Z:41236 with 5.2 GB RAM, BlockManagerId(16, iZ2zeiw5e4vz16f86l4yw4Z, 41236)
+17/06/23 14:29:47 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.85.123.45:49134) with ID 18
+17/06/23 14:29:47 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.85.123.44:50956) with ID 19
+17/06/23 14:29:47 INFO storage.BlockManagerMasterEndpoint: Registering block manager iZ2zeiw5e4vz16f86l4yw3Z:39408 with 5.2 GB RAM, BlockManagerId(15, iZ2zeiw5e4vz16f86l4yw3Z, 39408)
+17/06/23 14:29:47 INFO storage.BlockManagerMasterEndpoint: Registering block manager iZ2zeiw5e4vz16f86l4yw3Z:46196 with 5.2 GB RAM, BlockManagerId(23, iZ2zeiw5e4vz16f86l4yw3Z, 46196)
+17/06/23 14:29:47 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.85.123.46:43906) with ID 20
+17/06/23 14:29:47 INFO storage.BlockManagerMasterEndpoint: Registering block manager iZ2zeiw5e4vz16f86l4yw2Z:36201 with 5.2 GB RAM, BlockManagerId(18, iZ2zeiw5e4vz16f86l4yw2Z, 36201)
+17/06/23 14:29:47 INFO storage.BlockManagerMasterEndpoint: Registering block manager iZ2zeiw5e4vz16f86l4yw3Z:36244 with 5.2 GB RAM, BlockManagerId(19, iZ2zeiw5e4vz16f86l4yw3Z, 36244)
+17/06/23 14:29:47 INFO storage.BlockManagerMasterEndpoint: Registering block manager iZ2zeiw5e4vz16f86l4yw4Z:34604 with 5.2 GB RAM, BlockManagerId(20, iZ2zeiw5e4vz16f86l4yw4Z, 34604)
+17/06/23 14:29:47 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.85.123.43:34352) with ID 17
+17/06/23 14:29:47 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.85.123.43:34354) with ID 13
+17/06/23 14:29:47 INFO storage.BlockManagerMasterEndpoint: Registering block manager iZ2zeiw5e4vz16f86l4yw1Z:44554 with 5.2 GB RAM, BlockManagerId(17, iZ2zeiw5e4vz16f86l4yw1Z, 44554)
+17/06/23 14:29:47 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.85.123.43:34356) with ID 21
+17/06/23 14:29:47 INFO storage.BlockManagerMasterEndpoint: Registering block manager iZ2zeiw5e4vz16f86l4yw1Z:40575 with 5.2 GB RAM, BlockManagerId(13, iZ2zeiw5e4vz16f86l4yw1Z, 40575)
+17/06/23 14:29:47 INFO storage.BlockManagerMasterEndpoint: Registering block manager iZ2zeiw5e4vz16f86l4yw1Z:32789 with 5.2 GB RAM, BlockManagerId(21, iZ2zeiw5e4vz16f86l4yw1Z, 32789)
+17/06/23 14:29:49 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.85.123.45:49142) with ID 26
+17/06/23 14:29:49 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.85.123.43:34362) with ID 25
+17/06/23 14:29:49 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.85.123.46:43912) with ID 32
+17/06/23 14:29:49 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.85.123.45:49140) with ID 30
+17/06/23 14:29:49 INFO cluster.YarnClientSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.8
+17/06/23 14:29:49 WARN spark.SparkContext: Use an existing SparkContext, some configuration may not take effect.
+17/06/23 14:29:49 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@60b34931{/SQL,null,AVAILABLE}
+17/06/23 14:29:49 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.85.123.43:34364) with ID 29
+17/06/23 14:29:49 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@71c17a57{/SQL/json,null,AVAILABLE}
+17/06/23 14:29:49 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@fd53053{/SQL/execution,null,AVAILABLE}
+17/06/23 14:29:49 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@707b1a44{/SQL/execution/json,null,AVAILABLE}
+17/06/23 14:29:49 INFO storage.BlockManagerMasterEndpoint: Registering block manager iZ2zeiw5e4vz16f86l4yw2Z:38150 with 5.2 GB RAM, BlockManagerId(26, iZ2zeiw5e4vz16f86l4yw2Z, 38150)
+17/06/23 14:29:49 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@2c7106d9{/static/sql,null,AVAILABLE}
+17/06/23 14:29:49 INFO storage.BlockManagerMasterEndpoint: Registering block manager iZ2zeiw5e4vz16f86l4yw1Z:37463 with 5.2 GB RAM, BlockManagerId(25, iZ2zeiw5e4vz16f86l4yw1Z, 37463)
+17/06/23 14:29:49 INFO storage.BlockManagerMasterEndpoint: Registering block manager iZ2zeiw5e4vz16f86l4yw4Z:38069 with 5.2 GB RAM, BlockManagerId(32, iZ2zeiw5e4vz16f86l4yw4Z, 38069)
+17/06/23 14:29:49 INFO storage.BlockManagerMasterEndpoint: Registering block manager iZ2zeiw5e4vz16f86l4yw2Z:40277 with 5.2 GB RAM, BlockManagerId(30, iZ2zeiw5e4vz16f86l4yw2Z, 40277)
+17/06/23 14:29:49 INFO internal.SharedState: Warehouse path is 'file:/home/hadoop/ksp/dataflow/spark-warehouse'.
+17/06/23 14:29:49 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.85.123.46:43914) with ID 28
+17/06/23 14:29:49 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.85.123.44:50964) with ID 31
+17/06/23 14:29:50 INFO storage.BlockManagerMasterEndpoint: Registering block manager iZ2zeiw5e4vz16f86l4yw1Z:41556 with 5.2 GB RAM, BlockManagerId(29, iZ2zeiw5e4vz16f86l4yw1Z, 41556)
+17/06/23 14:29:50 INFO storage.BlockManagerMasterEndpoint: Registering block manager iZ2zeiw5e4vz16f86l4yw3Z:43389 with 5.2 GB RAM, BlockManagerId(31, iZ2zeiw5e4vz16f86l4yw3Z, 43389)
+17/06/23 14:29:50 INFO storage.BlockManagerMasterEndpoint: Registering block manager iZ2zeiw5e4vz16f86l4yw4Z:33553 with 5.2 GB RAM, BlockManagerId(28, iZ2zeiw5e4vz16f86l4yw4Z, 33553)
+17/06/23 14:29:50 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Registered executor NettyRpcEndpointRef(null) (10.85.123.44:50966) with ID 27
+17/06/23 14:29:50 INFO storage.BlockManagerMasterEndpoint: Registering block manager iZ2zeiw5e4vz16f86l4yw3Z:41773 with 5.2 GB RAM, BlockManagerId(27, iZ2zeiw5e4vz16f86l4yw3Z, 41773)
+17/06/23 14:29:51 INFO memory.MemoryStore: Block broadcast_0 stored as values in memory (estimated size 284.6 KB, free 7.8 GB)
+17/06/23 14:29:51 INFO memory.MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 23.9 KB, free 7.8 GB)
+17/06/23 14:29:51 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on 10.85.123.43:44173 (size: 23.9 KB, free: 7.8 GB)
+17/06/23 14:29:51 INFO spark.SparkContext: Created broadcast 0 from textFile at File2DataFrame.scala:82
+17/06/23 14:29:51 INFO mapred.FileInputFormat: Total input paths to process : 202
+17/06/23 14:29:51 INFO net.NetworkTopology: Adding a new node: /default-rack/10.85.123.43:50010
+17/06/23 14:29:51 INFO net.NetworkTopology: Adding a new node: /default-rack/10.85.123.45:50010
+17/06/23 14:29:51 INFO net.NetworkTopology: Adding a new node: /default-rack/10.85.123.46:50010
+17/06/23 14:29:51 INFO net.NetworkTopology: Adding a new node: /default-rack/10.85.123.44:50010
+17/06/23 14:29:53 INFO spark.SparkContext: Starting job: collect at ProcessSparkDataClean.scala:38
+17/06/23 14:29:53 INFO scheduler.DAGScheduler: Got job 0 (collect at ProcessSparkDataClean.scala:38) with 1 output partitions
+17/06/23 14:29:53 INFO scheduler.DAGScheduler: Final stage: ResultStage 0 (collect at ProcessSparkDataClean.scala:38)
+17/06/23 14:29:53 INFO scheduler.DAGScheduler: Parents of final stage: List()
+17/06/23 14:29:53 INFO scheduler.DAGScheduler: Missing parents: List()
+17/06/23 14:29:53 INFO scheduler.DAGScheduler: Submitting ResultStage 0 (MapPartitionsRDD[11] at collect at ProcessSparkDataClean.scala:38), which has no missing parents
+17/06/23 14:29:53 INFO memory.MemoryStore: Block broadcast_1 stored as values in memory (estimated size 10.1 KB, free 7.8 GB)
+17/06/23 14:29:53 INFO memory.MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 4.8 KB, free 7.8 GB)
+17/06/23 14:29:53 INFO storage.BlockManagerInfo: Added broadcast_1_piece0 in memory on 10.85.123.43:44173 (size: 4.8 KB, free: 7.8 GB)
+17/06/23 14:29:53 INFO spark.SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:1012
+17/06/23 14:29:53 INFO scheduler.DAGScheduler: Submitting 1 missing tasks from ResultStage 0 (MapPartitionsRDD[11] at collect at ProcessSparkDataClean.scala:38)
+17/06/23 14:29:53 INFO cluster.YarnScheduler: Adding task set 0.0 with 1 tasks
+17/06/23 14:29:53 INFO scheduler.TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0, iZ2zeiw5e4vz16f86l4yw1Z, partition 0, PROCESS_LOCAL, 14134 bytes)
+17/06/23 14:29:53 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 0 on executor id: 1 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:29:53 INFO storage.BlockManagerInfo: Added broadcast_1_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:41499 (size: 4.8 KB, free: 5.2 GB)
+17/06/23 14:29:54 INFO scheduler.TaskSetManager: Finished task 0.0 in stage 0.0 (TID 0) in 899 ms on iZ2zeiw5e4vz16f86l4yw1Z (1/1)
+17/06/23 14:29:54 INFO cluster.YarnScheduler: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+17/06/23 14:29:54 INFO scheduler.DAGScheduler: ResultStage 0 (collect at ProcessSparkDataClean.scala:38) finished in 0.907 s
+17/06/23 14:29:54 INFO scheduler.DAGScheduler: Job 0 finished: collect at ProcessSparkDataClean.scala:38, took 0.953620 s
+17/06/23 14:29:54 INFO codegen.CodeGenerator: Code generated in 208.658003 ms
+17/06/23 14:29:54 INFO memory.MemoryStore: Block broadcast_2 stored as values in memory (estimated size 36.8 KB, free 7.8 GB)
+17/06/23 14:29:54 INFO memory.MemoryStore: Block broadcast_2_piece0 stored as bytes in memory (estimated size 3.6 KB, free 7.8 GB)
+17/06/23 14:29:54 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on 10.85.123.43:44173 (size: 3.6 KB, free: 7.8 GB)
+17/06/23 14:29:54 INFO spark.SparkContext: Created broadcast 2 from broadcast at ProcessSparkDataClean.scala:40
+17/06/23 14:29:54 INFO spark.ContextCleaner: Cleaned accumulator 1
+17/06/23 14:29:54 INFO storage.BlockManagerInfo: Removed broadcast_1_piece0 on 10.85.123.43:44173 in memory (size: 4.8 KB, free: 7.8 GB)
+17/06/23 14:29:54 INFO storage.BlockManagerInfo: Removed broadcast_1_piece0 on iZ2zeiw5e4vz16f86l4yw1Z:41499 in memory (size: 4.8 KB, free: 5.2 GB)
+17/06/23 14:29:54 INFO spark.SparkContext: Starting job: collect at ProcessSparkDataExtract.scala:37
+17/06/23 14:29:54 INFO scheduler.DAGScheduler: Got job 1 (collect at ProcessSparkDataExtract.scala:37) with 1 output partitions
+17/06/23 14:29:54 INFO scheduler.DAGScheduler: Final stage: ResultStage 1 (collect at ProcessSparkDataExtract.scala:37)
+17/06/23 14:29:54 INFO scheduler.DAGScheduler: Parents of final stage: List()
+17/06/23 14:29:54 INFO scheduler.DAGScheduler: Missing parents: List()
+17/06/23 14:29:54 INFO scheduler.DAGScheduler: Submitting ResultStage 1 (MapPartitionsRDD[21] at collect at ProcessSparkDataExtract.scala:37), which has no missing parents
+17/06/23 14:29:54 INFO memory.MemoryStore: Block broadcast_3 stored as values in memory (estimated size 10.1 KB, free 7.8 GB)
+17/06/23 14:29:54 INFO memory.MemoryStore: Block broadcast_3_piece0 stored as bytes in memory (estimated size 4.8 KB, free 7.8 GB)
+17/06/23 14:29:54 INFO storage.BlockManagerInfo: Added broadcast_3_piece0 in memory on 10.85.123.43:44173 (size: 4.8 KB, free: 7.8 GB)
+17/06/23 14:29:54 INFO spark.SparkContext: Created broadcast 3 from broadcast at DAGScheduler.scala:1012
+17/06/23 14:29:54 INFO scheduler.DAGScheduler: Submitting 1 missing tasks from ResultStage 1 (MapPartitionsRDD[21] at collect at ProcessSparkDataExtract.scala:37)
+17/06/23 14:29:54 INFO cluster.YarnScheduler: Adding task set 1.0 with 1 tasks
+17/06/23 14:29:54 INFO scheduler.TaskSetManager: Starting task 0.0 in stage 1.0 (TID 1, iZ2zeiw5e4vz16f86l4yw3Z, partition 0, PROCESS_LOCAL, 14134 bytes)
+17/06/23 14:29:54 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 1 on executor id: 15 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:29:55 INFO storage.BlockManagerInfo: Added broadcast_3_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:39408 (size: 4.8 KB, free: 5.2 GB)
+17/06/23 14:29:55 INFO scheduler.TaskSetManager: Finished task 0.0 in stage 1.0 (TID 1) in 931 ms on iZ2zeiw5e4vz16f86l4yw3Z (1/1)
+17/06/23 14:29:55 INFO cluster.YarnScheduler: Removed TaskSet 1.0, whose tasks have all completed, from pool 
+17/06/23 14:29:55 INFO scheduler.DAGScheduler: ResultStage 1 (collect at ProcessSparkDataExtract.scala:37) finished in 0.933 s
+17/06/23 14:29:55 INFO scheduler.DAGScheduler: Job 1 finished: collect at ProcessSparkDataExtract.scala:37, took 0.940883 s
+17/06/23 14:29:55 INFO execution.SparkSqlParser: Parsing command: table1
+17/06/23 14:29:56 INFO execution.SparkSqlParser: Parsing command: select fu_signin_frequency,fu_type,fu_vtype,fu_age,fu_age_level_mining,fu_clevel,fu_gender,fu_gender_mining,fu_week_ia_interval_equal_1h,fu_week_ia_interval_equal_3hs,fu_week_ia_interval_equal_6hs,fu_week_ia_interval_equal_12hs,fu_week_ia_interval_equal_24hs,fu_week_ia_interval_equal_72hs,m_chour,m_sourceid,m_is_business,m_is_comment,m_is_first_tblog_day,m_is_inner_service,m_is_long_blog,m_is_original,m_is_share,m_is_toutiao,m_is_transmit,m_has_card,m_has_face,m_has_gif,m_has_link,m_has_long_pic,m_has_music,m_has_pic,m_has_topic,m_has_video,m_has_video_inner,m_has_video_miaopai,m_has_card_num,m_has_long_blog_num,m_has_long_pic_num,m_has_pic_num,m_has_video_miaopai_num,m_has_video_num,m_feed_expo_num_his,m_feed_expo_num_hour,m_feed_expo_num_cur_hour,m_fwd_num_his,m_cmt_num_his,m_lk_num_his,m_fwd_num_hour,m_cmt_num_hour,m_lk_num_hour,m_fwd_num_cur_hour,m_cmt_num_cur_hour,m_lk_num_cur_hour,m_fwdr_his,m_cmtr_his,m_lkr_his,m_iar_his,m_fwdr_hour,m_cmtr_hour,m_lkr_hour,m_iar_hour,m_hb_click_num_his,m_hb_click_num_hour,m_hb_cmt_num_his,m_hb_cmt_num_hour,m_hb_expo_num_his,m_hb_expo_num_hour,m_hb_fwd_num_his,m_hb_fwd_num_hour,m_hb_ia_num_his,m_hb_ia_num_hour,m_hb_like_num_his,m_u_gender,m_u_type,m_u_vtype,m_u_clevel,m_u_attens_num,m_u_fans_num,m_u_filtered_attens_num,m_u_filtered_fans_num,m_u_tweets_num,m_u_expo_num_month_fa,m_u_fwd_num_month_fa,m_u_cmt_num_month_fa,m_u_lk_num_month_fa,m_u_ia_num_month_fa,m_u_expo_num_week,m_u_ia_num_week,m_u_iar_week,m_u_iar_month,fuu_is_fansboth,fuu_affinity,fuu_expo_num_hour,fuu_ia_num_hour,fuu_expo_num_week,fuu_ia_num_week,fuu_iar_week,fuu_expo_num_month,fuu_fwd_num_month,fuu_cmt_num_month,fuu_lk_num_month,fuu_ia_num_month,fuu_iar_month,fum_interest_tag1_match,fum_interest_tag2_match,fuu_interest_similarity_calA_tag1,fuu_interest_similarity_calA_tag2,mc_time_interval,fu_uid, 1 as label from table1 where label > 0
+17/06/23 14:29:56 INFO execution.SparkSqlParser: Parsing command: select fu_signin_frequency,fu_type,fu_vtype,fu_age,fu_age_level_mining,fu_clevel,fu_gender,fu_gender_mining,fu_week_ia_interval_equal_1h,fu_week_ia_interval_equal_3hs,fu_week_ia_interval_equal_6hs,fu_week_ia_interval_equal_12hs,fu_week_ia_interval_equal_24hs,fu_week_ia_interval_equal_72hs,m_chour,m_sourceid,m_is_business,m_is_comment,m_is_first_tblog_day,m_is_inner_service,m_is_long_blog,m_is_original,m_is_share,m_is_toutiao,m_is_transmit,m_has_card,m_has_face,m_has_gif,m_has_link,m_has_long_pic,m_has_music,m_has_pic,m_has_topic,m_has_video,m_has_video_inner,m_has_video_miaopai,m_has_card_num,m_has_long_blog_num,m_has_long_pic_num,m_has_pic_num,m_has_video_miaopai_num,m_has_video_num,m_feed_expo_num_his,m_feed_expo_num_hour,m_feed_expo_num_cur_hour,m_fwd_num_his,m_cmt_num_his,m_lk_num_his,m_fwd_num_hour,m_cmt_num_hour,m_lk_num_hour,m_fwd_num_cur_hour,m_cmt_num_cur_hour,m_lk_num_cur_hour,m_fwdr_his,m_cmtr_his,m_lkr_his,m_iar_his,m_fwdr_hour,m_cmtr_hour,m_lkr_hour,m_iar_hour,m_hb_click_num_his,m_hb_click_num_hour,m_hb_cmt_num_his,m_hb_cmt_num_hour,m_hb_expo_num_his,m_hb_expo_num_hour,m_hb_fwd_num_his,m_hb_fwd_num_hour,m_hb_ia_num_his,m_hb_ia_num_hour,m_hb_like_num_his,m_u_gender,m_u_type,m_u_vtype,m_u_clevel,m_u_attens_num,m_u_fans_num,m_u_filtered_attens_num,m_u_filtered_fans_num,m_u_tweets_num,m_u_expo_num_month_fa,m_u_fwd_num_month_fa,m_u_cmt_num_month_fa,m_u_lk_num_month_fa,m_u_ia_num_month_fa,m_u_expo_num_week,m_u_ia_num_week,m_u_iar_week,m_u_iar_month,fuu_is_fansboth,fuu_affinity,fuu_expo_num_hour,fuu_ia_num_hour,fuu_expo_num_week,fuu_ia_num_week,fuu_iar_week,fuu_expo_num_month,fuu_fwd_num_month,fuu_cmt_num_month,fuu_lk_num_month,fuu_ia_num_month,fuu_iar_month,fum_interest_tag1_match,fum_interest_tag2_match,fuu_interest_similarity_calA_tag1,fuu_interest_similarity_calA_tag2,mc_time_interval,fu_uid, 0 as label from table1 where label <= 0
+17/06/23 14:29:56 INFO memory.MemoryStore: Block broadcast_4 stored as values in memory (estimated size 28.1 KB, free 7.8 GB)
+17/06/23 14:29:56 INFO memory.MemoryStore: Block broadcast_4_piece0 stored as bytes in memory (estimated size 3.3 KB, free 7.8 GB)
+17/06/23 14:29:56 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on 10.85.123.43:44173 (size: 3.3 KB, free: 7.8 GB)
+17/06/23 14:29:56 INFO spark.SparkContext: Created broadcast 4 from broadcast at ProcessSparkFeatureMapping.scala:52
+17/06/23 14:29:56 INFO memory.MemoryStore: Block broadcast_5 stored as values in memory (estimated size 62.9 KB, free 7.8 GB)
+17/06/23 14:29:56 INFO memory.MemoryStore: Block broadcast_5_piece0 stored as bytes in memory (estimated size 3.6 KB, free 7.8 GB)
+17/06/23 14:29:56 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on 10.85.123.43:44173 (size: 3.6 KB, free: 7.8 GB)
+17/06/23 14:29:56 INFO spark.SparkContext: Created broadcast 5 from broadcast at ProcessSparkFeatureMapping.scala:53
+17/06/23 14:29:56 INFO memory.MemoryStore: Block broadcast_6 stored as values in memory (estimated size 68.2 KB, free 7.8 GB)
+17/06/23 14:29:56 INFO memory.MemoryStore: Block broadcast_6_piece0 stored as bytes in memory (estimated size 4.5 KB, free 7.8 GB)
+17/06/23 14:29:56 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on 10.85.123.43:44173 (size: 4.5 KB, free: 7.8 GB)
+17/06/23 14:29:56 INFO spark.SparkContext: Created broadcast 6 from broadcast at ProcessSparkFeatureMapping.scala:57
+17/06/23 14:29:56 INFO codegen.CodeGenerator: Code generated in 13.821692 ms
+17/06/23 14:29:56 INFO Configuration.deprecation: mapred.tip.id is deprecated. Instead, use mapreduce.task.id
+17/06/23 14:29:56 INFO Configuration.deprecation: mapred.task.id is deprecated. Instead, use mapreduce.task.attempt.id
+17/06/23 14:29:56 INFO Configuration.deprecation: mapred.task.is.map is deprecated. Instead, use mapreduce.task.ismap
+17/06/23 14:29:56 INFO Configuration.deprecation: mapred.task.partition is deprecated. Instead, use mapreduce.task.partition
+17/06/23 14:29:56 INFO Configuration.deprecation: mapred.job.id is deprecated. Instead, use mapreduce.job.id
+17/06/23 14:29:56 INFO output.FileOutputCommitter: File Output Committer Algorithm version is 1
+17/06/23 14:29:56 INFO spark.SparkContext: Starting job: saveAsTextFile at OutputSparkLibsvm.scala:83
+17/06/23 14:29:56 INFO scheduler.DAGScheduler: Got job 2 (saveAsTextFile at OutputSparkLibsvm.scala:83) with 202 output partitions
+17/06/23 14:29:56 INFO scheduler.DAGScheduler: Final stage: ResultStage 2 (saveAsTextFile at OutputSparkLibsvm.scala:83)
+17/06/23 14:29:56 INFO scheduler.DAGScheduler: Parents of final stage: List()
+17/06/23 14:29:56 INFO scheduler.DAGScheduler: Missing parents: List()
+17/06/23 14:29:56 INFO scheduler.DAGScheduler: Submitting ResultStage 2 (MapPartitionsRDD[46] at saveAsTextFile at OutputSparkLibsvm.scala:83), which has no missing parents
+17/06/23 14:29:56 INFO memory.MemoryStore: Block broadcast_7 stored as values in memory (estimated size 269.5 KB, free 7.8 GB)
+17/06/23 14:29:56 INFO memory.MemoryStore: Block broadcast_7_piece0 stored as bytes in memory (estimated size 69.0 KB, free 7.8 GB)
+17/06/23 14:29:56 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on 10.85.123.43:44173 (size: 69.0 KB, free: 7.8 GB)
+17/06/23 14:29:56 INFO spark.SparkContext: Created broadcast 7 from broadcast at DAGScheduler.scala:1012
+17/06/23 14:29:56 INFO scheduler.DAGScheduler: Submitting 202 missing tasks from ResultStage 2 (MapPartitionsRDD[46] at saveAsTextFile at OutputSparkLibsvm.scala:83)
+17/06/23 14:29:56 INFO cluster.YarnScheduler: Adding task set 2.0 with 202 tasks
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 0.0 in stage 2.0 (TID 2, iZ2zeiw5e4vz16f86l4yw4Z, partition 0, RACK_LOCAL, 6505 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 1.0 in stage 2.0 (TID 3, iZ2zeiw5e4vz16f86l4yw3Z, partition 1, RACK_LOCAL, 6191 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 2.0 in stage 2.0 (TID 4, iZ2zeiw5e4vz16f86l4yw1Z, partition 2, RACK_LOCAL, 6191 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 3.0 in stage 2.0 (TID 5, iZ2zeiw5e4vz16f86l4yw2Z, partition 3, RACK_LOCAL, 6191 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 4.0 in stage 2.0 (TID 6, iZ2zeiw5e4vz16f86l4yw3Z, partition 4, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 5.0 in stage 2.0 (TID 7, iZ2zeiw5e4vz16f86l4yw2Z, partition 5, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 6.0 in stage 2.0 (TID 8, iZ2zeiw5e4vz16f86l4yw3Z, partition 6, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 7.0 in stage 2.0 (TID 9, iZ2zeiw5e4vz16f86l4yw4Z, partition 7, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 8.0 in stage 2.0 (TID 10, iZ2zeiw5e4vz16f86l4yw1Z, partition 8, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 9.0 in stage 2.0 (TID 11, iZ2zeiw5e4vz16f86l4yw3Z, partition 9, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 10.0 in stage 2.0 (TID 12, iZ2zeiw5e4vz16f86l4yw4Z, partition 10, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 11.0 in stage 2.0 (TID 13, iZ2zeiw5e4vz16f86l4yw3Z, partition 11, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 12.0 in stage 2.0 (TID 14, iZ2zeiw5e4vz16f86l4yw4Z, partition 12, RACK_LOCAL, 6750 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 13.0 in stage 2.0 (TID 15, iZ2zeiw5e4vz16f86l4yw2Z, partition 13, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 14.0 in stage 2.0 (TID 16, iZ2zeiw5e4vz16f86l4yw2Z, partition 14, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 15.0 in stage 2.0 (TID 17, iZ2zeiw5e4vz16f86l4yw4Z, partition 15, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 16.0 in stage 2.0 (TID 18, iZ2zeiw5e4vz16f86l4yw3Z, partition 16, RACK_LOCAL, 6750 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 17.0 in stage 2.0 (TID 19, iZ2zeiw5e4vz16f86l4yw1Z, partition 17, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 18.0 in stage 2.0 (TID 20, iZ2zeiw5e4vz16f86l4yw2Z, partition 18, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 19.0 in stage 2.0 (TID 21, iZ2zeiw5e4vz16f86l4yw1Z, partition 19, RACK_LOCAL, 6122 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 20.0 in stage 2.0 (TID 22, iZ2zeiw5e4vz16f86l4yw2Z, partition 20, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 21.0 in stage 2.0 (TID 23, iZ2zeiw5e4vz16f86l4yw1Z, partition 21, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 22.0 in stage 2.0 (TID 24, iZ2zeiw5e4vz16f86l4yw3Z, partition 22, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 23.0 in stage 2.0 (TID 25, iZ2zeiw5e4vz16f86l4yw3Z, partition 23, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 24.0 in stage 2.0 (TID 26, iZ2zeiw5e4vz16f86l4yw2Z, partition 24, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 25.0 in stage 2.0 (TID 27, iZ2zeiw5e4vz16f86l4yw1Z, partition 25, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 26.0 in stage 2.0 (TID 28, iZ2zeiw5e4vz16f86l4yw4Z, partition 26, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 27.0 in stage 2.0 (TID 29, iZ2zeiw5e4vz16f86l4yw4Z, partition 27, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 28.0 in stage 2.0 (TID 30, iZ2zeiw5e4vz16f86l4yw1Z, partition 28, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 29.0 in stage 2.0 (TID 31, iZ2zeiw5e4vz16f86l4yw2Z, partition 29, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 30.0 in stage 2.0 (TID 32, iZ2zeiw5e4vz16f86l4yw4Z, partition 30, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 31.0 in stage 2.0 (TID 33, iZ2zeiw5e4vz16f86l4yw1Z, partition 31, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 32.0 in stage 2.0 (TID 34, iZ2zeiw5e4vz16f86l4yw4Z, partition 32, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 33.0 in stage 2.0 (TID 35, iZ2zeiw5e4vz16f86l4yw3Z, partition 33, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 34.0 in stage 2.0 (TID 36, iZ2zeiw5e4vz16f86l4yw1Z, partition 34, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 35.0 in stage 2.0 (TID 37, iZ2zeiw5e4vz16f86l4yw2Z, partition 35, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 36.0 in stage 2.0 (TID 38, iZ2zeiw5e4vz16f86l4yw3Z, partition 36, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 37.0 in stage 2.0 (TID 39, iZ2zeiw5e4vz16f86l4yw2Z, partition 37, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 38.0 in stage 2.0 (TID 40, iZ2zeiw5e4vz16f86l4yw3Z, partition 38, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 39.0 in stage 2.0 (TID 41, iZ2zeiw5e4vz16f86l4yw4Z, partition 39, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 40.0 in stage 2.0 (TID 42, iZ2zeiw5e4vz16f86l4yw1Z, partition 40, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 41.0 in stage 2.0 (TID 43, iZ2zeiw5e4vz16f86l4yw3Z, partition 41, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 42.0 in stage 2.0 (TID 44, iZ2zeiw5e4vz16f86l4yw4Z, partition 42, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 43.0 in stage 2.0 (TID 45, iZ2zeiw5e4vz16f86l4yw3Z, partition 43, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 44.0 in stage 2.0 (TID 46, iZ2zeiw5e4vz16f86l4yw4Z, partition 44, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 45.0 in stage 2.0 (TID 47, iZ2zeiw5e4vz16f86l4yw2Z, partition 45, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 46.0 in stage 2.0 (TID 48, iZ2zeiw5e4vz16f86l4yw2Z, partition 46, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 47.0 in stage 2.0 (TID 49, iZ2zeiw5e4vz16f86l4yw4Z, partition 47, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 48.0 in stage 2.0 (TID 50, iZ2zeiw5e4vz16f86l4yw3Z, partition 48, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 49.0 in stage 2.0 (TID 51, iZ2zeiw5e4vz16f86l4yw1Z, partition 49, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 50.0 in stage 2.0 (TID 52, iZ2zeiw5e4vz16f86l4yw2Z, partition 50, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 51.0 in stage 2.0 (TID 53, iZ2zeiw5e4vz16f86l4yw1Z, partition 51, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 52.0 in stage 2.0 (TID 54, iZ2zeiw5e4vz16f86l4yw2Z, partition 52, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 53.0 in stage 2.0 (TID 55, iZ2zeiw5e4vz16f86l4yw1Z, partition 53, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 54.0 in stage 2.0 (TID 56, iZ2zeiw5e4vz16f86l4yw3Z, partition 54, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 55.0 in stage 2.0 (TID 57, iZ2zeiw5e4vz16f86l4yw3Z, partition 55, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 56.0 in stage 2.0 (TID 58, iZ2zeiw5e4vz16f86l4yw2Z, partition 56, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 57.0 in stage 2.0 (TID 59, iZ2zeiw5e4vz16f86l4yw1Z, partition 57, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 58.0 in stage 2.0 (TID 60, iZ2zeiw5e4vz16f86l4yw4Z, partition 58, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 59.0 in stage 2.0 (TID 61, iZ2zeiw5e4vz16f86l4yw4Z, partition 59, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 60.0 in stage 2.0 (TID 62, iZ2zeiw5e4vz16f86l4yw1Z, partition 60, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 61.0 in stage 2.0 (TID 63, iZ2zeiw5e4vz16f86l4yw2Z, partition 61, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 62.0 in stage 2.0 (TID 64, iZ2zeiw5e4vz16f86l4yw4Z, partition 62, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 63.0 in stage 2.0 (TID 65, iZ2zeiw5e4vz16f86l4yw1Z, partition 63, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 64.0 in stage 2.0 (TID 66, iZ2zeiw5e4vz16f86l4yw4Z, partition 64, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 65.0 in stage 2.0 (TID 67, iZ2zeiw5e4vz16f86l4yw3Z, partition 65, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 66.0 in stage 2.0 (TID 68, iZ2zeiw5e4vz16f86l4yw1Z, partition 66, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 67.0 in stage 2.0 (TID 69, iZ2zeiw5e4vz16f86l4yw2Z, partition 67, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 68.0 in stage 2.0 (TID 70, iZ2zeiw5e4vz16f86l4yw3Z, partition 68, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 69.0 in stage 2.0 (TID 71, iZ2zeiw5e4vz16f86l4yw2Z, partition 69, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 70.0 in stage 2.0 (TID 72, iZ2zeiw5e4vz16f86l4yw3Z, partition 70, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 71.0 in stage 2.0 (TID 73, iZ2zeiw5e4vz16f86l4yw4Z, partition 71, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 72.0 in stage 2.0 (TID 74, iZ2zeiw5e4vz16f86l4yw1Z, partition 72, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 73.0 in stage 2.0 (TID 75, iZ2zeiw5e4vz16f86l4yw3Z, partition 73, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 74.0 in stage 2.0 (TID 76, iZ2zeiw5e4vz16f86l4yw4Z, partition 74, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 75.0 in stage 2.0 (TID 77, iZ2zeiw5e4vz16f86l4yw3Z, partition 75, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 76.0 in stage 2.0 (TID 78, iZ2zeiw5e4vz16f86l4yw4Z, partition 76, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 77.0 in stage 2.0 (TID 79, iZ2zeiw5e4vz16f86l4yw2Z, partition 77, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 78.0 in stage 2.0 (TID 80, iZ2zeiw5e4vz16f86l4yw2Z, partition 78, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 79.0 in stage 2.0 (TID 81, iZ2zeiw5e4vz16f86l4yw4Z, partition 79, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 80.0 in stage 2.0 (TID 82, iZ2zeiw5e4vz16f86l4yw3Z, partition 80, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 81.0 in stage 2.0 (TID 83, iZ2zeiw5e4vz16f86l4yw1Z, partition 81, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 82.0 in stage 2.0 (TID 84, iZ2zeiw5e4vz16f86l4yw2Z, partition 82, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 83.0 in stage 2.0 (TID 85, iZ2zeiw5e4vz16f86l4yw1Z, partition 83, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 84.0 in stage 2.0 (TID 86, iZ2zeiw5e4vz16f86l4yw2Z, partition 84, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 85.0 in stage 2.0 (TID 87, iZ2zeiw5e4vz16f86l4yw1Z, partition 85, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 86.0 in stage 2.0 (TID 88, iZ2zeiw5e4vz16f86l4yw3Z, partition 86, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 87.0 in stage 2.0 (TID 89, iZ2zeiw5e4vz16f86l4yw3Z, partition 87, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 88.0 in stage 2.0 (TID 90, iZ2zeiw5e4vz16f86l4yw2Z, partition 88, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 89.0 in stage 2.0 (TID 91, iZ2zeiw5e4vz16f86l4yw1Z, partition 89, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 90.0 in stage 2.0 (TID 92, iZ2zeiw5e4vz16f86l4yw4Z, partition 90, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 91.0 in stage 2.0 (TID 93, iZ2zeiw5e4vz16f86l4yw4Z, partition 91, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 92.0 in stage 2.0 (TID 94, iZ2zeiw5e4vz16f86l4yw1Z, partition 92, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 93.0 in stage 2.0 (TID 95, iZ2zeiw5e4vz16f86l4yw2Z, partition 93, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 94.0 in stage 2.0 (TID 96, iZ2zeiw5e4vz16f86l4yw4Z, partition 94, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 95.0 in stage 2.0 (TID 97, iZ2zeiw5e4vz16f86l4yw1Z, partition 95, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 96.0 in stage 2.0 (TID 98, iZ2zeiw5e4vz16f86l4yw4Z, partition 96, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 97.0 in stage 2.0 (TID 99, iZ2zeiw5e4vz16f86l4yw3Z, partition 97, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 98.0 in stage 2.0 (TID 100, iZ2zeiw5e4vz16f86l4yw1Z, partition 98, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 99.0 in stage 2.0 (TID 101, iZ2zeiw5e4vz16f86l4yw2Z, partition 99, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 100.0 in stage 2.0 (TID 102, iZ2zeiw5e4vz16f86l4yw3Z, partition 100, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 101.0 in stage 2.0 (TID 103, iZ2zeiw5e4vz16f86l4yw2Z, partition 101, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 102.0 in stage 2.0 (TID 104, iZ2zeiw5e4vz16f86l4yw3Z, partition 102, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 103.0 in stage 2.0 (TID 105, iZ2zeiw5e4vz16f86l4yw4Z, partition 103, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 104.0 in stage 2.0 (TID 106, iZ2zeiw5e4vz16f86l4yw1Z, partition 104, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 105.0 in stage 2.0 (TID 107, iZ2zeiw5e4vz16f86l4yw3Z, partition 105, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 106.0 in stage 2.0 (TID 108, iZ2zeiw5e4vz16f86l4yw4Z, partition 106, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 107.0 in stage 2.0 (TID 109, iZ2zeiw5e4vz16f86l4yw3Z, partition 107, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 108.0 in stage 2.0 (TID 110, iZ2zeiw5e4vz16f86l4yw4Z, partition 108, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 109.0 in stage 2.0 (TID 111, iZ2zeiw5e4vz16f86l4yw2Z, partition 109, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 110.0 in stage 2.0 (TID 112, iZ2zeiw5e4vz16f86l4yw2Z, partition 110, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 111.0 in stage 2.0 (TID 113, iZ2zeiw5e4vz16f86l4yw4Z, partition 111, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 112.0 in stage 2.0 (TID 114, iZ2zeiw5e4vz16f86l4yw3Z, partition 112, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 113.0 in stage 2.0 (TID 115, iZ2zeiw5e4vz16f86l4yw1Z, partition 113, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 114.0 in stage 2.0 (TID 116, iZ2zeiw5e4vz16f86l4yw2Z, partition 114, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 115.0 in stage 2.0 (TID 117, iZ2zeiw5e4vz16f86l4yw1Z, partition 115, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 116.0 in stage 2.0 (TID 118, iZ2zeiw5e4vz16f86l4yw2Z, partition 116, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 117.0 in stage 2.0 (TID 119, iZ2zeiw5e4vz16f86l4yw1Z, partition 117, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 118.0 in stage 2.0 (TID 120, iZ2zeiw5e4vz16f86l4yw3Z, partition 118, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 119.0 in stage 2.0 (TID 121, iZ2zeiw5e4vz16f86l4yw3Z, partition 119, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 120.0 in stage 2.0 (TID 122, iZ2zeiw5e4vz16f86l4yw2Z, partition 120, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 121.0 in stage 2.0 (TID 123, iZ2zeiw5e4vz16f86l4yw1Z, partition 121, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 122.0 in stage 2.0 (TID 124, iZ2zeiw5e4vz16f86l4yw4Z, partition 122, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 123.0 in stage 2.0 (TID 125, iZ2zeiw5e4vz16f86l4yw4Z, partition 123, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 124.0 in stage 2.0 (TID 126, iZ2zeiw5e4vz16f86l4yw1Z, partition 124, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 125.0 in stage 2.0 (TID 127, iZ2zeiw5e4vz16f86l4yw2Z, partition 125, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 126.0 in stage 2.0 (TID 128, iZ2zeiw5e4vz16f86l4yw4Z, partition 126, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO scheduler.TaskSetManager: Starting task 127.0 in stage 2.0 (TID 129, iZ2zeiw5e4vz16f86l4yw1Z, partition 127, RACK_LOCAL, 6436 bytes)
+17/06/23 14:29:56 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 2 on executor id: 20 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:29:56 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 34 on executor id: 20 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:29:56 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 66 on executor id: 20 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:29:56 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 98 on executor id: 20 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:29:56 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 3 on executor id: 23 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:29:56 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 35 on executor id: 23 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 67 on executor id: 23 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 99 on executor id: 23 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 4 on executor id: 25 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 36 on executor id: 25 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 68 on executor id: 25 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 100 on executor id: 25 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 5 on executor id: 10 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 37 on executor id: 10 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 69 on executor id: 10 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 101 on executor id: 10 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 6 on executor id: 11 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 38 on executor id: 11 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 70 on executor id: 11 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 102 on executor id: 11 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 7 on executor id: 18 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 39 on executor id: 18 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 71 on executor id: 18 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 103 on executor id: 18 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 8 on executor id: 3 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 40 on executor id: 3 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 72 on executor id: 3 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 104 on executor id: 3 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 9 on executor id: 32 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 41 on executor id: 32 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 73 on executor id: 32 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 105 on executor id: 32 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 10 on executor id: 13 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 42 on executor id: 13 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 74 on executor id: 13 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 106 on executor id: 13 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 11 on executor id: 15 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 43 on executor id: 15 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 75 on executor id: 15 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 107 on executor id: 15 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 12 on executor id: 24 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 44 on executor id: 24 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 76 on executor id: 24 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 108 on executor id: 24 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 13 on executor id: 27 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 45 on executor id: 27 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 77 on executor id: 27 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 109 on executor id: 27 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 14 on executor id: 28 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 46 on executor id: 28 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 78 on executor id: 28 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 110 on executor id: 28 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 15 on executor id: 2 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 47 on executor id: 2 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 79 on executor id: 2 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 111 on executor id: 2 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 16 on executor id: 6 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 48 on executor id: 6 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 80 on executor id: 6 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 112 on executor id: 6 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 17 on executor id: 4 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 49 on executor id: 4 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 81 on executor id: 4 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 113 on executor id: 4 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 18 on executor id: 19 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 50 on executor id: 19 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 82 on executor id: 19 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 114 on executor id: 19 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 19 on executor id: 1 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 51 on executor id: 1 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 83 on executor id: 1 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 115 on executor id: 1 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 20 on executor id: 30 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 52 on executor id: 30 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 84 on executor id: 30 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 116 on executor id: 30 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 21 on executor id: 9 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 53 on executor id: 9 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 85 on executor id: 9 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 117 on executor id: 9 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 22 on executor id: 22 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 54 on executor id: 22 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 86 on executor id: 22 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 118 on executor id: 22 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 23 on executor id: 17 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 55 on executor id: 17 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 87 on executor id: 17 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 119 on executor id: 17 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 24 on executor id: 7 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 56 on executor id: 7 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 88 on executor id: 7 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 120 on executor id: 7 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 25 on executor id: 31 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 57 on executor id: 31 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 89 on executor id: 31 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 121 on executor id: 31 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 26 on executor id: 14 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 58 on executor id: 14 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 90 on executor id: 14 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 122 on executor id: 14 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 27 on executor id: 21 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 59 on executor id: 21 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 91 on executor id: 21 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 123 on executor id: 21 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 28 on executor id: 12 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 60 on executor id: 12 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 92 on executor id: 12 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 124 on executor id: 12 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 29 on executor id: 8 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 61 on executor id: 8 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 93 on executor id: 8 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 125 on executor id: 8 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 30 on executor id: 5 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 62 on executor id: 5 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 94 on executor id: 5 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 126 on executor id: 5 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 31 on executor id: 26 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 63 on executor id: 26 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 95 on executor id: 26 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 127 on executor id: 26 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 32 on executor id: 16 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 64 on executor id: 16 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 96 on executor id: 16 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 128 on executor id: 16 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 33 on executor id: 29 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 65 on executor id: 29 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 97 on executor id: 29 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:29:57 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 129 on executor id: 29 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:29:57 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:39408 (size: 69.0 KB, free: 5.2 GB)
+17/06/23 14:29:57 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:41499 (size: 69.0 KB, free: 5.2 GB)
+17/06/23 14:29:57 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:43383 (size: 69.0 KB, free: 5.2 GB)
+17/06/23 14:29:57 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:40575 (size: 69.0 KB, free: 5.2 GB)
+17/06/23 14:29:57 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:37463 (size: 69.0 KB, free: 5.2 GB)
+17/06/23 14:29:57 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:46196 (size: 69.0 KB, free: 5.2 GB)
+17/06/23 14:29:57 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:33553 (size: 69.0 KB, free: 5.2 GB)
+17/06/23 14:29:57 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:40127 (size: 69.0 KB, free: 5.2 GB)
+17/06/23 14:29:57 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:41773 (size: 69.0 KB, free: 5.2 GB)
+17/06/23 14:29:57 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:34427 (size: 69.0 KB, free: 5.2 GB)
+17/06/23 14:29:58 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:36310 (size: 69.0 KB, free: 5.2 GB)
+17/06/23 14:29:59 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:44600 (size: 69.0 KB, free: 5.2 GB)
+17/06/23 14:29:59 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:44758 (size: 69.0 KB, free: 5.2 GB)
+17/06/23 14:29:59 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:41556 (size: 69.0 KB, free: 5.2 GB)
+17/06/23 14:30:00 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:37380 (size: 69.0 KB, free: 5.2 GB)
+17/06/23 14:30:00 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:43389 (size: 69.0 KB, free: 5.2 GB)
+17/06/23 14:30:00 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:45186 (size: 69.0 KB, free: 5.2 GB)
+17/06/23 14:30:00 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:38751 (size: 69.0 KB, free: 5.2 GB)
+17/06/23 14:30:00 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:36244 (size: 69.0 KB, free: 5.2 GB)
+17/06/23 14:30:01 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:32789 (size: 69.0 KB, free: 5.2 GB)
+17/06/23 14:30:01 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:44554 (size: 69.0 KB, free: 5.2 GB)
+17/06/23 14:30:01 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:44718 (size: 69.0 KB, free: 5.2 GB)
+17/06/23 14:30:02 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:39408 (size: 23.9 KB, free: 5.2 GB)
+17/06/23 14:30:03 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:37579 (size: 69.0 KB, free: 5.2 GB)
+17/06/23 14:30:03 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:38069 (size: 69.0 KB, free: 5.2 GB)
+17/06/23 14:30:03 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:41236 (size: 69.0 KB, free: 5.2 GB)
+17/06/23 14:30:03 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:34604 (size: 69.0 KB, free: 5.2 GB)
+17/06/23 14:30:03 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:45235 (size: 69.0 KB, free: 5.2 GB)
+17/06/23 14:30:04 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:36201 (size: 69.0 KB, free: 5.2 GB)
+17/06/23 14:30:04 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:38024 (size: 69.0 KB, free: 5.2 GB)
+17/06/23 14:30:04 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:38150 (size: 69.0 KB, free: 5.2 GB)
+17/06/23 14:30:04 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:40277 (size: 69.0 KB, free: 5.2 GB)
+17/06/23 14:30:04 INFO storage.BlockManagerInfo: Added broadcast_7_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:43191 (size: 69.0 KB, free: 5.2 GB)
+17/06/23 14:30:05 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:41499 (size: 23.9 KB, free: 5.2 GB)
+17/06/23 14:30:05 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:40127 (size: 23.9 KB, free: 5.2 GB)
+17/06/23 14:30:06 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:33553 (size: 23.9 KB, free: 5.2 GB)
+17/06/23 14:30:06 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:43383 (size: 23.9 KB, free: 5.2 GB)
+17/06/23 14:30:06 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:37380 (size: 23.9 KB, free: 5.2 GB)
+17/06/23 14:30:06 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:34604 (size: 23.9 KB, free: 5.2 GB)
+17/06/23 14:30:06 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:36310 (size: 23.9 KB, free: 5.2 GB)
+17/06/23 14:30:06 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:44718 (size: 23.9 KB, free: 5.2 GB)
+17/06/23 14:30:06 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:40575 (size: 23.9 KB, free: 5.2 GB)
+17/06/23 14:30:06 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:37579 (size: 23.9 KB, free: 5.2 GB)
+17/06/23 14:30:06 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:41236 (size: 23.9 KB, free: 5.2 GB)
+17/06/23 14:30:06 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:43389 (size: 23.9 KB, free: 5.2 GB)
+17/06/23 14:30:06 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:46196 (size: 23.9 KB, free: 5.2 GB)
+17/06/23 14:30:06 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:36244 (size: 23.9 KB, free: 5.2 GB)
+17/06/23 14:30:06 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:38751 (size: 23.9 KB, free: 5.2 GB)
+17/06/23 14:30:06 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:44758 (size: 23.9 KB, free: 5.2 GB)
+17/06/23 14:30:06 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:45186 (size: 23.9 KB, free: 5.2 GB)
+17/06/23 14:30:06 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:41773 (size: 23.9 KB, free: 5.2 GB)
+17/06/23 14:30:06 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:37463 (size: 23.9 KB, free: 5.2 GB)
+17/06/23 14:30:06 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:44600 (size: 23.9 KB, free: 5.2 GB)
+17/06/23 14:30:06 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:32789 (size: 23.9 KB, free: 5.2 GB)
+17/06/23 14:30:07 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:41556 (size: 23.9 KB, free: 5.2 GB)
+17/06/23 14:30:07 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:44554 (size: 23.9 KB, free: 5.2 GB)
+17/06/23 14:30:07 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:39408 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:07 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:39408 (size: 3.3 KB, free: 5.2 GB)
+17/06/23 14:30:07 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:39408 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:07 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:39408 (size: 4.5 KB, free: 5.2 GB)
+17/06/23 14:30:07 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:34427 (size: 23.9 KB, free: 5.2 GB)
+17/06/23 14:30:07 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:45235 (size: 23.9 KB, free: 5.2 GB)
+17/06/23 14:30:07 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:38069 (size: 23.9 KB, free: 5.2 GB)
+17/06/23 14:30:08 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:43191 (size: 23.9 KB, free: 5.2 GB)
+17/06/23 14:30:08 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:40277 (size: 23.9 KB, free: 5.2 GB)
+17/06/23 14:30:08 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:38150 (size: 23.9 KB, free: 5.2 GB)
+17/06/23 14:30:08 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:36201 (size: 23.9 KB, free: 5.2 GB)
+17/06/23 14:30:08 INFO storage.BlockManagerInfo: Added broadcast_0_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:38024 (size: 23.9 KB, free: 5.2 GB)
+17/06/23 14:30:08 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:40127 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:36310 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:37380 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:44718 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:43383 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:37579 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:41236 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:44758 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:43389 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:40127 (size: 3.3 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:44718 (size: 3.3 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:46196 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:36310 (size: 3.3 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:43383 (size: 3.3 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:33553 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:41499 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:40127 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:44718 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:41773 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:36310 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:40127 (size: 4.5 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:44718 (size: 4.5 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:43383 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:43383 (size: 4.5 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:41236 (size: 3.3 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:32789 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:37579 (size: 3.3 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:40575 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:36244 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:41236 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:46196 (size: 3.3 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:36310 (size: 4.5 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:37579 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:43389 (size: 3.3 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:37579 (size: 4.5 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:33553 (size: 3.3 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:41236 (size: 4.5 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:44600 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:44758 (size: 3.3 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:41499 (size: 3.3 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:41773 (size: 3.3 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:37380 (size: 3.3 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:41556 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:37380 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:41773 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:46196 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:33553 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:37463 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:09 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:37380 (size: 4.5 KB, free: 5.2 GB)
+17/06/23 14:30:10 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:41499 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:10 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:44758 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:10 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:33553 (size: 4.5 KB, free: 5.2 GB)
+17/06/23 14:30:10 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:43389 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:10 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:46196 (size: 4.5 KB, free: 5.2 GB)
+17/06/23 14:30:10 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:41773 (size: 4.5 KB, free: 5.2 GB)
+17/06/23 14:30:10 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:32789 (size: 3.3 KB, free: 5.2 GB)
+17/06/23 14:30:10 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:45186 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:10 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:43389 (size: 4.5 KB, free: 5.2 GB)
+17/06/23 14:30:10 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:44758 (size: 4.5 KB, free: 5.2 GB)
+17/06/23 14:30:10 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:40575 (size: 3.3 KB, free: 5.2 GB)
+17/06/23 14:30:10 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:37463 (size: 3.3 KB, free: 5.2 GB)
+17/06/23 14:30:10 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:32789 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:10 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:37463 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:10 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:41556 (size: 3.3 KB, free: 5.2 GB)
+17/06/23 14:30:10 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:41499 (size: 4.5 KB, free: 5.2 GB)
+17/06/23 14:30:10 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:44600 (size: 3.3 KB, free: 5.2 GB)
+17/06/23 14:30:10 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:32789 (size: 4.5 KB, free: 5.2 GB)
+17/06/23 14:30:10 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:40575 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:10 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:44600 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:10 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:38751 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:10 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:45186 (size: 3.3 KB, free: 5.2 GB)
+17/06/23 14:30:10 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:41556 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:10 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:37463 (size: 4.5 KB, free: 5.2 GB)
+17/06/23 14:30:10 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:44600 (size: 4.5 KB, free: 5.2 GB)
+17/06/23 14:30:10 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:40575 (size: 4.5 KB, free: 5.2 GB)
+17/06/23 14:30:10 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:41556 (size: 4.5 KB, free: 5.2 GB)
+17/06/23 14:30:10 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:36244 (size: 3.3 KB, free: 5.2 GB)
+17/06/23 14:30:10 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:45186 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:10 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:36244 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:10 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:44554 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:10 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:45186 (size: 4.5 KB, free: 5.2 GB)
+17/06/23 14:30:11 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:38751 (size: 3.3 KB, free: 5.2 GB)
+17/06/23 14:30:11 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:34604 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:11 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:36244 (size: 4.5 KB, free: 5.2 GB)
+17/06/23 14:30:11 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:38751 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:11 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:38069 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:11 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:45235 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:11 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on iZ2zeiw5e4vz16f86l4yw3Z:38751 (size: 4.5 KB, free: 5.2 GB)
+17/06/23 14:30:11 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:44554 (size: 3.3 KB, free: 5.2 GB)
+17/06/23 14:30:11 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:34604 (size: 3.3 KB, free: 5.2 GB)
+17/06/23 14:30:12 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:43191 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:12 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:45235 (size: 3.3 KB, free: 5.2 GB)
+17/06/23 14:30:12 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:38069 (size: 3.3 KB, free: 5.2 GB)
+17/06/23 14:30:12 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:44554 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:12 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:34604 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:12 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:36201 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:12 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:38150 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:12 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on iZ2zeiw5e4vz16f86l4yw1Z:44554 (size: 4.5 KB, free: 5.2 GB)
+17/06/23 14:30:12 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:45235 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:12 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:38024 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:12 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:40277 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:12 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:45235 (size: 4.5 KB, free: 5.2 GB)
+17/06/23 14:30:12 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:38150 (size: 3.3 KB, free: 5.2 GB)
+17/06/23 14:30:12 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:43191 (size: 3.3 KB, free: 5.2 GB)
+17/06/23 14:30:12 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:38069 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:12 INFO storage.BlockManagerInfo: Added broadcast_2_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:34427 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:12 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:38150 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:12 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:38069 (size: 4.5 KB, free: 5.2 GB)
+17/06/23 14:30:12 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:38150 (size: 4.5 KB, free: 5.2 GB)
+17/06/23 14:30:12 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on iZ2zeiw5e4vz16f86l4yw4Z:34604 (size: 4.5 KB, free: 5.2 GB)
+17/06/23 14:30:12 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:43191 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:12 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:43191 (size: 4.5 KB, free: 5.2 GB)
+17/06/23 14:30:12 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:36201 (size: 3.3 KB, free: 5.2 GB)
+17/06/23 14:30:13 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:34427 (size: 3.3 KB, free: 5.2 GB)
+17/06/23 14:30:13 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:34427 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:13 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:36201 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:13 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:40277 (size: 3.3 KB, free: 5.2 GB)
+17/06/23 14:30:13 INFO storage.BlockManagerInfo: Added broadcast_4_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:38024 (size: 3.3 KB, free: 5.2 GB)
+17/06/23 14:30:13 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:36201 (size: 4.5 KB, free: 5.2 GB)
+17/06/23 14:30:13 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:34427 (size: 4.5 KB, free: 5.2 GB)
+17/06/23 14:30:13 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:40277 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:13 INFO storage.BlockManagerInfo: Added broadcast_5_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:38024 (size: 3.6 KB, free: 5.2 GB)
+17/06/23 14:30:13 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:38024 (size: 4.5 KB, free: 5.2 GB)
+17/06/23 14:30:13 INFO storage.BlockManagerInfo: Added broadcast_6_piece0 in memory on iZ2zeiw5e4vz16f86l4yw2Z:40277 (size: 4.5 KB, free: 5.2 GB)
+17/06/23 14:31:24 INFO spark.ContextCleaner: Cleaned accumulator 47
+17/06/23 14:31:24 INFO storage.BlockManagerInfo: Removed broadcast_3_piece0 on iZ2zeiw5e4vz16f86l4yw3Z:39408 in memory (size: 4.8 KB, free: 5.2 GB)
+17/06/23 14:31:24 INFO storage.BlockManagerInfo: Removed broadcast_3_piece0 on 10.85.123.43:44173 in memory (size: 4.8 KB, free: 7.8 GB)
+17/06/23 14:36:10 INFO scheduler.TaskSetManager: Starting task 128.0 in stage 2.0 (TID 130, iZ2zeiw5e4vz16f86l4yw1Z, partition 128, RACK_LOCAL, 6436 bytes)
+17/06/23 14:36:10 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 130 on executor id: 9 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:36:10 INFO scheduler.TaskSetManager: Finished task 19.0 in stage 2.0 (TID 21) in 373302 ms on iZ2zeiw5e4vz16f86l4yw1Z (1/202)
+17/06/23 14:52:14 INFO scheduler.TaskSetManager: Starting task 129.0 in stage 2.0 (TID 131, iZ2zeiw5e4vz16f86l4yw4Z, partition 129, RACK_LOCAL, 6436 bytes)
+17/06/23 14:52:14 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 131 on executor id: 8 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:52:14 INFO scheduler.TaskSetManager: Finished task 27.0 in stage 2.0 (TID 29) in 1337453 ms on iZ2zeiw5e4vz16f86l4yw4Z (2/202)
+17/06/23 14:52:14 INFO scheduler.TaskSetManager: Starting task 130.0 in stage 2.0 (TID 132, iZ2zeiw5e4vz16f86l4yw3Z, partition 130, RACK_LOCAL, 6436 bytes)
+17/06/23 14:52:14 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 132 on executor id: 3 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:52:14 INFO scheduler.TaskSetManager: Finished task 38.0 in stage 2.0 (TID 40) in 1337447 ms on iZ2zeiw5e4vz16f86l4yw3Z (3/202)
+17/06/23 14:52:14 INFO scheduler.TaskSetManager: Starting task 131.0 in stage 2.0 (TID 133, iZ2zeiw5e4vz16f86l4yw4Z, partition 131, RACK_LOCAL, 6436 bytes)
+17/06/23 14:52:14 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 133 on executor id: 8 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:52:14 INFO scheduler.TaskSetManager: Finished task 59.0 in stage 2.0 (TID 61) in 1337638 ms on iZ2zeiw5e4vz16f86l4yw4Z (4/202)
+17/06/23 14:52:14 INFO scheduler.TaskSetManager: Starting task 132.0 in stage 2.0 (TID 134, iZ2zeiw5e4vz16f86l4yw1Z, partition 132, RACK_LOCAL, 6436 bytes)
+17/06/23 14:52:14 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 134 on executor id: 1 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:52:14 INFO scheduler.TaskSetManager: Finished task 17.0 in stage 2.0 (TID 19) in 1337734 ms on iZ2zeiw5e4vz16f86l4yw1Z (5/202)
+17/06/23 14:52:37 INFO scheduler.TaskSetManager: Starting task 133.0 in stage 2.0 (TID 135, iZ2zeiw5e4vz16f86l4yw4Z, partition 133, RACK_LOCAL, 6436 bytes)
+17/06/23 14:52:37 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 135 on executor id: 8 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:52:37 INFO scheduler.TaskSetManager: Finished task 123.0 in stage 2.0 (TID 125) in 1360423 ms on iZ2zeiw5e4vz16f86l4yw4Z (6/202)
+17/06/23 14:52:37 INFO scheduler.TaskSetManager: Starting task 134.0 in stage 2.0 (TID 136, iZ2zeiw5e4vz16f86l4yw2Z, partition 134, RACK_LOCAL, 6436 bytes)
+17/06/23 14:52:37 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 136 on executor id: 10 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:52:37 INFO scheduler.TaskSetManager: Finished task 99.0 in stage 2.0 (TID 101) in 1360600 ms on iZ2zeiw5e4vz16f86l4yw2Z (7/202)
+17/06/23 14:52:37 INFO scheduler.TaskSetManager: Starting task 135.0 in stage 2.0 (TID 137, iZ2zeiw5e4vz16f86l4yw3Z, partition 135, RACK_LOCAL, 6436 bytes)
+17/06/23 14:52:37 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 137 on executor id: 23 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:52:37 INFO scheduler.TaskSetManager: Finished task 1.0 in stage 2.0 (TID 3) in 1360773 ms on iZ2zeiw5e4vz16f86l4yw3Z (8/202)
+17/06/23 14:53:00 INFO scheduler.TaskSetManager: Starting task 136.0 in stage 2.0 (TID 138, iZ2zeiw5e4vz16f86l4yw3Z, partition 136, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:00 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 138 on executor id: 3 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:53:00 INFO scheduler.TaskSetManager: Finished task 70.0 in stage 2.0 (TID 72) in 1383887 ms on iZ2zeiw5e4vz16f86l4yw3Z (9/202)
+17/06/23 14:53:00 INFO scheduler.TaskSetManager: Starting task 137.0 in stage 2.0 (TID 139, iZ2zeiw5e4vz16f86l4yw1Z, partition 137, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:00 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 139 on executor id: 13 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:53:00 INFO scheduler.TaskSetManager: Finished task 40.0 in stage 2.0 (TID 42) in 1383918 ms on iZ2zeiw5e4vz16f86l4yw1Z (10/202)
+17/06/23 14:53:00 INFO scheduler.TaskSetManager: Starting task 138.0 in stage 2.0 (TID 140, iZ2zeiw5e4vz16f86l4yw4Z, partition 138, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:00 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 140 on executor id: 12 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:53:00 INFO scheduler.TaskSetManager: Finished task 90.0 in stage 2.0 (TID 92) in 1383896 ms on iZ2zeiw5e4vz16f86l4yw4Z (11/202)
+17/06/23 14:53:00 INFO scheduler.TaskSetManager: Starting task 139.0 in stage 2.0 (TID 141, iZ2zeiw5e4vz16f86l4yw1Z, partition 139, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:00 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 141 on executor id: 21 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:53:00 INFO scheduler.TaskSetManager: Finished task 57.0 in stage 2.0 (TID 59) in 1383912 ms on iZ2zeiw5e4vz16f86l4yw1Z (12/202)
+17/06/23 14:53:00 INFO scheduler.TaskSetManager: Starting task 140.0 in stage 2.0 (TID 142, iZ2zeiw5e4vz16f86l4yw1Z, partition 140, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:00 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 142 on executor id: 21 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:53:00 INFO scheduler.TaskSetManager: Finished task 89.0 in stage 2.0 (TID 91) in 1383898 ms on iZ2zeiw5e4vz16f86l4yw1Z (13/202)
+17/06/23 14:53:00 INFO scheduler.TaskSetManager: Starting task 141.0 in stage 2.0 (TID 143, iZ2zeiw5e4vz16f86l4yw3Z, partition 141, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:00 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 143 on executor id: 27 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:53:00 INFO scheduler.TaskSetManager: Finished task 75.0 in stage 2.0 (TID 77) in 1383907 ms on iZ2zeiw5e4vz16f86l4yw3Z (14/202)
+17/06/23 14:53:04 INFO scheduler.TaskSetManager: Starting task 142.0 in stage 2.0 (TID 144, iZ2zeiw5e4vz16f86l4yw3Z, partition 142, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:04 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 144 on executor id: 7 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:53:04 INFO scheduler.TaskSetManager: Finished task 22.0 in stage 2.0 (TID 24) in 1387549 ms on iZ2zeiw5e4vz16f86l4yw3Z (15/202)
+17/06/23 14:53:05 INFO scheduler.TaskSetManager: Starting task 143.0 in stage 2.0 (TID 145, iZ2zeiw5e4vz16f86l4yw3Z, partition 143, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:05 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 145 on executor id: 27 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:53:05 INFO scheduler.TaskSetManager: Finished task 107.0 in stage 2.0 (TID 109) in 1388383 ms on iZ2zeiw5e4vz16f86l4yw3Z (16/202)
+17/06/23 14:53:05 INFO scheduler.TaskSetManager: Starting task 144.0 in stage 2.0 (TID 146, iZ2zeiw5e4vz16f86l4yw4Z, partition 144, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:05 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 146 on executor id: 28 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:53:05 INFO scheduler.TaskSetManager: Finished task 44.0 in stage 2.0 (TID 46) in 1388549 ms on iZ2zeiw5e4vz16f86l4yw4Z (17/202)
+17/06/23 14:53:05 INFO scheduler.TaskSetManager: Starting task 145.0 in stage 2.0 (TID 147, iZ2zeiw5e4vz16f86l4yw1Z, partition 145, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:05 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 147 on executor id: 13 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:53:05 INFO scheduler.TaskSetManager: Finished task 72.0 in stage 2.0 (TID 74) in 1388556 ms on iZ2zeiw5e4vz16f86l4yw1Z (18/202)
+17/06/23 14:53:05 INFO scheduler.TaskSetManager: Starting task 146.0 in stage 2.0 (TID 148, iZ2zeiw5e4vz16f86l4yw1Z, partition 146, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:05 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 148 on executor id: 1 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:53:05 INFO scheduler.TaskSetManager: Finished task 49.0 in stage 2.0 (TID 51) in 1388569 ms on iZ2zeiw5e4vz16f86l4yw1Z (19/202)
+17/06/23 14:53:05 INFO scheduler.TaskSetManager: Starting task 147.0 in stage 2.0 (TID 149, iZ2zeiw5e4vz16f86l4yw1Z, partition 147, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:05 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 149 on executor id: 21 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:53:05 INFO scheduler.TaskSetManager: Finished task 121.0 in stage 2.0 (TID 123) in 1388537 ms on iZ2zeiw5e4vz16f86l4yw1Z (20/202)
+17/06/23 14:53:05 INFO scheduler.TaskSetManager: Starting task 148.0 in stage 2.0 (TID 150, iZ2zeiw5e4vz16f86l4yw1Z, partition 148, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:05 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 150 on executor id: 1 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:53:05 INFO scheduler.TaskSetManager: Finished task 81.0 in stage 2.0 (TID 83) in 1388575 ms on iZ2zeiw5e4vz16f86l4yw1Z (21/202)
+17/06/23 14:53:05 INFO scheduler.TaskSetManager: Starting task 149.0 in stage 2.0 (TID 151, iZ2zeiw5e4vz16f86l4yw1Z, partition 149, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:05 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 151 on executor id: 21 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:53:05 INFO scheduler.TaskSetManager: Finished task 25.0 in stage 2.0 (TID 27) in 1388644 ms on iZ2zeiw5e4vz16f86l4yw1Z (22/202)
+17/06/23 14:53:05 INFO scheduler.TaskSetManager: Starting task 150.0 in stage 2.0 (TID 152, iZ2zeiw5e4vz16f86l4yw3Z, partition 150, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:05 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 152 on executor id: 27 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:53:05 INFO scheduler.TaskSetManager: Finished task 11.0 in stage 2.0 (TID 13) in 1388658 ms on iZ2zeiw5e4vz16f86l4yw3Z (23/202)
+17/06/23 14:53:05 INFO scheduler.TaskSetManager: Starting task 151.0 in stage 2.0 (TID 153, iZ2zeiw5e4vz16f86l4yw3Z, partition 151, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:05 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 153 on executor id: 3 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:53:05 INFO scheduler.TaskSetManager: Finished task 6.0 in stage 2.0 (TID 8) in 1388665 ms on iZ2zeiw5e4vz16f86l4yw3Z (24/202)
+17/06/23 14:53:05 INFO scheduler.TaskSetManager: Starting task 152.0 in stage 2.0 (TID 154, iZ2zeiw5e4vz16f86l4yw3Z, partition 152, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:05 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 154 on executor id: 3 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:53:05 INFO scheduler.TaskSetManager: Starting task 153.0 in stage 2.0 (TID 155, iZ2zeiw5e4vz16f86l4yw4Z, partition 153, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:05 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 155 on executor id: 12 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:53:05 INFO scheduler.TaskSetManager: Finished task 102.0 in stage 2.0 (TID 104) in 1388609 ms on iZ2zeiw5e4vz16f86l4yw3Z (25/202)
+17/06/23 14:53:05 INFO scheduler.TaskSetManager: Finished task 26.0 in stage 2.0 (TID 28) in 1388649 ms on iZ2zeiw5e4vz16f86l4yw4Z (26/202)
+17/06/23 14:53:05 INFO scheduler.TaskSetManager: Starting task 154.0 in stage 2.0 (TID 156, iZ2zeiw5e4vz16f86l4yw1Z, partition 154, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:05 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 156 on executor id: 9 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:53:05 INFO scheduler.TaskSetManager: Finished task 115.0 in stage 2.0 (TID 117) in 1388608 ms on iZ2zeiw5e4vz16f86l4yw1Z (27/202)
+17/06/23 14:53:05 INFO scheduler.TaskSetManager: Starting task 155.0 in stage 2.0 (TID 157, iZ2zeiw5e4vz16f86l4yw1Z, partition 155, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:05 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 157 on executor id: 13 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:53:05 INFO scheduler.TaskSetManager: Starting task 156.0 in stage 2.0 (TID 158, iZ2zeiw5e4vz16f86l4yw4Z, partition 156, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:05 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 158 on executor id: 12 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:53:05 INFO scheduler.TaskSetManager: Finished task 104.0 in stage 2.0 (TID 106) in 1388625 ms on iZ2zeiw5e4vz16f86l4yw1Z (28/202)
+17/06/23 14:53:05 INFO scheduler.TaskSetManager: Starting task 157.0 in stage 2.0 (TID 159, iZ2zeiw5e4vz16f86l4yw4Z, partition 157, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:05 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 159 on executor id: 16 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:53:05 INFO scheduler.TaskSetManager: Finished task 122.0 in stage 2.0 (TID 124) in 1388620 ms on iZ2zeiw5e4vz16f86l4yw4Z (29/202)
+17/06/23 14:53:05 INFO scheduler.TaskSetManager: Finished task 30.0 in stage 2.0 (TID 32) in 1388665 ms on iZ2zeiw5e4vz16f86l4yw4Z (30/202)
+17/06/23 14:53:05 INFO scheduler.TaskSetManager: Starting task 158.0 in stage 2.0 (TID 160, iZ2zeiw5e4vz16f86l4yw2Z, partition 158, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:05 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 160 on executor id: 2 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:53:05 INFO scheduler.TaskSetManager: Finished task 13.0 in stage 2.0 (TID 15) in 1388688 ms on iZ2zeiw5e4vz16f86l4yw2Z (31/202)
+17/06/23 14:53:05 INFO scheduler.TaskSetManager: Starting task 159.0 in stage 2.0 (TID 161, iZ2zeiw5e4vz16f86l4yw1Z, partition 159, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:05 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 161 on executor id: 13 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:53:05 INFO scheduler.TaskSetManager: Finished task 8.0 in stage 2.0 (TID 10) in 1388748 ms on iZ2zeiw5e4vz16f86l4yw1Z (32/202)
+17/06/23 14:53:05 INFO scheduler.TaskSetManager: Starting task 160.0 in stage 2.0 (TID 162, iZ2zeiw5e4vz16f86l4yw2Z, partition 160, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:05 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 162 on executor id: 30 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:53:05 INFO scheduler.TaskSetManager: Finished task 82.0 in stage 2.0 (TID 84) in 1388766 ms on iZ2zeiw5e4vz16f86l4yw2Z (33/202)
+17/06/23 14:53:06 INFO scheduler.TaskSetManager: Starting task 161.0 in stage 2.0 (TID 163, iZ2zeiw5e4vz16f86l4yw3Z, partition 161, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:06 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 163 on executor id: 23 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:53:06 INFO scheduler.TaskSetManager: Finished task 33.0 in stage 2.0 (TID 35) in 1389089 ms on iZ2zeiw5e4vz16f86l4yw3Z (34/202)
+17/06/23 14:53:06 INFO scheduler.TaskSetManager: Starting task 162.0 in stage 2.0 (TID 164, iZ2zeiw5e4vz16f86l4yw1Z, partition 162, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:06 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 164 on executor id: 29 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:53:06 INFO scheduler.TaskSetManager: Starting task 163.0 in stage 2.0 (TID 165, iZ2zeiw5e4vz16f86l4yw3Z, partition 163, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:06 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 165 on executor id: 19 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:53:06 INFO scheduler.TaskSetManager: Starting task 164.0 in stage 2.0 (TID 166, iZ2zeiw5e4vz16f86l4yw3Z, partition 164, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:06 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 166 on executor id: 27 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:53:06 INFO scheduler.TaskSetManager: Finished task 31.0 in stage 2.0 (TID 33) in 1389118 ms on iZ2zeiw5e4vz16f86l4yw1Z (35/202)
+17/06/23 14:53:06 INFO scheduler.TaskSetManager: Finished task 48.0 in stage 2.0 (TID 50) in 1389108 ms on iZ2zeiw5e4vz16f86l4yw3Z (36/202)
+17/06/23 14:53:06 INFO scheduler.TaskSetManager: Finished task 43.0 in stage 2.0 (TID 45) in 1389111 ms on iZ2zeiw5e4vz16f86l4yw3Z (37/202)
+17/06/23 14:53:06 INFO scheduler.TaskSetManager: Starting task 165.0 in stage 2.0 (TID 167, iZ2zeiw5e4vz16f86l4yw4Z, partition 165, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:06 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 167 on executor id: 24 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:53:06 INFO scheduler.TaskSetManager: Finished task 42.0 in stage 2.0 (TID 44) in 1389126 ms on iZ2zeiw5e4vz16f86l4yw4Z (38/202)
+17/06/23 14:53:06 INFO scheduler.TaskSetManager: Starting task 166.0 in stage 2.0 (TID 168, iZ2zeiw5e4vz16f86l4yw4Z, partition 166, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:06 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 168 on executor id: 32 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:53:06 INFO scheduler.TaskSetManager: Finished task 39.0 in stage 2.0 (TID 41) in 1389141 ms on iZ2zeiw5e4vz16f86l4yw4Z (39/202)
+17/06/23 14:53:06 INFO scheduler.TaskSetManager: Starting task 167.0 in stage 2.0 (TID 169, iZ2zeiw5e4vz16f86l4yw4Z, partition 167, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:06 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 169 on executor id: 32 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:53:06 INFO scheduler.TaskSetManager: Finished task 71.0 in stage 2.0 (TID 73) in 1389212 ms on iZ2zeiw5e4vz16f86l4yw4Z (40/202)
+17/06/23 14:53:06 INFO scheduler.TaskSetManager: Starting task 168.0 in stage 2.0 (TID 170, iZ2zeiw5e4vz16f86l4yw3Z, partition 168, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:06 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 170 on executor id: 15 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:53:06 INFO scheduler.TaskSetManager: Finished task 73.0 in stage 2.0 (TID 75) in 1389489 ms on iZ2zeiw5e4vz16f86l4yw3Z (41/202)
+17/06/23 14:53:11 INFO scheduler.TaskSetManager: Starting task 169.0 in stage 2.0 (TID 171, iZ2zeiw5e4vz16f86l4yw2Z, partition 169, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:11 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 171 on executor id: 14 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:53:11 INFO scheduler.TaskSetManager: Finished task 120.0 in stage 2.0 (TID 122) in 1394380 ms on iZ2zeiw5e4vz16f86l4yw2Z (42/202)
+17/06/23 14:53:27 INFO scheduler.TaskSetManager: Starting task 170.0 in stage 2.0 (TID 172, iZ2zeiw5e4vz16f86l4yw4Z, partition 170, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:27 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 172 on executor id: 16 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:53:27 INFO scheduler.TaskSetManager: Finished task 94.0 in stage 2.0 (TID 96) in 1410814 ms on iZ2zeiw5e4vz16f86l4yw4Z (43/202)
+17/06/23 14:53:36 INFO scheduler.TaskSetManager: Starting task 171.0 in stage 2.0 (TID 173, iZ2zeiw5e4vz16f86l4yw4Z, partition 171, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:36 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 173 on executor id: 24 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:53:36 INFO scheduler.TaskSetManager: Finished task 74.0 in stage 2.0 (TID 76) in 1419939 ms on iZ2zeiw5e4vz16f86l4yw4Z (44/202)
+17/06/23 14:53:36 INFO scheduler.TaskSetManager: Starting task 172.0 in stage 2.0 (TID 174, iZ2zeiw5e4vz16f86l4yw3Z, partition 172, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:36 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 174 on executor id: 7 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:53:36 INFO scheduler.TaskSetManager: Finished task 118.0 in stage 2.0 (TID 120) in 1419954 ms on iZ2zeiw5e4vz16f86l4yw3Z (45/202)
+17/06/23 14:53:36 INFO scheduler.TaskSetManager: Starting task 173.0 in stage 2.0 (TID 175, iZ2zeiw5e4vz16f86l4yw3Z, partition 173, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:36 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 175 on executor id: 15 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:53:36 INFO scheduler.TaskSetManager: Finished task 9.0 in stage 2.0 (TID 11) in 1420017 ms on iZ2zeiw5e4vz16f86l4yw3Z (46/202)
+17/06/23 14:53:36 INFO scheduler.TaskSetManager: Starting task 174.0 in stage 2.0 (TID 176, iZ2zeiw5e4vz16f86l4yw1Z, partition 174, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:36 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 176 on executor id: 25 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:53:36 INFO scheduler.TaskSetManager: Finished task 66.0 in stage 2.0 (TID 68) in 1419990 ms on iZ2zeiw5e4vz16f86l4yw1Z (47/202)
+17/06/23 14:53:36 INFO scheduler.TaskSetManager: Starting task 175.0 in stage 2.0 (TID 177, iZ2zeiw5e4vz16f86l4yw3Z, partition 175, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:36 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 177 on executor id: 11 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:53:36 INFO scheduler.TaskSetManager: Finished task 4.0 in stage 2.0 (TID 6) in 1420042 ms on iZ2zeiw5e4vz16f86l4yw3Z (48/202)
+17/06/23 14:53:36 INFO scheduler.TaskSetManager: Starting task 176.0 in stage 2.0 (TID 178, iZ2zeiw5e4vz16f86l4yw3Z, partition 176, RACK_LOCAL, 6122 bytes)
+17/06/23 14:53:36 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 178 on executor id: 11 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:53:36 INFO scheduler.TaskSetManager: Finished task 36.0 in stage 2.0 (TID 38) in 1420018 ms on iZ2zeiw5e4vz16f86l4yw3Z (49/202)
+17/06/23 14:53:36 INFO scheduler.TaskSetManager: Starting task 177.0 in stage 2.0 (TID 179, iZ2zeiw5e4vz16f86l4yw3Z, partition 177, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:36 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 179 on executor id: 11 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:53:36 INFO scheduler.TaskSetManager: Starting task 178.0 in stage 2.0 (TID 180, iZ2zeiw5e4vz16f86l4yw3Z, partition 178, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:36 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 180 on executor id: 11 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:53:36 INFO scheduler.TaskSetManager: Finished task 68.0 in stage 2.0 (TID 70) in 1420001 ms on iZ2zeiw5e4vz16f86l4yw3Z (50/202)
+17/06/23 14:53:36 INFO scheduler.TaskSetManager: Finished task 100.0 in stage 2.0 (TID 102) in 1419987 ms on iZ2zeiw5e4vz16f86l4yw3Z (51/202)
+17/06/23 14:53:36 INFO scheduler.TaskSetManager: Starting task 179.0 in stage 2.0 (TID 181, iZ2zeiw5e4vz16f86l4yw1Z, partition 179, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:36 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 181 on executor id: 29 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:53:36 INFO scheduler.TaskSetManager: Starting task 180.0 in stage 2.0 (TID 182, iZ2zeiw5e4vz16f86l4yw1Z, partition 180, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:36 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 182 on executor id: 29 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:53:36 INFO scheduler.TaskSetManager: Finished task 127.0 in stage 2.0 (TID 129) in 1419988 ms on iZ2zeiw5e4vz16f86l4yw1Z (52/202)
+17/06/23 14:53:36 INFO scheduler.TaskSetManager: Finished task 63.0 in stage 2.0 (TID 65) in 1420019 ms on iZ2zeiw5e4vz16f86l4yw1Z (53/202)
+17/06/23 14:53:36 INFO scheduler.TaskSetManager: Starting task 181.0 in stage 2.0 (TID 183, iZ2zeiw5e4vz16f86l4yw1Z, partition 181, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:36 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 183 on executor id: 17 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:53:36 INFO scheduler.TaskSetManager: Finished task 53.0 in stage 2.0 (TID 55) in 1420027 ms on iZ2zeiw5e4vz16f86l4yw1Z (54/202)
+17/06/23 14:53:37 INFO scheduler.TaskSetManager: Starting task 182.0 in stage 2.0 (TID 184, iZ2zeiw5e4vz16f86l4yw1Z, partition 182, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:37 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 184 on executor id: 25 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:53:37 INFO scheduler.TaskSetManager: Finished task 98.0 in stage 2.0 (TID 100) in 1420052 ms on iZ2zeiw5e4vz16f86l4yw1Z (55/202)
+17/06/23 14:53:37 INFO scheduler.TaskSetManager: Starting task 183.0 in stage 2.0 (TID 185, iZ2zeiw5e4vz16f86l4yw1Z, partition 183, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:37 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 185 on executor id: 17 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:53:37 INFO scheduler.TaskSetManager: Starting task 184.0 in stage 2.0 (TID 186, iZ2zeiw5e4vz16f86l4yw4Z, partition 184, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:37 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 186 on executor id: 4 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:53:37 INFO scheduler.TaskSetManager: Finished task 21.0 in stage 2.0 (TID 23) in 1420391 ms on iZ2zeiw5e4vz16f86l4yw1Z (56/202)
+17/06/23 14:53:37 INFO scheduler.TaskSetManager: Finished task 47.0 in stage 2.0 (TID 49) in 1420375 ms on iZ2zeiw5e4vz16f86l4yw4Z (57/202)
+17/06/23 14:53:37 INFO scheduler.TaskSetManager: Starting task 185.0 in stage 2.0 (TID 187, iZ2zeiw5e4vz16f86l4yw4Z, partition 185, RACK_LOCAL, 6122 bytes)
+17/06/23 14:53:37 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 187 on executor id: 4 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:53:37 INFO scheduler.TaskSetManager: Finished task 111.0 in stage 2.0 (TID 113) in 1420387 ms on iZ2zeiw5e4vz16f86l4yw4Z (58/202)
+17/06/23 14:53:37 INFO scheduler.TaskSetManager: Starting task 186.0 in stage 2.0 (TID 188, iZ2zeiw5e4vz16f86l4yw3Z, partition 186, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:37 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 188 on executor id: 23 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:53:37 INFO scheduler.TaskSetManager: Finished task 65.0 in stage 2.0 (TID 67) in 1420425 ms on iZ2zeiw5e4vz16f86l4yw3Z (59/202)
+17/06/23 14:53:37 INFO scheduler.TaskSetManager: Starting task 187.0 in stage 2.0 (TID 189, iZ2zeiw5e4vz16f86l4yw4Z, partition 187, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:37 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 189 on executor id: 28 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:53:37 INFO scheduler.TaskSetManager: Starting task 188.0 in stage 2.0 (TID 190, iZ2zeiw5e4vz16f86l4yw2Z, partition 188, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:37 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 190 on executor id: 22 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:53:37 INFO scheduler.TaskSetManager: Starting task 189.0 in stage 2.0 (TID 191, iZ2zeiw5e4vz16f86l4yw1Z, partition 189, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:37 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 191 on executor id: 17 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:53:37 INFO scheduler.TaskSetManager: Starting task 190.0 in stage 2.0 (TID 192, iZ2zeiw5e4vz16f86l4yw1Z, partition 190, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:37 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 192 on executor id: 5 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:53:37 INFO scheduler.TaskSetManager: Finished task 108.0 in stage 2.0 (TID 110) in 1420429 ms on iZ2zeiw5e4vz16f86l4yw4Z (60/202)
+17/06/23 14:53:37 INFO scheduler.TaskSetManager: Finished task 116.0 in stage 2.0 (TID 118) in 1420426 ms on iZ2zeiw5e4vz16f86l4yw2Z (61/202)
+17/06/23 14:53:37 INFO scheduler.TaskSetManager: Finished task 85.0 in stage 2.0 (TID 87) in 1420440 ms on iZ2zeiw5e4vz16f86l4yw1Z (62/202)
+17/06/23 14:53:37 INFO scheduler.TaskSetManager: Finished task 28.0 in stage 2.0 (TID 30) in 1420471 ms on iZ2zeiw5e4vz16f86l4yw1Z (63/202)
+17/06/23 14:53:37 INFO scheduler.TaskSetManager: Starting task 191.0 in stage 2.0 (TID 193, iZ2zeiw5e4vz16f86l4yw2Z, partition 191, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:37 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 193 on executor id: 2 hostname: iZ2zeiw5e4vz16f86l4yw2Z.
+17/06/23 14:53:37 INFO scheduler.TaskSetManager: Finished task 77.0 in stage 2.0 (TID 79) in 1420664 ms on iZ2zeiw5e4vz16f86l4yw2Z (64/202)
+17/06/23 14:53:37 INFO scheduler.TaskSetManager: Starting task 192.0 in stage 2.0 (TID 194, iZ2zeiw5e4vz16f86l4yw1Z, partition 192, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:37 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 194 on executor id: 5 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:53:37 INFO scheduler.TaskSetManager: Finished task 124.0 in stage 2.0 (TID 126) in 1420792 ms on iZ2zeiw5e4vz16f86l4yw1Z (65/202)
+17/06/23 14:53:38 INFO scheduler.TaskSetManager: Starting task 193.0 in stage 2.0 (TID 195, iZ2zeiw5e4vz16f86l4yw1Z, partition 193, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:38 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 195 on executor id: 5 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:53:38 INFO scheduler.TaskSetManager: Finished task 92.0 in stage 2.0 (TID 94) in 1421166 ms on iZ2zeiw5e4vz16f86l4yw1Z (66/202)
+17/06/23 14:53:38 INFO scheduler.TaskSetManager: Starting task 194.0 in stage 2.0 (TID 196, iZ2zeiw5e4vz16f86l4yw4Z, partition 194, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:38 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 196 on executor id: 16 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:53:38 INFO scheduler.TaskSetManager: Finished task 62.0 in stage 2.0 (TID 64) in 1421259 ms on iZ2zeiw5e4vz16f86l4yw4Z (67/202)
+17/06/23 14:53:39 INFO scheduler.TaskSetManager: Starting task 195.0 in stage 2.0 (TID 197, iZ2zeiw5e4vz16f86l4yw3Z, partition 195, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:39 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 197 on executor id: 19 hostname: iZ2zeiw5e4vz16f86l4yw3Z.
+17/06/23 14:53:39 INFO scheduler.TaskSetManager: Finished task 112.0 in stage 2.0 (TID 114) in 1422172 ms on iZ2zeiw5e4vz16f86l4yw3Z (68/202)
+17/06/23 14:53:39 INFO scheduler.TaskSetManager: Starting task 196.0 in stage 2.0 (TID 198, iZ2zeiw5e4vz16f86l4yw1Z, partition 196, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:39 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 198 on executor id: 25 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:53:39 INFO scheduler.TaskSetManager: Finished task 2.0 in stage 2.0 (TID 4) in 1422459 ms on iZ2zeiw5e4vz16f86l4yw1Z (69/202)
+17/06/23 14:53:39 INFO scheduler.TaskSetManager: Starting task 197.0 in stage 2.0 (TID 199, iZ2zeiw5e4vz16f86l4yw1Z, partition 197, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:39 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 199 on executor id: 1 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:53:39 INFO scheduler.TaskSetManager: Finished task 113.0 in stage 2.0 (TID 115) in 1422885 ms on iZ2zeiw5e4vz16f86l4yw1Z (70/202)
+17/06/23 14:53:41 INFO scheduler.TaskSetManager: Starting task 198.0 in stage 2.0 (TID 200, iZ2zeiw5e4vz16f86l4yw4Z, partition 198, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:41 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 200 on executor id: 16 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:53:41 INFO scheduler.TaskSetManager: Finished task 126.0 in stage 2.0 (TID 128) in 1424906 ms on iZ2zeiw5e4vz16f86l4yw4Z (71/202)
+17/06/23 14:53:42 INFO scheduler.TaskSetManager: Starting task 199.0 in stage 2.0 (TID 201, iZ2zeiw5e4vz16f86l4yw1Z, partition 199, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:42 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 201 on executor id: 9 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:53:42 INFO scheduler.TaskSetManager: Finished task 83.0 in stage 2.0 (TID 85) in 1425160 ms on iZ2zeiw5e4vz16f86l4yw1Z (72/202)
+17/06/23 14:53:43 INFO scheduler.TaskSetManager: Starting task 200.0 in stage 2.0 (TID 202, iZ2zeiw5e4vz16f86l4yw1Z, partition 200, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:43 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 202 on executor id: 5 hostname: iZ2zeiw5e4vz16f86l4yw1Z.
+17/06/23 14:53:43 INFO scheduler.TaskSetManager: Finished task 60.0 in stage 2.0 (TID 62) in 1426902 ms on iZ2zeiw5e4vz16f86l4yw1Z (73/202)
+17/06/23 14:53:43 INFO scheduler.TaskSetManager: Starting task 201.0 in stage 2.0 (TID 203, iZ2zeiw5e4vz16f86l4yw4Z, partition 201, RACK_LOCAL, 6436 bytes)
+17/06/23 14:53:43 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Launching task 203 on executor id: 32 hostname: iZ2zeiw5e4vz16f86l4yw4Z.
+17/06/23 14:53:43 INFO scheduler.TaskSetManager: Finished task 7.0 in stage 2.0 (TID 9) in 1426947 ms on iZ2zeiw5e4vz16f86l4yw4Z (74/202)
+17/06/23 14:53:43 INFO scheduler.TaskSetManager: Finished task 76.0 in stage 2.0 (TID 78) in 1426904 ms on iZ2zeiw5e4vz16f86l4yw4Z (75/202)
+17/06/23 14:53:43 INFO scheduler.TaskSetManager: Finished task 51.0 in stage 2.0 (TID 53) in 1426993 ms on iZ2zeiw5e4vz16f86l4yw1Z (76/202)
+17/06/23 14:53:43 INFO scheduler.TaskSetManager: Finished task 84.0 in stage 2.0 (TID 86) in 1426988 ms on iZ2zeiw5e4vz16f86l4yw2Z (77/202)
+17/06/23 14:53:44 INFO scheduler.TaskSetManager: Finished task 58.0 in stage 2.0 (TID 60) in 1427054 ms on iZ2zeiw5e4vz16f86l4yw4Z (78/202)
+17/06/23 14:53:44 INFO scheduler.TaskSetManager: Finished task 101.0 in stage 2.0 (TID 103) in 1427364 ms on iZ2zeiw5e4vz16f86l4yw2Z (79/202)
+17/06/23 14:53:56 INFO scheduler.TaskSetManager: Finished task 91.0 in stage 2.0 (TID 93) in 1439622 ms on iZ2zeiw5e4vz16f86l4yw4Z (80/202)
+17/06/23 14:53:56 INFO scheduler.TaskSetManager: Finished task 24.0 in stage 2.0 (TID 26) in 1439798 ms on iZ2zeiw5e4vz16f86l4yw2Z (81/202)
+17/06/23 14:53:59 INFO scheduler.TaskSetManager: Finished task 18.0 in stage 2.0 (TID 20) in 1442793 ms on iZ2zeiw5e4vz16f86l4yw2Z (82/202)
+17/06/23 14:53:59 INFO scheduler.TaskSetManager: Finished task 56.0 in stage 2.0 (TID 58) in 1442779 ms on iZ2zeiw5e4vz16f86l4yw2Z (83/202)
+17/06/23 14:53:59 INFO scheduler.TaskSetManager: Finished task 3.0 in stage 2.0 (TID 5) in 1442817 ms on iZ2zeiw5e4vz16f86l4yw2Z (84/202)
+17/06/23 14:53:59 INFO scheduler.TaskSetManager: Finished task 54.0 in stage 2.0 (TID 56) in 1442781 ms on iZ2zeiw5e4vz16f86l4yw3Z (85/202)
+17/06/23 14:53:59 INFO scheduler.TaskSetManager: Finished task 93.0 in stage 2.0 (TID 95) in 1442767 ms on iZ2zeiw5e4vz16f86l4yw2Z (86/202)
+17/06/23 14:53:59 INFO scheduler.TaskSetManager: Finished task 96.0 in stage 2.0 (TID 98) in 1442778 ms on iZ2zeiw5e4vz16f86l4yw4Z (87/202)
+17/06/23 14:54:01 INFO scheduler.TaskSetManager: Finished task 55.0 in stage 2.0 (TID 57) in 1444993 ms on iZ2zeiw5e4vz16f86l4yw3Z (88/202)
+17/06/23 14:54:02 INFO scheduler.TaskSetManager: Finished task 103.0 in stage 2.0 (TID 105) in 1445045 ms on iZ2zeiw5e4vz16f86l4yw4Z (89/202)
+17/06/23 14:54:02 INFO scheduler.TaskSetManager: Finished task 114.0 in stage 2.0 (TID 116) in 1445041 ms on iZ2zeiw5e4vz16f86l4yw2Z (90/202)
+17/06/23 14:54:02 INFO scheduler.TaskSetManager: Finished task 41.0 in stage 2.0 (TID 43) in 1445076 ms on iZ2zeiw5e4vz16f86l4yw3Z (91/202)
+17/06/23 14:54:02 INFO scheduler.TaskSetManager: Finished task 67.0 in stage 2.0 (TID 69) in 1445062 ms on iZ2zeiw5e4vz16f86l4yw2Z (92/202)
+17/06/23 14:54:02 INFO scheduler.TaskSetManager: Finished task 87.0 in stage 2.0 (TID 89) in 1445053 ms on iZ2zeiw5e4vz16f86l4yw3Z (93/202)
+17/06/23 14:54:02 INFO scheduler.TaskSetManager: Finished task 95.0 in stage 2.0 (TID 97) in 1445067 ms on iZ2zeiw5e4vz16f86l4yw1Z (94/202)
+17/06/23 14:54:02 INFO scheduler.TaskSetManager: Finished task 32.0 in stage 2.0 (TID 34) in 1445101 ms on iZ2zeiw5e4vz16f86l4yw4Z (95/202)
+17/06/23 14:54:02 INFO scheduler.TaskSetManager: Finished task 34.0 in stage 2.0 (TID 36) in 1445108 ms on iZ2zeiw5e4vz16f86l4yw1Z (96/202)
+17/06/23 14:54:02 INFO scheduler.TaskSetManager: Finished task 14.0 in stage 2.0 (TID 16) in 1445126 ms on iZ2zeiw5e4vz16f86l4yw2Z (97/202)
+17/06/23 14:54:02 INFO scheduler.TaskSetManager: Finished task 86.0 in stage 2.0 (TID 88) in 1445086 ms on iZ2zeiw5e4vz16f86l4yw3Z (98/202)
+17/06/23 14:54:02 INFO scheduler.TaskSetManager: Finished task 5.0 in stage 2.0 (TID 7) in 1445153 ms on iZ2zeiw5e4vz16f86l4yw2Z (99/202)
+17/06/23 14:54:02 INFO scheduler.TaskSetManager: Finished task 80.0 in stage 2.0 (TID 82) in 1445424 ms on iZ2zeiw5e4vz16f86l4yw3Z (100/202)
+17/06/23 14:54:02 INFO scheduler.TaskSetManager: Finished task 20.0 in stage 2.0 (TID 22) in 1445487 ms on iZ2zeiw5e4vz16f86l4yw2Z (101/202)
+17/06/23 14:54:02 INFO scheduler.TaskSetManager: Finished task 125.0 in stage 2.0 (TID 127) in 1445434 ms on iZ2zeiw5e4vz16f86l4yw2Z (102/202)
+17/06/23 14:54:02 INFO scheduler.TaskSetManager: Finished task 29.0 in stage 2.0 (TID 31) in 1445482 ms on iZ2zeiw5e4vz16f86l4yw2Z (103/202)
+17/06/23 14:54:02 INFO scheduler.TaskSetManager: Finished task 88.0 in stage 2.0 (TID 90) in 1445451 ms on iZ2zeiw5e4vz16f86l4yw2Z (104/202)
+17/06/23 14:54:02 INFO scheduler.TaskSetManager: Finished task 78.0 in stage 2.0 (TID 80) in 1445455 ms on iZ2zeiw5e4vz16f86l4yw2Z (105/202)
+17/06/23 14:54:02 INFO scheduler.TaskSetManager: Finished task 15.0 in stage 2.0 (TID 17) in 1445493 ms on iZ2zeiw5e4vz16f86l4yw4Z (106/202)
+17/06/23 14:54:02 INFO scheduler.TaskSetManager: Finished task 97.0 in stage 2.0 (TID 99) in 1445478 ms on iZ2zeiw5e4vz16f86l4yw3Z (107/202)
+17/06/23 14:54:02 INFO scheduler.TaskSetManager: Finished task 79.0 in stage 2.0 (TID 81) in 1445487 ms on iZ2zeiw5e4vz16f86l4yw4Z (108/202)
+17/06/23 14:54:02 INFO scheduler.TaskSetManager: Finished task 52.0 in stage 2.0 (TID 54) in 1445500 ms on iZ2zeiw5e4vz16f86l4yw2Z (109/202)
+17/06/23 14:54:02 INFO scheduler.TaskSetManager: Finished task 119.0 in stage 2.0 (TID 121) in 1445506 ms on iZ2zeiw5e4vz16f86l4yw3Z (110/202)
+17/06/23 14:54:02 INFO scheduler.TaskSetManager: Finished task 61.0 in stage 2.0 (TID 63) in 1445564 ms on iZ2zeiw5e4vz16f86l4yw2Z (111/202)
+17/06/23 14:54:03 INFO scheduler.TaskSetManager: Finished task 35.0 in stage 2.0 (TID 37) in 1446792 ms on iZ2zeiw5e4vz16f86l4yw2Z (112/202)
+17/06/23 14:54:04 INFO scheduler.TaskSetManager: Finished task 106.0 in stage 2.0 (TID 108) in 1447043 ms on iZ2zeiw5e4vz16f86l4yw4Z (113/202)
+17/06/23 14:54:07 INFO scheduler.TaskSetManager: Finished task 110.0 in stage 2.0 (TID 112) in 1450757 ms on iZ2zeiw5e4vz16f86l4yw2Z (114/202)
+17/06/23 14:54:08 INFO scheduler.TaskSetManager: Finished task 37.0 in stage 2.0 (TID 39) in 1451294 ms on iZ2zeiw5e4vz16f86l4yw2Z (115/202)
+17/06/23 14:54:09 INFO scheduler.TaskSetManager: Finished task 10.0 in stage 2.0 (TID 12) in 1452975 ms on iZ2zeiw5e4vz16f86l4yw4Z (116/202)
+17/06/23 14:54:12 INFO scheduler.TaskSetManager: Finished task 46.0 in stage 2.0 (TID 48) in 1455118 ms on iZ2zeiw5e4vz16f86l4yw2Z (117/202)
+17/06/23 14:54:12 INFO scheduler.TaskSetManager: Finished task 105.0 in stage 2.0 (TID 107) in 1455236 ms on iZ2zeiw5e4vz16f86l4yw3Z (118/202)
+17/06/23 14:54:14 INFO scheduler.TaskSetManager: Finished task 23.0 in stage 2.0 (TID 25) in 1457466 ms on iZ2zeiw5e4vz16f86l4yw3Z (119/202)
+17/06/23 14:54:16 INFO scheduler.TaskSetManager: Finished task 109.0 in stage 2.0 (TID 111) in 1459620 ms on iZ2zeiw5e4vz16f86l4yw2Z (120/202)
+17/06/23 14:54:19 INFO scheduler.TaskSetManager: Finished task 64.0 in stage 2.0 (TID 66) in 1462701 ms on iZ2zeiw5e4vz16f86l4yw4Z (121/202)
+17/06/23 14:54:20 INFO scheduler.TaskSetManager: Finished task 45.0 in stage 2.0 (TID 47) in 1463493 ms on iZ2zeiw5e4vz16f86l4yw2Z (122/202)
+17/06/23 14:54:21 INFO scheduler.TaskSetManager: Finished task 50.0 in stage 2.0 (TID 52) in 1464292 ms on iZ2zeiw5e4vz16f86l4yw2Z (123/202)
+17/06/23 14:54:26 INFO scheduler.TaskSetManager: Finished task 117.0 in stage 2.0 (TID 119) in 1469541 ms on iZ2zeiw5e4vz16f86l4yw1Z (124/202)
+17/06/23 14:54:27 INFO scheduler.TaskSetManager: Finished task 69.0 in stage 2.0 (TID 71) in 1470083 ms on iZ2zeiw5e4vz16f86l4yw2Z (125/202)
+17/06/23 14:58:42 INFO scheduler.TaskSetManager: Finished task 128.0 in stage 2.0 (TID 130) in 1352241 ms on iZ2zeiw5e4vz16f86l4yw1Z (126/202)
+17/06/23 14:58:48 INFO scheduler.TaskSetManager: Finished task 176.0 in stage 2.0 (TID 178) in 311527 ms on iZ2zeiw5e4vz16f86l4yw3Z (127/202)
+17/06/23 14:58:52 INFO scheduler.TaskSetManager: Finished task 185.0 in stage 2.0 (TID 187) in 314944 ms on iZ2zeiw5e4vz16f86l4yw4Z (128/202)
+17/06/23 15:06:48 INFO scheduler.TaskSetManager: Finished task 12.0 in stage 2.0 (TID 14) in 2211315 ms on iZ2zeiw5e4vz16f86l4yw4Z (129/202)
+17/06/23 15:07:20 INFO scheduler.TaskSetManager: Finished task 0.0 in stage 2.0 (TID 2) in 2243525 ms on iZ2zeiw5e4vz16f86l4yw4Z (130/202)
+17/06/23 15:07:52 INFO scheduler.TaskSetManager: Finished task 16.0 in stage 2.0 (TID 18) in 2275499 ms on iZ2zeiw5e4vz16f86l4yw3Z (131/202)
+17/06/23 15:10:48 INFO scheduler.TaskSetManager: Finished task 160.0 in stage 2.0 (TID 162) in 1062827 ms on iZ2zeiw5e4vz16f86l4yw2Z (132/202)
+17/06/23 15:10:58 INFO scheduler.TaskSetManager: Finished task 131.0 in stage 2.0 (TID 133) in 1123602 ms on iZ2zeiw5e4vz16f86l4yw4Z (133/202)
+17/06/23 15:10:58 INFO scheduler.TaskSetManager: Finished task 130.0 in stage 2.0 (TID 132) in 1123805 ms on iZ2zeiw5e4vz16f86l4yw3Z (134/202)
+17/06/23 15:10:58 INFO scheduler.TaskSetManager: Finished task 134.0 in stage 2.0 (TID 136) in 1100634 ms on iZ2zeiw5e4vz16f86l4yw2Z (135/202)
+17/06/23 15:10:58 INFO scheduler.TaskSetManager: Finished task 129.0 in stage 2.0 (TID 131) in 1124184 ms on iZ2zeiw5e4vz16f86l4yw4Z (136/202)
+17/06/23 15:11:24 INFO scheduler.TaskSetManager: Finished task 156.0 in stage 2.0 (TID 158) in 1098923 ms on iZ2zeiw5e4vz16f86l4yw4Z (137/202)
+17/06/23 15:11:24 INFO scheduler.TaskSetManager: Finished task 133.0 in stage 2.0 (TID 135) in 1127117 ms on iZ2zeiw5e4vz16f86l4yw4Z (138/202)
+17/06/23 15:11:24 INFO scheduler.TaskSetManager: Finished task 158.0 in stage 2.0 (TID 160) in 1099113 ms on iZ2zeiw5e4vz16f86l4yw2Z (139/202)
+17/06/23 15:11:24 INFO scheduler.TaskSetManager: Finished task 169.0 in stage 2.0 (TID 171) in 1093381 ms on iZ2zeiw5e4vz16f86l4yw2Z (140/202)
+17/06/23 15:11:46 INFO scheduler.TaskSetManager: Finished task 157.0 in stage 2.0 (TID 159) in 1120678 ms on iZ2zeiw5e4vz16f86l4yw4Z (141/202)
+17/06/23 15:11:49 INFO scheduler.TaskSetManager: Finished task 165.0 in stage 2.0 (TID 167) in 1123094 ms on iZ2zeiw5e4vz16f86l4yw4Z (142/202)
+17/06/23 15:11:49 INFO scheduler.TaskSetManager: Finished task 144.0 in stage 2.0 (TID 146) in 1123670 ms on iZ2zeiw5e4vz16f86l4yw4Z (143/202)
+17/06/23 15:11:51 INFO scheduler.TaskSetManager: Finished task 153.0 in stage 2.0 (TID 155) in 1126331 ms on iZ2zeiw5e4vz16f86l4yw4Z (144/202)
+17/06/23 15:11:51 INFO scheduler.TaskSetManager: Finished task 151.0 in stage 2.0 (TID 153) in 1126346 ms on iZ2zeiw5e4vz16f86l4yw3Z (145/202)
+17/06/23 15:11:51 INFO scheduler.TaskSetManager: Finished task 138.0 in stage 2.0 (TID 140) in 1131063 ms on iZ2zeiw5e4vz16f86l4yw4Z (146/202)
+17/06/23 15:11:51 INFO scheduler.TaskSetManager: Finished task 143.0 in stage 2.0 (TID 145) in 1126577 ms on iZ2zeiw5e4vz16f86l4yw3Z (147/202)
+17/06/23 15:11:51 INFO scheduler.TaskSetManager: Finished task 188.0 in stage 2.0 (TID 190) in 1094550 ms on iZ2zeiw5e4vz16f86l4yw2Z (148/202)
+17/06/23 15:11:52 INFO scheduler.TaskSetManager: Finished task 152.0 in stage 2.0 (TID 154) in 1126607 ms on iZ2zeiw5e4vz16f86l4yw3Z (149/202)
+17/06/23 15:11:53 INFO scheduler.TaskSetManager: Finished task 142.0 in stage 2.0 (TID 144) in 1129402 ms on iZ2zeiw5e4vz16f86l4yw3Z (150/202)
+17/06/23 15:11:58 INFO scheduler.TaskSetManager: Finished task 136.0 in stage 2.0 (TID 138) in 1137982 ms on iZ2zeiw5e4vz16f86l4yw3Z (151/202)
+17/06/23 15:11:58 INFO scheduler.TaskSetManager: Finished task 167.0 in stage 2.0 (TID 169) in 1132809 ms on iZ2zeiw5e4vz16f86l4yw4Z (152/202)
+17/06/23 15:12:11 INFO scheduler.TaskSetManager: Finished task 164.0 in stage 2.0 (TID 166) in 1145387 ms on iZ2zeiw5e4vz16f86l4yw3Z (153/202)
+17/06/23 15:12:13 INFO scheduler.TaskSetManager: Finished task 150.0 in stage 2.0 (TID 152) in 1148391 ms on iZ2zeiw5e4vz16f86l4yw3Z (154/202)
+17/06/23 15:12:13 INFO scheduler.TaskSetManager: Finished task 161.0 in stage 2.0 (TID 163) in 1147944 ms on iZ2zeiw5e4vz16f86l4yw3Z (155/202)
+17/06/23 15:12:14 INFO scheduler.TaskSetManager: Finished task 172.0 in stage 2.0 (TID 174) in 1117096 ms on iZ2zeiw5e4vz16f86l4yw3Z (156/202)
+17/06/23 15:12:14 INFO scheduler.TaskSetManager: Finished task 184.0 in stage 2.0 (TID 186) in 1116720 ms on iZ2zeiw5e4vz16f86l4yw4Z (157/202)
+17/06/23 15:12:14 INFO scheduler.TaskSetManager: Finished task 163.0 in stage 2.0 (TID 165) in 1147993 ms on iZ2zeiw5e4vz16f86l4yw3Z (158/202)
+17/06/23 15:12:14 INFO scheduler.TaskSetManager: Finished task 166.0 in stage 2.0 (TID 168) in 1147974 ms on iZ2zeiw5e4vz16f86l4yw4Z (159/202)
+17/06/23 15:12:14 INFO scheduler.TaskSetManager: Finished task 168.0 in stage 2.0 (TID 170) in 1147600 ms on iZ2zeiw5e4vz16f86l4yw3Z (160/202)
+17/06/23 15:12:14 INFO scheduler.TaskSetManager: Finished task 171.0 in stage 2.0 (TID 173) in 1117149 ms on iZ2zeiw5e4vz16f86l4yw4Z (161/202)
+17/06/23 15:12:14 INFO scheduler.TaskSetManager: Finished task 191.0 in stage 2.0 (TID 193) in 1116445 ms on iZ2zeiw5e4vz16f86l4yw2Z (162/202)
+17/06/23 15:12:14 INFO scheduler.TaskSetManager: Finished task 135.0 in stage 2.0 (TID 137) in 1176388 ms on iZ2zeiw5e4vz16f86l4yw3Z (163/202)
+17/06/23 15:12:14 INFO scheduler.TaskSetManager: Finished task 170.0 in stage 2.0 (TID 172) in 1126293 ms on iZ2zeiw5e4vz16f86l4yw4Z (164/202)
+17/06/23 15:12:18 INFO scheduler.TaskSetManager: Finished task 141.0 in stage 2.0 (TID 143) in 1157193 ms on iZ2zeiw5e4vz16f86l4yw3Z (165/202)
+17/06/23 15:12:23 INFO scheduler.TaskSetManager: Finished task 175.0 in stage 2.0 (TID 177) in 1126115 ms on iZ2zeiw5e4vz16f86l4yw3Z (166/202)
+17/06/23 15:12:23 INFO scheduler.TaskSetManager: Finished task 178.0 in stage 2.0 (TID 180) in 1126129 ms on iZ2zeiw5e4vz16f86l4yw3Z (167/202)
+17/06/23 15:12:23 INFO scheduler.TaskSetManager: Finished task 155.0 in stage 2.0 (TID 157) in 1157491 ms on iZ2zeiw5e4vz16f86l4yw1Z (168/202)
+17/06/23 15:12:23 INFO scheduler.TaskSetManager: Finished task 198.0 in stage 2.0 (TID 200) in 1121215 ms on iZ2zeiw5e4vz16f86l4yw4Z (169/202)
+17/06/23 15:12:26 INFO scheduler.TaskSetManager: Finished task 177.0 in stage 2.0 (TID 179) in 1129055 ms on iZ2zeiw5e4vz16f86l4yw3Z (170/202)
+17/06/23 15:12:26 INFO scheduler.TaskSetManager: Finished task 201.0 in stage 2.0 (TID 203) in 1122166 ms on iZ2zeiw5e4vz16f86l4yw4Z (171/202)
+17/06/23 15:12:38 INFO scheduler.TaskSetManager: Finished task 194.0 in stage 2.0 (TID 196) in 1139879 ms on iZ2zeiw5e4vz16f86l4yw4Z (172/202)
+17/06/23 15:12:45 INFO scheduler.TaskSetManager: Finished task 159.0 in stage 2.0 (TID 161) in 1180017 ms on iZ2zeiw5e4vz16f86l4yw1Z (173/202)
+17/06/23 15:12:45 INFO scheduler.TaskSetManager: Finished task 187.0 in stage 2.0 (TID 189) in 1148313 ms on iZ2zeiw5e4vz16f86l4yw4Z (174/202)
+17/06/23 15:12:45 INFO scheduler.TaskSetManager: Finished task 132.0 in stage 2.0 (TID 134) in 1231047 ms on iZ2zeiw5e4vz16f86l4yw1Z (175/202)
+17/06/23 15:12:45 INFO scheduler.TaskSetManager: Finished task 173.0 in stage 2.0 (TID 175) in 1148790 ms on iZ2zeiw5e4vz16f86l4yw3Z (176/202)
+17/06/23 15:12:45 INFO scheduler.TaskSetManager: Finished task 186.0 in stage 2.0 (TID 188) in 1148390 ms on iZ2zeiw5e4vz16f86l4yw3Z (177/202)
+17/06/23 15:12:51 INFO scheduler.TaskSetManager: Finished task 195.0 in stage 2.0 (TID 197) in 1152273 ms on iZ2zeiw5e4vz16f86l4yw3Z (178/202)
+17/06/23 15:13:00 INFO scheduler.TaskSetManager: Finished task 145.0 in stage 2.0 (TID 147) in 1195317 ms on iZ2zeiw5e4vz16f86l4yw1Z (179/202)
+17/06/23 15:13:11 INFO scheduler.TaskSetManager: Finished task 162.0 in stage 2.0 (TID 164) in 1205910 ms on iZ2zeiw5e4vz16f86l4yw1Z (180/202)
+17/06/23 15:13:15 INFO scheduler.TaskSetManager: Finished task 190.0 in stage 2.0 (TID 192) in 1177905 ms on iZ2zeiw5e4vz16f86l4yw1Z (181/202)
+17/06/23 15:13:17 INFO scheduler.TaskSetManager: Finished task 193.0 in stage 2.0 (TID 195) in 1178966 ms on iZ2zeiw5e4vz16f86l4yw1Z (182/202)
+17/06/23 15:13:34 INFO scheduler.TaskSetManager: Finished task 137.0 in stage 2.0 (TID 139) in 1233389 ms on iZ2zeiw5e4vz16f86l4yw1Z (183/202)
+17/06/23 15:13:35 INFO scheduler.TaskSetManager: Finished task 154.0 in stage 2.0 (TID 156) in 1230340 ms on iZ2zeiw5e4vz16f86l4yw1Z (184/202)
+17/06/23 15:13:36 INFO scheduler.TaskSetManager: Finished task 200.0 in stage 2.0 (TID 202) in 1192370 ms on iZ2zeiw5e4vz16f86l4yw1Z (185/202)
+17/06/23 15:13:39 INFO scheduler.TaskSetManager: Finished task 192.0 in stage 2.0 (TID 194) in 1202006 ms on iZ2zeiw5e4vz16f86l4yw1Z (186/202)
+17/06/23 15:13:42 INFO scheduler.TaskSetManager: Finished task 197.0 in stage 2.0 (TID 199) in 1202677 ms on iZ2zeiw5e4vz16f86l4yw1Z (187/202)
+17/06/23 15:13:44 INFO scheduler.TaskSetManager: Finished task 139.0 in stage 2.0 (TID 141) in 1243698 ms on iZ2zeiw5e4vz16f86l4yw1Z (188/202)
+17/06/23 15:13:45 INFO scheduler.TaskSetManager: Finished task 147.0 in stage 2.0 (TID 149) in 1239722 ms on iZ2zeiw5e4vz16f86l4yw1Z (189/202)
+17/06/23 15:13:50 INFO scheduler.TaskSetManager: Finished task 140.0 in stage 2.0 (TID 142) in 1249401 ms on iZ2zeiw5e4vz16f86l4yw1Z (190/202)
+17/06/23 15:13:56 INFO scheduler.TaskSetManager: Finished task 146.0 in stage 2.0 (TID 148) in 1251193 ms on iZ2zeiw5e4vz16f86l4yw1Z (191/202)
+17/06/23 15:13:56 INFO scheduler.TaskSetManager: Finished task 180.0 in stage 2.0 (TID 182) in 1219772 ms on iZ2zeiw5e4vz16f86l4yw1Z (192/202)
+17/06/23 15:13:56 INFO scheduler.TaskSetManager: Finished task 183.0 in stage 2.0 (TID 185) in 1219453 ms on iZ2zeiw5e4vz16f86l4yw1Z (193/202)
+17/06/23 15:13:57 INFO scheduler.TaskSetManager: Finished task 179.0 in stage 2.0 (TID 181) in 1220339 ms on iZ2zeiw5e4vz16f86l4yw1Z (194/202)
+17/06/23 15:13:57 INFO scheduler.TaskSetManager: Finished task 148.0 in stage 2.0 (TID 150) in 1251795 ms on iZ2zeiw5e4vz16f86l4yw1Z (195/202)
+17/06/23 15:14:02 INFO scheduler.TaskSetManager: Finished task 181.0 in stage 2.0 (TID 183) in 1225573 ms on iZ2zeiw5e4vz16f86l4yw1Z (196/202)
+17/06/23 15:14:07 INFO scheduler.TaskSetManager: Finished task 149.0 in stage 2.0 (TID 151) in 1262006 ms on iZ2zeiw5e4vz16f86l4yw1Z (197/202)
+17/06/23 15:14:21 INFO scheduler.TaskSetManager: Finished task 189.0 in stage 2.0 (TID 191) in 1244132 ms on iZ2zeiw5e4vz16f86l4yw1Z (198/202)
+17/06/23 15:14:25 INFO scheduler.TaskSetManager: Finished task 174.0 in stage 2.0 (TID 176) in 1248601 ms on iZ2zeiw5e4vz16f86l4yw1Z (199/202)
+17/06/23 15:14:41 INFO scheduler.TaskSetManager: Finished task 182.0 in stage 2.0 (TID 184) in 1264446 ms on iZ2zeiw5e4vz16f86l4yw1Z (200/202)
+17/06/23 15:14:46 INFO scheduler.TaskSetManager: Finished task 199.0 in stage 2.0 (TID 201) in 1263991 ms on iZ2zeiw5e4vz16f86l4yw1Z (201/202)
+17/06/23 15:14:50 INFO scheduler.TaskSetManager: Finished task 196.0 in stage 2.0 (TID 198) in 1270978 ms on iZ2zeiw5e4vz16f86l4yw1Z (202/202)
+17/06/23 15:14:50 INFO cluster.YarnScheduler: Removed TaskSet 2.0, whose tasks have all completed, from pool 
+17/06/23 15:14:50 INFO scheduler.DAGScheduler: ResultStage 2 (saveAsTextFile at OutputSparkLibsvm.scala:83) finished in 2693.445 s
+17/06/23 15:14:50 INFO scheduler.DAGScheduler: Job 2 finished: saveAsTextFile at OutputSparkLibsvm.scala:83, took 2693.517421 s
+17/06/23 15:14:53 INFO spark.SparkContext: Invoking stop() from shutdown hook
+17/06/23 15:14:53 INFO server.ServerConnector: Stopped ServerConnector@74d4d507{HTTP/1.1}{0.0.0.0:4040}
+17/06/23 15:14:53 INFO handler.ContextHandler: Stopped o.s.j.s.ServletContextHandler@62417a16{/stages/stage/kill,null,UNAVAILABLE}
+17/06/23 15:14:53 INFO handler.ContextHandler: Stopped o.s.j.s.ServletContextHandler@1b0a7baf{/api,null,UNAVAILABLE}
+17/06/23 15:14:53 INFO handler.ContextHandler: Stopped o.s.j.s.ServletContextHandler@70fab835{/,null,UNAVAILABLE}
+17/06/23 15:14:53 INFO handler.ContextHandler: Stopped o.s.j.s.ServletContextHandler@22c86919{/static,null,UNAVAILABLE}
+17/06/23 15:14:53 INFO handler.ContextHandler: Stopped o.s.j.s.ServletContextHandler@72b16078{/executors/threadDump/json,null,UNAVAILABLE}
+17/06/23 15:14:53 INFO handler.ContextHandler: Stopped o.s.j.s.ServletContextHandler@21694e53{/executors/threadDump,null,UNAVAILABLE}
+17/06/23 15:14:53 INFO handler.ContextHandler: Stopped o.s.j.s.ServletContextHandler@7caa550{/executors/json,null,UNAVAILABLE}
+17/06/23 15:14:53 INFO handler.ContextHandler: Stopped o.s.j.s.ServletContextHandler@3b9d6699{/executors,null,UNAVAILABLE}
+17/06/23 15:14:53 INFO handler.ContextHandler: Stopped o.s.j.s.ServletContextHandler@47428937{/environment/json,null,UNAVAILABLE}
+17/06/23 15:14:53 INFO handler.ContextHandler: Stopped o.s.j.s.ServletContextHandler@2c715e84{/environment,null,UNAVAILABLE}
+17/06/23 15:14:53 INFO handler.ContextHandler: Stopped o.s.j.s.ServletContextHandler@d78795{/storage/rdd/json,null,UNAVAILABLE}
+17/06/23 15:14:53 INFO handler.ContextHandler: Stopped o.s.j.s.ServletContextHandler@46074492{/storage/rdd,null,UNAVAILABLE}
+17/06/23 15:14:53 INFO handler.ContextHandler: Stopped o.s.j.s.ServletContextHandler@64da2a7{/storage/json,null,UNAVAILABLE}
+17/06/23 15:14:53 INFO handler.ContextHandler: Stopped o.s.j.s.ServletContextHandler@c9413d8{/storage,null,UNAVAILABLE}
+17/06/23 15:14:53 INFO handler.ContextHandler: Stopped o.s.j.s.ServletContextHandler@32fe9d0a{/stages/pool/json,null,UNAVAILABLE}
+17/06/23 15:14:53 INFO handler.ContextHandler: Stopped o.s.j.s.ServletContextHandler@37eeec90{/stages/pool,null,UNAVAILABLE}
+17/06/23 15:14:53 INFO handler.ContextHandler: Stopped o.s.j.s.ServletContextHandler@724f138e{/stages/stage/json,null,UNAVAILABLE}
+17/06/23 15:14:53 INFO handler.ContextHandler: Stopped o.s.j.s.ServletContextHandler@cf65451{/stages/stage,null,UNAVAILABLE}
+17/06/23 15:14:53 INFO handler.ContextHandler: Stopped o.s.j.s.ServletContextHandler@f415a95{/stages/json,null,UNAVAILABLE}
+17/06/23 15:14:53 INFO handler.ContextHandler: Stopped o.s.j.s.ServletContextHandler@114a85c2{/stages,null,UNAVAILABLE}
+17/06/23 15:14:53 INFO handler.ContextHandler: Stopped o.s.j.s.ServletContextHandler@12cd9150{/jobs/job/json,null,UNAVAILABLE}
+17/06/23 15:14:53 INFO handler.ContextHandler: Stopped o.s.j.s.ServletContextHandler@47289387{/jobs/job,null,UNAVAILABLE}
+17/06/23 15:14:53 INFO handler.ContextHandler: Stopped o.s.j.s.ServletContextHandler@1950e8a6{/jobs/json,null,UNAVAILABLE}
+17/06/23 15:14:53 INFO handler.ContextHandler: Stopped o.s.j.s.ServletContextHandler@35d6ca49{/jobs,null,UNAVAILABLE}
+17/06/23 15:14:53 INFO ui.SparkUI: Stopped Spark web UI at http://10.85.123.43:4040
+17/06/23 15:14:53 INFO cluster.YarnClientSchedulerBackend: Interrupting monitor thread
+17/06/23 15:14:53 INFO cluster.YarnClientSchedulerBackend: Shutting down all executors
+17/06/23 15:14:53 INFO cluster.YarnSchedulerBackend$YarnDriverEndpoint: Asking each executor to shut down
+17/06/23 15:14:53 INFO cluster.SchedulerExtensionServices: Stopping SchedulerExtensionServices
+(serviceOption=None,
+ services=List(),
+ started=false)
+17/06/23 15:14:53 INFO cluster.YarnClientSchedulerBackend: Stopped
+17/06/23 15:14:53 INFO spark.MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+17/06/23 15:14:53 INFO memory.MemoryStore: MemoryStore cleared
+17/06/23 15:14:53 INFO storage.BlockManager: BlockManager stopped
+17/06/23 15:14:53 INFO storage.BlockManagerMaster: BlockManagerMaster stopped
+17/06/23 15:14:53 INFO scheduler.OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+17/06/23 15:14:53 INFO spark.SparkContext: Successfully stopped SparkContext
+17/06/23 15:14:53 INFO util.ShutdownHookManager: Shutdown hook called
+17/06/23 15:14:53 INFO util.ShutdownHookManager: Deleting directory /tmp/spark-94d50411-7307-4e22-8535-4e35737f63f0

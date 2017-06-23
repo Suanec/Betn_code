@@ -1,0 +1,288 @@
+spark-submit --jars /data0/work_space/service/spark-2.0.0-bin-hadoop2.4/jars/hadoop-lzo-0.4.15.jar --master yarn --deploy-mode client --num-executors 100 --driver-memory 7g --executor-cores 4 --executor-memory 7g --class com.weibo.datasys.pipeline.Runner weispark-ml-0.5.0-SNAPSHOT.jar pipeline.xml [5]
+===========================================
+Running pipeline: ML training: Resources Limit Probing
+
+16/12/13 14:31:48 ERROR GPLNativeCodeLoader: Could not load native gpl library
+
+16/12/13 14:31:48 ERROR LzoCodec: Cannot load native-lzo without native-hadoop
+[Stage 0:====================================================>(2653 + 1) / 2654]
+                                                                                
+
+[Stage 2:>                                                       (0 + 0) / 2654]
+[Stage 2:>                                                     (0 + 549) / 2654]
+[Stage 2:>                                                     (0 + 557) / 2654]
+[Stage 2:>                                                     (0 + 614) / 2654]
+[Stage 2:>                                                     (0 + 717) / 2654]
+[Stage 2:>                                                     (0 + 792) / 2654]16/12/13 14:36:11 ERROR YarnScheduler: Lost executor 64 on 10.39.6.39: Container marked as failed: container_1470311300058_8978042_01_000178 on host: 10.39.6.39. Exit status: 52. Diagnostics: Exception from container-launch: 
+org.apache.hadoop.util.Shell$ExitCodeException: 
+	at org.apache.hadoop.util.Shell.runCommand(Shell.java:501)
+	at org.apache.hadoop.util.Shell.run(Shell.java:418)
+	at org.apache.hadoop.util.Shell$ShellCommandExecutor.execute(Shell.java:655)
+	at org.apache.hadoop.yarn.server.nodemanager.LinuxContainerExecutor.launchContainer(LinuxContainerExecutor.java:287)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.launcher.ContainerLaunch.call(ContainerLaunch.java:300)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.launcher.ContainerLaunch.call(ContainerLaunch.java:81)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+
+main : command provided 1
+main : user is mapred
+main : requested yarn user is weibo_bigdata_ds
+
+Container exited with a non-zero exit code 52
+
+[Stage 2:>                                                     (0 + 788) / 2654]16/12/13 14:36:13 ERROR YarnScheduler: Lost executor 86 on 10.39.2.198: Container marked as failed: container_1470311300058_8978042_01_000182 on host: 10.39.2.198. Exit status: 52. Diagnostics: Exception from container-launch: 
+org.apache.hadoop.util.Shell$ExitCodeException: 
+	at org.apache.hadoop.util.Shell.runCommand(Shell.java:501)
+	at org.apache.hadoop.util.Shell.run(Shell.java:418)
+	at org.apache.hadoop.util.Shell$ShellCommandExecutor.execute(Shell.java:655)
+	at org.apache.hadoop.yarn.server.nodemanager.LinuxContainerExecutor.launchContainer(LinuxContainerExecutor.java:287)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.launcher.ContainerLaunch.call(ContainerLaunch.java:300)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.launcher.ContainerLaunch.call(ContainerLaunch.java:81)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+
+main : command provided 1
+main : user is mapred
+main : requested yarn user is weibo_bigdata_ds
+
+Container exited with a non-zero exit code 52
+
+[Stage 2:>                                                     (0 + 784) / 2654]16/12/13 14:36:14 ERROR YarnScheduler: Lost executor 27 on 10.39.2.177: Container marked as failed: container_1470311300058_8978042_01_000283 on host: 10.39.2.177. Exit status: 52. Diagnostics: Exception from container-launch: 
+org.apache.hadoop.util.Shell$ExitCodeException: 
+	at org.apache.hadoop.util.Shell.runCommand(Shell.java:501)
+	at org.apache.hadoop.util.Shell.run(Shell.java:418)
+	at org.apache.hadoop.util.Shell$ShellCommandExecutor.execute(Shell.java:655)
+	at org.apache.hadoop.yarn.server.nodemanager.LinuxContainerExecutor.launchContainer(LinuxContainerExecutor.java:287)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.launcher.ContainerLaunch.call(ContainerLaunch.java:300)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.launcher.ContainerLaunch.call(ContainerLaunch.java:81)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+
+main : command provided 1
+main : user is mapred
+main : requested yarn user is weibo_bigdata_ds
+
+Container exited with a non-zero exit code 52
+
+[Stage 2:>                                                     (0 + 780) / 2654]16/12/13 14:36:20 ERROR YarnScheduler: Lost executor 136 on 10.39.3.183: Container marked as failed: container_1470311300058_8978042_01_000386 on host: 10.39.3.183. Exit status: 52. Diagnostics: Exception from container-launch: 
+org.apache.hadoop.util.Shell$ExitCodeException: 
+	at org.apache.hadoop.util.Shell.runCommand(Shell.java:501)
+	at org.apache.hadoop.util.Shell.run(Shell.java:418)
+	at org.apache.hadoop.util.Shell$ShellCommandExecutor.execute(Shell.java:655)
+	at org.apache.hadoop.yarn.server.nodemanager.LinuxContainerExecutor.launchContainer(LinuxContainerExecutor.java:287)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.launcher.ContainerLaunch.call(ContainerLaunch.java:300)
+	at org.apache.hadoop.yarn.server.nodemanager.containermanager.launcher.ContainerLaunch.call(ContainerLaunch.java:81)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+
+main : command provided 1
+main : user is mapred
+main : requested yarn user is weibo_bigdata_ds
+
+Container exited with a non-zero exit code 52
+
+[Stage 2:>                                                     (0 + 776) / 2654]16/12/13 14:36:23 ERROR TaskSetManager: Task 1388 in stage 2.0 failed 4 times; aborting job
+Exception in thread "main" org.apache.spark.SparkException: Job aborted due to stage failure: Task 1388 in stage 2.0 failed 4 times, most recent failure: Lost task 1388.3 in stage 2.0 (TID 3452, 10.39.7.78): java.io.IOException: Filesystem closed
+	at org.apache.hadoop.hdfs.DFSClient.checkOpen(DFSClient.java:707)
+	at org.apache.hadoop.hdfs.DFSInputStream.readWithStrategy(DFSInputStream.java:776)
+	at org.apache.hadoop.hdfs.DFSInputStream.read(DFSInputStream.java:837)
+	at java.io.DataInputStream.read(DataInputStream.java:100)
+	at org.apache.hadoop.util.LineReader.fillBuffer(LineReader.java:180)
+	at org.apache.hadoop.util.LineReader.readDefaultLine(LineReader.java:216)
+	at org.apache.hadoop.util.LineReader.readLine(LineReader.java:174)
+	at org.apache.hadoop.mapreduce.lib.input.LineRecordReader.nextKeyValue(LineRecordReader.java:149)
+	at org.apache.spark.sql.execution.datasources.RecordReaderIterator.hasNext(RecordReaderIterator.scala:36)
+	at org.apache.spark.sql.execution.datasources.HadoopFileLinesReader.hasNext(HadoopFileLinesReader.scala:48)
+	at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:408)
+	at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:408)
+	at org.apache.spark.sql.execution.datasources.FileScanRDD$$anon$1.hasNext(FileScanRDD.scala:91)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIterator.sort_addToSorter$(Unknown Source)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIterator.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenExec$$anonfun$8$$anon$1.hasNext(WholeStageCodegenExec.scala:370)
+	at org.apache.spark.sql.execution.columnar.InMemoryRelation$$anonfun$3$$anon$1.hasNext(InMemoryRelation.scala:151)
+	at org.apache.spark.storage.memory.MemoryStore.putIteratorAsValues(MemoryStore.scala:213)
+	at org.apache.spark.storage.BlockManager$$anonfun$doPutIterator$1.apply(BlockManager.scala:919)
+	at org.apache.spark.storage.BlockManager$$anonfun$doPutIterator$1.apply(BlockManager.scala:910)
+	at org.apache.spark.storage.BlockManager.doPut(BlockManager.scala:866)
+	at org.apache.spark.storage.BlockManager.doPutIterator(BlockManager.scala:910)
+	at org.apache.spark.storage.BlockManager.getOrElseUpdate(BlockManager.scala:668)
+	at org.apache.spark.rdd.RDD.getOrCompute(RDD.scala:330)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:281)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD$$anonfun$8.apply(RDD.scala:332)
+	at org.apache.spark.rdd.RDD$$anonfun$8.apply(RDD.scala:330)
+	at org.apache.spark.storage.BlockManager$$anonfun$doPutIterator$1.apply(BlockManager.scala:919)
+	at org.apache.spark.storage.BlockManager$$anonfun$doPutIterator$1.apply(BlockManager.scala:910)
+	at org.apache.spark.storage.BlockManager.doPut(BlockManager.scala:866)
+	at org.apache.spark.storage.BlockManager.doPutIterator(BlockManager.scala:910)
+	at org.apache.spark.storage.BlockManager.getOrElseUpdate(BlockManager.scala:668)
+	at org.apache.spark.rdd.RDD.getOrCompute(RDD.scala:330)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:281)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:79)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:47)
+	at org.apache.spark.scheduler.Task.run(Task.scala:85)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.org$apache$spark$scheduler$DAGScheduler$$failJobAndIndependentStages(DAGScheduler.scala:1450)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:1438)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:1437)
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:48)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:1437)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$handleTaskSetFailed$1.apply(DAGScheduler.scala:811)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$handleTaskSetFailed$1.apply(DAGScheduler.scala:811)
+	at scala.Option.foreach(Option.scala:257)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:811)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:1659)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1618)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1607)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:48)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:632)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1871)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1934)
+	at org.apache.spark.rdd.RDD$$anonfun$reduce$1.apply(RDD.scala:983)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:358)
+	at org.apache.spark.rdd.RDD.reduce(RDD.scala:965)
+	at org.apache.spark.rdd.RDD$$anonfun$treeAggregate$1.apply(RDD.scala:1108)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:112)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:358)
+	at org.apache.spark.rdd.RDD.treeAggregate(RDD.scala:1085)
+	at org.apache.spark.ml.classification.LogisticRegression.train(LogisticRegression.scala:287)
+	at org.apache.spark.ml.classification.LogisticRegression.train(LogisticRegression.scala:259)
+	at org.apache.spark.ml.classification.LogisticRegression.train(LogisticRegression.scala:159)
+	at org.apache.spark.ml.Predictor.fit(Predictor.scala:90)
+	at org.apache.spark.ml.Predictor.fit(Predictor.scala:71)
+	at org.apache.spark.ml.Estimator.fit(Estimator.scala:61)
+	at org.apache.spark.ml.Estimator$$anonfun$fit$1.apply(Estimator.scala:82)
+	at org.apache.spark.ml.Estimator$$anonfun$fit$1.apply(Estimator.scala:82)
+	at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:234)
+	at scala.collection.TraversableLike$$anonfun$map$1.apply(TraversableLike.scala:234)
+	at scala.collection.IndexedSeqOptimized$class.foreach(IndexedSeqOptimized.scala:33)
+	at scala.collection.mutable.ArrayOps$ofRef.foreach(ArrayOps.scala:186)
+	at scala.collection.TraversableLike$class.map(TraversableLike.scala:234)
+	at scala.collection.mutable.ArrayOps$ofRef.map(ArrayOps.scala:186)
+	at org.apache.spark.ml.Estimator.fit(Estimator.scala:82)
+	at org.apache.spark.ml.tuning.TrainValidationSplit.fit(TrainValidationSplit.scala:107)
+	at com.weibo.datasys.algorithms.LogisticRegressionWithLBFGS$.run(LogisticRegressionWithLBFGS.scala:72)
+	at com.weibo.datasys.pipeline.MLConfig$$anonfun$run$1.apply(MLConfig.scala:35)
+	at com.weibo.datasys.pipeline.MLConfig$$anonfun$run$1.apply(MLConfig.scala:29)
+	at scala.collection.IndexedSeqOptimized$class.foreach(IndexedSeqOptimized.scala:33)
+	at scala.collection.mutable.ArrayOps$ofRef.foreach(ArrayOps.scala:186)
+	at com.weibo.datasys.pipeline.MLConfig.run(MLConfig.scala:29)
+	at com.weibo.datasys.pipeline.Framework$$anonfun$runJob$2.apply(Framework.scala:25)
+	at com.weibo.datasys.pipeline.Framework$$anonfun$runJob$2.apply(Framework.scala:23)
+	at scala.collection.TraversableLike$WithFilter$$anonfun$foreach$1.apply(TraversableLike.scala:733)
+	at scala.collection.immutable.Map$Map1.foreach(Map.scala:116)
+	at scala.collection.TraversableLike$WithFilter.foreach(TraversableLike.scala:732)
+	at com.weibo.datasys.pipeline.Framework$.runJob(Framework.scala:23)
+	at com.weibo.datasys.pipeline.Runner$.main(Runner.scala:26)
+	at com.weibo.datasys.pipeline.Runner.main(Runner.scala)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.apache.spark.deploy.SparkSubmit$.org$apache$spark$deploy$SparkSubmit$$runMain(SparkSubmit.scala:729)
+	at org.apache.spark.deploy.SparkSubmit$.doRunMain$1(SparkSubmit.scala:185)
+	at org.apache.spark.deploy.SparkSubmit$.submit(SparkSubmit.scala:210)
+	at org.apache.spark.deploy.SparkSubmit$.main(SparkSubmit.scala:124)
+	at org.apache.spark.deploy.SparkSubmit.main(SparkSubmit.scala)
+Caused by: java.io.IOException: Filesystem closed
+	at org.apache.hadoop.hdfs.DFSClient.checkOpen(DFSClient.java:707)
+	at org.apache.hadoop.hdfs.DFSInputStream.readWithStrategy(DFSInputStream.java:776)
+	at org.apache.hadoop.hdfs.DFSInputStream.read(DFSInputStream.java:837)
+	at java.io.DataInputStream.read(DataInputStream.java:100)
+	at org.apache.hadoop.util.LineReader.fillBuffer(LineReader.java:180)
+	at org.apache.hadoop.util.LineReader.readDefaultLine(LineReader.java:216)
+	at org.apache.hadoop.util.LineReader.readLine(LineReader.java:174)
+	at org.apache.hadoop.mapreduce.lib.input.LineRecordReader.nextKeyValue(LineRecordReader.java:149)
+	at org.apache.spark.sql.execution.datasources.RecordReaderIterator.hasNext(RecordReaderIterator.scala:36)
+	at org.apache.spark.sql.execution.datasources.HadoopFileLinesReader.hasNext(HadoopFileLinesReader.scala:48)
+	at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:408)
+	at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:408)
+	at org.apache.spark.sql.execution.datasources.FileScanRDD$$anon$1.hasNext(FileScanRDD.scala:91)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIterator.sort_addToSorter$(Unknown Source)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIterator.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenExec$$anonfun$8$$anon$1.hasNext(WholeStageCodegenExec.scala:370)
+	at org.apache.spark.sql.execution.columnar.InMemoryRelation$$anonfun$3$$anon$1.hasNext(InMemoryRelation.scala:151)
+	at org.apache.spark.storage.memory.MemoryStore.putIteratorAsValues(MemoryStore.scala:213)
+	at org.apache.spark.storage.BlockManager$$anonfun$doPutIterator$1.apply(BlockManager.scala:919)
+	at org.apache.spark.storage.BlockManager$$anonfun$doPutIterator$1.apply(BlockManager.scala:910)
+	at org.apache.spark.storage.BlockManager.doPut(BlockManager.scala:866)
+	at org.apache.spark.storage.BlockManager.doPutIterator(BlockManager.scala:910)
+	at org.apache.spark.storage.BlockManager.getOrElseUpdate(BlockManager.scala:668)
+	at org.apache.spark.rdd.RDD.getOrCompute(RDD.scala:330)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:281)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD$$anonfun$8.apply(RDD.scala:332)
+	at org.apache.spark.rdd.RDD$$anonfun$8.apply(RDD.scala:330)
+	at org.apache.spark.storage.BlockManager$$anonfun$doPutIterator$1.apply(BlockManager.scala:919)
+	at org.apache.spark.storage.BlockManager$$anonfun$doPutIterator$1.apply(BlockManager.scala:910)
+	at org.apache.spark.storage.BlockManager.doPut(BlockManager.scala:866)
+	at org.apache.spark.storage.BlockManager.doPutIterator(BlockManager.scala:910)
+	at org.apache.spark.storage.BlockManager.getOrElseUpdate(BlockManager.scala:668)
+	at org.apache.spark.rdd.RDD.getOrCompute(RDD.scala:330)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:281)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:79)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:47)
+	at org.apache.spark.scheduler.Task.run(Task.scala:85)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+16/12/13 14:36:23 ERROR LiveListenerBus: SparkListenerBus has already stopped! Dropping event SparkListenerExecutorMetricsUpdate(144,WrappedArray((3122,2,0,Vector(AccumulableInfo(58483,Some(internal.metrics.executorDeserializeTime),Some(0),None,true,true,None), AccumulableInfo(58484,Some(internal.metrics.executorRunTime),Some(0),None,true,true,None), AccumulableInfo(58485,Some(internal.metrics.resultSize),Some(0),None,true,true,None), AccumulableInfo(58486,Some(internal.metrics.jvmGCTime),Some(5604),None,true,true,None), AccumulableInfo(58487,Some(internal.metrics.resultSerializationTime),Some(0),None,true,true,None), AccumulableInfo(58488,Some(internal.metrics.memoryBytesSpilled),Some(2818572288),None,true,true,None), AccumulableInfo(58489,Some(internal.metrics.diskBytesSpilled),Some(0),None,true,true,None), AccumulableInfo(58490,Some(internal.metrics.peakExecutionMemory),Some(0),None,true,true,None), AccumulableInfo(58491,Some(internal.metrics.updatedBlockStatuses),Some(ArrayBuffer()),None,true,true,None), AccumulableInfo(58492,Some(internal.metrics.shuffle.read.remoteBlocksFetched),Some(0),None,true,true,None), AccumulableInfo(58493,Some(internal.metrics.shuffle.read.localBlocksFetched),Some(0),None,true,true,None), AccumulableInfo(58494,Some(internal.metrics.shuffle.read.remoteBytesRead),Some(0),None,true,true,None), AccumulableInfo(58495,Some(internal.metrics.shuffle.read.localBytesRead),Some(0),None,true,true,None), AccumulableInfo(58496,Some(internal.metrics.shuffle.read.fetchWaitTime),Some(0),None,true,true,None), AccumulableInfo(58497,Some(internal.metrics.shuffle.read.recordsRead),Some(0),None,true,true,None), AccumulableInfo(58498,Some(internal.metrics.shuffle.write.bytesWritten),Some(927683477),None,true,true,None), AccumulableInfo(58499,Some(internal.metrics.shuffle.write.recordsWritten),Some(2801),None,true,true,None), AccumulableInfo(58500,Some(internal.metrics.shuffle.write.writeTime),Some(2067642513),None,true,true,None), AccumulableInfo(58501,Some(internal.metrics.input.bytesRead),Some(0),None,true,true,None), AccumulableInfo(58502,Some(internal.metrics.input.recordsRead),Some(3025),None,true,true,None), AccumulableInfo(58503,Some(internal.metrics.output.bytesWritten),Some(0),None,true,true,None), AccumulableInfo(58504,Some(internal.metrics.output.recordsWritten),Some(0),None,true,true,None), AccumulableInfo(58470,Some(duration total (min, med, max)),Some(-1),None,true,true,Some(sql)), AccumulableInfo(58463,Some(number of output rows),Some(3025),None,true,true,Some(sql)), AccumulableInfo(58464,Some(number of output rows),Some(3025),None,true,true,Some(sql)), AccumulableInfo(58465,Some(number of output rows),Some(3025),None,true,true,Some(sql)), AccumulableInfo(58466,Some(sort time total (min, med, max)),Some(-1),None,true,true,Some(sql)), AccumulableInfo(58467,Some(peak memory total (min, med, max)),Some(-1),None,true,true,Some(sql)), AccumulableInfo(58468,Some(spill size total (min, med, max)),Some(-1),None,true,true,Some(sql)), AccumulableInfo(58469,Some(number of output rows),Some(0),None,true,true,Some(sql)), AccumulableInfo(58462,None,Some([]),None,false,false,None), AccumulableInfo(58482,Some(number of output rows),Some(0),None,true,true,Some(sql)), AccumulableInfo(58481,Some(duration total (min, med, max)),Some(-1),None,true,true,Some(sql)))), (3222,2,0,Vector(AccumulableInfo(58483,Some(internal.metrics.executorDeserializeTime),Some(0),None,true,true,None), AccumulableInfo(58484,Some(internal.metrics.executorRunTime),Some(0),None,true,true,None), AccumulableInfo(58485,Some(internal.metrics.resultSize),Some(0),None,true,true,None), AccumulableInfo(58486,Some(internal.metrics.jvmGCTime),Some(5046),None,true,true,None), AccumulableInfo(58487,Some(internal.metrics.resultSerializationTime),Some(0),None,true,true,None), AccumulableInfo(58488,Some(internal.metrics.memoryBytesSpilled),Some(2818572288),None,true,true,None), AccumulableInfo(58489,Some(internal.metrics.diskBytesSpilled),Some(0),None,true,true,None), AccumulableInfo(58490,Some(internal.metrics.peakExecutionMemory),Some(0),None,true,true,None), AccumulableInfo(58491,Some(internal.metrics.updatedBlockStatuses),Some(ArrayBuffer()),None,true,true,None), AccumulableInfo(58492,Some(internal.metrics.shuffle.read.remoteBlocksFetched),Some(0),None,true,true,None), AccumulableInfo(58493,Some(internal.metrics.shuffle.read.localBlocksFetched),Some(0),None,true,true,None), AccumulableInfo(58494,Some(internal.metrics.shuffle.read.remoteBytesRead),Some(0),None,true,true,None), AccumulableInfo(58495,Some(internal.metrics.shuffle.read.localBytesRead),Some(0),None,true,true,None), AccumulableInfo(58496,Some(internal.metrics.shuffle.read.fetchWaitTime),Some(0),None,true,true,None), AccumulableInfo(58497,Some(internal.metrics.shuffle.read.recordsRead),Some(0),None,true,true,None), AccumulableInfo(58498,Some(internal.metrics.shuffle.write.bytesWritten),Some(927686782),None,true,true,None), AccumulableInfo(58499,Some(internal.metrics.shuffle.write.recordsWritten),Some(2549),None,true,true,None), AccumulableInfo(58500,Some(internal.metrics.shuffle.write.writeTime),Some(2138862558),None,true,true,None), AccumulableInfo(58501,Some(internal.metrics.input.bytesRead),Some(0),None,true,true,None), AccumulableInfo(58502,Some(internal.metrics.input.recordsRead),Some(3025),None,true,true,None), AccumulableInfo(58503,Some(internal.metrics.output.bytesWritten),Some(0),None,true,true,None), AccumulableInfo(58504,Some(internal.metrics.output.recordsWritten),Some(0),None,true,true,None), AccumulableInfo(58470,Some(duration total (min, med, max)),Some(-1),None,true,true,Some(sql)), AccumulableInfo(58463,Some(number of output rows),Some(3025),None,true,true,Some(sql)), AccumulableInfo(58464,Some(number of output rows),Some(3025),None,true,true,Some(sql)), AccumulableInfo(58465,Some(number of output rows),Some(3025),None,true,true,Some(sql)), AccumulableInfo(58466,Some(sort time total (min, med, max)),Some(-1),None,true,true,Some(sql)), AccumulableInfo(58467,Some(peak memory total (min, med, max)),Some(-1),None,true,true,Some(sql)), AccumulableInfo(58468,Some(spill size total (min, med, max)),Some(-1),None,true,true,Some(sql)), AccumulableInfo(58469,Some(number of output rows),Some(0),None,true,true,Some(sql)), AccumulableInfo(58462,None,Some([]),None,false,false,None), AccumulableInfo(58482,Some(number of output rows),Some(0),None,true,true,Some(sql)), AccumulableInfo(58481,Some(duration total (min, med, max)),Some(-1),None,true,true,Some(sql)))), (2825,2,0,Vector(AccumulableInfo(58483,Some(internal.metrics.executorDeserializeTime),Some(0),None,true,true,None), AccumulableInfo(58484,Some(internal.metrics.executorRunTime),Some(0),None,true,true,None), AccumulableInfo(58485,Some(internal.metrics.resultSize),Some(0),None,true,true,None), AccumulableInfo(58486,Some(internal.metrics.jvmGCTime),Some(5604),None,true,true,None), AccumulableInfo(58487,Some(internal.metrics.resultSerializationTime),Some(0),None,true,true,None), AccumulableInfo(58488,Some(internal.metrics.memoryBytesSpilled),Some(2818572288),None,true,true,None), AccumulableInfo(58489,Some(internal.metrics.diskBytesSpilled),Some(0),None,true,true,None), AccumulableInfo(58490,Some(internal.metrics.peakExecutionMemory),Some(0),None,true,true,None), AccumulableInfo(58491,Some(internal.metrics.updatedBlockStatuses),Some(ArrayBuffer((broadcast_6_piece0,BlockStatus(StorageLevel(memory, 1 replicas),21386,0)), (broadcast_6,BlockStatus(StorageLevel(memory, deserialized, 1 replicas),62720,0)))),None,true,true,None), AccumulableInfo(58492,Some(internal.metrics.shuffle.read.remoteBlocksFetched),Some(0),None,true,true,None), AccumulableInfo(58493,Some(internal.metrics.shuffle.read.localBlocksFetched),Some(0),None,true,true,None), AccumulableInfo(58494,Some(internal.metrics.shuffle.read.remoteBytesRead),Some(0),None,true,true,None), AccumulableInfo(58495,Some(internal.metrics.shuffle.read.localBytesRead),Some(0),None,true,true,None), AccumulableInfo(58496,Some(internal.metrics.shuffle.read.fetchWaitTime),Some(0),None,true,true,None), AccumulableInfo(58497,Some(internal.metrics.shuffle.read.recordsRead),Some(0),None,true,true,None), AccumulableInfo(58498,Some(internal.metrics.shuffle.write.bytesWritten),Some(1236909566),None,true,true,None), AccumulableInfo(58499,Some(internal.metrics.shuffle.write.recordsWritten),Some(3024),None,true,true,None), AccumulableInfo(58500,Some(internal.metrics.shuffle.write.writeTime),Some(2891808146),None,true,true,None), AccumulableInfo(58501,Some(internal.metrics.input.bytesRead),Some(0),None,true,true,None), AccumulableInfo(58502,Some(internal.metrics.input.recordsRead),Some(3025),None,true,true,None), AccumulableInfo(58503,Some(internal.metrics.output.bytesWritten),Some(0),None,true,true,None), AccumulableInfo(58504,Some(internal.metrics.output.recordsWritten),Some(0),None,true,true,None), AccumulableInfo(58470,Some(duration total (min, med, max)),Some(-1),None,true,true,Some(sql)), AccumulableInfo(58463,Some(number of output rows),Some(3025),None,true,true,Some(sql)), AccumulableInfo(58464,Some(number of output rows),Some(3025),None,true,true,Some(sql)), AccumulableInfo(58465,Some(number of output rows),Some(3025),None,true,true,Some(sql)), AccumulableInfo(58466,Some(sort time total (min, med, max)),Some(-1),None,true,true,Some(sql)), AccumulableInfo(58467,Some(peak memory total (min, med, max)),Some(-1),None,true,true,Some(sql)), AccumulableInfo(58468,Some(spill size total (min, med, max)),Some(-1),None,true,true,Some(sql)), AccumulableInfo(58469,Some(number of output rows),Some(0),None,true,true,Some(sql)), AccumulableInfo(58462,None,Some([]),None,false,false,None), AccumulableInfo(58482,Some(number of output rows),Some(0),None,true,true,Some(sql)), AccumulableInfo(58481,Some(duration total (min, med, max)),Some(-1),None,true,true,Some(sql)))), (2997,2,0,Vector(AccumulableInfo(58483,Some(internal.metrics.executorDeserializeTime),Some(0),None,true,true,None), AccumulableInfo(58484,Some(internal.metrics.executorRunTime),Some(0),None,true,true,None), AccumulableInfo(58485,Some(internal.metrics.resultSize),Some(0),None,true,true,None), AccumulableInfo(58486,Some(internal.metrics.jvmGCTime),Some(5604),None,true,true,None), AccumulableInfo(58487,Some(internal.metrics.resultSerializationTime),Some(0),None,true,true,None), AccumulableInfo(58488,Some(internal.metrics.memoryBytesSpilled),Some(2818572288),None,true,true,None), AccumulableInfo(58489,Some(internal.metrics.diskBytesSpilled),Some(0),None,true,true,None), AccumulableInfo(58490,Some(internal.metrics.peakExecutionMemory),Some(0),None,true,true,None), AccumulableInfo(58491,Some(internal.metrics.updatedBlockStatuses),Some(ArrayBuffer((broadcast_4_piece0,BlockStatus(StorageLevel(memory, 1 replicas),20576,0)), (broadcast_4,BlockStatus(StorageLevel(memory, deserialized, 1 replicas),304768,0)))),None,true,true,None), AccumulableInfo(58492,Some(internal.metrics.shuffle.read.remoteBlocksFetched),Some(0),None,true,true,None), AccumulableInfo(58493,Some(internal.metrics.shuffle.read.localBlocksFetched),Some(0),None,true,true,None), AccumulableInfo(58494,Some(internal.metrics.shuffle.read.remoteBytesRead),Some(0),None,true,true,None), AccumulableInfo(58495,Some(internal.metrics.shuffle.read.localBytesRead),Some(0),None,true,true,None), AccumulableInfo(58496,Some(internal.metrics.shuffle.read.fetchWaitTime),Some(0),None,true,true,None), AccumulableInfo(58497,Some(internal.metrics.shuffle.read.recordsRead),Some(0),None,true,true,None), AccumulableInfo(58498,Some(internal.metrics.shuffle.write.bytesWritten),Some(927683391),None,true,true,None), AccumulableInfo(58499,Some(internal.metrics.shuffle.write.recordsWritten),Some(2988),None,true,true,None), AccumulableInfo(58500,Some(internal.metrics.shuffle.write.writeTime),Some(2295614721),None,true,true,None), AccumulableInfo(58501,Some(internal.metrics.input.bytesRead),Some(0),None,true,true,None), AccumulableInfo(58502,Some(internal.metrics.input.recordsRead),Some(3025),None,true,true,None), AccumulableInfo(58503,Some(internal.metrics.output.bytesWritten),Some(0),None,true,true,None), AccumulableInfo(58504,Some(internal.metrics.output.recordsWritten),Some(0),None,true,true,None), AccumulableInfo(58470,Some(duration total (min, med, max)),Some(-1),None,true,true,Some(sql)), AccumulableInfo(58463,Some(number of output rows),Some(3025),None,true,true,Some(sql)), AccumulableInfo(58464,Some(number of output rows),Some(3025),None,true,true,Some(sql)), AccumulableInfo(58465,Some(number of output rows),Some(3025),None,true,true,Some(sql)), AccumulableInfo(58466,Some(sort time total (min, med, max)),Some(-1),None,true,true,Some(sql)), AccumulableInfo(58467,Some(peak memory total (min, med, max)),Some(-1),None,true,true,Some(sql)), AccumulableInfo(58468,Some(spill size total (min, med, max)),Some(-1),None,true,true,Some(sql)), AccumulableInfo(58469,Some(number of output rows),Some(0),None,true,true,Some(sql)), AccumulableInfo(58462,None,Some([]),None,false,false,None), AccumulableInfo(58482,Some(number of output rows),Some(0),None,true,true,Some(sql)), AccumulableInfo(58481,Some(duration total (min, med, max)),Some(-1),None,true,true,Some(sql))))))
+===========================================
