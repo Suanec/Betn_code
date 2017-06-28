@@ -1,0 +1,18 @@
+val tablePrincipalPath = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\res\weibo_bigdata_ds账户表格负责人.rst"""
+/// weibo_bigdata_ds  赵立晗 每天一次  datastrategyapilog，mds_datastrategy_feed_report，mds_datastrategy_feed_filter_send_data_report，mds_datastrategy_feed_filter_receive_data_report
+case class tablePP(
+  userName : String = "weibo_bigdata_ds",
+  principal : String = "",
+  frequence : String = "",
+  // tableName : Array[String] = Array.empty[String])
+  tableName : String = "")
+val tablePrincipal = scala.io.Source.fromFile(tablePrincipalPath)("utf-8").getLines.drop(1).map{
+  line => 
+    val splits = line.split('\t')
+    val userName = splits.head
+    val principal = splits(1)
+    val frequence = splits(2)
+    val tableName = splits.last//.split(',')
+    tablePP(userName,principal,frequence,tableName)
+}.toArray
+

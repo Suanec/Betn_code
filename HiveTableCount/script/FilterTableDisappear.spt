@@ -1,0 +1,32 @@
+
+val tableSize = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\rst\tableSize.rst"""
+/// adv_dtl,104.5 G
+val tableLatest = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\rst\tableLatestAccess.rst"""
+/// adv_dtl 2017/6/6 11:09
+val tableOnHive = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\res\tablesOnHive.log"""
+/// adv_dtl
+val tablePrincipalPath = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\res\weibo_bigdata_ds账户表格负责人.rst"""
+/// weibo_bigdata_ds  赵立晗 每天一次  datastrategyapilog，mds_datastrategy_feed_report，mds_datastrategy_feed_filter_send_data_report，mds_datastrategy_feed_filter_receive_data_report
+val fileITPath = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\res\DirFromIT.rst"""
+/// /user/weibo_bigdata_ds/warehouse  2017/6/6 23:28      
+val fileTableSizePath = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\rst\tableSize.rst"""
+/// adv_dtl,104.5 G
+val tableLocPath = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\rst\tableLocation.rst"""
+/// adv_dtl,/user/weibo_bigdata_ds/lixing/adv_dtl
+val tableRst = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\rst\tableRst.rst"""
+
+val tableAll = scala.io.Source.fromFile(tableOnHive).getLines.toArray
+
+val nameLocationMap = scala.io.Source.fromFile(tableLocPath).getLines.map{
+  pairStr => 
+    val Array(name,location) = pairStr.split(',')
+    name -> location
+}.toMap
+
+val tableDisappear = tableAll.filter( x => nameLocationMap.get(x) == None )
+
+/// Rst : 
+/// kaine_ctr_feature_mid, kaine_pid_info, kaine_test
+/// FAILED: RuntimeException MetaException(message:java.lang.ClassNotFoundException Class org.apache.hadoop.hive.contrib.serde2.JsonSerde not found)
+
+

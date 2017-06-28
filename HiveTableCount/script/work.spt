@@ -1,0 +1,35 @@
+10.77.16.104
+
+登录后：
+su - weibo_bigdata_ds 
+d123w123
+
+cd ../weibo_bigdata_ds/shixi_enzhao/installs/
+desc extended  tablename
+
+hive -e "desc extended bigdata_mds_user_marketing_result_content"
+
+hadoop fs -du -s -h /user/weibo_bigdata_ds/lixing/bigdata_mds_user_marketing_result_content
+
+
+ps -ef | grep command
+kill -9 pid
+
+
+import java.util.Locale  
+import java.text.SimpleDateFormat  
+import java.util.Date   
+val loc = new Locale("en")  
+val fm = new SimpleDateFormat("yyyy/MM/dd HH:mm",loc)  
+def getLatest(strArr : Array[(String,String)]) : String = 
+  strArr.sortBy{
+    case (path,date) => 
+      fm.parse(date).getTime
+  }.last._2
+
+
+1.tableOnHive -> getHiveInfo -> detailNohup.out
+2.detailNohup.out -> getLocation -> tableLocation
+3.tableLocation -> createSH.getSizeOrder -> getTableSize.sh 
+4.getTableSize.sh -> sizeNohup.out -> getSize -> tableSize 
+5.TO DO latestAccess.

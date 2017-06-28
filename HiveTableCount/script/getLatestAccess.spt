@@ -1,0 +1,45 @@
+val fileITPath = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\res\DirFromIT.rst"""
+val itDetails = scala.io.Source.fromFile(fileITPath)("utf-8").
+  getLines.map(_.split('\t')).// Array(/user/weibo_bigdata_ds, 2017/6/6 23:28)
+  filter(_.size == 2).
+  map(x => x.head -> x.last).toArray//(/user/weibo_bigdata_ds,2017/6/6 23:28)
+
+val fileTableSizePath = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\rst\tableSize.rst"""
+val tableSize = scala.io.Source.fromFile(fileTableSizePath).getLines.map{
+  line =>
+    val Array(table,size) = line.split(',')
+    (table,table->size)
+}.filter(_._2._2.size < 10).toArray
+
+import java.util.Locale  
+import java.text.SimpleDateFormat  
+import java.util.Date   
+val loc = new Locale("en")  
+val fm = new SimpleDateFormat("yyyy/MM/dd HH:mm",loc)  
+def getLatest(strArr : Array[(String,String)]) : String = 
+  strArr.sortBy{
+    case (path,date) => 
+      fm.parse(date).getTime
+  }.last._2
+
+val tableLocPath = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\rst\tableLocation.rst"""
+val tableLoc = scala.io.Source.fromFile(tableLocPath).getLines.map(_.split(',')).toArray
+
+val rst = tableLoc.map{
+  onet =>
+    val tableName = onet.head
+    val loc = onet.last
+    val locPath = itDetails.filter(x => x._1.contains(loc))
+    if(locPath.size > 0) {
+      val latestAces = getLatest(locPath)
+      tableName -> latestAces
+    } else tableName -> "0"
+}
+val p = new java.io.PrintWriter("""D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\rst\tableLatestAccess.rst""")
+rst.foreach{
+  line =>
+    p.write(line._1 + "\t" + line._2 + "\n")
+}
+p.flush
+p.close
+

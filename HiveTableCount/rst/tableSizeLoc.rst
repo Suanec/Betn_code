@@ -1,0 +1,1260 @@
+aaa2,0,/user/huangbo2/warehouse/aaa2
+added_weight_full_info,27.5 G,/user/weibo_bigdata_ds/wulei3/added_weight_full_info.txt
+adv_dtl,104.5 G,/user/weibo_bigdata_ds/lixing/adv_dtl
+algorithm_platform_train_data,137.6 G,/user/weibo_bigdata_ds/warehouse/algorithm_platform_train_data
+algtagsim,37.2 G,/user/weibo_bigdata_ds/warehouse/algtagsim
+anti_fresh_monitor_url,0,/user/weibo_bigdata_ds/warehouse/anti_fresh_monitor_url
+anticrawler_aggr_ip,0,/user/weibo_bigdata_ds/warehouse/anticrawler_aggr_ip
+anticrawler_aggr_ipuid,5.4 G,/user/weibo_bigdata_ds/warehouse/anticrawler_aggr_ipuid
+anticrawler_aggr_uid,8.2 G,/user/weibo_bigdata_ds/warehouse/anticrawler_aggr_uid
+bigdata_corpus_keyword_offline_formatted_dt,673.9 G,/user/weibo_bigdata_vf/warehouse/bigdata_corpus_keyword_offline_formatted_dt
+bigdata_hotwb_month_recommend_mobile_user_2,168.1 G,/user/weibo_bigdata_hotmblog/warehouse/bigdata_hotwb_month_recommend_mobile_user_2
+bigdata_lightlda_topic_offline_formatted_dt,4.5 T,/user/weibo_bigdata_vf/warehouse/bigdata_lightlda_topic_offline_formatted_dt
+bigdata_mds_uquality_result_comment,494.9 G,/user/weibo_bigdata_ds/lixing/bigdata_mds_uquality_result_comment
+bigdata_mds_uquality_result_content,48.0 G,/user/weibo_bigdata_ds/lixing/bigdata_mds_uquality_result_content
+bigdata_mds_user_bornyear_mining,20.4 G,/user/weibo_bigdata_up/warehouse/bigdata_mds_user_bornyear_mining
+bigdata_mds_user_gender_mining,43.2 G,/user/weibo_bigdata_up/warehouse/bigdata_mds_user_gender_mining
+bigdata_mds_user_marketing_result_content,2.8 T,/user/weibo_bigdata_ds/lixing/bigdata_mds_user_marketing_result_content
+bigdata_topic_inte_corpus_allcategory_lightlda,0,/user/weibo_bigdata_vf/warehouse/bigdata_topic_inte_corpus_allcategory_lightlda
+bigdata_topic_inte_corpus_allcategory_lightlda_test,116.7 G,/user/weibo_bigdata_ds/warehouse/bigdata_topic_inte_corpus_allcategory_lightlda_test
+bigdata_vf_keyword_obj_info,5.5 M,/user/weibo_bigdata_vf/warehouse/bigdata_vf_keyword_obj_info
+bigdata_vf_topic_inte_score_rst_allcategory_tmp_feed_user,1.2 G,/user/weibo_bigdata_vf/warehouse/bigdata_vf_topic_inte_score_rst_allcategory_tmp_feed_user
+bigdata_yanhui_topic_inte_score_rst_allcategory_tmp,0,/user/weibo_bigdata_ds/warehouse/bigdata_yanhui_topic_inte_score_rst_allcategory_tmp
+binbin7_hot_weibo_corpus_24_data_clean_test,3.2 G,/user/weibo_bigdata_ds/warehouse/binbin7_hot_weibo_corpus_24_data_clean_test
+bool_feature_actnum_expo,6.4 G,/user/weibo_bigdata_ds/warehouse/bool_feature_actnum_expo
+bool_feature_actrate,1.4 G,/user/weibo_bigdata_ds/warehouse/bool_feature_actrate
+camera_feed_tmp,35,/dw_ext/weibo_bigdata_ds/mds/ctr_camerafeed/camera_feed_tmp
+camerafeed_ctr_feature_all_v2,48.5 G,/dw_ext/weibo_bigdata_ds/mds/ctr_camerafeed/camerafeed_ctr_feature_all_v2
+camerafeed_ctr_feature_all_v2_sampling,121.4 M,/dw_ext/weibo_bigdata_ds/mds/ctr_camerafeed/camerafeed_ctr_feature_all_v2_sampling
+camerafeed_ctr_feature_all_v3,38.8 G,/dw_ext/weibo_bigdata_ds/mds/ctr_camerafeed/camerafeed_ctr_feature_all_v3
+camerafeed_ctr_feature_all_v3_sampling,491.7 M,/dw_ext/weibo_bigdata_ds/mds/ctr_camerafeed/camerafeed_ctr_feature_all_v3_sampling
+camerafeed_ctr_feature_all_v4,34.1 G,/dw_ext/weibo_bigdata_ds/mds/ctr_camerafeed/camerafeed_ctr_feature_all_v4
+camerafeed_ctr_feature_all_v4_sampling,174.4 M,/user/weibo_bigdata_ds/warehouse/camerafeed_ctr_feature_all_v4_sampling
+camerafeed_ctr_feature_all_v4_sampling_1_vs_1,199.3 M,/user/weibo_bigdata_ds/warehouse/camerafeed_ctr_feature_all_v4_sampling_1_vs_1
+camerafeed_ctr_feature_all_v4_sampling_eva,27.8 M,/user/weibo_bigdata_ds/warehouse/camerafeed_ctr_feature_all_v4_sampling_eva
+camerafeed_ctr_feature_expo,76.4 G,/user/weibo_bigdata_ds/warehouse/camerafeed_ctr_feature_expo
+camerafeed_ctr_feature_expo_midtype,20.0 G,/user/weibo_bigdata_ds/warehouse/camerafeed_ctr_feature_expo_midtype
+camerafeed_ctr_feature_interact,1.7 G,/user/weibo_bigdata_ds/warehouse/camerafeed_ctr_feature_interact
+camerafeed_ctr_feature_label,68.5 G,/user/weibo_bigdata_ds/warehouse/camerafeed_ctr_feature_label
+camerafeed_ctr_feature_mid,228.0 M,/user/weibo_bigdata_ds/warehouse/camerafeed_ctr_feature_mid
+camerafeed_ctr_feature_mid_count,2.6 G,/user/weibo_bigdata_ds/warehouse/camerafeed_ctr_feature_mid_count
+camerafeed_ctr_feature_sample_v1,34.6 G,/dw_ext/weibo_bigdata_ds/mds/ctr_camerafeed/camerafeed_ctr_feature_sample_v1
+camerafeed_ctr_feature_sample_v1_sampling,21.5 M,/dw_ext/weibo_bigdata_ds/mds/ctr_camerafeed/camerafeed_ctr_feature_sample_v1_sampling
+camerafeed_ctr_feature_sample_v2,143.3 G,/dw_ext/weibo_bigdata_ds/mds/ctr_camerafeed/camerafeed_ctr_feature_sample_v2
+camerafeed_ctr_feature_uid_all_v1,14.0 G,/user/weibo_bigdata_ds/warehouse/camerafeed_ctr_feature_uid_all_v1
+camerafeed_ctr_feature_uid_count,0,/user/weibo_bigdata_ds/warehouse/camerafeed_ctr_feature_uid_count
+camerafeed_ctr_feature_uid_count_v1,15.1 G,/user/weibo_bigdata_ds/warehouse/camerafeed_ctr_feature_uid_count_v1
+camerafeed_ctr_feature_uid_uid_all_v1,271.7 G,/user/weibo_bigdata_ds/warehouse/camerafeed_ctr_feature_uid_uid_all_v1
+camerafeed_ctr_feature_uid_uid_count_v1,261.0 G,/user/weibo_bigdata_ds/warehouse/camerafeed_ctr_feature_uid_uid_count_v1
+camerafeed_ctr_feature_uid_uid_v1,185.4 G,/user/weibo_bigdata_ds/warehouse/camerafeed_ctr_feature_uid_uid_v1
+camerafeed_ctr_feature_uid_v1,7.7 G,/user/weibo_bigdata_ds/warehouse/camerafeed_ctr_feature_uid_v1
+camerafeed_ctr_weight_uid_full_join,28.8 G,/user/weibo_bigdata_ds/warehouse/camerafeed_ctr_weight_uid_full_join
+camerafeed_ctr_weight_uid_uid_full_join,560.2 G,/user/weibo_bigdata_ds/warehouse/camerafeed_ctr_weight_uid_uid_full_join
+camerafeed_ctr_weight_uid_uid_v1,287.1 G,/user/weibo_bigdata_ds/warehouse/camerafeed_ctr_weight_uid_uid_v1
+camerafeed_ctr_weight_uid_v1,15.1 G,/user/weibo_bigdata_ds/warehouse/camerafeed_ctr_weight_uid_v1
+camerafeed_expo_all,106.2 M,/user/weibo_bigdata_ds/warehouse/camerafeed_expo_all
+camerafeed_feature_ugc_list,46.2 K,/user/weibo_bigdata_ds/warehouse/camerafeed_feature_ugc_list
+camerafeed_weight_uid_uid_v1,3.9 G,/user/weibo_bigdata_ds/warehouse/camerafeed_weight_uid_uid_v1
+camerafeed_weight_uid_v1,690.8 K,/user/weibo_bigdata_ds/warehouse/camerafeed_weight_uid_v1
+cate_ctr_action,5.6 G,/user/weibo_bigdata_ds/warehouse/cate_ctr_action
+changtutemp,15.5 K,/user/weibo_bigdata_ds/warehouse/changtutemp
+cj_user_city_30_days,83.9 G,/user/weibo_bigdata_text/warehouse/cj_user_city_30_days
+cmt_frequency_ctrl_log,0,/user/weibo_bigdata_ds/warehouse/cmt_frequency_ctrl_log
+cmt_frequency_ctrol_log,0,/user/weibo_bigdata_ds/warehouse/cmt_frequency_ctrol_log
+combined,6.8 G,/user/weibo_bigdata_ds/warehouse/combined
+continous_extract,du: `/user/weibo_bigdata_ds/lixing/ctr/continous_extract': No such file or directory,du: `/user/weibo_bigdata_ds/lixing/ctr/continous_extract': No such file or directory
+continous_extract_fans,du: `/user/weibo_bigdata_ds/lixing/ctr/continous_extract_fans': No such file or directory,du: `/user/weibo_bigdata_ds/lixing/ctr/continous_extract_fans': No such file or directory
+continous_extract_focus,du: `/user/weibo_bigdata_ds/lixing/ctr/continous_extract_focus': No such file or directory,du: `/user/weibo_bigdata_ds/lixing/ctr/continous_extract_focus': No such file or directory
+continous_extract_interact,du: `/user/weibo_bigdata_ds/lixing/ctr/continous_extract_interact_rate': No such file or directory,du: `/user/weibo_bigdata_ds/lixing/ctr/continous_extract_interact_rate': No such file or directory
+ctr_feature_mid,0,/user/weibo_bigdata_ds/lixing/ctr/ctr_feature_mid
+ctr_feature_mid_duration,2.5 G,/user/weibo_bigdata_ds/warehouse/ctr_feature_mid_duration
+ctr_feature_mid_extend,du: `/user/weibo_bigdata_ds/lixing/ctr/ctr_feature_mid_extend': No such file or directory,du: `/user/weibo_bigdata_ds/lixing/ctr/ctr_feature_mid_extend': No such file or directory
+ctr_feature_mid_extend_with_expotime,du: `/user/weibo_bigdata_ds/lixing/ctr/ctr_feature_mid_extend_with_expotime': No such file or directory,du: `/user/weibo_bigdata_ds/lixing/ctr/ctr_feature_mid_extend_with_expotime': No such file or directory
+ctr_feature_mid_extend_with_expotime_evaluate,231.1 M,/user/weibo_bigdata_ds/warehouse/ctr_feature_mid_extend_with_expotime_evaluate
+ctr_feature_mid_extend_with_uid2uid,du: `/user/weibo_bigdata_ds/lixing/ctr/ctr_feature_mid_extend_with_uid2uid': No such file or directory,du: `/user/weibo_bigdata_ds/lixing/ctr/ctr_feature_mid_extend_with_uid2uid': No such file or directory
+ctr_feature_mid_with_content_tag,du: `/user/weibo_bigdata_ds/lixing/ctr/ctr_feature_mid_with_Content_Tag': No such file or directory,du: `/user/weibo_bigdata_ds/lixing/ctr/ctr_feature_mid_with_Content_Tag': No such file or directory
+ctr_feature_mid_with_intresting_tag,13.8 G,/user/weibo_bigdata_ds/liubo9/data/ctr_feature_mid_with_Content_Tag
+ctr_feature_user_history_rate,du: `/user/weibo_bigdata_ds/lixing/ctr/ctr_feature_user_history_rate': No such file or directory,du: `/user/weibo_bigdata_ds/lixing/ctr/ctr_feature_user_history_rate': No such file or directory
+datasource_datastrategyapilog,2.8 T,/user/weibo_bigdata_ds/datasys/sourcedata/datastrategyapilog
+datasys_midreadrate_tmp,1.3 T,/user/weibo_bigdata_ds/warehouse/datasys_midreadrate_tmp
+explode_test,20,/user/weibo_bigdata_ds/xiulong/temp
+exploded_mid_uid_expotime_20160916,du: `/user/weibo_bigdata_ds/wulei3/exploded_mid_uid_expotime_20160916.txt': No such file or directory,du: `/user/weibo_bigdata_ds/wulei3/exploded_mid_uid_expotime_20160916.txt': No such file or directory
+exploded_mid_uid_expotime_read,1.6 G,/user/weibo_bigdata_ds/wulei3/exploded_mid_uid_expotime_read.txt
+expo_const_uid,570.3 M,/user/weibo_bigdata_ds/warehouse/expo_const_uid
+expo_const_uid_full,412.8 M,/user/weibo_bigdata_ds/warehouse/expo_const_uid_full
+expo_guobao_test,69.1 K,/user/weibo_bigdata_ds/warehouse/expo_guobao_test
+expo_user_guobao_test,16.9 K,/user/weibo_bigdata_ds/warehouse/expo_user_guobao_test
+expos_weibo,-du: java.net.URISyntaxException: Relative path in absolute URI: location:null,-du: java.net.URISyntaxException: Relative path in absolute URI: location:null
+fa_mds_user_info,0,/dw_ext/weibo_bigdata_ds/mds/fa_mds_user_info
+fan_starsnum,7.4 G,/user/weibo_bigdata_ds/wulei3/fan_starsNum
+fan_user_action_infos,325.4 G,/user/weibo_bigdata_ds/warehouse/fan_user_action_infos
+fan_user_action_score,2.3 T,/user/weibo_bigdata_ds/warehouse/fan_user_action_score
+fans_focus_20160724,2.3 T,/user/weibo_bigdata_ds/wulei3/ds/fans_focus_20160724
+fans_focus_list_for_seed_users,428.6 M,/user/weibo_bigdata_ds/wulei3/fans_focus_list_for_seed_users.txt
+fans_stars_interact,62.2 G,/user/weibo_bigdata_ds/wulei3/fans_stars_interact
+fanslist_10w,433.3 M,/user/weibo_bigdata_ds/warehouse/fanslist_10w
+fanslist_tmp,0,/user/weibo_bigdata_ds/warehouse/fanslist_tmp
+fbresult_v2,5.2 K,/user/weibo_bigdata_ds/warehouse/fbresult_v2
+fbresult_v3,20.8 G,/user/weibo_bigdata_ds/warehouse/fbresult_v3
+feature_engine_log_feature_samples,1.2 T,/user/weibo_bigdata_ds/warehouse/feature_engine_log_feature_samples
+feature_engine_log_recomm_samples,1.2 T,/user/weibo_bigdata_ds/warehouse/feature_engine_log_recomm_samples
+feature_engine_log_recomm_samples_process,446.0 M,/user/weibo_bigdata_ds/warehouse/feature_engine_log_recomm_samples_process
+feature_engine_log_recomm_samples_process2,4.0 G,/user/weibo_bigdata_ds/warehouse/feature_engine_log_recomm_samples_process2
+feature_engine_log_recomm_samples_process3,6.2 G,/user/weibo_bigdata_ds/warehouse/feature_engine_log_recomm_samples_process3
+feature_engine_log_recomm_samples_text,4.9 G,/user/weibo_bigdata_ds/warehouse/feature_engine_log_recomm_samples_text
+feature_firehose0_pubblog_statistic,56.7 G,/user/weibo_bigdata_ds/warehouse/feature_firehose0_pubblog_statistic
+feature_offline_appid,625.1 K,/user/weibo_bigdata_ds/warehouse/feature_offline_appid
+feature_offline_relation,9.8 T,/user/weibo_bigdata_ds/warehouse/feature_offline_relation
+feature_offline_relation_clickprofilenumweek,46.9 G,/user/weibo_bigdata_ds/warehouse/feature_offline_relation_clickprofilenumweek
+feature_offline_relation_fuuaffinity,1002.1 G,/user/weibo_bigdata_ds/warehouse/feature_offline_relation_fuuaffinity
+feature_offline_relation_fuuisfans,2.6 T,/user/weibo_bigdata_ds/warehouse/feature_offline_relation_fuuisfans
+feature_offline_relation_fuuisfansboth,204.9 G,/user/weibo_bigdata_ds/warehouse/feature_offline_relation_fuuisfansboth
+feature_offline_relation_fuunummonth,1.2 T,/user/weibo_bigdata_ds/warehouse/feature_offline_relation_fuunummonth
+feature_offline_relation_fuunumweek,366.0 G,/user/weibo_bigdata_ds/warehouse/feature_offline_relation_fuunumweek
+feature_offline_relation_image,0,/user/weibo_bigdata_ds/warehouse/feature_offline_relation_image
+feature_offline_relation_json,1.8 T,/user/weibo_bigdata_ds/warehouse/feature_offline_relation_json
+feature_offline_relation_json_whitelist,19.0 M,/user/weibo_bigdata_ds/warehouse/feature_offline_relation_json_whitelist
+feature_offline_relation_mirror,0,/user/weibo_bigdata_ds/warehouse/feature_offline_relation_mirror
+feature_offline_relation_multiple,0,/user/weibo_bigdata_ds/warehouse/feature_offline_relation_multiple
+feature_offline_relation_temp,13.5 M,/user/weibo_bigdata_ds/warehouse/feature_offline_relation_temp
+feature_offline_user,4.3 T,/user/weibo_bigdata_ds/warehouse/feature_offline_user
+feature_offline_user_seeduid,8.6 K,/user/weibo_bigdata_ds/warehouse/feature_offline_user_seeduid
+feature_offline_user_seeduid2uid,110,/user/weibo_bigdata_ds/warehouse/feature_offline_user_seeduid2uid
+feature_offline_user_testuid,3.0 K,/user/weibo_bigdata_ds/warehouse/feature_offline_user_testuid
+feed_camera_ctr_samples,0,/user/weibo_bigdata_ds/warehouse/feed_camera_ctr_samples
+feed_data,352.4 G,/user/weibo_bigdata_ds/warehouse/feed_data
+feed_data_click_down_v1,4.6 M,/user/weibo_bigdata_ds/warehouse/feed_data_click_down_v1
+feed_data_click_down_v2,11.0 M,/user/weibo_bigdata_ds/warehouse/feed_data_click_down_v2
+feed_data_click_v1,1.3 G,/user/weibo_bigdata_ds/warehouse/feed_data_click_v1
+feed_data_merge_offline,6.0 T,/user/weibo_bigdata_ds/warehouse/feed_data_merge_offline
+feed_data_v1,22.0 T,/user/weibo_bigdata_ds/warehouse/feed_data_v1
+feed_data_v2,241.3 G,/user/weibo_bigdata_ds/warehouse/feed_data_v2
+feed_data_v3,242.9 G,/user/weibo_bigdata_ds/warehouse/feed_data_v3
+feed_data_v4,3.6 T,/user/weibo_bigdata_ds/warehouse/feed_data_v4
+feed_data_v4_click,123.5 G,/user/weibo_bigdata_ds/warehouse/feed_data_v4_click
+feed_data_v4_offline,1.9 T,/user/weibo_bigdata_ds/warehouse/feed_data_v4_offline
+feed_data_v5,15.0 T,/user/weibo_bigdata_ds/warehouse/feed_data_v5
+feed_data_v5_simple,2.8 T,/user/weibo_bigdata_ds/warehouse/feed_data_v5_simple
+feed_interact_feedback_v2,0,/user/weibo_bigdata_ds/warehouse/feed_interact_feedback_v2
+feed_interact_feedback_v2_log,0,/user/weibo_bigdata_ds/warehouse/feed_interact_feedback_v2_log
+feed_interact_feedback_v3,0,/user/weibo_bigdata_ds/warehouse/feed_interact_feedback_v3
+feed_interact_feedback_v3_log,0,/user/weibo_bigdata_ds/warehouse/feed_interact_feedback_v3_log
+feed_interact_feedback_v4_log,0,/user/weibo_bigdata_ds/warehouse/feed_interact_feedback_v4_log
+feed_interact_feedback_v4_result,0,/user/weibo_bigdata_ds/warehouse/feed_interact_feedback_v4_result
+feed_kpi_data_reader,52.5 G,/user/weibo_bigdata_ds/warehouse/feed_kpi_data_reader
+feed_kpi_data_up,129.9 M,/user/weibo_bigdata_ds/warehouse/feed_kpi_data_up
+feed_kpi_data_user,14.7 G,/user/weibo_bigdata_ds/warehouse/feed_kpi_data_user
+feed_kpi_data_wh,6.1 K,/user/weibo_bigdata_ds/warehouse/feed_kpi_data_wh
+feed_log_camera_ctr_samples,123.5 M,/user/weibo_bigdata_ds/warehouse/feed_log_camera_ctr_samples
+feed_log_mainfeed_merge,4.4 T,/user/weibo_bigdata_ds/warehouse/feed_log_mainfeed_merge
+feed_log_mainfeed_merge_repeat,349.9 G,/user/weibo_bigdata_ds/warehouse/feed_log_mainfeed_merge_repeat
+feed_log_mainfeed_samples,1.7 T,/user/weibo_bigdata_ds/warehouse/feed_log_mainfeed_samples
+feed_log_mblog_static_feature,3.7 T,/user/weibo_bigdata_ds/warehouse/feed_log_mblog_static_feature
+feed_log_static_feature_v1,92.0 G,/user/weibo_bigdata_ds/warehouse/feed_log_static_feature_v1
+feed_mblog_feature_all,0,/user/weibo_bigdata_ds/warehouse/feed_mblog_feature_all
+feed_mblog_feature_all_origin,0,/user/weibo_bigdata_ds/warehouse/feed_mblog_feature_all_origin
+feed_mblog_feature_business,0,/user/weibo_bigdata_ds/warehouse/feed_mblog_feature_business
+feed_rank_feature_v1,15.9 G,/user/weibo_bigdata_ds/warehouse/feed_rank_feature_v1
+feed_rank_train_data_v1,1.1 T,/user/weibo_bigdata_ds/warehouse/feed_rank_train_data_v1
+feed_rank_train_data_v2,218.6 G,/user/weibo_bigdata_ds/warehouse/feed_rank_train_data_v2
+feed_rank_train_data_v2_predict,117.1 G,/user/weibo_bigdata_visitor/daoguang1/ml_strategy
+feed_rank_train_data_v3,967.2 G,/user/weibo_bigdata_ds/warehouse/feed_rank_train_data_v3
+feed_rank_train_data_v4,399.8 G,/user/weibo_bigdata_ds/warehouse/feed_rank_train_data_v4
+feed_rank_train_data_v5,1.1 G,/user/weibo_bigdata_ds/warehouse/feed_rank_train_data_v5
+feed_sample_json_final,62.1 T,/user/weibo_bigdata_ds/warehouse/feed_sample_json_final
+feed_sample_realtime_feature,19.4 T,/user/weibo_bigdata_ds/warehouse/feed_sample_realtime_feature
+feed_strategy_mds_tblog_expo_dtl_weight,4.1 T,/user/weibo_bigdata_ds/warehouse/feed_strategy_mds_tblog_expo_dtl_weight
+feed_strategy_mds_uidi2uid_intimacy_weight,1.4 G,/user/weibo_bigdata_ds/warehouse/feed_strategy_mds_uidi2uid_intimacy_weight
+feed_strategy_mds_uidi2uid_intimacy_weight_report,1.6 M,/user/weibo_bigdata_ds/warehouse/feed_strategy_mds_uidi2uid_intimacy_weight_report
+feed_strategy_ods_tblog_expo_weight,35.4 T,/user/weibo_bigdata_ds/warehouse/feed_strategy_ods_tblog_expo_weight
+feedback_test,6.2 K,/user/weibo_bigdata_ds/warehouse/feedback_test
+feedback_test_v3,1.7 M,/user/weibo_bigdata_ds/warehouse/feedback_test_v3
+feedvf_ht_topic_inte_feature_space_allcorpus,113.0 G,/user/weibo_bigdata_ds/warehouse/feedvf_ht_topic_inte_feature_space_allcorpus
+feedvf_ht_topic_inte_user_interest_tag_allcorpus,0,/user/weibo_bigdata_ds/warehouse/feedvf_ht_topic_inte_user_interest_tag_allcorpus
+flume_log_feature_firehose0_pubblog_statistic_v1,0,/user/weibo_bigdata_ds/warehouse/flume_log_feature_firehose0_pubblog_statistic_v1
+flume_log_feed_ctr_interact,0,/user/weibo_bigdata_ds/warehouse/flume_log_feed_ctr_interact
+flume_log_feed_feature_business,0,/user/weibo_bigdata_ds/warehouse/flume_log_feed_feature_business
+flume_log_feed_mblog_status_rc,1.2 T,/user/weibo_bigdata_ds/warehouse/flume_log_feed_mblog_status_rc
+flume_log_feed_weight_predict,0,/user/weibo_bigdata_ds/warehouse/flume_log_feed_weight_predict
+flume_log_m_feature_samples_v1,0,/user/weibo_bigdata_ds/warehouse/flume_log_m_feature_samples_v1
+flume_log_mainfeed_samples,0,/user/weibo_bigdata_ds/warehouse/flume_log_mainfeed_samples
+flume_log_mblog_static_feature,0,/user/weibo_bigdata_ds/warehouse/flume_log_mblog_static_feature
+flume_log_mid_weight_static,0,/user/weibo_bigdata_ds/warehouse/flume_log_mid_weight_static
+flume_log_recommend_negative,0,/user/weibo_bigdata_ds/warehouse/flume_log_recommend_negative
+follow_guobao_test,4.4 K,/user/weibo_bigdata_ds/warehouse/follow_guobao_test
+fortest,392.7 G,/user/weibo_bigdata_text/warehouse/fortest
+fortestbaselr,94.0 G,/user/weibo_bigdata_ds/warehouse/fortestbaselr
+fortestbaselr1,94.0 G,/user/weibo_bigdata_ds/warehouse/fortestbaselr1
+fortestbaselr2,100.6 G,/user/weibo_bigdata_ds/warehouse/fortestbaselr2
+fortestbasetest,200.9 G,/user/weibo_bigdata_text/warehouse/fortestbasetest
+fortestbasetest1,879.9 M,/user/weibo_bigdata_ds/warehouse/fortestbasetest1
+fortestbasetest10,879.9 M,/user/weibo_bigdata_ds/warehouse/fortestbasetest10
+fortestbasetest11,756.8 M,/user/weibo_bigdata_ds/warehouse/fortestbasetest11
+fortestbasetest2,0,/user/weibo_bigdata_ds/warehouse/fortestbasetest2
+fortestbasetest20,100.6 G,/user/weibo_bigdata_ds/warehouse/fortestbasetest20
+fortestbasetest30,86.5 G,/user/weibo_bigdata_ds/warehouse/fortestbasetest30
+fortestfour,10.8 M,/user/weibo_bigdata_ds/LR/fortestfour
+fortestnewfeature,56.3 G,/user/weibo_bigdata_ds/yanqing
+fortestnewfeature1,56.3 G,/user/weibo_bigdata_ds/yanqing
+fortestnewfeature2,0,/user/weibo_bigdata_ds/yanqing12
+fortestnewfeatureadd,21.3 T,/user/weibo_bigdata_ds/yanqingfeature
+fortestnum,2.0 G,/user/weibo_bigdata_ds/warehouse/fortestnum
+fortestnum1,2.0 G,/user/weibo_bigdata_ds/warehouse/fortestnum1
+fortestnum1select1,841.9 K,/user/weibo_bigdata_ds/warehouse/fortestnum1select1
+fortestnum1select26,23.8 M,/user/weibo_bigdata_ds/warehouse/fortestnum1select26
+fortestnum1select3,2.6 M,/user/weibo_bigdata_ds/warehouse/fortestnum1select3
+fortestnum1select5,4.3 M,/user/weibo_bigdata_ds/warehouse/fortestnum1select5
+fortestnum2,2.0 G,/user/weibo_bigdata_ds/warehouse/fortestnum2
+fortestsexage,297,/user/weibo_bigdata_ds/LR/fortestsexage
+fortestsexagedomain,31.1 K,/user/weibo_bigdata_ds/LR/fortestsexagedomain
+fortestthrid,19.2 M,/user/weibo_bigdata_ds/LR/fortestthrid
+fortesttwo,0,/user/weibo_bigdata_ds/LR/fortesttwo
+fortestusermix2,du: `/user/weibo_bigdata_ds/warehouse/fortestusermix2': No such file or directory,du: `/user/weibo_bigdata_ds/warehouse/fortestusermix2': No such file or directory
+fortestusermix2count,0,/user/weibo_bigdata_ds/warehouse/fortestusermix2count
+fortestusermix2count1,du: `/user/weibo_bigdata_ds/warehouse/fortestusermix2count1': No such file or directory,du: `/user/weibo_bigdata_ds/warehouse/fortestusermix2count1': No such file or directory
+fortestusermix2sortcount,0,/user/weibo_bigdata_ds/warehouse/fortestusermix2sortcount
+fortestusermix2sortcount1,du: `/user/weibo_bigdata_ds/warehouse/fortestusermix2sortcount1': No such file or directory,du: `/user/weibo_bigdata_ds/warehouse/fortestusermix2sortcount1': No such file or directory
+fortestusermix2sortcount1select1,du: `/user/weibo_bigdata_ds/warehouse/fortestusermix2sortcount1select1': No such file or directory,du: `/user/weibo_bigdata_ds/warehouse/fortestusermix2sortcount1select1': No such file or directory
+fortestusermix2sortcount1select5,du: `/user/weibo_bigdata_ds/warehouse/fortestusermix2sortcount1select5': No such file or directory,du: `/user/weibo_bigdata_ds/warehouse/fortestusermix2sortcount1select5': No such file or directory
+fuid_with_less_than_20_fans_20160817,du: `/user/weibo_bigdata_ds/wulei3/fuid_with_less_than_20_fans_20160817.txt': No such file or directory,du: `/user/weibo_bigdata_ds/wulei3/fuid_with_less_than_20_fans_20160817.txt': No such file or directory
+gaolin_20150826_all_expo_cp,321.0 K,/user/weibo_bigdata_ds/warehouse/gaolin_20150826_all_expo_cp
+gray_uid_read,2.2 M,/user/weibo_bigdata_ds/wulei3/gray_uid_read.txt
+guoxu1_surrounding_hot_feature_value_table,532.6 G,/user/weibo_bigdata_text/guoxu1/surrounding_feature_value_table
+guoxu1_surrounding_hot_input_table_lr_104,0,/user/weibo_bigdata_ds/guoxu1/train_sample
+haibo11_0216,30.0 K,/user/weibo_bigdata_ds/warehouse/haibo11_0216
+haibo11_3_static,91.9 K,/user/weibo_bigdata_ds/warehouse/haibo11_3_static
+haibo11_autorun2_20170215,8.1 K,/user/weibo_bigdata_ds/warehouse/haibo11_autorun2_20170215
+haibo11_autorun2_20170216,7.2 K,/user/weibo_bigdata_ds/warehouse/haibo11_autorun2_20170216
+haibo11_autorun2_20170218,3.6 K,/user/weibo_bigdata_ds/warehouse/haibo11_autorun2_20170218
+haibo11_autorun2_20170219,2.4 K,/user/weibo_bigdata_ds/warehouse/haibo11_autorun2_20170219
+haibo11_autorun2_20170220,7.3 K,/user/weibo_bigdata_ds/warehouse/haibo11_autorun2_20170220
+haibo11_autorun2_20170221,5.8 K,/user/weibo_bigdata_ds/warehouse/haibo11_autorun2_20170221
+haibo11_autorun2_20170222,6.9 K,/user/weibo_bigdata_ds/warehouse/haibo11_autorun2_20170222
+haibo11_autorun2_20170223,7.5 K,/user/weibo_bigdata_ds/warehouse/haibo11_autorun2_20170223
+haibo11_autorun2_20170224,3.2 K,/user/weibo_bigdata_ds/warehouse/haibo11_autorun2_20170224
+haibo11_autorun2_20170225,2.1 K,/user/weibo_bigdata_ds/warehouse/haibo11_autorun2_20170225
+haibo11_autorun2_20170226,2.3 K,/user/weibo_bigdata_ds/warehouse/haibo11_autorun2_20170226
+haibo11_autorun2_20170227,4.2 K,/user/weibo_bigdata_ds/warehouse/haibo11_autorun2_20170227
+haibo11_autorun2_20170228,4.6 K,/user/weibo_bigdata_ds/warehouse/haibo11_autorun2_20170228
+haibo11_autorun2_20170301,8.7 K,/user/weibo_bigdata_ds/warehouse/haibo11_autorun2_20170301
+haibo11_autorun2_20170302,6.9 K,/user/weibo_bigdata_ds/warehouse/haibo11_autorun2_20170302
+haibo11_autorun2_20170303,5.6 K,/user/weibo_bigdata_ds/warehouse/haibo11_autorun2_20170303
+haibo11_autorun2_20170304,2.8 K,/user/weibo_bigdata_ds/warehouse/haibo11_autorun2_20170304
+haibo11_autorun2_20170305,2.7 K,/user/weibo_bigdata_ds/warehouse/haibo11_autorun2_20170305
+haibo11_autorun2_20170306,3.9 K,/user/weibo_bigdata_ds/warehouse/haibo11_autorun2_20170306
+haibo11_autorun2_20170307,2.3 K,/user/weibo_bigdata_ds/warehouse/haibo11_autorun2_20170307
+haibo11_autorun2_20170308,2.2 K,/user/weibo_bigdata_ds/warehouse/haibo11_autorun2_20170308
+haibo11_autorun2_20170309,3.1 K,/user/weibo_bigdata_ds/warehouse/haibo11_autorun2_20170309
+haibo11_avg_ratio_val_0221,36.5 K,/user/weibo_bigdata_ds/warehouse/haibo11_avg_ratio_val_0221
+haibo11_cnt2_20170215,0,/user/weibo_bigdata_ds/warehouse/haibo11_cnt2_20170215
+haibo11_data_19,1.9 M,/user/weibo_bigdata_ds/warehouse/haibo11_data_19
+haibo11_data_1920,10.7 M,/user/weibo_bigdata_ds/warehouse/haibo11_data_1920
+haibo11_data_21,5.8 M,/user/weibo_bigdata_ds/warehouse/haibo11_data_21
+haibo11_data_deal,13.9 M,/user/weibo_bigdata_ds/warehouse/haibo11_data_deal
+haibo11_data_deal_2,13.1 M,/user/weibo_bigdata_ds/warehouse/haibo11_data_deal_2
+haibo11_data_deal_28,14.5 M,/user/weibo_bigdata_ds/warehouse/haibo11_data_deal_28
+haibo11_data_deal_28_2,18.1 M,/user/weibo_bigdata_ds/warehouse/haibo11_data_deal_28_2
+haibo11_data_test,116.4 K,/user/weibo_bigdata_ds/warehouse/haibo11_data_test
+haibo11_diff_ratio_val_0221,54.1 K,/user/weibo_bigdata_ds/warehouse/haibo11_diff_ratio_val_0221
+haibo11_display_cnt,992,/user/weibo_bigdata_ds/warehouse/haibo11_display_cnt
+haibo11_display_cnt_test,1.8 K,/user/weibo_bigdata_ds/warehouse/haibo11_display_cnt_test
+haibo11_fi,8.9 K,/user/weibo_bigdata_ds/warehouse/haibo11_fi
+haibo11_focus_20170225,5.4 K,/user/weibo_bigdata_ds/warehouse/haibo11_focus_20170225
+haibo11_focus_uid_info,5.1 K,/user/weibo_bigdata_ds/warehouse/haibo11_focus_uid_info
+haibo11_focus_uid_info_0,1.3 K,/user/weibo_bigdata_ds/warehouse/haibo11_focus_uid_info_0
+haibo11_focus_uid_info_00,1.3 K,/user/weibo_bigdata_ds/warehouse/haibo11_focus_uid_info_00
+haibo11_focus_uid_info_1,4.4 K,/user/weibo_bigdata_ds/warehouse/haibo11_focus_uid_info_1
+haibo11_focus_uid_info_3,6.4 K,/user/weibo_bigdata_ds/warehouse/haibo11_focus_uid_info_3
+haibo11_focus_usr1,227.6 K,/user/weibo_bigdata_ds/warehouse/haibo11_focus_usr1
+haibo11_focus_usr_type,251.9 K,/user/weibo_bigdata_ds/warehouse/haibo11_focus_usr_type
+haibo11_fuu,1.3 M,/user/weibo_bigdata_ds/warehouse/haibo11_fuu
+haibo11_fuu_2,170.3 K,/user/weibo_bigdata_ds/warehouse/haibo11_fuu_2
+haibo11_fuu_3,138.3 K,/user/weibo_bigdata_ds/warehouse/haibo11_fuu_3
+haibo11_fuu_4,13.7 K,/user/weibo_bigdata_ds/warehouse/haibo11_fuu_4
+haibo11_json_20170222,0,/user/weibo_bigdata_ds/warehouse/haibo11_json_20170222
+haibo11_json_deal_20170222,0,/user/weibo_bigdata_ds/warehouse/haibo11_json_deal_20170222
+haibo11_list,30.0 K,/user/weibo_bigdata_ds/warehouse/haibo11_list
+haibo11_many_cnt_0308,0,/user/weibo_bigdata_ds/warehouse/haibo11_many_cnt_0308
+haibo11_ml_usr_15_28,711,/user/weibo_bigdata_ds/warehouse/haibo11_ml_usr_15_28
+haibo11_mlratio_20170302,23.2 K,/user/weibo_bigdata_ds/warehouse/haibo11_mlratio_20170302
+haibo11_model_18,33.1 K,/user/weibo_bigdata_ds/warehouse/haibo11_model_18
+haibo11_model_19,17.0 K,/user/weibo_bigdata_ds/warehouse/haibo11_model_19
+haibo11_model_20,61.3 K,/user/weibo_bigdata_ds/warehouse/haibo11_model_20
+haibo11_model_21,45.6 K,/user/weibo_bigdata_ds/warehouse/haibo11_model_21
+haibo11_model_22,56.0 K,/user/weibo_bigdata_ds/warehouse/haibo11_model_22
+haibo11_modelweight_cnt,19.2 K,/user/weibo_bigdata_ds/warehouse/haibo11_modelweight_cnt
+haibo11_new_21,7.1 M,/user/weibo_bigdata_ds/warehouse/haibo11_new_21
+haibo11_new_22,4.0 M,/user/weibo_bigdata_ds/warehouse/haibo11_new_22
+haibo11_pluginweight_cnt,19.2 K,/user/weibo_bigdata_ds/warehouse/haibo11_pluginweight_cnt
+haibo11_pubblog_uid,350.0 M,/user/weibo_bigdata_ds/warehouse/haibo11_pubblog_uid
+haibo11_s_19,32.8 K,/user/weibo_bigdata_ds/warehouse/haibo11_s_19
+haibo11_s_1920,158.9 K,/user/weibo_bigdata_ds/warehouse/haibo11_s_1920
+haibo11_s_21,76.0 K,/user/weibo_bigdata_ds/warehouse/haibo11_s_21
+haibo11_table,35.9 K,/user/weibo_bigdata_ds/warehouse/haibo11_table
+haibo11_target_uid,4.6 K,/user/weibo_bigdata_ds/warehouse/haibo11_target_uid
+haibo11_target_uid_2,1001,/user/weibo_bigdata_ds/warehouse/haibo11_target_uid_2
+haibo11_test_1920,10.1 M,/user/weibo_bigdata_ds/warehouse/haibo11_test_1920
+haibo11_tmp,104.7 K,/user/weibo_bigdata_ds/warehouse/haibo11_tmp
+haibo11_tmp2,139.0 K,/user/weibo_bigdata_ds/warehouse/haibo11_tmp2
+haibo11_tmp_21,13.4 M,/user/weibo_bigdata_ds/warehouse/haibo11_tmp_21
+haibo11_tmp_21_2,12.5 M,/user/weibo_bigdata_ds/warehouse/haibo11_tmp_21_2
+haibo11_tmp_21_3,0,/user/weibo_bigdata_ds/warehouse/haibo11_tmp_21_3
+haibo11_user_type2,29.6 K,/user/weibo_bigdata_ds/warehouse/haibo11_user_type2
+haibo11_user_type_2,0,/user/weibo_bigdata_ds/warehouse/haibo11_user_type_2
+haibo_exp_0213,964.8 M,/user/weibo_bigdata_ds/warehouse/haibo_exp_0213
+haibo_exp_0214,1.0 G,/user/weibo_bigdata_ds/warehouse/haibo_exp_0214
+haibo_exp_0215,969.2 M,/user/weibo_bigdata_ds/warehouse/haibo_exp_0215
+haibo_mark_pub_20170207,4.9 M,/user/weibo_bigdata_ds/warehouse/haibo_mark_pub_20170207
+haibo_mark_pub_20170208,5.3 M,/user/weibo_bigdata_ds/warehouse/haibo_mark_pub_20170208
+haibo_mark_pub_20170209,5.6 M,/user/weibo_bigdata_ds/warehouse/haibo_mark_pub_20170209
+haibo_mark_pub_20170210,5.8 M,/user/weibo_bigdata_ds/warehouse/haibo_mark_pub_20170210
+haibo_mark_pub_20170211,5.6 M,/user/weibo_bigdata_ds/warehouse/haibo_mark_pub_20170211
+haibo_mark_pub_20170212,5.4 M,/user/weibo_bigdata_ds/warehouse/haibo_mark_pub_20170212
+haibo_mark_pub_20170213,5.3 M,/user/weibo_bigdata_ds/warehouse/haibo_mark_pub_20170213
+haibo_mark_pub_20170214,5.4 M,/user/weibo_bigdata_ds/warehouse/haibo_mark_pub_20170214
+haibo_mark_pub_20170215,5.6 M,/user/weibo_bigdata_ds/warehouse/haibo_mark_pub_20170215
+haibo_mark_pub_20170216,5.9 M,/user/weibo_bigdata_ds/warehouse/haibo_mark_pub_20170216
+haibo_mark_pub_20170217,6.0 M,/user/weibo_bigdata_ds/warehouse/haibo_mark_pub_20170217
+haibo_mark_pub_20170218,5.9 M,/user/weibo_bigdata_ds/warehouse/haibo_mark_pub_20170218
+haibo_mark_pub_20170219,5.7 M,/user/weibo_bigdata_ds/warehouse/haibo_mark_pub_20170219
+haibo_mark_pub_20170220,5.7 M,/user/weibo_bigdata_ds/warehouse/haibo_mark_pub_20170220
+haibo_mark_pub_20170221,5.8 M,/user/weibo_bigdata_ds/warehouse/haibo_mark_pub_20170221
+haibo_mark_pub_20170222,6.0 M,/user/weibo_bigdata_ds/warehouse/haibo_mark_pub_20170222
+haibo_mark_pub_20170223,6.3 M,/user/weibo_bigdata_ds/warehouse/haibo_mark_pub_20170223
+haibo_pub2_20170312,188.8 M,/user/weibo_bigdata_ds/warehouse/haibo_pub2_20170312
+haibo_pub_0213,7.9 G,/user/weibo_bigdata_ds/warehouse/haibo_pub_0213
+haibo_pub_0214,8.0 G,/user/weibo_bigdata_ds/warehouse/haibo_pub_0214
+haibo_pub_0215,8.2 G,/user/weibo_bigdata_ds/warehouse/haibo_pub_0215
+haibo_pub_20170210,20.3 G,/user/weibo_bigdata_ds/warehouse/haibo_pub_20170210
+haibo_pub_20170211,20.6 G,/user/weibo_bigdata_ds/warehouse/haibo_pub_20170211
+haibo_pub_20170212,20.6 G,/user/weibo_bigdata_ds/warehouse/haibo_pub_20170212
+hb_yingxiao_uid_blacklist,315.1 K,/user/weibo_bigdata_ds/warehouse/hb_yingxiao_uid_blacklist
+hot_mblog_actions,533.1 G,/user/weibo_bigdata_text/warehouse/hot_mblog_actions
+hot_mblog_channel_tag_expo,319.1 G,/user/weibo_bigdata_text/warehouse/hot_mblog_channel_tag_expo
+hot_mblog_content_tag_action,1.2 T,/user/weibo_bigdata_text/warehouse/hot_mblog_content_tag_action
+hot_mblog_long_info,2.0 T,/user/weibo_bigdata_text/warehouse/hot_mblog_long_info
+hot_mblog_long_interest,941.9 G,/user/weibo_bigdata_text/warehouse/hot_mblog_long_interest
+hot_mblog_long_interest_json,638.6 G,/user/weibo_bigdata_text/warehouse/hot_mblog_long_interest_json
+hot_mblog_mix_recommend_tag,31.0 T,/user/weibo_bigdata_text/warehouse/hot_mblog_mix_recommend_tag
+hot_mblog_recent_content_tag,3.3 T,/user/weibo_bigdata_text/warehouse/hot_mblog_recent_content_tag
+hot_mblog_recommend_mblog_info,15.9 G,/user/weibo_bigdata_text/warehouse/hot_mblog_recommend_mblog_info
+hot_mblog_recommend_user_info,397.8 G,/user/weibo_bigdata_text/warehouse/hot_mblog_recommend_user_info
+hot_mblog_short_interest,3.2 T,/user/weibo_bigdata_text/warehouse/hot_mblog_short_interest
+hot_mblog_short_interest_3,735.8 G,/user/weibo_bigdata_text/warehouse/hot_mblog_short_interest_3
+hot_mblog_short_interest_json,971.3 G,/user/weibo_bigdata_text/warehouse/hot_mblog_short_interest_json
+hot_mblog_surrounding_expo_doc_sample_feature,72.5 G,/user/weibo_bigdata_text/wangliang8/uid_mid_act_data_white_no_actNum
+hot_mblog_surrounding_expo_doc_sample_feature1,104.2 G,/user/weibo_bigdata_text/wangliang8/uid_mid_act_data_white_no_actNum1
+hot_mblog_user_city_30_days,749.8 G,/user/weibo_bigdata_text/warehouse/hot_mblog_user_city_30_days
+hot_mblog_user_intimacy,2.7 T,/user/weibo_bigdata_text/warehouse/hot_mblog_user_intimacy
+hot_mblog_user_intimacy_all,0,/user/weibo_bigdata_text/warehouse/hot_mblog_user_intimacy_all
+hot_mblog_user_intimacy_plat,13.1 G,/user/weibo_bigdata_text/warehouse/hot_mblog_user_intimacy_plat
+hot_mblog_user_persona,30.8 G,/user/weibo_bigdata_text/warehouse/hot_mblog_user_persona
+hot_weibo_feature_project_train_sample,6.3 T,/user/weibo_bigdata_ds/warehouse/hot_weibo_feature_project_train_sample
+hot_weibo_feature_project_train_sample3,179.5 G,/user/weibo_bigdata_ds/warehouse/hot_weibo_feature_project_train_sample3
+hot_weibo_feature_project_train_sample4,61.6 G,/user/weibo_bigdata_ds/warehouse/hot_weibo_feature_project_train_sample4
+hot_weibo_feature_project_train_sample5,56.8 G,/user/weibo_bigdata_ds/warehouse/hot_weibo_feature_project_train_sample5
+hot_weibo_feature_project_train_sample6,534.4 G,/user/weibo_bigdata_ds/warehouse/hot_weibo_feature_project_train_sample6
+hot_weibo_feature_project_train_sample_chuanjie_lr,0,/user/weibo_bigdata_text/warehouse/hot_weibo_feature_project_train_sample_chuanjie_lr
+hot_weibo_feature_project_train_sample_pingye_lr,100.5 G,/user/weibo_bigdata_text/warehouse/hot_weibo_feature_project_train_sample_pingye_lr
+hot_weibo_feature_project_train_sample_yanqing_lr,0,/user/weibo_bigdata_text/warehouse/hot_weibo_feature_project_train_sample_yanqing_lr
+huangyi1_test,349.9 M,/user/weibo_bigdata_ds/warehouse/huangyi1_test
+huayang_mds_ds_uid_ctype,36.0 M,/user/weibo_bigdata_ds/warehouse/huayang_mds_ds_uid_ctype
+hzt_qmd_hbloguser_intimacy,161.0 G,/user/weibo_bigdata_text/zhantang/qmd/hblog_user_intimacy
+image_long_control_log,0,/user/weibo_bigdata_ds/warehouse/image_long_control_log
+interact_fans_count_20160818,du: `/user/weibo_bigdata_ds/wulei3/interact_fans_count_20160818.txt': No such file or directory,du: `/user/weibo_bigdata_ds/wulei3/interact_fans_count_20160818.txt': No such file or directory
+interact_fans_count_20160822,du: `/user/weibo_bigdata_ds/wulei3/interact_fans_count_20160822.txt': No such file or directory,du: `/user/weibo_bigdata_ds/wulei3/interact_fans_count_20160822.txt': No such file or directory
+interactedcnt_uid_expotime,4.3 M,/user/weibo_bigdata_ds/wulei3/interactedCnt_uid_expotime.txt
+interacttable,3.3 G,/user/weibo_bigdata_ds/warehouse/interacttable
+interacttable_2,3.4 G,/user/weibo_bigdata_ds/warehouse/interacttable_2
+interest_based_reading_basic_feature,484.2 G,/user/weibo_bigdata_text/warehouse/interest_based_reading_basic_feature
+intimacy06,-du: java.net.URISyntaxException: Relative path in absolute URI: location:null,-du: java.net.URISyntaxException: Relative path in absolute URI: location:null
+jialin5_test,108,/user/weibo_bigdata_ds/warehouse/jialin5_test
+jinyuan1_fans_uid,2.3 T,/user/weibo_bigdata_ds/warehouse/jinyuan1_fans_uid
+jinyuan1_fans_uidset,1.2 T,/user/weibo_bigdata_ds/warehouse/jinyuan1_fans_uidset
+jinyuan1_intimacy,64.9 G,/user/weibo_bigdata_ds/warehouse/jinyuan1_intimacy
+jinyuan1_intimacy6,64.9 G,/user/weibo_bigdata_ds/warehouse/jinyuan1_intimacy6
+jinyuan1_intimacy7,42.9 G,/user/weibo_bigdata_ds/warehouse/jinyuan1_intimacy7
+jinyuan1_intimacy8,25.4 G,/user/weibo_bigdata_ds/warehouse/jinyuan1_intimacy8
+jinyuan1_intimacy9,9.8 G,/user/weibo_bigdata_ds/warehouse/jinyuan1_intimacy9
+jinyuan1_intimacy_3493392854,22.6 K,/user/weibo_bigdata_ds/warehouse/jinyuan1_intimacy_3493392854
+jinyuan1_tdrout,1.9 T,/user/weibo_bigdata_ds/warehouse/jinyuan1_tdrout
+jinyuan1_tdrout_3493392854,11.6 M,/user/weibo_bigdata_ds/warehouse/jinyuan1_tdrout_3493392854
+jinyuan1_tdrout_nolist,101.8 G,/user/weibo_bigdata_ds/warehouse/jinyuan1_tdrout_nolist
+jinyuan1_tdrout_set,1.5 T,/user/weibo_bigdata_ds/warehouse/jinyuan1_tdrout_set
+jinyuan1_tdrtestnum,1.0 T,/user/weibo_bigdata_ds/warehouse/jinyuan1_tdrtestnum
+jinyuan1_tdrtestnum2,132.6 G,/user/weibo_bigdata_ds/warehouse/jinyuan1_tdrtestnum2
+jinyuan1_tdrtestnum_3493392854,774.1 K,/user/weibo_bigdata_ds/warehouse/jinyuan1_tdrtestnum_3493392854
+jinyuan1_test_tdr,1.8 T,/user/weibo_bigdata_ds/warehouse/jinyuan1_test_tdr
+jinyuan1_testlist_3493392854,2.5 M,/user/weibo_bigdata_ds/warehouse/jinyuan1_testlist_3493392854
+jinyuan1_testset,1.5 T,/user/weibo_bigdata_ds/warehouse/jinyuan1_testset
+jinyuan1_two_degree_3493392854,10.4 M,/user/weibo_bigdata_ds/warehouse/jinyuan1_two_degree_3493392854
+json_tmp,177,/user/weibo_bigdata_ds/warehouse/json_tmp
+kaine_adv_white_users,8.1 K,/user/weibo_bigdata_ds/warehouse/kaine_adv_white_users
+kaine_ctr_feature_splited,155.1 G,/user/weibo_bigdata_ds/warehouse/kaine_ctr_feature_splited
+kaine_exposure_amount_daily,60.3 G,/user/weibo_bigdata_ds/warehouse/kaine_exposure_amount_daily
+kaine_extra_users,95.2 M,/user/weibo_bigdata_ds/warehouse/kaine_extra_users
+kaine_featured_users,534.1 G,/user/weibo_bigdata_ds/warehouse/kaine_featured_users
+kaine_firehose_positive,822.6 G,/user/weibo_bigdata_ds/warehouse/kaine_firehose_positive
+kaine_image_long_control_uids,11.3 M,/user/weibo_bigdata_ds/warehouse/kaine_image_long_control_uids
+kaine_interaction_model_daily,132.7 G,/user/weibo_bigdata_ds/warehouse/kaine_interaction_model_daily
+kaine_mds_feed_uid_interact_rate,1.6 G,/user/weibo_bigdata_ds/warehouse/kaine_mds_feed_uid_interact_rate
+kaine_text_segments,88.6 G,/user/weibo_bigdata_ds/warehouse/kaine_text_segments
+kaine_tmp,0,/user/weibo_bigdata_ds/warehouse/kaine_tmp
+kaine_user_feature,2.6 T,/user/weibo_bigdata_ds/warehouse/kaine_user_feature
+kaine_user_feature_daily,2.3 T,/user/weibo_bigdata_ds/warehouse/kaine_user_feature_daily
+kaine_user_feature_sp_week,88.1 G,/user/weibo_bigdata_ds/warehouse/kaine_user_feature_sp_week
+kaine_user_feature_test,1.4 G,/user/weibo_bigdata_ds/warehouse/kaine_user_feature_test
+kaine_user_feature_week,77.4 G,/user/weibo_bigdata_ds/warehouse/kaine_user_feature_week
+kaine_user_inter_eval,0,/user/weibo_bigdata_ds/warehouse/kaine_user_inter_eval
+lda_domain_corpus_tagcategory_006,3.6 G,/user/weibo_bigdata_vf/suibin/LDA/corpus/dormain/tagCategory_006
+lda_domain_corpus_tagcategory_019,5.2 G,/user/weibo_bigdata_vf/suibin/LDA/corpus/dormain/tagCategory_019
+lda_domain_corpus_tagcategory_025,3.3 G,/user/weibo_bigdata_vf/suibin/LDA/corpus/dormain/tagCategory_025
+lda_domain_corpus_tagcategory_026,3.6 G,/user/weibo_bigdata_vf/suibin/LDA/corpus/dormain/tagCategory_026
+lda_domain_corpus_tagcategory_029,3.0 G,/user/weibo_bigdata_vf/suibin/LDA/corpus/dormain/tagCategory_029
+lda_domain_corpus_tagcategory_060,5.0 G,/user/weibo_bigdata_vf/suibin/LDA/corpus/dormain/tagCategory_060
+ldg_tmp_a,137.3 K,/user/weibo_bigdata_ds/warehouse/ldg_tmp_a
+ldg_tmp_b,44.5 K,/user/weibo_bigdata_ds/warehouse/ldg_tmp_b
+liuyang_table1_0,10.1 K,/user/weibo_bigdata_ds/warehouse/liuyang_table1_0
+liuyang_table1_1,13.8 K,/user/weibo_bigdata_ds/warehouse/liuyang_table1_1
+liuyang_table2_0,949,/user/weibo_bigdata_ds/warehouse/liuyang_table2_0
+liuyang_table2_1,1.3 K,/user/weibo_bigdata_ds/warehouse/liuyang_table2_1
+lr_data,10.4 G,/user/weibo_bigdata_ds/lr_data
+mainfeed_ctr_feature_expo,423.9 G,/dw_ext/weibo_bigdata_ds/mds/mainfeed_ctr_feature_expo
+mainfeed_ctr_feature_interact,3.9 G,/dw_ext/weibo_bigdata_ds/mds/mainfeed_ctr_feature_interact
+mainfeed_ctr_feature_sample,376.5 G,/dw_ext/weibo_bigdata_ds/mds/mainfeed_ctr_feature_sample
+mainfeed_ctr_feature_sample_v1,56.7 M,/user/weibo_bigdata_ds/warehouse/mainfeed_ctr_feature_sample_v1
+mainfeed_ctr_feature_uid_uid_base,3.7 T,/dw_ext/weibo_bigdata_ds/mds/mainfeed_ctr_feature_uid_uid_base
+mau_20160731,du: `/user/weibo_bigdata_ds/wulei3/mau_20160731.txt': No such file or directory,du: `/user/weibo_bigdata_ds/wulei3/mau_20160731.txt': No such file or directory
+mau_fans_focus,du: `/user/weibo_bigdata_ds/wulei3/mau_fans_focus.txt': No such file or directory,du: `/user/weibo_bigdata_ds/wulei3/mau_fans_focus.txt': No such file or directory
+mau_fans_focus_hq,387.7 G,/user/weibo_bigdata_ds/wulei3/mau_fans_focus_hq.txt
+mau_fans_focus_hq_hf,332.4 G,/user/weibo_bigdata_ds/wulei3/mau_fans_focus_hq_hf.txt
+mblog_result,17.8 T,/user/weibo_bigdata_text/likun/mblog_result
+mblog_tag_result,7.2 T,/user/weibo_bigdata_text/likun/mblog_tag_result
+mds_anti_crawler_uid_tmp,20.3 M,/user/weibo_bigdata_ds/mds/mds_anti_crawler_uid_tmp
+mds_anti_webapache_ip_user_hour,305.8 G,/dw/mds/mds_anti_webapache_ip_user_hour
+mds_bas_anticrawler_uid,60.1 M,/user/weibo_bigdata_ds/mds/mds_bas_anticrawler_uid
+mds_bas_appkey_temp,66,/dw_ext/weibo_bigdata_ds/mds/mds_bas_appkey_temp
+mds_bas_appkey_white,19.7 K,/dw_ext/weibo_bigdata_ds/mds/mds_bas_appkey_white
+mds_bas_appkey_whitelist,498,/dw_ext/weibo_bigdata_ds/mds/mds_bas_appkey_whitelist
+mds_bas_chunhua1_lr_info,10.4 G,/user/weibo_bigdata_ds/lr_data
+mds_bas_chunhua1_user_info_v2,6.9 G,/user/weibo_bigdata_ds/warehouse/mds_bas_chunhua1_user_info_v2
+mds_bas_content_uid,225.7 K,/user/weibo_bigdata_ds/warehouse/mds_bas_content_uid
+mds_bas_content_uid_type,225.7 K,/user/weibo_bigdata_ds/warehouse/mds_bas_content_uid_type
+mds_bas_crawler,227.0 K,/user/weibo_bigdata_ds/mds/mds_bas_crawler
+mds_bas_crawler_hour_white,887.2 M,/user/weibo_bigdata_ds/mds/mds_bas_crawler_hour_white
+mds_bas_filtered_user,110.5 G,/dw/mds/mds_bas_filtered_user
+mds_bas_mid_click_media,3.6 G,/user/weibo_bigdata_ds/warehouse/mds_bas_mid_click_media
+mds_bas_mid_dis,41.6 G,/user/weibo_bigdata_ds/warehouse/mds_bas_mid_dis
+mds_bas_mid_dis_unread,950.7 M,/user/weibo_bigdata_ds/warehouse/mds_bas_mid_dis_unread
+mds_bas_mid_dis_unread_weight,1.2 G,/user/weibo_bigdata_ds/warehouse/mds_bas_mid_dis_unread_weight
+mds_bas_mid_expo,1.4 T,/user/weibo_bigdata_ds/warehouse/mds_bas_mid_expo
+mds_bas_mid_expo_owner,329.4 G,/user/weibo_bigdata_ds/mds/mds_bas_mid_expo_owner
+mds_bas_mid_expo_stat_all_tmp,0,/user/weibo_bigdata_ds/mds/mds_bas_mid_expo_stat_all_tmp
+mds_bas_mid_expo_stat_tmp,305.7 G,/user/weibo_bigdata_ds/warehouse/mds_bas_mid_expo_stat_tmp
+mds_bas_mid_expo_stat_tmp2,0,/user/weibo_bigdata_ds/mds/mds_bas_mid_expo_stat_tmp2
+mds_bas_mid_feature,457.6 G,/user/weibo_bigdata_ds/warehouse/mds_bas_mid_feature
+mds_bas_mid_feature_predict,24.5 G,/user/weibo_bigdata_ds/warehouse/mds_bas_mid_feature_predict
+mds_bas_mid_feature_train,16.4 G,/user/weibo_bigdata_ds/warehouse/mds_bas_mid_feature_train
+mds_bas_mid_first_pub,23.3 G,/user/weibo_bigdata_ds/warehouse/mds_bas_mid_first_pub
+mds_bas_mid_interact,315.8 G,/user/weibo_bigdata_ds/warehouse/mds_bas_mid_interact
+mds_bas_mid_interact_expo_norabbish,103.3 G,/dw_ext/weibo_bigdata_ds/mds/mds_bas_mid_interact_expo_norabbish
+mds_bas_mid_interact_media,418.6 G,/user/weibo_bigdata_ds/warehouse/mds_bas_mid_interact_media
+mds_bas_mid_interact_origin,775.2 M,/user/weibo_bigdata_ds/warehouse/mds_bas_mid_interact_origin
+mds_bas_mid_interact_rate,16.7 G,/user/weibo_bigdata_ds/warehouse/mds_bas_mid_interact_rate
+mds_bas_mid_uid_interactratio,16.2 G,/dw_ext/weibo_bigdata_ds/mds/mds_bas_mid_uid_interactratio
+mds_bas_mid_uid_interactratio_30days,1.0 T,/dw_ext/weibo_bigdata_ds/mds/mds_bas_mid_uid_interactratio_30days
+mds_bas_mid_uid_interactratio_7days,586.1 G,/dw_ext/weibo_bigdata_ds/mds/mds_bas_mid_uid_interactratio_7days
+mds_bas_mid_uid_interactratio_7days_send,1.3 T,/dw_ext/weibo_bigdata_ds/mds/mds_bas_mid_uid_interactratio_7days_send
+mds_bas_mid_uid_interactratio_send,42.2 G,/dw_ext/weibo_bigdata_ds/mds/mds_bas_mid_uid_interactratio_send
+mds_bas_mid_weight,5.2 G,/user/weibo_bigdata_ds/warehouse/mds_bas_mid_weight
+mds_bas_multi_media_app_whitelist,13.9 K,/user/weibo_bigdata_ds/warehouse/mds_bas_multi_media_app_whitelist
+mds_bas_search_hour,610.6 M,/user/weibo_bigdata_ds/mds/mds_bas_search_hour
+mds_bas_spread_user,1.8 G,/user/weibo_bigdata_ds/warehouse/mds_bas_spread_user
+mds_bas_strategy_obj_cluster,5.2 G,/dw_ext/weibo_bigdata_ds/mds/mds_bas_strategy_obj_cluster
+mds_bas_strategy_user_inte_obj_temp,238.4 G,/dw_ext/weibo_bigdata_ds/mds/mds_bas_strategy_user_inte_obj_temp
+mds_bas_suid_mid_ruid_expo_interest_interact_interactrate,324.6 G,/user/weibo_bigdata_ds/warehouse/mds_bas_suid_mid_ruid_expo_interest_interact_interactrate
+mds_bas_suid_mid_ruid_interact,488,/user/weibo_bigdata_ds/warehouse/mds_bas_suid_mid_ruid_interact
+mds_bas_suid_ruid_inte_inte_sim_interact_group_cos,8.6 T,/user/weibo_bigdata_ds/warehouse/mds_bas_suid_ruid_inte_inte_sim_interact_group_cos
+mds_bas_suid_ruid_inte_inte_sim_interact_group_weight_cos,8.3 T,/user/weibo_bigdata_ds/warehouse/mds_bas_suid_ruid_inte_inte_sim_interact_group_weight_cos
+mds_bas_uid_click_media,311.6 M,/user/weibo_bigdata_ds/warehouse/mds_bas_uid_click_media
+mds_bas_uid_fans_count,7.2 G,/user/weibo_bigdata_ds/warehouse/mds_bas_uid_fans_count
+mds_bas_uid_interact_30day,8.9 G,/user/weibo_bigdata_ds/warehouse/mds_bas_uid_interact_30day
+mds_bas_uid_interactrate_c1c2_bluev,25.1 M,/user/weibo_bigdata_ds/warehouse/mds_bas_uid_interactrate_c1c2_bluev
+mds_bas_uid_interactrate_weight,412.5 M,/user/weibo_bigdata_ds/warehouse/mds_bas_uid_interactrate_weight
+mds_bas_user_fanslist_validfans,1.6 T,/dw_ext/weibo_bigdata_ds/mds/mds_bas_user_fanslist_validfans
+mds_bas_user_fanslist_validfans_count,1.3 G,/dw_ext/weibo_bigdata_ds/mds/mds_bas_user_fanslist_validfans_count
+mds_bas_user_usagefreq,70.7 G,/dw/mds/mds_bas_user_usagefreq
+mds_bas_wls_hour,60.2 M,/user/weibo_bigdata_ds/mds/mds_bas_wls_hour
+mds_bhv_addatten,3.8 T,/dw/mds/mds_bhv_addatten
+mds_bhv_addatten_objsplit,8.4 T,/dw/mds/mds_bhv_addatten_objsplit
+mds_bhv_addatten_weight,1.7 T,/user/weibo_bigdata_ds/warehouse/mds_bhv_addatten_weight
+mds_bhv_blog_all,5.3 T,/dw_ext/weibo_bigdata_ds/mds/mds_bhv_blog_all
+mds_bhv_cmtblog,4.1 T,/dw/mds/mds_bhv_cmtblog
+mds_bhv_feed_read_ratio,795.5 G,/dw/mds/mds_bhv_feed_read_ratio
+mds_bhv_like,11.3 T,/dw/mds/mds_bhv_like
+mds_bhv_login_day,764.6 G,/dw/mds/mds_bhv_login_day
+mds_bhv_pubblog,13.5 T,/dw/mds/mds_bhv_pubblog
+mds_bhv_tblog_all,25.6 T,/dw/mds/mds_bhv_tblog_all
+mds_bhv_tblog_day,5.3 T,/dw/mds/mds_bhv_tblog_day
+mds_bhv_tblog_month,165.9 G,/dw/mds/mds_bhv_tblog_month
+mds_c1c2_list,388.3 K,/user/weibo_bigdata_ds/warehouse/mds_c1c2_list
+mds_content_blue_v,179.8 G,/user/weibo_bigdata_ds/warehouse/mds_content_blue_v
+mds_datastrategy_appkey,46.9 M,/dw_ext/weibo_bigdata_ds/mds/mds_datastrategy_appkey
+mds_datastrategy_bhv_tag,40.1 T,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_bhv_tag
+mds_datastrategy_bhv_tag_seeduser,555.7 M,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_bhv_tag_seeduser
+mds_datastrategy_bhv_tag_sum_0_5,13.0 G,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_bhv_tag_sum_0_5
+mds_datastrategy_bhv_tag_sum_1_0,13.0 G,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_bhv_tag_sum_1_0
+mds_datastrategy_bhv_tag_sum_1_5,13.0 G,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_bhv_tag_sum_1_5
+mds_datastrategy_bhv_tag_sum_1st,1.7 T,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_bhv_tag_sum_1st
+mds_datastrategy_bhv_tag_sum_2_0,13.1 G,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_bhv_tag_sum_2_0
+mds_datastrategy_bhv_tag_sum_2nd,1.2 T,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_bhv_tag_sum_2nd
+mds_datastrategy_bhv_tag_sum_3_0,13.1 G,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_bhv_tag_sum_3_0
+mds_datastrategy_bhv_tag_sum_3rd,9.4 T,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_bhv_tag_sum_3rd
+mds_datastrategy_bhv_tag_sum_4_0,13.2 G,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_bhv_tag_sum_4_0
+mds_datastrategy_bhv_tag_sum_hb,12.1 G,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_bhv_tag_sum_hb
+mds_datastrategy_bhv_tag_sum_hb_3,12.1 G,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_bhv_tag_sum_hb_3
+mds_datastrategy_bhv_tag_sum_seeduser,1.2 G,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_bhv_tag_sum_seeduser
+mds_datastrategy_bhv_tag_sum_seeduser_1st,536.7 M,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_bhv_tag_sum_seeduser_1st
+mds_datastrategy_bhv_tag_sum_seeduser_2nd,487.4 M,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_bhv_tag_sum_seeduser_2nd
+mds_datastrategy_bhv_tag_sum_seeduser_3rd,3.6 G,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_bhv_tag_sum_seeduser_3rd
+mds_datastrategy_device_tag,109.5 M,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_device_tag
+mds_datastrategy_feature_multimedia_base_data,356.2 G,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feature_multimedia_base_data
+mds_datastrategy_feed_clickprofile,203.6 G,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_clickprofile
+mds_datastrategy_feed_clickprofile_7days,1.1 T,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_clickprofile_7days
+mds_datastrategy_feed_clickprofile_pc,54.6 G,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_clickprofile_pc
+mds_datastrategy_feed_clickprofile_wl,354.0 G,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_clickprofile_wl
+mds_datastrategy_feed_deliverrate,0,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_deliverrate
+mds_datastrategy_feed_expo_weight,0,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_expo_weight
+mds_datastrategy_feed_expo_weight_rc,29.4 T,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_expo_weight_rc
+mds_datastrategy_feed_filter_receive_data_report,220.9 K,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_filter_receive_data_report
+mds_datastrategy_feed_filter_send_data_report,190.1 K,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_filter_send_data_report
+mds_datastrategy_feed_interest_weekly,5.4 T,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_interest_weekly
+mds_datastrategy_feed_interest_weekly_0_5,13.1 G,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_interest_weekly_0_5
+mds_datastrategy_feed_interest_weekly_1,98.4 G,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_interest_weekly_1
+mds_datastrategy_feed_interest_weekly_1_0,13.1 G,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_interest_weekly_1_0
+mds_datastrategy_feed_interest_weekly_1_5,13.1 G,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_interest_weekly_1_5
+mds_datastrategy_feed_interest_weekly_1st,1.8 T,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_interest_weekly_1st
+mds_datastrategy_feed_interest_weekly_2_0,13.1 G,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_interest_weekly_2_0
+mds_datastrategy_feed_interest_weekly_2nd,1.2 T,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_interest_weekly_2nd
+mds_datastrategy_feed_interest_weekly_3_0,13.1 G,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_interest_weekly_3_0
+mds_datastrategy_feed_interest_weekly_3rd,9.5 T,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_interest_weekly_3rd
+mds_datastrategy_feed_interest_weekly_4_0,13.1 G,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_interest_weekly_4_0
+mds_datastrategy_feed_interest_weekly_hb,12.0 G,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_interest_weekly_hb
+mds_datastrategy_feed_interest_weekly_hb_2,12.1 G,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_interest_weekly_hb_2
+mds_datastrategy_feed_interest_weekly_hb_3,12.1 G,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_interest_weekly_hb_3
+mds_datastrategy_feed_interest_weekly_seeduser,14.9 M,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_interest_weekly_seeduser
+mds_datastrategy_feed_interest_weekly_seeduser_1st,3.0 M,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_interest_weekly_seeduser_1st
+mds_datastrategy_feed_interest_weekly_seeduser_2nd,2.5 M,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_interest_weekly_seeduser_2nd
+mds_datastrategy_feed_interest_weekly_seeduser_3rd,32.7 M,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_interest_weekly_seeduser_3rd
+mds_datastrategy_feed_interestmatchdegree,10.0 T,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_interestmatchdegree
+mds_datastrategy_feed_quality_content_uid,7.1 K,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_quality_content_uid
+mds_datastrategy_feed_range_unread_data_report,129,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_range_unread_data_report
+mds_datastrategy_feed_readrate,116.8 G,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_readrate
+mds_datastrategy_feed_recommend_sample,0,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_recommend_sample
+mds_datastrategy_feed_recommend_twohop,3.0 T,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_recommend_twohop
+mds_datastrategy_feed_report,22.3 G,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_report
+mds_datastrategy_feed_send_weight,1.8 T,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_send_weight
+mds_datastrategy_feed_send_weight_rc,622.9 G,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_send_weight_rc
+mds_datastrategy_feed_struct_type_expo_diff,1.1 M,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_struct_type_expo_diff
+mds_datastrategy_feed_twodegreerelation_v1,101.2 M,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_twodegreerelation_v1
+mds_datastrategy_feed_twodegreerelationset_v1,58.9 M,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_twodegreerelationset_v1
+mds_datastrategy_feed_unread_gender_age_tag_interactrate,5.2 M,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_unread_gender_age_tag_interactrate
+mds_datastrategy_feed_unread_interactrate,314.1 G,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_unread_interactrate
+mds_datastrategy_feed_unread_interactrate_ctr,20.5 G,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_feed_unread_interactrate_ctr
+mds_datastrategy_page_interact_rate,5.8 M,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_page_interact_rate
+mds_datastrategy_page_relate_interact,117.4 M,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_page_relate_interact
+mds_datastrategy_realtime_samples,38.1 G,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_realtime_samples
+mds_datastrategy_unread_pool_ctr_feature_all,423.5 G,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_unread_pool_ctr_feature_all
+mds_datastrategy_user_type,21.3 G,/user/weibo_bigdata_ds/warehouse/mds_datastrategy_user_type
+mds_datastrategy_userseed,106.1 M,/dw_ext/weibo_bigdata_ds/mds/mds_datastrategy_userseed
+mds_datastrategy_userseed_expoinfo,9.8 G,/dw_ext/weibo_bigdata_ds/mds/mds_datastrategy_userseed_expoinfo
+mds_datastrategy_userseed_expoinfo_fix,86.8 M,/dw_ext/weibo_bigdata_ds/mds/mds_datastrategy_userseed_expoinfo_fix
+mds_datastrategy_userseed_fix,6.5 K,/dw_ext/weibo_bigdata_ds/mds/mds_datastrategy_userseed_fix
+mds_datasys_fa_fanslist,110.5 G,/dw_ext/weibo_bigdata_ds/mds/mds_datasys_fa_fanslist
+mds_datasys_fa_userinfo,1.1 G,/dw_ext/weibo_bigdata_ds/mds/mds_datasys_fa_userinfo
+mds_datasys_feed_list,0,/dw_ext/weibo_bigdata_ds/mds/mds_datasys_feed_list
+mds_datasys_user_dynamic,61.6 G,/dw_ext/weibo_bigdata_ds/mds/mds_datasys_user_dynamic
+mds_demo_seeduid_follow,55.7 M,/user/weibo_bigdata_ds/mds/mds_demo_seeduid_follow
+mds_ds_cvtype_stats,862.1 K,/user/weibo_bigdata_ds/mds/mds_ds_cvtype_stats
+mds_ds_feed_new_user,0,/user/weibo_bigdata_ds/warehouse/mds_ds_feed_new_user
+mds_ds_feed_new_user_tag,10.7 G,/user/weibo_bigdata_ds/warehouse/mds_ds_feed_new_user_tag
+mds_ds_feed_new_user_tag1_all,1.3 T,/user/weibo_bigdata_ds/xiulong/mds_ds_feed_new_user_tag1_all
+mds_ds_feed_new_user_tag1_incr,203.8 G,/user/weibo_bigdata_ds/xiulong/mds_ds_feed_new_user_tag1_incr
+mds_ds_feed_new_user_tag1_rm,147.1 G,/user/weibo_bigdata_ds/xiulong/mds_ds_feed_new_user_tag1_rm
+mds_ds_feed_new_user_tag2_all,2.5 T,/user/weibo_bigdata_ds/xiulong/mds_ds_feed_new_user_tag2_all
+mds_ds_feed_new_user_tag2_incr,371.8 G,/user/weibo_bigdata_ds/xiulong/mds_ds_feed_new_user_tag2_incr
+mds_ds_feed_new_user_tag2_rm,270.7 G,/user/weibo_bigdata_ds/xiulong/mds_ds_feed_new_user_tag2_rm
+mds_ds_low_interact,40.3 G,/user/weibo_bigdata_ds/mds/mds_ds_low_interact
+mds_ds_mid_tag_tmp,2.4 M,/user/weibo_bigdata_ds/warehouse/mds_ds_mid_tag_tmp
+mds_ds_tag_uids,33.5 G,/user/weibo_bigdata_ds/warehouse/mds_ds_tag_uids
+mds_ds_tag_uidsum,12.1 K,/user/weibo_bigdata_ds/warehouse/mds_ds_tag_uidsum
+mds_ds_uid,10.2 K,/user/weibo_bigdata_ds/mds/mds_ds_uid
+mds_ds_uid_ctype,47.9 M,/user/weibo_bigdata_ds/mds/mds_ds_uid_ctype
+mds_ds_uid_ctype_expos,15.4 G,/user/weibo_bigdata_ds/mds/mds_ds_uid_ctype_expos
+mds_ds_uid_ctype_stats,8.6 M,/user/weibo_bigdata_ds/mds/mds_ds_uid_ctype_stats
+mds_ds_uid_mid_tmp,0,/user/weibo_bigdata_ds/mds/mds_ds_uid_mid_tmp
+mds_ds_uid_tag,139.1 M,/user/weibo_bigdata_ds/warehouse/mds_ds_uid_tag
+mds_ds_uid_tag_weight,1.1 G,/user/weibo_bigdata_ds/warehouse/mds_ds_uid_tag_weight
+mds_expo_adv_weight,49.4 G,/user/weibo_bigdata_ds/warehouse/mds_expo_adv_weight
+mds_expo_interact_feedback_v3_tmp,585.2 M,/user/weibo_bigdata_ds/warehouse/mds_expo_interact_feedback_v3_tmp
+mds_expo_interact_v2,2.5 K,/user/weibo_bigdata_ds/warehouse/mds_expo_interact_v2
+mds_expo_interact_v3,366.3 M,/user/weibo_bigdata_ds/warehouse/mds_expo_interact_v3
+mds_expo_mid_weight,6.5 T,/user/weibo_bigdata_ds/warehouse/mds_expo_mid_weight
+mds_fans_interact_one_week,9.0 G,/dw_ext/weibo_bigdata_ds/mds/mds_fans_interact_one_week
+mds_feed_click_profile_interact,177.5 G,/user/weibo_bigdata_ds/warehouse/mds_feed_click_profile_interact
+mds_feed_const_user_expo,7.8 G,/user/weibo_bigdata_ds/warehouse/mds_feed_const_user_expo
+mds_feed_const_user_type,22.6 G,/user/weibo_bigdata_ds/warehouse/mds_feed_const_user_type
+mds_feed_const_weight_diff,179.2 G,/user/weibo_bigdata_ds/warehouse/mds_feed_const_weight_diff
+mds_feed_ctrl_weight,209.0 G,/user/weibo_bigdata_ds/warehouse/mds_feed_ctrl_weight
+mds_feed_duration_feature_table,146.2 G,/user/weibo_bigdata_ds/warehouse/mds_feed_duration_feature_table
+mds_feed_expo_location,910.3 G,/user/weibo_bigdata_ds/warehouse/mds_feed_expo_location
+mds_feed_expo_predict_271_data,28.1 G,/user/weibo_bigdata_ds/warehouse/mds_feed_expo_predict_271_data
+mds_feed_expo_quality_weight,960.7 G,/user/weibo_bigdata_ds/warehouse/mds_feed_expo_quality_weight
+mds_feed_expo_weight,3.7 T,/user/weibo_bigdata_ds/warehouse/mds_feed_expo_weight
+mds_feed_interact_feedback_v4_result,6.7 T,/user/weibo_bigdata_ds/warehouse/mds_feed_interact_feedback_v4_result
+mds_feed_light_relation,8.6 G,/user/weibo_bigdata_ds/warehouse/mds_feed_light_relation
+mds_feed_light_relation_weight,9.0 G,/user/weibo_bigdata_ds/warehouse/mds_feed_light_relation_weight
+mds_feed_log_weight_predict,2.0 T,/user/weibo_bigdata_ds/warehouse/mds_feed_log_weight_predict
+mds_feed_log_weight_predict_1000,58.9 G,/user/weibo_bigdata_ds/warehouse/mds_feed_log_weight_predict_1000
+mds_feed_rcfile_tmp,584.3 G,/user/weibo_bigdata_ds/warehouse/mds_feed_rcfile_tmp
+mds_feed_recommand_fpgrwoth_uidlist,147.1 K,/user/weibo_bigdata_ds/warehouse/mds_feed_recommand_fpgrwoth_uidlist
+mds_feed_strategy_click_profile,51.0 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_click_profile
+mds_feed_strategy_click_profile_7days,78.1 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_click_profile_7days
+mds_feed_strategy_click_profile_pc,14.2 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_click_profile_pc
+mds_feed_strategy_click_profile_wl,86.2 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_click_profile_wl
+mds_feed_strategy_expo_combine,178.7 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_expo_combine
+mds_feed_strategy_expo_gained_weight_and_label_with_interact_rate_v2,12.8 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_expo_gained_weight_and_label_with_interact_rate_v2
+mds_feed_strategy_expo_gained_weight_with_interact_rate,1.5 T,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_expo_gained_weight_with_interact_rate
+mds_feed_strategy_expo_gained_weight_with_interact_rate_v2,194.1 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_expo_gained_weight_with_interact_rate_v2
+mds_feed_strategy_expo_gained_weight_with_interact_rate_v2_comp,64.9 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_expo_gained_weight_with_interact_rate_v2_comp
+mds_feed_strategy_expo_gained_weight_with_interact_rate_v3,11.9 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_expo_gained_weight_with_interact_rate_v3
+mds_feed_strategy_expo_gained_weight_with_intimacy,4.6 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_expo_gained_weight_with_intimacy
+mds_feed_strategy_expo_log_reduce,16.2 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_expo_log_reduce
+mds_feed_strategy_expo_log_reduce_v2,75.5 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_expo_log_reduce_v2
+mds_feed_strategy_expo_merge,848.5 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_expo_merge
+mds_feed_strategy_expo_merge_v2,102.4 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_expo_merge_v2
+mds_feed_strategy_expo_merge_v2_comp,36.3 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_expo_merge_v2_comp
+mds_feed_strategy_expo_merge_v3,6.3 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_expo_merge_v3
+mds_feed_strategy_expo_split,0,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_expo_split
+mds_feed_strategy_expo_unexpo,54.6 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_expo_unexpo
+mds_feed_strategy_expo_with_interact,363.4 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_expo_with_interact
+mds_feed_strategy_expo_with_weight_labe_merge_v2,7.6 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_expo_with_weight_labe_merge_v2
+mds_feed_strategy_feature_engineering_gbdt,12.9 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_feature_engineering_gbdt
+mds_feed_strategy_feature_engineering_ranking,841.9 M,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_feature_engineering_ranking
+mds_feed_strategy_feature_engineering_ranking_v10,4.8 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_feature_engineering_ranking_v10
+mds_feed_strategy_feature_engineering_ranking_v11,31.0 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_feature_engineering_ranking_v11
+mds_feed_strategy_feature_engineering_ranking_v12,77.9 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_feature_engineering_ranking_v12
+mds_feed_strategy_feature_engineering_ranking_v13,220.1 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_feature_engineering_ranking_v13
+mds_feed_strategy_feature_engineering_ranking_v14,863.4 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_feature_engineering_ranking_v14
+mds_feed_strategy_feature_engineering_ranking_v15,29.5 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_feature_engineering_ranking_v15
+mds_feed_strategy_feature_engineering_ranking_v16,94.7 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_feature_engineering_ranking_v16
+mds_feed_strategy_feature_engineering_ranking_v17,701.1 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_feature_engineering_ranking_v17
+mds_feed_strategy_feature_engineering_ranking_v2,1002.4 M,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_feature_engineering_ranking_v2
+mds_feed_strategy_feature_engineering_ranking_v3,15.0 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_feature_engineering_ranking_v3
+mds_feed_strategy_feature_engineering_ranking_v4,17.6 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_feature_engineering_ranking_v4
+mds_feed_strategy_feature_engineering_ranking_v5,59.9 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_feature_engineering_ranking_v5
+mds_feed_strategy_feature_engineering_ranking_v5_samples,3.3 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_feature_engineering_ranking_v5_samples
+mds_feed_strategy_feature_engineering_ranking_v6,11.7 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_feature_engineering_ranking_v6
+mds_feed_strategy_feature_engineering_ranking_v7,228.7 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_feature_engineering_ranking_v7
+mds_feed_strategy_feature_engineering_ranking_v8,131.1 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_feature_engineering_ranking_v8
+mds_feed_strategy_feature_engineering_ranking_v9,10.4 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_feature_engineering_ranking_v9
+mds_feed_strategy_gain_weight_analysis,609.9 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_gain_weight_analysis
+mds_feed_strategy_interactratio_ctype,3.6 M,/user/weibo_bigdata_ds/mds/mds_feed_strategy_interactratio_ctype
+mds_feed_strategy_interactratio_tmp,406.4 M,/user/weibo_bigdata_ds/mds/mds_feed_strategy_interactratio_tmp
+mds_feed_strategy_reranking_result,8.0 T,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_reranking_result
+mds_feed_strategy_reranking_result_v2,2.9 T,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_reranking_result_v2
+mds_feed_strategy_reranking_result_v2_comp,1.2 T,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_reranking_result_v2_comp
+mds_feed_strategy_reranking_result_v3,188.3 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_reranking_result_v3
+mds_feed_strategy_reranking_with_weight_label_result_v2,110.2 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_reranking_with_weight_label_result_v2
+mds_feed_strategy_uid_interactratio,10.9 K,/user/weibo_bigdata_ds/mds/mds_feed_strategy_uid_interactratio
+mds_feed_strategy_unexpo_gained_weight_and_label_with_interact_rate_v2,446.0 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_unexpo_gained_weight_and_label_with_interact_rate_v2
+mds_feed_strategy_unexpo_gained_weight_with_interact_rate,1.9 T,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_unexpo_gained_weight_with_interact_rate
+mds_feed_strategy_unexpo_gained_weight_with_interact_rate_v2,8.5 T,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_unexpo_gained_weight_with_interact_rate_v2
+mds_feed_strategy_unexpo_gained_weight_with_interact_rate_v2_comp,2.6 T,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_unexpo_gained_weight_with_interact_rate_v2_comp
+mds_feed_strategy_unexpo_gained_weight_with_interact_rate_v3,400.0 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_unexpo_gained_weight_with_interact_rate_v3
+mds_feed_strategy_unexpo_gained_weight_with_intimacy,209.2 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_unexpo_gained_weight_with_intimacy
+mds_feed_strategy_unexpo_log_reduce,1003.1 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_unexpo_log_reduce
+mds_feed_strategy_unexpo_log_reduce_v2,2.7 T,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_unexpo_log_reduce_v2
+mds_feed_strategy_unexpo_merge,1.2 T,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_unexpo_merge
+mds_feed_strategy_unexpo_merge_v2,4.0 T,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_unexpo_merge_v2
+mds_feed_strategy_unexpo_merge_v2_comp,1.6 T,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_unexpo_merge_v2_comp
+mds_feed_strategy_unexpo_merge_v3,254.0 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_unexpo_merge_v3
+mds_feed_strategy_unexpo_with_weight_label_merge_v2,296.8 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_unexpo_with_weight_label_merge_v2
+mds_feed_strategy_user_taglibsvm,835.7 M,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_user_taglibsvm
+mds_feed_strategy_zt_ranking_no_user_info,35.4 G,/user/weibo_bigdata_ds/zhangtong1/hive/zhangtong1_ranking_no_user_info
+mds_feed_strategy_zt_ranking_with_user_info,52.5 G,/user/weibo_bigdata_ds/zhangtong1/hive/zhangtong1_ranking_with_user_info
+mds_feed_strategy_zt_ranking_with_user_info_minus_one,16.3 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_zt_ranking_with_user_info_minus_one
+mds_feed_strategy_zt_ranking_with_user_info_plus_one,16.3 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_zt_ranking_with_user_info_plus_one
+mds_feed_strategy_zt_ranking_with_user_info_v2,116.7 G,/user/weibo_bigdata_ds/warehouse/mds_feed_strategy_zt_ranking_with_user_info_v2
+mds_feed_uid_ia_tum,7.6 G,/user/weibo_bigdata_ds/warehouse/mds_feed_uid_ia_tum
+mds_feed_uid_ia_tum_7day,21.9 G,/user/weibo_bigdata_ds/warehouse/mds_feed_uid_ia_tum_7day
+mds_feed_uid_ia_tum_7day_temp,928.5 M,/user/weibo_bigdata_ds/warehouse/mds_feed_uid_ia_tum_7day_temp
+mds_feed_uid_interact_rate,67.1 G,/user/weibo_bigdata_ds/mds/mds_feed_uid_interact_rate
+mds_feed_uid_interact_rate4,203.1 M,/user/weibo_bigdata_ds/mds/mds_feed_uid_interact_rate4
+mds_feed_uid_interact_rate_tmp,47.4 G,/user/weibo_bigdata_ds/mds/mds_feed_uid_interact_rate_tmp
+mds_feed_uid_interact_rate_tmp2,32.4 G,/user/weibo_bigdata_ds/mds/mds_feed_uid_interact_rate_tmp2
+mds_feed_uid_interact_rate_tmp3,46.3 G,/user/weibo_bigdata_ds/mds/mds_feed_uid_interact_rate_tmp3
+mds_feed_uid_interact_rate_tmp4,440.5 M,/user/weibo_bigdata_ds/mds/mds_feed_uid_interact_rate_tmp4
+mds_feed_uid_interact_rate_update_status,1.3 K,/user/weibo_bigdata_ds/mds/mds_feed_uid_interact_rate_update_status
+mds_feed_uid_interact_tmp,1.7 G,/user/weibo_bigdata_ds/mds/mds_feed_uid_interact_tmp
+mds_feed_uid_media,53.5 M,/user/weibo_bigdata_ds/mds/mds_feed_uid_media
+mds_feed_unread_user_type,3.1 T,/user/weibo_bigdata_ds/warehouse/mds_feed_unread_user_type
+mds_feed_user_age_gender_rc,10.9 T,/user/weibo_bigdata_ds/warehouse/mds_feed_user_age_gender_rc
+mds_feed_user_bias_feature,844.9 G,/user/weibo_bigdata_ds/warehouse/mds_feed_user_bias_feature
+mds_feed_wbcamera_mid_expo,5.9 G,/user/weibo_bigdata_ds/warehouse/mds_feed_wbcamera_mid_expo
+mds_feed_wbcamera_mid_interact,3.4 M,/user/weibo_bigdata_ds/warehouse/mds_feed_wbcamera_mid_interact
+mds_feed_wbcamera_mid_uid_interactratio,2.3 G,/user/weibo_bigdata_ds/warehouse/mds_feed_wbcamera_mid_uid_interactratio
+mds_feed_wbcamera_mid_uid_interactratio_7days,6.4 G,/user/weibo_bigdata_ds/warehouse/mds_feed_wbcamera_mid_uid_interactratio_7days
+mds_feedback_v2,1.5 K,/user/weibo_bigdata_ds/warehouse/mds_feedback_v2
+mds_has_inte_tag_ldg,368.2 G,/user/weibo_bigdata_ds/warehouse/mds_has_inte_tag_ldg
+mds_has_inte_tag_vector,91.4 G,/user/weibo_bigdata_ds/warehouse/mds_has_inte_tag_vector
+mds_hotblog_uid_hotrate_30days_json,60.9 M,/user/weibo_bigdata_text/warehouse/mds_hotblog_uid_hotrate_30days_json
+mds_interact_feedback_result_v3,27.6 G,/user/weibo_bigdata_ds/warehouse/mds_interact_feedback_result_v3
+mds_mid_readtime_dis,4.3 G,/user/weibo_bigdata_ds/warehouse/mds_mid_readtime_dis
+mds_mid_uid_readtime,120.4 G,/user/weibo_bigdata_ds/warehouse/mds_mid_uid_readtime
+mds_newuser_interact_feedback_result,304.1 G,/user/weibo_bigdata_ds/warehouse/mds_newuser_interact_feedback_result
+mds_obj_article_lib,13.5 T,/dw/mds/mds_obj_article_lib
+mds_online_pool_mid_weight,412.6 G,/user/weibo_bigdata_ds/warehouse/mds_online_pool_mid_weight
+mds_online_pool_weight_read_ratio,4.7 G,/user/weibo_bigdata_ds/warehouse/mds_online_pool_weight_read_ratio
+mds_search_click_day,713.7 G,/dw/mds/mds_search_click_day
+mds_search_click_dtl,3.2 T,/dw/mds/mds_search_click_dtl
+mds_search_keyword_day,26.6 G,/dw/mds/mds_search_keyword_day
+mds_strategy_bhv_recomm_negative,0,/user/weibo_bigdata_ds/warehouse/mds_strategy_bhv_recomm_negative
+mds_strategy_daoguang1_expo_interact_receive_dtl,8.9 T,/user/weibo_bigdata_ds/warehouse/mds_strategy_daoguang1_expo_interact_receive_dtl
+mds_strategy_daoguang1_expo_receive_dtl,12.0 T,/user/weibo_bigdata_ds/warehouse/mds_strategy_daoguang1_expo_receive_dtl
+mds_strategy_daoguang1_interact_receive_dtl,2.6 T,/user/weibo_bigdata_ds/warehouse/mds_strategy_daoguang1_interact_receive_dtl
+mds_strategy_daoguang1_user_sim_interact_table,8.5 T,/user/weibo_bigdata_ds/warehouse/mds_strategy_daoguang1_user_sim_interact_table
+mds_strategy_distribution_log,57.9 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_distribution_log
+mds_strategy_distribution_other_log,6.9 M,/user/weibo_bigdata_ds/warehouse/mds_strategy_distribution_other_log
+mds_strategy_expo_interact_mid_weight_datasys,654.5 M,/user/weibo_bigdata_ds/warehouse/mds_strategy_expo_interact_mid_weight_datasys
+mds_strategy_expo_interact_mid_weight_dynamic_datasys,1.1 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_expo_interact_mid_weight_dynamic_datasys
+mds_strategy_expo_interact_relationship_datasys,1.1 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_expo_interact_relationship_datasys
+mds_strategy_expo_interact_relationship_datasys_v1,481.0 M,/user/weibo_bigdata_ds/warehouse/mds_strategy_expo_interact_relationship_datasys_v1
+mds_strategy_expo_interact_test,3.5 K,/user/weibo_bigdata_ds/warehouse/mds_strategy_expo_interact_test
+mds_strategy_expo_interact_uid_type_weight_datasys,2.0 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_expo_interact_uid_type_weight_datasys
+mds_strategy_expo_interact_uid_uid_weight_datasys,2.0 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_expo_interact_uid_uid_weight_datasys
+mds_strategy_expo_interact_uid_weight_datasys,637.0 M,/user/weibo_bigdata_ds/warehouse/mds_strategy_expo_interact_uid_weight_datasys
+mds_strategy_feed_app_interactrate,162.9 M,/user/weibo_bigdata_ds/warehouse/mds_strategy_feed_app_interactrate
+mds_strategy_feed_app_interactrate_30days,161.5 M,/user/weibo_bigdata_ds/warehouse/mds_strategy_feed_app_interactrate_30days
+mds_strategy_feed_app_interactrate_7days,52.6 M,/user/weibo_bigdata_ds/warehouse/mds_strategy_feed_app_interactrate_7days
+mds_strategy_feed_bhv_blog_all,1.5 T,/user/weibo_bigdata_ds/warehouse/mds_strategy_feed_bhv_blog_all
+mds_strategy_feed_bhv_blog_all_mid,302.1 M,/user/weibo_bigdata_ds/warehouse/mds_strategy_feed_bhv_blog_all_mid
+mds_strategy_feed_bhv_blog_all_uid,1.1 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_feed_bhv_blog_all_uid
+mds_strategy_feed_bhv_blog_all_uid2mid,101.7 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_feed_bhv_blog_all_uid2mid
+mds_strategy_feed_bhv_blog_all_uid2mid_temp,84.0 K,/user/weibo_bigdata_ds/warehouse/mds_strategy_feed_bhv_blog_all_uid2mid_temp
+mds_strategy_feed_bhv_blog_all_uid2uid,102.7 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_feed_bhv_blog_all_uid2uid
+mds_strategy_feed_bhv_blog_union_uid,693.2 M,/user/weibo_bigdata_ds/warehouse/mds_strategy_feed_bhv_blog_union_uid
+mds_strategy_feed_bhv_blog_union_uid2mid,0,/user/weibo_bigdata_ds/warehouse/mds_strategy_feed_bhv_blog_union_uid2mid
+mds_strategy_feed_bhv_blog_union_uid2uid,97.3 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_feed_bhv_blog_union_uid2uid
+mds_strategy_feed_bhv_click,6.5 T,/user/weibo_bigdata_ds/warehouse/mds_strategy_feed_bhv_click
+mds_strategy_feed_bhv_click_statistic,182,/user/weibo_bigdata_ds/warehouse/mds_strategy_feed_bhv_click_statistic
+mds_strategy_feed_bhv_click_temp,392.4 K,/user/weibo_bigdata_ds/warehouse/mds_strategy_feed_bhv_click_temp
+mds_strategy_feed_bhv_pubblog,2.1 M,/user/weibo_bigdata_ds/warehouse/mds_strategy_feed_bhv_pubblog
+mds_strategy_feed_bhv_pubblog_tudou,1.2 K,/user/weibo_bigdata_ds/warehouse/mds_strategy_feed_bhv_pubblog_tudou
+mds_strategy_feed_expo,156,/user/weibo_bigdata_ds/warehouse/mds_strategy_feed_expo
+mds_strategy_feed_free_high_read_log,848.8 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_feed_free_high_read_log
+mds_strategy_feed_interact,36.9 K,/user/weibo_bigdata_ds/warehouse/mds_strategy_feed_interact
+mds_strategy_feed_mid,2.2 K,/user/weibo_bigdata_ds/warehouse/mds_strategy_feed_mid
+mds_strategy_feed_mid_interact,1.7 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_feed_mid_interact
+mds_strategy_feed_mid_uid_weight,0,/user/weibo_bigdata_ds/warehouse/mds_strategy_feed_mid_uid_weight
+mds_strategy_feed_pub,3.4 K,/user/weibo_bigdata_ds/warehouse/mds_strategy_feed_pub
+mds_strategy_feed_pubcnt,5.9 K,/user/weibo_bigdata_ds/warehouse/mds_strategy_feed_pubcnt
+mds_strategy_feed_read,28.1 K,/user/weibo_bigdata_ds/warehouse/mds_strategy_feed_read
+mds_strategy_feed_statistic,40.0 K,/user/weibo_bigdata_ds/warehouse/mds_strategy_feed_statistic
+mds_strategy_feed_statistic_temp,342,/user/weibo_bigdata_ds/warehouse/mds_strategy_feed_statistic_temp
+mds_strategy_feed_tblog_iar,323.7 M,/user/weibo_bigdata_ds/warehouse/mds_strategy_feed_tblog_iar
+mds_strategy_feed_uid2mid_click,126.9 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_feed_uid2mid_click
+mds_strategy_feed_uid2uid_interact,731.3 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_feed_uid2uid_interact
+mds_strategy_feed_uid2uid_interact_30day,5.3 T,/user/weibo_bigdata_ds/warehouse/mds_strategy_feed_uid2uid_interact_30day
+mds_strategy_feed_uid2uid_interact_7day,2.2 T,/user/weibo_bigdata_ds/warehouse/mds_strategy_feed_uid2uid_interact_7day
+mds_strategy_feed_uid_mid_read_detail,0,/user/weibo_bigdata_ds/mds/mds_strategy_feed_uid_mid_read_detail
+mds_strategy_feed_uid_mid_read_detail_appid,730.4 M,/user/weibo_bigdata_ds/mds/mds_strategy_feed_uid_mid_read_detail_appid
+mds_strategy_feed_uid_mid_read_detail_expoandfwd,1.2 G,/user/weibo_bigdata_ds/mds/mds_strategy_feed_uid_mid_read_detail_expoandfwd
+mds_strategy_feed_uid_mid_read_detail_merge,2.7 G,/user/weibo_bigdata_ds/mds/mds_strategy_feed_uid_mid_read_detail_merge
+mds_strategy_feed_uid_mid_read_detail_metaread,0,/user/weibo_bigdata_ds/mds/mds_strategy_feed_uid_mid_read_detail_metaRead
+mds_strategy_feed_uid_weight_wanghong,7.4 K,/user/weibo_bigdata_ds/mds/mds_strategy_feed_uid_weight_wanghong
+mds_strategy_feed_uid_weight_whitelist,64,/user/weibo_bigdata_ds/mds/mds_strategy_feed_uid_weight_whitelist
+mds_strategy_feed_user,17.1 K,/user/weibo_bigdata_ds/warehouse/mds_strategy_feed_user
+mds_strategy_feed_user_history_interact_30day,604.2 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_feed_user_history_interact_30day
+mds_strategy_feed_user_history_interact_7day,36.7 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_feed_user_history_interact_7day
+mds_strategy_filtered_user_info,146.4 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_filtered_user_info
+mds_strategy_fixed_all,462.6 M,/user/weibo_bigdata_ds/warehouse/mds_strategy_fixed_all
+mds_strategy_lihan3_bhv_at,0,/user/weibo_bigdata_ds/warehouse/mds_strategy_lihan3_bhv_at
+mds_strategy_lihan3_bhv_at_r,0,/user/weibo_bigdata_ds/warehouse/mds_strategy_lihan3_bhv_at_r
+mds_strategy_lihan3_bhv_merge,9.2 T,/user/weibo_bigdata_ds/warehouse/mds_strategy_lihan3_bhv_merge
+mds_strategy_lihan3_bhv_merge_backward,161.8 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_lihan3_bhv_merge_backward
+mds_strategy_lihan3_bhv_merge_toward,973.4 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_lihan3_bhv_merge_toward
+mds_strategy_lihan3_bhv_pl,0,/user/weibo_bigdata_ds/warehouse/mds_strategy_lihan3_bhv_pl
+mds_strategy_lihan3_bhv_pl_r,1013.5 M,/user/weibo_bigdata_ds/warehouse/mds_strategy_lihan3_bhv_pl_r
+mds_strategy_lihan3_bhv_zan,0,/user/weibo_bigdata_ds/warehouse/mds_strategy_lihan3_bhv_zan
+mds_strategy_lihan3_bhv_zan_r,1.8 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_lihan3_bhv_zan_r
+mds_strategy_lihan3_bhv_zf,3.5 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_lihan3_bhv_zf
+mds_strategy_lihan3_bhv_zf_r,0,/user/weibo_bigdata_ds/warehouse/mds_strategy_lihan3_bhv_zf_r
+mds_strategy_lihan3_dfanslist,2.5 T,/user/weibo_bigdata_ds/warehouse/mds_strategy_lihan3_dfanslist
+mds_strategy_lihan3_expo_receive_dtl,212.6 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_lihan3_expo_receive_dtl
+mds_strategy_lihan3_gzlist_level,1.3 T,/user/weibo_bigdata_ds/warehouse/mds_strategy_lihan3_gzlist_level
+mds_strategy_lihan3_hf_level,101.8 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_lihan3_hf_level
+mds_strategy_lihan3_history_interact_dtl,9.6 T,/user/weibo_bigdata_ds/warehouse/mds_strategy_lihan3_history_interact_dtl
+mds_strategy_lihan3_history_interact_dtl_new,1.7 T,/user/weibo_bigdata_ds/warehouse/mds_strategy_lihan3_history_interact_dtl_new
+mds_strategy_lihan3_interact_receive_dtl,3.3 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_lihan3_interact_receive_dtl
+mds_strategy_lihan3_rel,14.7 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_lihan3_rel
+mds_strategy_lihan3_rel_r,2.5 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_lihan3_rel_r
+mds_strategy_lihan3_table,87.2 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_lihan3_table
+mds_strategy_personal_feed_mid,3.9 T,/user/weibo_bigdata_ds/warehouse/mds_strategy_personal_feed_mid
+mds_strategy_personal_feed_uid,33.9 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_personal_feed_uid
+mds_strategy_personal_feed_uid_mid,0,/user/weibo_bigdata_ds/warehouse/mds_strategy_personal_feed_uid_mid
+mds_strategy_personal_feed_uid_mysql,578.8 M,/user/weibo_bigdata_ds/warehouse/mds_strategy_personal_feed_uid_mysql
+mds_strategy_personal_feed_uid_uid,28.7 T,/user/weibo_bigdata_ds/warehouse/mds_strategy_personal_feed_uid_uid
+mds_strategy_personal_feed_uid_uid_forapi,308.2 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_personal_feed_uid_uid_forapi
+mds_strategy_personal_feed_uid_uid_mysql,25.5 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_personal_feed_uid_uid_mysql
+mds_strategy_personal_feed_uid_uid_status,9.4 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_personal_feed_uid_uid_status
+mds_strategy_receive_remove_info,0,/user/weibo_bigdata_ds/warehouse/mds_strategy_receive_remove_info
+mds_strategy_report_filter_receive_data,115.9 K,/user/weibo_bigdata_ds/warehouse/mds_strategy_report_filter_receive_data
+mds_strategy_report_filter_receive_data_20160831,du: `/user/weibo_bigdata_ds/wulei3/mds_strategy_report_filter_receive_data_20160831': No such file or directory,du: `/user/weibo_bigdata_ds/wulei3/mds_strategy_report_filter_receive_data_20160831': No such file or directory
+mds_strategy_report_filter_send_data,111.8 K,/user/weibo_bigdata_ds/warehouse/mds_strategy_report_filter_send_data
+mds_strategy_send_expo_info,548.8 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_send_expo_info
+mds_strategy_send_remove_info,0,/user/weibo_bigdata_ds/warehouse/mds_strategy_send_remove_info
+mds_strategy_transmit_fixed,2.7 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_transmit_fixed
+mds_strategy_user_expo_interact_datasys,719.9 M,/user/weibo_bigdata_ds/warehouse/mds_strategy_user_expo_interact_datasys
+mds_strategy_user_expo_interact_guobao_test,15.5 K,/user/weibo_bigdata_ds/warehouse/mds_strategy_user_expo_interact_guobao_test
+mds_strategy_user_expo_interact_relationship_datasy,1.2 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_user_expo_interact_relationship_datasy
+mds_strategy_user_expo_interact_relationship_datasy_review,481.0 M,/user/weibo_bigdata_ds/warehouse/mds_strategy_user_expo_interact_relationship_datasy_review
+mds_strategy_user_expo_interact_relationship_datasys,0,/user/weibo_bigdata_ds/warehouse/mds_strategy_user_expo_interact_relationship_datasys
+mds_strategy_user_interact,11.3 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_user_interact
+mds_strategy_user_interact_3d,6.0 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_user_interact_3d
+mds_strategy_user_interact_3d_v1,5.4 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_user_interact_3d_v1
+mds_strategy_user_interact_all_intimacy_relatinship,2.5 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_user_interact_all_intimacy_relatinship
+mds_strategy_user_interact_all_intimacy_relationship_3d,8.7 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_user_interact_all_intimacy_relationship_3d
+mds_strategy_user_interact_all_intimacy_relationship_3d_datasys,4.1 M,/user/weibo_bigdata_ds/warehouse/mds_strategy_user_interact_all_intimacy_relationship_3d_datasys
+mds_strategy_user_interact_all_intimacy_relationship_attend_3d,8.7 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_user_interact_all_intimacy_relationship_attend_3d
+mds_strategy_user_interact_all_intimacy_relationship_datasys,1.3 M,/user/weibo_bigdata_ds/warehouse/mds_strategy_user_interact_all_intimacy_relationship_datasys
+mds_strategy_user_interact_intimacy,1.9 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_user_interact_intimacy
+mds_strategy_user_interact_intimacy_3d,7.0 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_user_interact_intimacy_3d
+mds_strategy_user_interact_intimacy_follow,2.0 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_user_interact_intimacy_follow
+mds_strategy_user_interact_intimacy_follow_3d,7.3 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_user_interact_intimacy_follow_3d
+mds_strategy_user_interact_intimacy_relatinship,2.2 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_user_interact_intimacy_relatinship
+mds_strategy_user_interact_intimacy_relationship_3d,7.6 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_user_interact_intimacy_relationship_3d
+mds_strategy_user_interact_intimacy_relationship_3d_v1,7.1 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_user_interact_intimacy_relationship_3d_v1
+mds_strategy_user_interact_relationship_3d,9.2 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_user_interact_relationship_3d
+mds_strategy_user_interact_relationship_3d_datasys,3.9 M,/user/weibo_bigdata_ds/warehouse/mds_strategy_user_interact_relationship_3d_datasys
+mds_strategy_user_interact_relationship_datasys,10.7 M,/user/weibo_bigdata_ds/warehouse/mds_strategy_user_interact_relationship_datasys
+mds_strategy_user_interact_relationship_tmp,29.3 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_user_interact_relationship_tmp
+mds_strategy_user_interact_total_sum,899.4 M,/user/weibo_bigdata_ds/warehouse/mds_strategy_user_interact_total_sum
+mds_strategy_user_intimacy_attend_tmp,21.6 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_user_intimacy_attend_tmp
+mds_strategy_user_intract_relation,23.9 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_user_intract_relation
+mds_strategy_user_intract_relationship_2days_tmp,44.9 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_user_intract_relationship_2days_tmp
+mds_strategy_user_intract_relationship_3days_tmp,65.7 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_user_intract_relationship_3days_tmp
+mds_strategy_weight_evaluate,31.3 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_weight_evaluate
+mds_strategy_weight_evaluate_boost,141.9 M,/user/weibo_bigdata_ds/warehouse/mds_strategy_weight_evaluate_boost
+mds_strategy_weight_evaluate_uid,18.5 G,/user/weibo_bigdata_ds/warehouse/mds_strategy_weight_evaluate_uid
+mds_tblog_article_cont_tag,8.0 T,/dw/mds/mds_tblog_article_cont_tag
+mds_tblog_cont_tag,16.2 T,/dw/mds/mds_tblog_cont_tag
+mds_tblog_cont_tag_day,3.1 T,/dw/mds/mds_tblog_cont_tag_day
+mds_tblog_expo_dtl,217.7 T,/dw/mds/mds_tblog_expo_dtl
+mds_tblog_expo_dtl_254,42.4 T,/dw/mds/mds_tblog_expo_dtl_254
+mds_tblog_expo_dtl_254_owner,759.9 G,/dw_ext/weibo_bigdata_ds/mds/mds_tblog_expo_dtl_254_owner
+mds_tblog_expo_dtl_255,263.2 G,/user/weibo_bigdata_ds/wulei3/mds_tblog_expo_dtl_255.txt
+mds_tblog_expo_dtl_feed,14.6 T,/user/weibo_bigdata_ds/warehouse/mds_tblog_expo_dtl_feed
+mds_tblog_expo_user_day,4.0 T,/dw/mds/mds_tblog_expo_user_day
+mds_tblog_long_content,12.9 T,/result/sinadata/dw/mds/mds_tblog_long_content
+mds_tblog_read_dtl,45.0 T,/dw/mds/mds_tblog_read_dtl
+mds_tblog_read_mid_day,15.2 T,/dw/mds/mds_tblog_read_mid_day
+mds_tblog_video_cont_tag,548.3 G,/dw/mds/mds_tblog_video_cont_tag
+mds_uid2uid_click_profile_pc,3.7 G,/user/weibo_bigdata_ds/warehouse/mds_uid2uid_click_profile_pc
+mds_uid2uid_interact_change,4.0 G,/user/weibo_bigdata_ds/warehouse/mds_uid2uid_interact_change
+mds_uid2uid_interact_change_sd,4.0 G,/user/weibo_bigdata_ds/warehouse/mds_uid2uid_interact_change_sd
+mds_uid2uid_interact_with_clickprofile,98.8 M,/user/weibo_bigdata_ds/warehouse/mds_uid2uid_interact_with_clickprofile
+mds_uid2uid_interact_with_clickprofile_dis,54.0 M,/user/weibo_bigdata_ds/warehouse/mds_uid2uid_interact_with_clickprofile_dis
+mds_uid2uid_interact_with_clickprofile_dis_sd,68.5 M,/user/weibo_bigdata_ds/warehouse/mds_uid2uid_interact_with_clickprofile_dis_sd
+mds_uid2uid_profile_from_myfollow,181.0 M,/user/weibo_bigdata_ds/warehouse/mds_uid2uid_profile_from_myfollow
+mds_uid2uid_specialgroup,575.0 G,/user/weibo_bigdata_ds/warehouse/mds_uid2uid_specialgroup
+mds_uid_recv_list,2.2 G,/user/weibo_bigdata_ds/warehouse/mds_uid_recv_list
+mds_uid_uid_intimacy,25.4 T,/user/weibo_bigdata_ds/warehouse/mds_uid_uid_intimacy
+mds_unread_back_fresh_expo_info,52.7 M,/user/weibo_bigdata_ds/warehouse/mds_unread_back_fresh_expo_info
+mds_unread_back_fresh_expo_info_detail,178.6 M,/user/weibo_bigdata_ds/warehouse/mds_unread_back_fresh_expo_info_detail
+mds_unread_pool_refresh,23.1 M,/user/weibo_bigdata_ds/warehouse/mds_unread_pool_refresh
+mds_unread_pool_weight_read_ratio,6.7 G,/user/weibo_bigdata_ds/warehouse/mds_unread_pool_weight_read_ratio
+mds_unread_weight_read_ratio,560.2 M,/user/weibo_bigdata_ds/warehouse/mds_unread_weight_read_ratio
+mds_uquality_user_class,216.0 G,/dw_ext/weibo_data/anti/mds/mds_uquality_user_class
+mds_user_ability_category,908.7 M,/dw/mds/mds_user_ability_category
+mds_user_ability_obj,638.3 M,/dw/mds/mds_user_ability_obj
+mds_user_ability_tag,871.7 M,/dw/mds/mds_user_ability_tag
+mds_user_active_day,693.9 G,/dw/mds/mds_user_active_day
+mds_user_active_month,59.3 G,/dw/mds/mds_user_active_month
+mds_user_expo_guobao_test,15.5 K,/user/weibo_bigdata_ds/warehouse/mds_user_expo_guobao_test
+mds_user_fanslist,-du: java.net.URISyntaxException: Relative path in absolute URI: location:null,-du: java.net.URISyntaxException: Relative path in absolute URI: location:null
+mds_user_growth_model_under_clocking,2.0 T,/user/wb_wls_data/warehouse/mds_user_growth_model_under_clocking
+mds_user_info,69.8 T,/dw/mds/mds_user_info
+mds_user_inte_category,237.9 G,/dw/mds/mds_user_inte_category
+mds_user_inte_obj,7.1 T,/dw/mds/mds_user_inte_obj
+mds_user_inte_tag,552.0 G,/dw/mds/mds_user_inte_tag
+mds_user_inte_tag_vector,54.3 G,/user/weibo_bigdata_ds/warehouse/mds_user_inte_tag_vector
+mds_user_interact_intimacy_2days_tmp,42.5 G,/user/weibo_bigdata_ds/warehouse/mds_user_interact_intimacy_2days_tmp
+mds_user_interact_intimacy_3days_tmp,62.2 G,/user/weibo_bigdata_ds/warehouse/mds_user_interact_intimacy_3days_tmp
+mds_user_reciplist,8.6 T,/dw/mds/mds_user_reciplist
+mds_user_refresh_block,144.6 G,/user/weibo_bigdata_ds/warehouse/mds_user_refresh_block
+mds_user_relation_sum,9.7 T,/dw/mds/mds_user_relation_sum
+mds_user_type_strategy,476.0 M,/dw/mds/mds_user_type_strategy
+mds_view_ods_tblog_real_read,422.2 G,/user/weibo_bigdata_ds/warehouse/mds_view_ods_tblog_real_read
+mds_wls_device_uid_mapping,54.4 T,/dw_ext/wls/weibo_imei/mds_wls_device_uid_mapping
+mds_wls_device_uid_mapping_all,26.0 T,/dw/mds/mds_wls_device_uid_mapping_all
+mds_wls_device_uid_mapping_month,74.6 G,/dw/mds/mds_wls_device_uid_mapping_month
+mds_wls_encode_bhv,121.4 T,/dw/mds/mds_wls_encode_bhv
+mds_wls_url_uid_ip_mapping_hour,7.0 T,/dw/mds/mds_wls_url_uid_ip_mapping_hour
+mid_ctr_predict_log,0,/user/weibo_bigdata_ds/warehouse/mid_ctr_predict_log
+mid_dynamic_sampling,82.3 M,/user/weibo_bigdata_ds/warehouse/mid_dynamic_sampling
+mid_expo_union,595.3 G,/user/weibo_bigdata_ds/warehouse/mid_expo_union
+mid_expo_with_group_order,0,/user/weibo_bigdata_ds/warehouse/mid_expo_with_group_order
+mid_uid_expotime_20160916,du: `/user/weibo_bigdata_ds/wulei3/mid_uid_expotime_20160916.txt': No such file or directory,du: `/user/weibo_bigdata_ds/wulei3/mid_uid_expotime_20160916.txt': No such file or directory
+mid_uid_expotime_irate_weight_read,0,/user/weibo_bigdata_ds/wulei3/mid_uid_expotime_irate_weight_read.txt
+mid_uid_expotime_irate_weight_unread,0,/user/weibo_bigdata_ds/wulei3/mid_uid_expotime_irate_weight_unread.txt
+mid_uid_expotime_read,965.2 M,/user/weibo_bigdata_ds/wulei3/mid_uid_expotime_read.txt
+mid_uid_expotime_unread,30.5 G,/user/weibo_bigdata_ds/wulei3/mid_uid_expotime_unread.txt
+mid_uid_personal_weights,du: `/user/weibo_bigdata_ds/wulei3/mid_uid_personal_weights.txt': No such file or directory,du: `/user/weibo_bigdata_ds/wulei3/mid_uid_personal_weights.txt': No such file or directory
+mid_uid_personal_weights_date,11.1 G,/user/weibo_bigdata_ds/wulei3/mid_uid_personal_weights_date.txt
+mid_uid_personal_weights_norm,du: `/user/weibo_bigdata_ds/wulei3/mid_uid_personal_weights_norm.txt': No such file or directory,du: `/user/weibo_bigdata_ds/wulei3/mid_uid_personal_weights_norm.txt': No such file or directory
+mid_weight_dynamic_final,13.0 M,/user/weibo_bigdata_ds/warehouse/mid_weight_dynamic_final
+mid_weight_dynamic_format,3.7 G,/user/weibo_bigdata_ds/warehouse/mid_weight_dynamic_format
+mid_weight_dynamic_log,0,/user/weibo_bigdata_ds/warehouse/mid_weight_dynamic_log
+mid_weight_dynamic_log_20151101,22.4 M,/user/weibo_bigdata_ds/warehouse/mid_weight_dynamic_log_20151101
+mid_weight_static_log,0,/user/weibo_bigdata_ds/warehouse/mid_weight_static_log
+mids27_24_chunhua1,4.8 M,/user/weibo_bigdata_ds/warehouse/mids27_24_chunhua1
+mids_adv_tag,700.7 G,/user/weibo_bigdata_ds/lixing/mids_adv_tag
+mids_feed_feature_v2_huayang,31.5 G,/user/weibo_bigdata_ds/warehouse/mids_feed_feature_v2_huayang
+mids_strategy_feed_adv_tag,976.4 G,/user/weibo_bigdata_ds/warehouse/mids_strategy_feed_adv_tag
+mids_strategy_feed_adv_tag_v2,152.5 G,/user/weibo_bigdata_ds/warehouse/mids_strategy_feed_adv_tag_v2
+ml_feature_analysis_online,28.4 M,/user/weibo_bigdata_ds/zhangshu5/hive/ml_feature_analysis_online
+ml_static_display_cnt,427,/user/weibo_bigdata_ds/warehouse/ml_static_display_cnt
+namelist_adv,19.5 K,/user/weibo_bigdata_ds/warehouse/namelist_adv
+namelist_adv_govn,1.8 K,/user/weibo_bigdata_ds/warehouse/namelist_adv_govn
+namelist_adv_media,17.6 K,/user/weibo_bigdata_ds/warehouse/namelist_adv_media
+new_weight,3.4 G,/user/weibo_bigdata_ds/warehouse/new_weight
+new_weight_2,3.5 G,/user/weibo_bigdata_ds/warehouse/new_weight_2
+newfortest,420.1 G,/user/weibo_bigdata_ds/warehouse/newfortest
+newuser_feedback_result,0,/user/weibo_bigdata_ds/warehouse/newuser_feedback_result
+newuser_interact_feedback_result,0,/user/weibo_bigdata_ds/warehouse/newuser_interact_feedback_result
+ocr_log_info,66.6 G,/user/weibo_bigdata_ds/warehouse/ocr_log_info
+ocr_ninepic_mid,1.3 M,/user/weibo_bigdata_ds/warehouse/ocr_ninepic_mid
+ocr_pids_info,49.3 M,/user/weibo_bigdata_ds/warehouse/ocr_pids_info
+ods_anti_sass_log,26.5 T,/dw/ods/ods_anti_sass_log
+ods_apache_weibo,40.7 T,/dw/ods/ods_apache_weibo
+ods_apache_weibo_monitor_table,51.5 G,/user/weibo_bigdata_ds/warehouse/ods_apache_weibo_monitor_table
+ods_bas_user_interact_score_dtl,13.1 T,/dw/ods/ods_bas_user_interact_score_dtl
+ods_bhv_fanlaji_controlrate,36.7 G,/dw/ods/ods_bhv_fanlaji_controlrate
+ods_bhv_media,5.2 G,/dw/ods/ods_bhv_media
+ods_bhv_tblog,103.8 T,/dw/ods/ods_bhv_tblog
+ods_dim_appkey,773.8 G,/dw/ods/ods_dim_appkey
+ods_dim_area,67.3 K,/dw/ods/ods_dim_area
+ods_dim_content_uid,498.4 K,/dw/ods/ods_dim_content_uid
+ods_dim_inte_category_tag,221.5 K,/dw/ods/ods_dim_inte_category_tag
+ods_dim_tblog_category_ability,55.1 K,/dw/ods/ods_dim_tblog_category_ability
+ods_dim_tblog_obj_info,457.1 M,/dw/ods/ods_dim_tblog_obj_info
+ods_dim_tblog_object_ability,441.2 M,/dw/ods/ods_dim_tblog_object_ability
+ods_dim_tblog_object_category,849.6 M,/dw/ods/ods_dim_tblog_object_category
+ods_dim_tblog_object_info,1.1 G,/dw/ods/ods_dim_tblog_object_info
+ods_dim_user_status,38,/dw/ods/ods_dim_user_status
+ods_dm_darwin_tblog_ad,511.0 G,/dm/ods/ods_dm_darwin_tblog_ad
+ods_plat_api_control_strategy_log,40.0 T,/dw/ods/ods_plat_api_control_strategy_log
+ods_plat_api_dealed,133.7 T,/dw/ods/ods_plat_api_dealed
+ods_plat_api_orig,28.7 T,/dw/ods/ods_plat_api_orig
+ods_plat_api_orig_monitor_table,1.4 T,/user/weibo_bigdata_ds/warehouse/ods_plat_api_orig_monitor_table
+ods_prod_hao_user_info,121.3 G,/dw/ods/ods_prod_hao_user_info
+ods_suda_uatrack_log_weibo,0,/user/suda_etl/warehouse/ods_suda_uatrack_log_weibo
+ods_tblog_client_read_log,14.3 T,/dw/ods/ods_tblog_client_read_log
+ods_tblog_cmt_content,1.9 T,/dw/ods/ods_tblog_cmt_content
+ods_tblog_content,19.8 T,/dw/ods/ods_tblog_content
+ods_tblog_expo,253.5 T,/dw/ods/ods_tblog_expo
+ods_tblog_expo_254,285.3 G,/dw_ext/weibo_bigdata_ds/mds/ods_tblog_expo_254
+ods_tblog_expo_hour,6.7 T,/dw/ods/ods_tblog_expo_hour
+ods_tblog_hotmblog_exposure_storage,51.5 T,/dw/ods/ods_tblog_hotmblog_exposure_storage
+ods_tblog_read_log,96.8 T,/dw/ods/ods_tblog_read_log
+ods_tblog_read_num,183.4 T,/dw/ods/ods_tblog_read_num
+ods_tblog_real_read,114.0 G,/dw/ods/ods_tblog_real_read_log
+ods_user_base_info,77.5 T,/dw/ods/ods_user_base_info
+ods_user_fanslist,12.1 T,/dw/ods/ods_user_fanslist
+ods_user_group_info,32.1 T,/dw/ods/ods_user_group_info
+ods_user_group_member_info,12.2 T,/dw/ods/ods_user_group_member_info
+ods_user_v_info,336.6 G,/dw/ods/ods_user_v_info
+ods_user_v_info_ex,383.0 G,/dw/ods/ods_user_v_info_ex
+ods_wls_encode_bhv,431.9 T,/dw/ods/ods_wls_encode_bhv
+ods_wls_login,119.7 T,/dw/ods/ods_wls_login
+ods_wls_search_log,32.9 G,/dw/ods/ods_wls_search_log
+ods_wls_wap_base,92.3 T,/dw/ods/ods_wls_wap_base
+ods_wls_wap_base_monitor_table,14.6 G,/user/weibo_bigdata_ds/warehouse/ods_wls_wap_base_monitor_table
+ods_wls_wap_base_urlfilter_table,165.0 G,/user/weibo_bigdata_ds/warehouse/ods_wls_wap_base_urlfilter_table
+offline_user_feature_sync,1.1 T,/user/weibo_bigdata_ds/warehouse/offline_user_feature_sync
+ols_object_click_log,829.1 G,/dw_ext/weibo_bigdata_ds/sourcedata/ols_object_click_log
+people_attack_word,2.6 K,/user/weibo_bigdata_ds/warehouse/people_attack_word
+personalized_rank_train_data,0,/user/weibo_bigdata_ds/warehouse/personalized_rank_train_data
+pr_statistics,du: `/user/weibo_bigdata_ds/wulei3/result/lt-1k-pr-result.hive': No such file or directory,du: `/user/weibo_bigdata_ds/wulei3/result/lt-1k-pr-result.hive': No such file or directory
+predict_foryanhui_mid,1.7 G,/user/weibo_bigdata_vf/warehouse/predict_foryanhui_mid
+privds_ctr_predict_features_dict,167.5 K,/user/weibo_bigdata_ds/dejian/privds_ctr_predict_features_dict
+privds_ctr_predict_features_dict_name,112.5 K,/user/weibo_bigdata_ds/warehouse/privds_ctr_predict_features_dict_name
+privds_ctr_predict_instances,416.0 G,/user/weibo_bigdata_ds/dejian/privds_ctr_predict_instances
+privds_ctr_predict_instances_vec,464.4 G,/user/weibo_bigdata_ds/dejian/privds_ctr_predict_instances_vec
+privds_ctr_predict_instances_vec_trail,362.5 G,/user/weibo_bigdata_ds/dejian/privds_ctr_predict_instances_vec_trail
+privds_hot_uquality,1.4 G,/user/weibo_bigdata_ds/warehouse/privds_hot_uquality
+privds_hotmb_trail_hour_0702_7days,14.2 M,/user/weibo_bigdata_ds/warehouse/privds_hotmb_trail_hour_0702_7days
+privds_hotmb_voters,51.5 M,/user/weibo_bigdata_ds/warehouse/privds_hotmb_voters
+real_read_model_train_chunhua,du: `real_read_model_train_chunhua': No such file or directory,du: `real_read_model_train_chunhua': No such file or directory
+result_extract_test,1.3 K,/user/weibo_bigdata_ds/warehouse/result_extract_test
+result_test,2.7 K,/user/weibo_bigdata_ds/warehouse/result_test
+seeduid,825,/user/weibo_bigdata_ds/warehouse/seeduid
+spark_predict_label,40.1 M,/user/weibo_bigdata_ds/daoguang1/NoTimePredictResultLabel
+spider_ipuid_table,26.5 K,/user/weibo_bigdata_ds/warehouse/spider_ipuid_table
+spider_uid_table,18.6 K,/user/weibo_bigdata_ds/xiulong/uids
+star_fansnum,du: `/user/weibo_bigdata_ds/wulei3/star_fansNum': No such file or directory,du: `/user/weibo_bigdata_ds/wulei3/star_fansNum': No such file or directory
+strategy_case,14.6 M,/user/weibo_bigdata_ds/warehouse/strategy_case
+strategy_case_uid,8.3 K,/user/weibo_bigdata_ds/warehouse/strategy_case_uid
+strategy_ods_tblog_expo_detail,321.7 G,/user/weibo_bigdata_ds/warehouse/strategy_ods_tblog_expo_detail
+surrounding_hot_expose_log,72.0 G,/user/weibo_bigdata_ds/warehouse/surronding_city/surrounding_hot_expose_log_data
+surrounding_hot_input_table,13.8 G,/user/weibo_bigdata_ds/warehouse/surronding_city/surrounding_hot_input_table_data
+table_like_cnt,0,/user/weibo_bigdata_ds/warehouse/table_like_cnt
+tblog_like_cnt,228.6 G,/user/weibo_bigdata_ds/warehouse/tblog_like_cnt
+tblog_like_cnt_1,228.6 G,/user/weibo_bigdata_ds/warehouse/tblog_like_cnt_1
+temp_6_ods_tblog_expo_guoxing,0,/dw/ods/temp/temp_6_ods_tblog_expo_guoxing
+temp_adv_blue_v,419.2 M,/user/weibo_bigdata_ds/lixing/temp_adv_blue_v
+temp_adv_common,10.3 M,/user/weibo_bigdata_ds/lixing/temp_adv_common
+temp_appid,1.9 K,/user/weibo_bigdata_ds/warehouse/temp_appid
+temp_attack_report,28.8 K,/user/weibo_bigdata_ds/warehouse/temp_attack_report
+temp_strategy_mid_chunhua1,509.2 M,/user/weibo_bigdata_ds/warehouse/temp_strategy_mid_chunhua1
+test_guobao,110,/user/weibo_bigdata_ds/warehouse/test_guobao
+test_hive_wuxian,3.1 K,/user/weibo_bigdata_ds/warehouse/test_hive_wuxian
+test_udf,32,/dw_ext/weibo_bigdata_ds/mds/test_udf
+testmiddle,3.7 T,/user/weibo_bigdata_ds/warehouse/testmiddle
+tmp_41891_mid,1.6 K,/user/weibo_bigdata_ds/warehouse/tmp_41891_mid
+tmp_adv_level_by_user_type,321.2 M,/user/weibo_bigdata_ds/warehouse/tmp_adv_level_by_user_type
+tmp_adv_level_by_user_type_expo,1.0 M,/user/weibo_bigdata_ds/warehouse/tmp_adv_level_by_user_type_expo
+tmp_adv_level_by_user_type_info,438.8 M,/user/weibo_bigdata_ds/warehouse/tmp_adv_level_by_user_type_info
+tmp_app_control,188.9 K,/user/weibo_bigdata_ds/warehouse/tmp_app_control
+tmp_app_control_test,192,/user/weibo_bigdata_ds/warehouse/tmp_app_control_test
+tmp_app_new,203.6 K,/user/weibo_bigdata_ds/warehouse/tmp_app_new
+tmp_app_new_conrate,3.9 K,/user/weibo_bigdata_ds/warehouse/tmp_app_new_conrate
+tmp_app_old,204.8 K,/user/weibo_bigdata_ds/warehouse/tmp_app_old
+tmp_app_white,7.6 K,/user/weibo_bigdata_ds/warehouse/tmp_app_white
+tmp_appid_interact_rate,1.5 G,/user/weibo_bigdata_ds/warehouse/tmp_appid_interact_rate
+tmp_appid_interact_rate_with_spam,1.6 G,/user/weibo_bigdata_ds/warehouse/tmp_appid_interact_rate_with_spam
+tmp_appid_list,2.7 K,/user/weibo_bigdata_ds/warehouse/tmp_appid_list
+tmp_best_interact_rate,219.3 M,/user/weibo_bigdata_ds/warehouse/tmp_best_interact_rate
+tmp_c1_mid,480.1 K,/user/weibo_bigdata_ds/warehouse/tmp_c1_mid
+tmp_case_mid,314.3 K,/user/weibo_bigdata_ds/warehouse/tmp_case_mid
+tmp_case_mid_2891529877,35.8 K,/user/weibo_bigdata_ds/warehouse/tmp_case_mid_2891529877
+tmp_case_mid_daoguang1,104.7 K,/user/weibo_bigdata_ds/warehouse/tmp_case_mid_daoguang1
+tmp_case_uid,594,/user/weibo_bigdata_ds/warehouse/tmp_case_uid
+tmp_clevel_uid,3.6 M,/user/weibo_bigdata_ds/warehouse/tmp_clevel_uid
+tmp_ctr_feature,85.3 G,/user/weibo_bigdata_ds/warehouse/tmp_ctr_feature
+tmp_ctr_feature_all,127.3 M,/user/weibo_bigdata_ds/warehouse/tmp_ctr_feature_all
+tmp_ctr_feature_interactrate,2.2 G,/user/weibo_bigdata_ds/warehouse/tmp_ctr_feature_interactrate
+tmp_datastrategy_anticrawler_case_ip_uid_pc_detail,1.0 T,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_anticrawler_case_ip_uid_pc_detail
+tmp_datastrategy_anticrawler_case_pc_detail,237.8 G,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_anticrawler_case_pc_detail
+tmp_datastrategy_anticrawler_case_pc_detail_hour,0,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_anticrawler_case_pc_detail_hour
+tmp_datastrategy_ctrl_trealtime_mids,12.6 M,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_ctrl_trealtime_mids
+tmp_datastrategy_fangzhua_case_appkey,130,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_fangzhua_case_appkey
+tmp_datastrategy_fangzhua_case_appkey_detail,1.9 M,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_fangzhua_case_appkey_detail
+tmp_datastrategy_fangzhua_case_detail,31.4 M,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_fangzhua_case_detail
+tmp_datastrategy_fangzhua_case_detail_1,31.4 M,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_fangzhua_case_detail_1
+tmp_datastrategy_fangzhua_case_detail_2,6.7 M,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_fangzhua_case_detail_2
+tmp_datastrategy_feed_spam_mid,26.4 M,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_feed_spam_mid
+tmp_datastrategy_feed_spam_rt_mid,2.6 K,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_feed_spam_rt_mid
+tmp_datastrategy_feed_spam_stat,131.1 M,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_feed_spam_stat
+tmp_datastrategy_feed_spam_uid,1.0 M,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_feed_spam_uid
+tmp_datastrategy_gf_expo_dtl,564.2 G,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_gf_expo_dtl
+tmp_datastrategy_gf_fans_cnt,16.2 G,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_gf_fans_cnt
+tmp_datastrategy_gf_middle_expo_dtl,549.0 G,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_gf_middle_expo_dtl
+tmp_datastrategy_haixia10_action_2_weight,86.8 G,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_haixia10_action_2_weight
+tmp_datastrategy_haixia10_action_2_weight_seeduser,23.4 M,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_haixia10_action_2_weight_seeduser
+tmp_datastrategy_haixia10_action_validity,du: `/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_haixia10_action_validity': No such file or directory,du: `/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_haixia10_action_validity': No such file or directory
+tmp_datastrategy_haixia10_action_validity_0_5,32.1 G,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_haixia10_action_validity_0_5
+tmp_datastrategy_haixia10_action_validity_1_0,32.1 G,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_haixia10_action_validity_1_0
+tmp_datastrategy_haixia10_action_validity_1_5,32.1 G,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_haixia10_action_validity_1_5
+tmp_datastrategy_haixia10_action_validity_2_0,32.3 G,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_haixia10_action_validity_2_0
+tmp_datastrategy_haixia10_action_validity_3_0,32.4 G,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_haixia10_action_validity_3_0
+tmp_datastrategy_haixia10_action_validity_4_0,32.5 G,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_haixia10_action_validity_4_0
+tmp_datastrategy_haixia10_action_validity_hb,29.9 G,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_haixia10_action_validity_hb
+tmp_datastrategy_haixia10_action_validity_hb_3,30.6 G,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_haixia10_action_validity_hb_3
+tmp_datastrategy_haixia10_action_validity_seeduser,5.1 G,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_haixia10_action_validity_seeduser
+tmp_datastrategy_haixia10_cattimes,1.2 K,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_haixia10_cattimes
+tmp_datastrategy_haixia10_filter_threshold,711.6 G,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_haixia10_filter_threshold
+tmp_datastrategy_haixia10_filter_threshold_seeduser,264.3 M,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_haixia10_filter_threshold_seeduser
+tmp_datastrategy_haixia10_interact,150.2 G,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_haixia10_interact
+tmp_datastrategy_haixia10_interact_seeduser,27.5 M,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_haixia10_interact_seeduser
+tmp_datastrategy_haixia10_interact_times_seeduser,310.4 M,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_haixia10_interact_times_seeduser
+tmp_datastrategy_haixia10_mapping,267.3 G,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_haixia10_mapping
+tmp_datastrategy_haixia10_processed_action_weight,1.9 T,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_haixia10_processed_action_weight
+tmp_datastrategy_haixia10_processed_action_weight_seeduser,691.9 M,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_haixia10_processed_action_weight_seeduser
+tmp_datastrategy_haixia10_time_attenuation,11.7 T,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_haixia10_time_attenuation
+tmp_datastrategy_haixia10_time_attenuation_hb,36.3 G,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_haixia10_time_attenuation_hb
+tmp_datastrategy_haixia10_time_attenuation_hb_3,36.3 G,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_haixia10_time_attenuation_hb_3
+tmp_datastrategy_haixia10_time_attenuation_seeduser,7.1 G,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_haixia10_time_attenuation_seeduser
+tmp_datastrategy_haixia10_tweet_category,52.5 G,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_haixia10_tweet_category
+tmp_datastrategy_haixia10_tweet_cattimes,1.1 K,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_haixia10_tweet_cattimes
+tmp_datastrategy_huimin6_spam_uid,68.6 K,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_huimin6_spam_uid
+tmp_datastrategy_huimin6_spam_uid_sample,1.7 M,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_huimin6_spam_uid_sample
+tmp_datastrategy_jinyuan1_tag_rate,19.0 K,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_jinyuan1_tag_rate
+tmp_datastrategy_lihan3_ctr_uid,859.4 K,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_lihan3_ctr_uid
+tmp_datastrategy_lihan3_ctrl_mid,199.2 K,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_lihan3_ctrl_mid
+tmp_datastrategy_receive_list,403,/user/weibo_bigdata_ds/warehouse/tmp_datastrategy_receive_list
+tmp_distribution_log,166.2 M,/user/weibo_bigdata_ds/warehouse/tmp_distribution_log
+tmp_double11_table,7.0 M,/user/weibo_bigdata_ds/warehouse/tmp_double11_table
+tmp_feed_datastartegy_uid_flollow_page,33.0 M,/user/weibo_bigdata_ds/warehouse/tmp_feed_datastartegy_uid_flollow_page
+tmp_feed_feature_firehose0,0,/user/weibo_bigdata_ds/warehouse/tmp_feed_feature_firehose0
+tmp_feed_free_high_read_add,10.8 M,/user/weibo_bigdata_ds/warehouse/tmp_feed_free_high_read_add
+tmp_feed_free_high_read_del,7.9 M,/user/weibo_bigdata_ds/warehouse/tmp_feed_free_high_read_del
+tmp_front_uid,0,/user/weibo_bigdata_ds/warehouse/tmp_front_uid
+tmp_guoxu1_surrounding_hot_expose_log,168.5 G,/user/weibo_bigdata_ds/warehouse/tmp_guoxu1_surrounding_hot_expose_log
+tmp_guoxu1_surrounding_hot_input_table,20.2 G,/user/weibo_bigdata_ds/warehouse/tmp_guoxu1_surrounding_hot_input_table
+tmp_guoxu1_surrounding_hot_input_table_4_lr2,0,/user/weibo_bigdata_ds/warehouse/tmp_guoxu1_surrounding_hot_input_table_4_lr2
+tmp_haixia10_avg_interest_rate,939.7 K,/user/weibo_bigdata_ds/warehouse/tmp_haixia10_avg_interest_rate
+tmp_haixia10_calculate,0,/user/weibo_bigdata_ds/warehouse/tmp_haixia10_calculate
+tmp_haixia10_cast,109.5 M,/user/weibo_bigdata_ds/warehouse/tmp_haixia10_cast
+tmp_haixia10_expo_order,109.5 M,/user/weibo_bigdata_ds/warehouse/tmp_haixia10_expo_order
+tmp_haixia10_interact_degree,449.2 K,/user/weibo_bigdata_ds/warehouse/tmp_haixia10_interact_degree
+tmp_haixia10_interact_order,109.5 M,/user/weibo_bigdata_ds/warehouse/tmp_haixia10_interact_order
+tmp_hongbao_remove_log,1.4 M,/user/weibo_bigdata_ds/warehouse/tmp_hongbao_remove_log
+tmp_hotintimacy,14.7 G,/user/weibo_bigdata_text/warehouse/tmp_hotintimacy
+tmp_listspam_case,1.1 K,/user/weibo_bigdata_ds/warehouse/tmp_listspam_case
+tmp_listspam_transmit_bhv,52.4 M,/user/weibo_bigdata_ds/warehouse/tmp_listspam_transmit_bhv
+tmp_mds_algorithm_seeduid_action_from_other,57.4 K,/user/weibo_bigdata_ds/warehouse/tmp_mds_algorithm_seeduid_action_from_other
+tmp_mds_algorithm_seeduid_action_to_other,9.5 K,/user/weibo_bigdata_ds/warehouse/tmp_mds_algorithm_seeduid_action_to_other
+tmp_mds_algorithm_seeduid_attention,14.6 K,/user/weibo_bigdata_ds/warehouse/tmp_mds_algorithm_seeduid_attention
+tmp_mds_algorithm_seeduid_fans,256.4 K,/user/weibo_bigdata_ds/warehouse/tmp_mds_algorithm_seeduid_fans
+tmp_mds_algorithm_seeduid_uidlist,264.9 K,/user/weibo_bigdata_ds/warehouse/tmp_mds_algorithm_seeduid_uidlist
+tmp_mds_bas_suid_mid_ruid_expo,1.6 T,/user/weibo_bigdata_ds/warehouse/tmp_mds_bas_suid_mid_ruid_expo
+tmp_mds_bhv_blog_all,0,/user/weibo_bigdata_ds/warehouse/tmp_mds_bhv_blog_all
+tmp_mds_datastrategy_feed_expo_weight,26.5 G,/user/weibo_bigdata_ds/warehouse/tmp_mds_datastrategy_feed_expo_weight
+tmp_mds_datastrategy_feed_user_pubblog_expo1daynum,384,/user/weibo_bigdata_ds/warehouse/tmp_mds_datastrategy_feed_user_pubblog_expo1daynum
+tmp_mds_datastrategy_feed_user_pubblogsfans,224.4 M,/user/weibo_bigdata_ds/warehouse/tmp_mds_datastrategy_feed_user_pubblogsfans
+tmp_mds_datastrategy_ods_tblog_expo,17.3 K,/dw_ext/weibo_bigdata_ds/mds/tmp_mds_datastrategy_ods_tblog_expo
+tmp_mds_datastrategy_user_pubblogsfans,0,/user/weibo_bigdata_ds/warehouse/tmp_mds_datastrategy_user_pubblogsfans
+tmp_mds_feed_wls_click_image,738.9 G,/user/weibo_bigdata_ds/warehouse/tmp_mds_feed_wls_click_image
+tmp_mds_liubo_mid,18.7 K,/user/weibo_bigdata_ds/warehouse/tmp_mds_liubo_mid
+tmp_mds_real_read_uid2mid_interist,2.4 G,/user/weibo_bigdata_ds/warehouse/tmp_mds_real_read_uid2mid_interist
+tmp_mid_control,27.7 M,/user/weibo_bigdata_ds/warehouse/tmp_mid_control
+tmp_miss_uids,101.6 K,/user/weibo_bigdata_ds/warehouse/tmp_miss_uids
+tmp_online_pool_mid_weight,0,/user/weibo_bigdata_ds/warehouse/tmp_online_pool_mid_weight
+tmp_orangec1,21.5 K,/user/weibo_bigdata_ds/warehouse/tmp_orangec1
+tmp_ordinaryc1,11.5 K,/user/weibo_bigdata_ds/warehouse/tmp_ordinaryc1
+tmp_problem_mid,52.7 K,/user/weibo_bigdata_ds/warehouse/tmp_problem_mid
+tmp_qpf_expo_1,839.2 M,/user/weibo_bigdata_ds/warehouse/tmp_qpf_expo_1
+tmp_qpf_expo_original_20170302,342.5 G,/user/weibo_bigdata_ds/warehouse/tmp_qpf_expo_original_20170302
+tmp_span,74.5 K,/user/weibo_bigdata_ds/warehouse/tmp_span
+tmp_strategy_lihan3_gzlist_level,1.4 T,/user/weibo_bigdata_ds/warehouse/tmp_strategy_lihan3_gzlist_level
+tmp_strategy_uid_uid_stat_detail,139.9 G,/user/weibo_bigdata_ds/warehouse/tmp_strategy_uid_uid_stat_detail
+tmp_uid,15.0 M,/user/weibo_bigdata_ds/warehouse/tmp_uid
+tmp_uid_expo,0,/user/weibo_bigdata_ds/warehouse/tmp_uid_expo
+tmp_uid_list,18.4 M,/user/weibo_bigdata_ds/warehouse/tmp_uid_list
+tmp_wangliang8_surrounding_hot_expose_log,140.6 G,/user/weibo_bigdata_up/warehouse/tmp_wangliang8_surrounding_hot_expose_log
+tmp_wangliang8_surrounding_hot_input_table,26.6 G,/user/weibo_bigdata_ds/warehouse/tmp_wangliang8_surrounding_hot_input_table
+tmp_wangliang8_surrounding_hot_input_table1,24.3 G,/user/weibo_bigdata_ds/warehouse/tmp_wangliang8_surrounding_hot_input_table1
+tmp_wangliang8_surrounding_hot_input_table2,16.7 G,/user/weibo_bigdata_ds/warehouse/tmp_wangliang8_surrounding_hot_input_table2
+tmp_wangliang8_surrounding_hot_input_table_4_lr,2.7 G,/user/weibo_bigdata_ds/warehouse/tmp_wangliang8_surrounding_hot_input_table_4_lr
+tmp_wangliang8_surrounding_hot_input_table_4_lr1,71.9 M,/user/weibo_bigdata_ds/warehouse/tmp_wangliang8_surrounding_hot_input_table_4_lr1
+tmp_wangliang8_surrounding_hot_input_table_4_lr2,4.6 G,/user/weibo_bigdata_ds/warehouse/tmp_wangliang8_surrounding_hot_input_table_4_lr2
+tmp_wangliang8_surrounding_hot_input_table_4_lr3,22.2 G,/user/weibo_bigdata_ds/warehouse/tmp_wangliang8_surrounding_hot_input_table_4_lr3
+tmp_wangliang8_surrounding_hot_input_table_4_lr4,1.6 K,/user/weibo_bigdata_ds/warehouse/tmp_wangliang8_surrounding_hot_input_table_4_lr4
+tmp_wangliang8_surrounding_hot_input_table_4_lr_test,151.0 M,/user/weibo_bigdata_ds/warehouse/tmp_wangliang8_surrounding_hot_input_table_4_lr_test
+tmp_yanjie8_push_train_data_4_uid_h_1_2wl_all,12.9 G,/user/weibo_bigdata_dm/warehouse/tmp_yanjie8_push_train_data_4_uid_h_1_2wl_all
+tmp_yuwei_case,442,/user/weibo_bigdata_ds/warehouse/tmp_yuwei_case
+tmp_yuwei_case_220,915,/user/weibo_bigdata_ds/warehouse/tmp_yuwei_case_220
+tmp_zhangtong_intimacy_table1_0,627,/user/weibo_bigdata_ds/warehouse/tmp_zhangtong_intimacy_table1_0
+tmp_zhangtong_intimacy_table1_1,873,/user/weibo_bigdata_ds/warehouse/tmp_zhangtong_intimacy_table1_1
+tmp_zs_feed_user_interact_bhv_30day,105.2 G,/user/weibo_bigdata_ds/zhangshu5/hive/tmp_zs_feed_user_interact_bhv_30day
+tmp_zs_social_analysis,133.0 G,/user/weibo_bigdata_ds/zhangshu5/hive/tmp_zs_social_analysis
+tmp_zs_social_uid,390,/user/weibo_bigdata_ds/zhangshu5/hive/tmp_zs_social_uid
+tmp_zs_uid_detection_stock_mid,2.6 M,/user/weibo_bigdata_ds/zhangshu5/hive/tmp_zs_uid_detection_stock_mid
+tmp_zs_uid_detection_stock_uid,0,/user/weibo_bigdata_ds/zhangshu5/hive/tmp_zs_uid_detection_stock_uid
+top_1w_mid,380.9 K,/user/weibo_bigdata_ds/wulei3/ds/top_1w_mid
+totalirate_uid_expotime,101.9 M,/user/weibo_bigdata_ds/wulei3/totalIrate_uid_expotime.txt
+trans_mds_uquality_sended_comment,15.9 G,/user/weibo_trans/warehouse/trans_mds_uquality_sended_comment
+trans_mds_uquality_sended_content,17.9 G,/user/weibo_trans/warehouse/trans_mds_uquality_sended_content
+trans_mds_user_marketing_sended_content,34.4 G,/user/weibo_trans/warehouse/trans_mds_user_marketing_sended_content
+uid2uid,0,/user/weibo_bigdata_ds/warehouse/uid2uid
+uid2uid2,0,/user/weibo_bigdata_ds/warehouse/uid2uid2
+uid_adv_count,9.6 K,/user/weibo_bigdata_ds/warehouse/uid_adv_count
+uid_big,1.1 K,/user/weibo_bigdata_ds/warehouse/uid_big
+uid_cluster,9.9 K,/user/weibo_bigdata_ds/warehouse/uid_cluster
+uid_mid,1.5 G,/user/weibo_bigdata_ds/warehouse/uid_mid
+uid_mid_adv,49.0 K,/user/weibo_bigdata_ds/warehouse/uid_mid_adv
+uid_mid_tichu,0,/user/weibo_bigdata_ds/warehouse/uid_mid_tichu
+uid_small,4.4 K,/user/weibo_bigdata_ds/warehouse/uid_small
+uid_tichu_count,9.8 K,/user/weibo_bigdata_ds/warehouse/uid_tichu_count
+uid_with_fans_lt_300,du: `/user/weibo_bigdata_ds/wulei3/uid_with_fans_lt_300.txt': No such file or directory,du: `/user/weibo_bigdata_ds/wulei3/uid_with_fans_lt_300.txt': No such file or directory
+uid_with_fans_lt_50,du: `/user/weibo_bigdata_ds/wulei3/uid_with_fans_lt_50.txt': No such file or directory,du: `/user/weibo_bigdata_ds/wulei3/uid_with_fans_lt_50.txt': No such file or directory
+uids_adv_count,17.6 M,/user/weibo_bigdata_ds/warehouse/uids_adv_count
+unread_back_fresh_expo,-du: java.net.URISyntaxException: Relative path in absolute URI: location:null,-du: java.net.URISyntaxException: Relative path in absolute URI: location:null
+Usage: hadoop fs [generic options] -du [-s] [-h] <path> ...,unread_back_fresh_in_pool_and_top100,unread_back_fresh_in_pool_and_top100
+-du: java.net.URISyntaxException: Relative path in absolute URI: location:null,Usage: hadoop fs [generic options] -du [-s] [-h] <path> ...,Usage: hadoop fs [generic options] -du [-s] [-h] <path> ...
+unread_case_focs_send_tblog,217.6 K,/user/weibo_bigdata_ds/warehouse/unread_case_focs_send_tblog
+unread_case_recv_tblog,219.5 K,/user/weibo_bigdata_ds/warehouse/unread_case_recv_tblog
+unread_mid_expo_union,4.0 G,/user/weibo_bigdata_ds/warehouse/unread_mid_expo_union
+unread_mid_weight_union,3.5 G,/user/weibo_bigdata_ds/warehouse/unread_mid_weight_union
+unread_pool_ctr_feature,11.7 T,/user/weibo_bigdata_ds/warehouse/unread_pool_ctr_feature
+unread_pool_ctr_instance_tmp,du: `/user/weibo_bigdata_ds/daoguang1/ctr/unread_pool_ctr_feature/dt=20160405': No such file or directory,du: `/user/weibo_bigdata_ds/daoguang1/ctr/unread_pool_ctr_feature/dt=20160405': No such file or directory
+unread_pool_mid_feature,1.2 T,/user/weibo_bigdata_ds/warehouse/unread_pool_mid_feature
+user_ctr_feature_cmt,du: `/user/weibo_bigdata_ds/lixing/ctr/user_ctr_feature_cmt': No such file or directory,du: `/user/weibo_bigdata_ds/lixing/ctr/user_ctr_feature_cmt': No such file or directory
+user_ctr_feature_fwd,du: `/user/weibo_bigdata_ds/lixing/ctr/user_ctr_feature_fwd': No such file or directory,du: `/user/weibo_bigdata_ds/lixing/ctr/user_ctr_feature_fwd': No such file or directory
+user_ctr_feature_his_interact_rate,du: `/user/weibo_bigdata_ds/lixing/ctr/user_ctr_feature_his_interact_rate': No such file or directory,du: `/user/weibo_bigdata_ds/lixing/ctr/user_ctr_feature_his_interact_rate': No such file or directory
+user_ctr_feature_lk,du: `/user/weibo_bigdata_ds/lixing/ctr/user_ctr_feature_lk': No such file or directory,du: `/user/weibo_bigdata_ds/lixing/ctr/user_ctr_feature_lk': No such file or directory
+user_ctr_feature_weibo_all_info,du: `/user/weibo_bigdata_ds/lixing/ctr/user_ctr_feature_weibo_all_info': No such file or directory,du: `/user/weibo_bigdata_ds/lixing/ctr/user_ctr_feature_weibo_all_info': No such file or directory
+user_ctr_feature_weibo_basic,du: `/user/weibo_bigdata_ds/lixing/ctr/user_ctr_feature_weibo_basic': No such file or directory,du: `/user/weibo_bigdata_ds/lixing/ctr/user_ctr_feature_weibo_basic': No such file or directory
+user_ctr_feature_weibo_info_relation_temp,du: `/user/weibo_bigdata_ds/lixing/ctr/user_ctr_feature_weibo_info_relation_temp': No such file or directory,du: `/user/weibo_bigdata_ds/lixing/ctr/user_ctr_feature_weibo_info_relation_temp': No such file or directory
+user_fan_interactive_infos,42.7 G,/user/weibo_bigdata_ds/warehouse/user_fan_interactive_infos
+user_fan_real_relation,407.9 G,/user/weibo_bigdata_ds/warehouse/user_fan_real_relation
+user_fan_relation_infos,46.6 G,/user/weibo_bigdata_ds/warehouse/user_fan_relation_infos
+user_fan_relation_score,8.0 T,/user/weibo_bigdata_ds/warehouse/user_fan_relation_score
+user_fan_relation_score_day,2.2 T,/user/weibo_bigdata_ds/warehouse/user_fan_relation_score_day
+user_fan_society_relation,307.9 G,/user/weibo_bigdata_ds/warehouse/user_fan_society_relation
+user_for_sociality_relation,14.1 G,/user/weibo_bigdata_ds/warehouse/user_for_sociality_relation
+user_inte_tag,26.1 G,/user/weibo_bigdata_ds/pengyu7/user_inte_tag
+user_x_negtive_total,299.1 M,/user/weibo_bigdata_text/warehouse/user_x_negtive_total
+valid_fans_focus_list_20160820,du: `/user/weibo_bigdata_ds/wulei3/valid_fans_focus_list_20160820.txt': No such file or directory,du: `/user/weibo_bigdata_ds/wulei3/valid_fans_focus_list_20160820.txt': No such file or directory
+valid_fans_focus_list_20160820_tmp,du: `/user/weibo_bigdata_ds/wulei3/valid_fans_focus_list_20160820_tmp.txt': No such file or directory,du: `/user/weibo_bigdata_ds/wulei3/valid_fans_focus_list_20160820_tmp.txt': No such file or directory
+view_mds_feed_strategy_expo_gained_weight_with_interact_rate,-du: java.net.URISyntaxException: Relative path in absolute URI: location:null,-du: java.net.URISyntaxException: Relative path in absolute URI: location:null
+Usage: hadoop fs [generic options] -du [-s] [-h] <path> ...,view_ods_tblog_real_read,view_ods_tblog_real_read
+-du: java.net.URISyntaxException: Relative path in absolute URI: location:null,Usage: hadoop fs [generic options] -du [-s] [-h] <path> ...,Usage: hadoop fs [generic options] -du [-s] [-h] <path> ...
+weibo_ds_crawler_tmp,0,/user/weibo_bigdata_ds/warehouse/weibo_ds_crawler_tmp
+weight_map,106.8 M,/user/weibo_bigdata_ds/warehouse/weight_map
+yanhui11_hot_weibo_corpus_log,0,/user/weibo_bigdata_vf/yanhui11/yanhui11_hot_weibo_corpus_log
+yanhui11_main_feed_log_topic,179.3 G,/user/weibo_bigdata_ds/yanhui11/yanhui11_main_feed_log_topic
+yanhui11_main_feed_log_topic_feature,180.3 G,/user/weibo_bigdata_ds/yanhui11/yanhui11_main_feed_log_topic_feature
+yanhui11_main_feed_log_topic_feature_v2,488.5 G,/user/weibo_bigdata_ds/yanhui11/yanhui11_main_feed_log_topic_feature_v2
+yanhui11_main_feed_log_topic_v2,339.6 G,/user/weibo_bigdata_ds/yanhui11/yanhui11_main_feed_log_topic_v2
+yanhui11_main_feed_uid,39.5 M,/user/weibo_bigdata_ds/yanhui11/yanhui11_main_feed_uid
+yanhui11_main_feed_user_topic,32.8 G,/user/weibo_bigdata_ds/yanhui11/yanhui11_main_feed_user_topic
+yanhui11_mblog_content,1.6 G,/user/weibo_bigdata_ds/yanhui11/yanhui11_mblog_content
+yanhui11_mblog_topic,2.0 G,/user/weibo_bigdata_ds/yanhui11/yanhui11_mblog_topic
+yanhui11_ods_tblog_hotmblog_exposure_storage,51.5 G,/user/weibo_bigdata_vf/warehouse/yanhui11_ods_tblog_hotmblog_exposure_storage
+yarn_running_jobs,90.9 K,/user/weibo_bigdata_ds/warehouse/yarn_running_jobs
+yingxiao_uid_blacklist,0,/user/weibo_bigdata_ds/warehouse/yingxiao_uid_blacklist
+ylb_hot_weibo_ability,250.2 M,/user/weibo_bigdata_text/liubao/corpus/ylb_hot_weibo_ability
+ylb_hot_weibo_train,5.2 T,/user/weibo_bigdata_text/liubao/corpus/ylb_hot_weibo_train
+ylb_push_corpus,du: `/user/weibo_bigdata_ds/liubao/push_rec/ylb_push_corpus': No such file or directory,du: `/user/weibo_bigdata_ds/liubao/push_rec/ylb_push_corpus': No such file or directory
+ylb_push_rec,du: `/user/weibo_bigdata_ds/liubao/push_rec/ylb_push_rec': No such file or directory,du: `/user/weibo_bigdata_ds/liubao/push_rec/ylb_push_rec': No such file or directory
+ylb_push_rec_new,du: `/user/weibo_bigdata_ds/liubao/push_rec/ylb_push_rec_new': No such file or directory,du: `/user/weibo_bigdata_ds/liubao/push_rec/ylb_push_rec_new': No such file or directory
+ylb_push_rec_text,185.3 G,/user/weibo_bigdata_text/liubao/push_rec/ylb_push_rec
+ylb_push_user,du: `/user/weibo_bigdata_ds/liubao/push_rec/ylb_push_user': No such file or directory,du: `/user/weibo_bigdata_ds/liubao/push_rec/ylb_push_user': No such file or directory
+ylb_push_user_msg,du: `/user/weibo_bigdata_ds/liubao/push_rec/ylb_push_user_msg': No such file or directory,du: `/user/weibo_bigdata_ds/liubao/push_rec/ylb_push_user_msg': No such file or directory
+ylb_push_user_msg_new,du: `/user/weibo_bigdata_ds/liubao/push_rec/ylb_push_user_msg_new': No such file or directory,du: `/user/weibo_bigdata_ds/liubao/push_rec/ylb_push_user_msg_new': No such file or directory
+ylb_push_user_new,du: `/user/weibo_bigdata_ds/liubao/push_rec/ylb_push_user_new': No such file or directory,du: `/user/weibo_bigdata_ds/liubao/push_rec/ylb_push_user_new': No such file or directory
+ylb_self1_hot_weibo_corpus_24,du: `/user/weibo_bigdata_text/liubao/corpus/ylb_self1_hot_weibo_corpus_24': No such file or directory,du: `/user/weibo_bigdata_text/liubao/corpus/ylb_self1_hot_weibo_corpus_24': No such file or directory
+ylb_self2_hot_weibo_corpus_24,3.0 T,/user/weibo_bigdata_text/liubao/corpus/ylb_self2_hot_weibo_corpus_24
+ylb_self3_hot_weibo_action,du: `/user/weibo_bigdata_ds/liubao/corpus/ylb_self3_hot_weibo_action': No such file or directory,du: `/user/weibo_bigdata_ds/liubao/corpus/ylb_self3_hot_weibo_action': No such file or directory
+ylb_self3_hot_weibo_click,du: `/user/weibo_bigdata_ds/liubao/corpus/ylb_self3_hot_weibo_click': No such file or directory,du: `/user/weibo_bigdata_ds/liubao/corpus/ylb_self3_hot_weibo_click': No such file or directory
+ylb_self3_hot_weibo_corpus_24,du: `/user/weibo_bigdata_ds/liubao/corpus/ylb_self3_hot_weibo_corpus_24': No such file or directory,du: `/user/weibo_bigdata_ds/liubao/corpus/ylb_self3_hot_weibo_corpus_24': No such file or directory
+ylb_self3_hot_weibo_last_corpus_24,du: `/user/weibo_bigdata_ds/liubao/corpus/ylb_self3_hot_weibo_last_corpus_24': No such file or directory,du: `/user/weibo_bigdata_ds/liubao/corpus/ylb_self3_hot_weibo_last_corpus_24': No such file or directory
+ylb_self3_hot_weibo_read,du: `/user/weibo_bigdata_ds/liubao/corpus/ylb_self3_hot_weibo_read': No such file or directory,du: `/user/weibo_bigdata_ds/liubao/corpus/ylb_self3_hot_weibo_read': No such file or directory
+ylb_self_hot_weibo_corpus_24,1.1 T,/user/weibo_bigdata_text/liubao/corpus/ylb_self_hot_weibo_corpus_24
+zhangtong1_feed_join_mblog,0,/user/weibo_bigdata_ds/zhangtong1/hive/zhangtong1_feed_join_mblog
+zhangtong1_ranking,873.5 M,/user/weibo_bigdata_ds/zhangtong1/hive/u2u
+zhangtong1_rankingv2,0,/user/weibo_bigdata_ds/zhangtong1/hive/zhangtong1_rankingv2
+zhangying8,0,/user/weibo_bigdata_ds/warehouse/zhangying8
+zhao_1,28,/user/weibo_bigdata_ds/warehouse/zhao_1
+zhao_2,49,/user/weibo_bigdata_ds/warehouse/zhao_2
+zhao_adv_1,0,/user/weibo_bigdata_ds/warehouse/zhao_adv_1
+zhao_adv_3,0,/user/weibo_bigdata_ds/warehouse/zhao_adv_3
+zhao_adv_5,0,/user/weibo_bigdata_ds/warehouse/zhao_adv_5
+zhao_adv_7,0,/user/weibo_bigdata_ds/warehouse/zhao_adv_7
+zhao_adv_current,0,/user/weibo_bigdata_ds/warehouse/zhao_adv_current
+zyf_hue_limi_midhd_sjx,1.5 G,/user/weibo_bigdata_ds/warehouse/zyf_hue_limi_midhd_sjx
+zyftest,136,/user/weibo_bigdata_ds/warehouse/zyftest
+zyl_tmp2_self3_hot_weibo_click_2,96.4 G,/user/weibo_bigdata_ds/yanli7_tmp2/corpus/zyl_tmp2_self3_hot_weibo_click

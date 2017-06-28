@@ -1,0 +1,17 @@
+val nohupPath = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\rst\detailNohup.out"""
+
+val detail = scala.io.Source.fromFile(nohupPath)("utf-8").getLines.filter(_.startsWith("Detailed Table Information")).toArray
+def getNameLocation(logStr : String) : (String,String) = {
+  val content = logStr.split(',').filter(x => x.contains("tableName:") || x.contains("location:"))
+  val tableName = content.head.split("tableName:").last
+  val location = content.last.split("hdfs://ns1").last
+  tableName -> location
+}
+val p = new java.io.PrintWriter("""D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\rst\tableLocation.rst""")
+detail.map{
+  line => 
+    val (n,l) = getNameLocation(line)
+    p.write(n + "," + l + "\n")
+}
+p.flush
+p.close

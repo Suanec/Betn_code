@@ -1,0 +1,99 @@
+val tableSize = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\rst\tableSize.rst"""
+/// adv_dtl,104.5 G
+val tableLatest = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\rst\tableLatestAccess.rst"""
+/// adv_dtl 2017/6/6 11:09
+val tableOnHive = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\res\tablesOnHive.log"""
+/// adv_dtl
+val tablePrincipalPath = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\res\weibo_bigdata_ds账户表格负责人.rst"""
+/// weibo_bigdata_ds  赵立晗 每天一次  datastrategyapilog，mds_datastrategy_feed_report，mds_datastrategy_feed_filter_send_data_report，mds_datastrategy_feed_filter_receive_data_report
+val dirFromIt = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\res\DirFromIT.rst"""
+/// /user/weibo_bigdata_ds/warehouse  2017/6/6 23:28      
+val fileTableSizePath = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\rst\tableSize.rst"""
+/// adv_dtl,104.5 G
+val tableLocPath = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\rst\tableLocation.rst"""
+/// adv_dtl,/user/weibo_bigdata_ds/lixing/adv_dtl
+val tableRst = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\rst\tableRst.rst"""
+
+val fileITPath = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\res\DirFromItOnlyPath.rst"""
+val locTablePath = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\rst\pathTable.rst"""
+val pathAll = scala.io.Source.fromFile(fileITPath)("utf-8").getLines//.toArray//(/user/weibo_bigdata_ds)
+val locTable = scala.io.Source.fromFile(locTablePath).getLines.collect{
+  case line if line.split(',').size == 2 => 
+    val splits = line.split(',')
+    splits.head -> splits.last
+}.toMap
+val tablePrincipalPath = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\res\TablePrinciple.rst"""
+/// bigdata_mds_uquality_result_comment 李星
+val tablePrincipal = scala.io.Source.fromFile(tablePrincipalPath)("utf-8").getLines.map{
+  line => 
+    val splits = line.split('\t')
+    splits.head -> splits.last
+}.toMap
+val dirLatest = scala.io.Source.fromFile(dirFromIt)("utf-8").getLines.collect{
+  case line if line.split('\t').size == 2 =>
+    val splits = line.split('\t')
+    splits.head -> splits.last 
+}.toMap
+// val dirSize = scala.io.Source.fromFile
+
+val dirSizeNohup = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\rst\dirSizeNohup.out"""
+// val 
+val regex = """du: `(.*)': No such file or directory""".r 
+val dirSize = scala.io.Source.fromFile(dirSizeNohup)("utf-8").getLines.collect{
+  case line if line.endsWith("No such file or directory") =>
+    val regex(locKey) = line
+    val locValue = "No such file or directory"
+    locKey -> locValue
+  case line if line.split("  ").size == 2 =>
+    val splits = line.split("  ")
+    val locKey = splits.last
+    val locValue = splits.head
+    val locValueSplits = locValue.split(' ')
+    val meta = locValueSplits.last match {
+      case "K" => scala.math.pow(1024,1)
+      case "M" => scala.math.pow(1024,2)
+      case "G" => scala.math.pow(1024,3)
+      case "T" => scala.math.pow(1024,4)
+      case "P" => scala.math.pow(1024,5)
+      case _ => scala.math.pow(1024,0)
+    }
+    val locValueByte = (locValueSplits.head.toDouble * meta).toLong.toString
+    locKey -> (locValue + "\t" + locValueByte)
+  // case line  => 
+  //   println(line)
+  //   line -> line 
+}.toMap
+// val dirSize = Array(""->"").toMap
+val dirSizeLatestPrincipalTablePath = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\rst\dirSizeLatestPrincipalTable.rst"""
+val dirSizeLatestPrincipalTableWriter = new java.io.PrintWriter(dirSizeLatestPrincipalTablePath,"utf-8")
+/// val dirSizeLatestPrincipalTable = 
+pathAll.map{
+  path =>
+    val sizeSome = dirSize.get(path) 
+    val size = sizeSome match {
+      case Some(_) => sizeSome.get
+      case None => "0"
+    }
+    val latestSome = dirLatest.get(path)
+    val latest = latestSome match {
+      case Some(_) => latestSome.get
+      case None => "NULL"
+    }
+    val tableSome = locTable.get(path)
+    val (principal,tableName) = tableSome match {
+      case Some(_) => 
+        val table = tableSome.get
+        val principalSome = tablePrincipal.get(table)
+        principalSome match {
+          case Some(_) => principalSome.get -> table
+          case None => "NULL" -> table
+        }
+      case None => "NULL" -> "NULL"
+    }
+    s"${path}\t${size}\t${latest}\t${principal}\t \t${tableName}\t\n"
+}.foreach(line => dirSizeLatestPrincipalTableWriter.write(line))
+
+dirSizeLatestPrincipalTableWriter.flush
+dirSizeLatestPrincipalTableWriter.close
+
+ 

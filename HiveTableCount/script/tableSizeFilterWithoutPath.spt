@@ -1,0 +1,22 @@
+val tableSizeLatestPrincipalPath = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\rst\tableRst.rst"""
+///  bigdata_mds_uquality_result_comment 494.9 G 5.313948286976E11 2017/6/6 04:05  李星
+
+val dirSizeLatestPrincipalTablePath = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\rst\dirSizeLatestPrincipalTable.rst"""
+/// /user/weibo_bigdata_ds/warehouse/feed_kpi_data_reader 53.1 G  57015690854 2017/6/6 23:28  张树    feed_kpi_data_reader  
+
+
+val tableHasDir = scala.io.Source.fromFile(dirSizeLatestPrincipalTablePath)("utf-8").getLines.map(_.split('\t').last).toArray.distinct
+val tableHasDirSize = scala.io.Source.fromFile(tableSizeLatestPrincipalPath)("utf-8").getLines.filter{
+  line => 
+    val splits = line.split('\t')
+    tableHasDir.contains(splits.head)
+}//.toArray
+
+val tableHasDirSizePath = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\rst\tableHasDirSize.rst"""
+val tableHasDirSizeWriter = new java.io.PrintWriter(tableHasDirSizePath,"utf-8")
+tableHasDirSize.foreach{
+  line =>
+    tableHasDirSizeWriter.write(line + "\n")
+}
+tableHasDirSizeWriter.flush
+tableHasDirSizeWriter.close

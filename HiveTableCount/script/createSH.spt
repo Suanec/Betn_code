@@ -1,0 +1,39 @@
+/// get Detail of table 
+def genOrder(tableName : String) : String = """hive -e "desc extended """ + tableName + '"'
+def genSH(tableLog : Array[String]) : Array[String] = tableLog.map(genOrder)
+def gen(filePath : String) : Array[String] = genSH(scala.io.Source.fromFile(filePath).getLines.toArray)
+val p = new java.io.PrintWriter("""D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\rst\getHiveInfo.sh""")
+gen(tablefile).map(x => p.write(x + "\n"))
+p.flush
+p.close
+
+/// get Size of table
+def genSizeOrder(location : String) : String = """hadoop fs -du -s -h """ + location
+def genSizeSH(locationArr : Array[String]) : Array[String] = locationArr.map(genSizeOrder)
+def genSize(filePath : String) : Unit = {
+  val p = new java.io.PrintWriter("""D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\rst\getTableSize.sh""")
+  val nameLocationPairs = scala.io.Source.fromFile(filePath).getLines.map{
+    pairStr => 
+      val Array(name,location) = pairStr.split(',')
+      s"echo ${name}\n" + genSizeOrder(location) + "\n"
+  }.foreach(x => p.write(x))
+  p.flush
+  p.close
+}
+genSize("""D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\rst\tableLocation.rst""")
+
+/// get Size of path
+def genSizeOrder(location : String) : String = """hadoop fs -du -s -h """ + location
+def genSizeSH(locationArr : Array[String]) : Array[String] = locationArr.map(genSizeOrder)
+val fileITPath = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\res\DirFromItOnlyPath.rst"""
+val pathDetails = scala.io.Source.fromFile(fileITPath)("utf-8").
+  getLines.
+  toArray//(/user/weibo_bigdata_ds)
+val p = new java.io.PrintWriter("""D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\rst\getPathSize.sh""")
+val nameLocationPairs = pathDetails.map{
+  location => 
+    genSizeOrder(location) + "\n"
+}.foreach(x => p.write(x))
+p.flush
+p.close
+

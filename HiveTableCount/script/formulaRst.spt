@@ -1,0 +1,91 @@
+val tableSize = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\rst\tableSize.rst"""
+/// adv_dtl,104.5 G
+val tableLatest = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\rst\tableLatestAccess.rst"""
+/// adv_dtl 2017/6/6 11:09
+val tableOnHive = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\res\tablesOnHive.log"""
+/// adv_dtl
+val tablePrincipalPath = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\res\weibo_bigdata_ds账户表格负责人.rst"""
+/// weibo_bigdata_ds  赵立晗 每天一次  datastrategyapilog，mds_datastrategy_feed_report，mds_datastrategy_feed_filter_send_data_report，mds_datastrategy_feed_filter_receive_data_report
+case class tablePP(
+  userName : String = "weibo_bigdata_ds",
+  principal : String = "",
+  frequence : String = "",
+  // tableName : Array[String] = Array.empty[String])
+  tableName : String = "")
+val tablePrincipalMap = scala.io.Source.fromFile(tablePrincipalPath)("utf-8").getLines.drop(1).map{
+  line => 
+    val splits = line.split('\t')
+    val userName = splits.head
+    val principal = splits(1)
+    val frequence = splits(2)
+    val tableName = splits.last//.split(',')
+    // tablePP(userName,principal,frequence,tableName)
+    tableName -> principal
+}.toMap
+
+
+val tableAll = scala.io.Source.fromFile(tableOnHive).getLines.toArray
+val tableSizeMap = scala.io.Source.fromFile(tableSize).getLines.map{
+  line =>
+    val splits = line.split(',')
+    splits.head -> splits.last 
+}.toMap
+val tableLatestMap = scala.io.Source.fromFile(tableLatest).getLines.map{
+  line =>
+    val splits = line.split('\t')
+    splits.head -> splits.last 
+}.toMap
+
+val tableRst = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\rst\tableRst.rst"""
+val rst = tableAll.map{
+  tableName =>
+    val tableSizeValue = tableSizeMap.get(tableName)
+    val tableSize = tableSizeValue match {
+      case Some(_) => tableSizeValue.get
+      case None => "NULL"
+    }
+    var tableSizeRst = tableSize 
+    if(tableSize.endsWith("No such file or directory")) {
+      tableSizeRst = "No such file or directory"
+    }
+    if(tableSize.endsWith("location:null")) {
+      tableSizeRst = "location:null"
+    }
+    // println(tableSizeRst)
+    val tableSizeSplits = tableSizeRst.split(' ')
+    var meta = 1d
+    if(tableSizeSplits.size == 2){
+       meta = tableSize.split(' ').last match {
+        case "K" => scala.math.pow(1024,1)
+        case "M" => scala.math.pow(1024,2)
+        case "G" => scala.math.pow(1024,3)
+        case "T" => scala.math.pow(1024,4)
+        case "P" => scala.math.pow(1024,5)
+        case _ => scala.math.pow(1024,0)
+      }
+    } else {
+      meta = 0
+    }
+    val tableSizeByte = meta match {
+      case 0 => "0"
+      case _ => s"${tableSizeSplits.head.toDouble * meta}"
+    }
+    // if(tableSize.endsWith(""))
+    val tableLatestAccessValue = tableLatestMap.get(tableName)
+    val tableLatestAccess = tableLatestAccessValue match {
+      case Some(_) => tableLatestAccessValue.get
+      case None => "0"
+    }
+    val tablePrincipalValue = tablePrincipalMap.get(tableName)
+    val tabelPrincipal = tablePrincipalValue match{
+      case Some(_) => tablePrincipalValue.get
+      case None => "NULL"
+    }
+    val rstStr = s"${tableName}\t${tableSizeRst}\t${tableSizeByte}\t${tableLatestAccess}\t${tabelPrincipal}\n"
+    rstStr
+}
+
+val p = new java.io.PrintWriter(tableRst,"utf-8")
+rst.foreach(p.write(_))
+p.flush
+p.close

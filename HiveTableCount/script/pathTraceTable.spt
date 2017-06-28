@@ -1,0 +1,63 @@
+val tableSize = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\rst\tableSize.rst"""
+/// adv_dtl,104.5 G
+val tableLatest = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\rst\tableLatestAccess.rst"""
+/// adv_dtl 2017/6/6 11:09
+val tableOnHive = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\res\tablesOnHive.log"""
+/// adv_dtl
+val tablePrincipalPath = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\res\weibo_bigdata_ds账户表格负责人.rst"""
+/// weibo_bigdata_ds  赵立晗 每天一次  datastrategyapilog，mds_datastrategy_feed_report，mds_datastrategy_feed_filter_send_data_report，mds_datastrategy_feed_filter_receive_data_report
+val fileITPath = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\res\DirFromIT.rst"""
+/// /user/weibo_bigdata_ds/warehouse  2017/6/6 23:28      
+val fileTableSizePath = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\rst\tableSize.rst"""
+/// adv_dtl,104.5 G
+val tableLocPath = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\rst\tableLocation.rst"""
+/// adv_dtl,/user/weibo_bigdata_ds/lixing/adv_dtl
+val tableRst = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\rst\tableRst.rst"""
+
+val fileITPath = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\res\DirFromItOnlyPath.rst"""
+val pathDetails = scala.io.Source.fromFile(fileITPath)("utf-8").
+  getLines.toArray//(/user/weibo_bigdata_ds)
+val tableLoc = scala.io.Source.fromFile(tableLocPath).getLines.map(_.split(',')).toArray
+val pathTable = tableLoc.flatMap{//map{.splitAt(100)._1
+  locPair =>
+    val tableName = locPair.head
+    val loc = locPair.last 
+    // println(tableName)
+    pathDetails.collect{
+      case path if path.startsWith(loc) => 
+        val splits = path.split(loc)
+        if(splits.size == 0 || splits.last.startsWith("/")) {
+          if(path.startsWith("/user/weibo_bigdata_ds/yanqing")) path -> "fortestnewfeature,fortestnewfeature1"
+          else if(path.startsWith("/user/weibo_bigdata_ds/lr_data")) path -> "lr_data,mds_bas_chunhua1_lr_info"
+          else path -> tableName
+        } else {
+          "Error" -> "Null"
+        }
+    }
+}.filter(_._1 != "Error").distinct
+pathTable.size
+// if(pathTable.size == pathDetails.size) {
+val pathTableWriter = new java.io.PrintWriter("""D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\rst\pathTable.rst""")
+pathTable.foreach( x => pathTableWriter.write(x._1 + "," + x._2 + "\n"))
+pathTableWriter.flush
+pathTableWriter.close
+// }
+
+
+
+/// Error Finding.
+val pathDetailsMap = pathDetails.zipWithIndex.toMap /// "locPath" -> index 
+val pathCount = Array.fill[Int](pathDetails.size)(0)
+pathTable.foreach{
+  loc =>
+    pathCount(pathDetailsMap(loc._1)) += 1
+}
+val pathRepeatsWithIndex = pathCount.zipWithIndex.filter(_._1 > 1)
+val pathRepeats = pathRepeatsWithIndex.map(i => pathDetails(i._2))
+val pathRepeatsTable = pathTable.filter(x => pathRepeats.contains(x._1))
+
+
+// fortestnewfeature -> /user/weibo_bigdata_ds/yanqing
+// fortestnewfeature1 -> /user/weibo_bigdata_ds/yanqing
+// lr_data -> /user/weibo_bigdata_ds/lr_data
+// mds_bas_chunhua1_lr_info -> /user/weibo_bigdata_ds/lr_data

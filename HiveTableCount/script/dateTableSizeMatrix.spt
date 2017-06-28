@@ -1,0 +1,32 @@
+scala -J-Xmx5g -cp "D:\Docs\Works_And_Jobs\Sina\libs\ml\self-libs\vbreeze_2.11-0.12-assembly-0.1.0-SNAPSHOT.jar"
+
+val filePath = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\rst\dirSizeLatestPrincipalTable.rst"""
+val rstPath = """D:\Docs\Works_And_Jobs\Sina\Betn_code\HiveTableCount\rst\"""
+val tableNotUseLatestSizePath = rstPath + """TableNotUseLatestSize.rst"""
+val metaB = scala.math.pow(1024,0)
+val metaK = scala.math.pow(1024,1)
+val metaM = scala.math.pow(1024,2)
+val metaG = scala.math.pow(1024,3)
+val metaT = scala.math.pow(1024,4)
+val metaP = scala.math.pow(1024,5)
+val data = scala.io.Source.fromFile(tableNotUseLatestSizePath)("utf-8").getLines.drop(1).filter(!_.contains("(空白)")).map{
+  line =>
+    println(line)
+    val Array(tableName,byteSize) = line.split('\t')
+    val size = byteSize.toDouble match {
+      case doubleSize if doubleSize < metaB => 0
+      case doubleSize if doubleSize < metaK => s"${((doubleSize / metaB) * 100).round / 100d}"
+      case doubleSize if doubleSize < metaM => s"${((doubleSize / metaK) * 100).round / 100d} K"
+      case doubleSize if doubleSize < metaG => s"${((doubleSize / metaM) * 100).round / 100d} M"
+      case doubleSize if doubleSize < metaT => s"${((doubleSize / metaG) * 100).round / 100d} G"
+      case doubleSize if doubleSize < metaP => s"${((doubleSize / metaT) * 100).round / 100d} T"
+      case doubleSize if doubleSize >= metaP => s"${((doubleSize / metaP) * 100).round / 100d} P"
+    }
+    s"${tableName}\t${byteSize}\t${size}"
+}
+val tableNotUseLatestSizeWithMetricPath = rstPath + """TableNotUseLatestSizeWithMetric.rst"""
+val tableNotUseLatestSizeWithMetricWriter = new java.io.PrintWriter(tableNotUseLatestSizeWithMetricPath,"utf-8")
+data.foreach(x => tableNotUseLatestSizeWithMetricWriter.write(x + "\n"))
+tableNotUseLatestSizeWithMetricWriter.flush
+tableNotUseLatestSizeWithMetricWriter.close
+
