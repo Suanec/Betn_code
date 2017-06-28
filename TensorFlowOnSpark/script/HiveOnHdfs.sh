@@ -1,46 +1,34 @@
-#10.85.125.175   spark-test
-#10.85.125.176   spark-test
+$ tar -xzvf hive-x.y.z.tar.gz
+$ cd hive-x.y.z
+$ export HIVE_HOME={{pwd}}
+$ export PATH=$HIVE_HOME/bin:$PATH
+$HADOOP_HOME/bin/hadoop fs -mkdir       /tmp
+$HADOOP_HOME/bin/hadoop fs -mkdir       /user/hive/warehouse
+$HADOOP_HOME/bin/hadoop fs -chmod g+w   /tmp
+$HADOOP_HOME/bin/hadoop fs -chmod g+w   /user/hive/warehouse
 
-cd /home
-mkdir shixi_enzhao
-cd shixi_enzhao
-mkdir suanec
-cd suanec
-mkdir installs
-mkdir libs
-mkdir scripts
-mkdir tmp
-mkdir wsp
-yum install vim-enhanced
-yum install lrzsz
-cd /home/shixi_enzhao/suanec/installs
-pip install --upgrade pip
-# wget -c -t 10 https://repo.continuum.io/archive/Anaconda2-4.4.0-Linux-x86_64.sh
-wget -c -t 10 http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz
-wget -c -t 10 https://d3kbcqa49mib13.cloudfront.net/spark-2.0.2-bin-hadoop2.7.tgz
-wget -c -t 10 http://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/hadoop-2.7.3/hadoop-2.7.3.tar.gz 
-wget -c -t 10 https://downloads.lightbend.com/scala/2.11.8/scala-2.11.8.tgz
-wget -c -t 10 
-wget -c -t 10 
 
-ipMaster=10.85.125.175
-ipSlaver1=10.85.125.176
+#10.85.125.173   feed-ctr
+#10.85.125.174   feed-ctr
+
+ipMaster=10.85.125.173
+ipSlaver1=10.85.125.174
 mainPath=/home/hadoop/
-useradd -d /home/hadoop -m hadoop -p hadoop
+useradd -d ${mainPath} -m hadoop -p hadoop
 echo 'hadoop' | passwd --stdin hadoop
 ssh localhost
 cd ~/.ssh
 ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
 cat id_rsa.pub >> authorized_keys
-ssh root@10.85.125.175 
 cat ~/.ssh/id_rsa.pub>> authorized_keys
 
 chmod 755 ~
 chmod 700 ~/.ssh
 chmod 600 ~/.ssh/authorized_keys
-scp authorized_keys hadoop@${ipSlaver1}:/home/hadoop/.ssh/authorized_keys
-sudo echo ${ipMaster}' iZ2zeh3rmvn71widtik73gZ' >> /etc/hosts
-sudo echo ${ipSlaver1}' iZ2zeh3rmvn71widtik72kZ' >> /etc/hosts
+scp ~/.ssh/authorized_keys hadoop@${ipSlaver1}:~/.ssh/authorized_keys
+scp ~/.ssh/known_hosts hadoop@${ipSlaver1}:~/.ssh/
+ssh ${ipSlaver1}
+exit
 cd ~
 mkdir ~/libs
 mkdir ~/libs/hadoop2.7
@@ -71,6 +59,9 @@ echo 'export SCALA_HOME=~/libs/scala-2.11.8' >> ~/libs/env.sh
 echo 'export SPARK_HOME=~/libs/spark-2.0.2-bin-hadoop2.7' >> ~/libs/env.sh
 echo 'export PATH=$PATH:$SPARK_HOME/bin:$SCALA_HOME/bin' >> ~/libs/env.sh
 echo 'alias hadoop-stop=${HADOOP_HOME}/sbin/stop-all.sh' >> ~/libs/env.sh
+echo 'export HIVE_HOME=~/libs/apache-hive-2.1.1-bin' >> ~/libs/env.sh
+echo 'export PATH=$HIVE_HOME/bin:$PATH' >> ~/libs/env.sh
+
 echo 'alias hadoop-start=${HADOOP_HOME}/sbin/start-all.sh' >> ~/libs/env.sh
 echo 'alias hadoop-restart="hadoop-stop;hadoop-start"' >> ~/libs/env.sh
 echo 'alias spark-example=${SPARK_HOME}/bin/run-example' >> ~/libs/env.sh
@@ -84,30 +75,12 @@ mkdir $HADOOP_HOME/data/hdfs/datanode
 cd $HADOOP_HOME/etc/hadoop
 echo 'export JAVA_HOME='$JAVA_HOME >> $HADOOP_HOME/etc/hadoop/hadoop-env.sh
 echo 'export HADOOP_SSH_OPTS="-i /home/hadoop/.ssh/id_rsa"' >> $HADOOP_HOME/etc/hadoop/hadoop-env.sh 
-cp $HADOOP_HOME/etc/hadoop/core-site.xml $HADOOP_HOME/etc/hadoop/core-site.xml.origin
+# cp $HADOOP_HOME/etc/hadoop/core-site.xml $HADOOP_HOME/etc/hadoop/core-site.xml.origin
 echo '
-<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
-<!--
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License. See accompanying LICENSE file.
--->
-
-<!-- Put site-specific property overrides in this file. -->
-
 <configuration>
-
   <property>
     <name>fs.default.name</name>
-    <value>hdfs://iZ2zeh3rmvn71widtik73gZ:9000</value>
+    <value>hdfs://'${ipMaster}':9000</value>
   </property>
   <!--默认file system uri-->
 
@@ -128,37 +101,19 @@ echo '
   </property>
   <!--用于临时文件夹的基础路径-->
 </configuration>
-
 ' > $HADOOP_HOME/etc/hadoop/core-site.xml 
 
-cp $HADOOP_HOME/etc/hadoop/hdfs-site.xml $HADOOP_HOME/etc/hadoop/hdfs-site.xml.origin
+# cp $HADOOP_HOME/etc/hadoop/hdfs-site.xml $HADOOP_HOME/etc/hadoop/hdfs-site.xml.origin
 echo '
-<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
-<!--
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License. See accompanying LICENSE file.
--->
-
-<!-- Put site-specific property overrides in this file. -->
-
 <configuration>
-<!--  <property>  
+  <property>  
       <name>dfs.namenode.http-address</name>  
-      <value>iZ2zeh3rmvn71widtik73gZ:50070</value>  
+      <value>'${ipMaster}':50070</value>  
       <description> fetch NameNode images and edits.注意主机名称 </description>  
   </property>
-  <property>  
+<!--  <property>  
     <name>dfs.namenode.secondary.http-address</name>  
-    <value>iZ2zeh3rmvn71widtik72kZ:50090</value>  
+    <value>'${ipSlaver1}':50090</value>  
     <description> fetch SecondNameNode fsimage </description>  
   </property> -->
 
@@ -195,23 +150,6 @@ echo '
 ' > $HADOOP_HOME/etc/hadoop/hdfs-site.xml
 
 echo '
-<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
-<!--
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License. See accompanying LICENSE file.
--->
-
-<!-- Put site-specific property overrides in this file. -->
-
 <configuration>
   <property>
     <name>mapreduce.framework.name</name>
@@ -220,36 +158,20 @@ echo '
   <!--执行mapreduce的框架-->
 <!--   <property>
       <name>mapreduce.jobhistory.address</name>
-      <value>iZ2zeh3rmvn71widtik73gZ:10020</value>
+      <value>'${ipMaster}':10020</value>
   </property>
   <property>
       <name>mapreduce.jobhistory.webapp.address</name>
-      <value>iZ2zeh3rmvn71widtik73gZ:19888</value>
+      <value>'${ipMaster}':19888</value>
   </proerty>-->
 </configuration>
 
 ' > $HADOOP_HOME/etc/hadoop/mapred-site.xml
 
 
-cp $HADOOP_HOME/etc/hadoop/yarn-site.xml $HADOOP_HOME/etc/hadoop/yarn-site.xml.origin
+# cp $HADOOP_HOME/etc/hadoop/yarn-site.xml $HADOOP_HOME/etc/hadoop/yarn-site.xml.origin
 echo '
-<!--
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License. See accompanying LICENSE file.
--->
 <configuration>
-
-<!-- Site specific YARN configuration properties -->
-
   <property>
     <name>yarn.nodemanager.aux-services</name>
     <value>mapreduce_shuffle</value>
@@ -299,21 +221,143 @@ echo '
 
 <property>
     <name>yarn.resourcemanager.hostname</name>
-    <value>iZ2zeh3rmvn71widtik73gZ</value>
+    <value>'${ipMaster}'</value>
 </property>
 
 </configuration>
 
 ' > $HADOOP_HOME/etc/hadoop/yarn-site.xml
-echo 'iZ2zeh3rmvn71widtik72kZ' >> $HADOOP_HOME/etc/hadoop/slaves
+echo ${ipSlaver1} >> $HADOOP_HOME/etc/hadoop/slaves
 
 # spark 
 cp $HADOOP_HOME/etc/hadoop/slaves ${SPARK_HOME}/conf 
 echo 'HADOOP_CONF_DIR='${HADOOP_HOME}/etc/hadoop >> ${SPARK_HOME}/conf/spark-env.sh
 
 
-ssh hadoop@10.85.125.176
-scp -r ~/libs hadoop@10.85.125.176: ~/
+ssh hadoop@${ipSlaver1}
+mkdir ~/libs/
+exit
+scp -r ~/libs/ hadoop@${ipSlaver1}:~/
 hadoop namenode -format
-sh start-all.sh
-${SPARK_HOME}/sbin/start-all.sh
+start-all.sh
+$HADOOP_HOME/bin/hadoop fs -mkdir       /tmp
+$HADOOP_HOME/bin/hadoop fs -mkdir       /user
+$HADOOP_HOME/bin/hadoop fs -mkdir       /user/hive/
+$HADOOP_HOME/bin/hadoop fs -mkdir       /user/hive/warehouse
+$HADOOP_HOME/bin/hadoop fs -chmod g+w   /tmp
+$HADOOP_HOME/bin/hadoop fs -chmod g+w   /user/hive/
+$HADOOP_HOME/bin/hadoop fs -chmod g+w   /user/hive/warehouse
+echo 'export JAVA_HOME='${JAVA_HOME}'  ##Java路径' > ${HIVE_HOME}/conf/hive-env.sh  
+echo 'export HADOOP_HOME='${HADOOP_HOME}'  ##Hadoop安装路径' >> ${HIVE_HOME}/conf/hive-env.sh  
+echo 'export HIVE_HOME='${HIVE_HOME}'  ##Hive安装路径'  >> ${HIVE_HOME}/conf/hive-env.sh  
+echo 'export HIVE_CONF_DIR=$HIVE_HOME/conf  ##Hive配置文件路径' >> ${HIVE_HOME}/conf/hive-env.sh  
+
+sudo rpm -Uvh platform-and-version-specific-package-name.rpm
+sudo yum install mysql-community-server
+sudo service mysqld start
+sudo service mysqld status
+sudo grep 'temporary password' /var/log/mysqld.log
+mysql -uroot -p  
+# ALTER USER 'root'@'localhost' IDENTIFIED BY 'MyNewPass4!';
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'Weibo_bigdata_4ds';
+#port : 33601
+create database hive;
+create user hive identified by 'Weibo_bigdata_ds_4hive';
+grant all PRIVILEGES on *.* to hive@'%' identified by 'Weibo_bigdata_ds_4hive';
+flush privileges;
+
+# cat ${HIVE_HOME}/conf/hive-default.xml.template > ${HIVE_HOME}/conf/hive-site.xml 
+
+cp ${HIVE_HOME}/conf/hive-log4j2.properties.template ${HIVE_HOME}/conf/hive-log4j2.properties 
+
+cp ${HIVE_HOME}/conf/hive-exec-log4j2.properties.template ${HIVE_HOME}/conf/hive-exec-log4j2.properties
+
+ipMaster=10.85.125.173
+ipSlaver1=10.85.125.174
+
+echo '
+<configuration>  
+  
+<property>
+  <name>javax.jdo.option.ConnectionURL</name>
+  <value>jdbc:mysql://'${ipMaster}':33601/hive?characterEncoding=UTF-8</value>
+  <description>JDBC connect string for a JDBC metastore</description>
+</property>
+
+<property>
+  <name>javax.jdo.option.ConnectionDriverName</name>
+  <value>com.mysql.jdbc.Driver</value>
+  <description>Driver class name for a JDBC metastore</description>
+</property>
+<property>
+  <name>javax.jdo.option.ConnectionUserName</name>
+  <value>hive</value>
+</property>
+<property>
+  <name>javax.jdo.option.ConnectionPassword</name>
+  <value>Weibo_bigdata_ds_4hive</value>
+</property>
+<property>
+  <name>hive.metastore.warehouse.dir</name>
+  <!-- base hdfs path -->
+  <value>/user/hive/warehouse</value>
+  <description>location of default database for the warehouse</description>
+</property>
+
+<property>  
+    <name>datanucleus.readOnlyDatastore</name>  
+    <value>false</value>  
+</property>  
+<property>   
+    <name>datanucleus.fixedDatastore</name>  
+    <value>false</value>   
+</property>  
+<property>   
+    <name>datanucleus.autoCreateSchema</name>   
+    <value>true</value>   
+</property>  
+<property>  
+    <name>datanucleus.autoCreateTables</name>  
+    <value>true</value>  
+</property>  
+<property>  
+    <name>datanucleus.autoCreateColumns</name>  
+    <value>true</value>  
+</property> 
+
+<property>
+   <name>hive.metastore.schema.verification</name>
+   <value>false</value>
+    <description>
+    Enforce metastore schema version consistency.
+    True: Verify that version information stored in metastore matches with one from Hive jars.  Also disable automatic
+          schema migration attempt. Users are required to manully migrate schema after Hive upgrade which ensures
+          proper metastore schema migration. (Default)
+    False: Warn if the version information stored in metastore doesnt match with one from in Hive jars.
+    </description>
+ </property>
+
+</configuration>  
+
+' > ${HIVE_HOME}/conf/hive-site.xml 
+
+
+
+echo 'rm -rf ./data.txt
+touch data.txt
+for((i=0;i<20000000;i++))
+do
+str='',name'';
+name=${i}${str}${i}
+#echo $name
+echo  $name>> data.txt
+done
+
+echo ''show testdata''
+cat data.txt' > data_create.sh
+
+sh data_create.sh
+
+drop table test_hive;
+create table test_hive(id int,name string) row format delimited fields terminated by ',';
+LOAD DATA LOCAL INPATH '/home/hadoop/ksp/test_hive/data' OVERWRITE INTO TABLE test_hive;
