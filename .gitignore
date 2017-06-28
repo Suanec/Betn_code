@@ -49,3 +49,10 @@ ModelExport/FrameCommon/LimitProbing/PressureTest/dataRepeat/datarepeat-0-1-0_2.
 ModelExport/GBDT/rst/gbdt-2016-12-13-10.model
 ModelExport/FrameCommon/LimitProbing/PressureTest/rst/
 ModelExport/LinearRegression/wei-ml-testLinearRegression.jar
+dataflowBugFix/dataflow/
+dataflowBugFix/script/work.sh
+LimitProbing/PressureTest-2016/rst/Tron-40W-70W-failed.log
+LimitProbing/PressureTest-2016/rst/SGD-2Y-10W-161214-2107.out
+LimitProbing/PressureTest-2016/rst/
+LimitProbing/PressureTest-20170620-EMR/rst/
+LimitProbing/data/
