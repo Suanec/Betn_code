@@ -1,0 +1,67 @@
+spark-shell --driver-memory 3g 
+/// --jars D:\Docs\Works_And_Jobs\Sina\Workspace\dataflow-wip\framework\bin\data-flow-2.0.0-SNAPSHOT-shade.jar
+val metaPath = """D:\Docs\Works_And_Jobs\Sina\Betn_code\dataflowBugFix\dataflow\haibo\push.meta"""
+def lines(): Array[String] = fromFile(metaPath).getLines().filter(_.size > 0).toArray
+import scala.io.Source._
+val dataMetaIndexUsage =
+  """
+    |
+    |====================DataMeta=====================
+    |Features'index in DataMeta found Error!
+    |DataMeta :
+    |Each Feature hold one whole line.
+    |index of each feature must start from 0.
+    |index must be Continuous Increment Integer !
+    |====================DataMeta=====================
+    |
+  """.stripMargin
+val dataMetaTypeUsage =
+  """
+    |
+    |====================DataMeta=====================
+    |Features'type in DataMeta found Error!
+    |DataMeta :
+    |Each Feature hold one whole line.
+    |type of each feature must be supported.
+    |supported type:int, long, float, double, string.
+    |====================DataMeta=====================
+    |
+  """.stripMargin
+def dataMetaFormatUsage(errLine : String) : String =
+  s"""
+    |====================DataMeta=====================
+    |Error line found in dataMeta!
+    |DataMeta :
+    |Each Line must be 3 columns with seperator ":".
+    |with Error Line :
+    |${errLine}
+    |====================DataMeta=====================
+    |
+  """.stripMargin
+
+/// 数据格式校验，当数据行不以“：”分隔或者缺少字段等一系列不规范情况，触发断言。
+lines.map{
+  line =>
+    val lineSplits = line.split(':')
+    assert(
+      lineSplits.size == 3,
+      dataMetaFormatUsage(line)
+    )
+}
+val splits = lines.map(_.split(':'))
+val indexes = splits.map(_.head)
+val names = splits.map(_.apply(1))
+val types = splits.map(_.last.toLowerCase)
+val typesSupported = Array("int", "long", "float", "double", "string")
+/// 对index规范性校验，不规范则触发断言。
+assert(
+  (indexes.filter(_.contains(".")).size == 0) &&
+    (indexes.map(_.toInt).zipWithIndex.filter(x => x._1 != x._2).size == 0),
+  dataMetaIndexUsage
+)
+/// 对数据类型进行校验，若出现不支持类型，则触发断言。
+assert(
+  types.filter(x => !typesSupported.contains(x)).size == 0,
+    dataMetaTypeUsage
+)
+

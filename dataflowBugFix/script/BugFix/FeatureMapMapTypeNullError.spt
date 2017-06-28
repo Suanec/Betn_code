@@ -1,0 +1,335 @@
+spark-shell --driver-memory 10g --jars data-flow-2.0.0-SNAPSHOT-shade.jar 
+val xmlPath = "dataflow.xml"
+val dataConfPath = "push.data.conf"
+
+import scala.io.Source._
+
+import com.weibo.datasys.common.filesystem.HdfsHelper
+import com.weibo.datasys.dataflow.classbase.input.InputSpark
+import com.weibo.datasys.engine.spark.node.{DataFlowType, WeiDataFrame}
+
+import org.apache.spark.sql.{DataFrame, Row, SparkSession}
+import com.weibo.datasys.engine.spark.input.InputSparkDataConf._
+
+
+def getFields(lineJson: Map[String, Any]):
+  (Int, String, String, String, String, Long, Boolean, String, Boolean) = {
+    var index: String = lineJson.getOrElse("index", "-1").toString
+    var name: String = lineJson.getOrElse("name", "-1").toString
+    var maptype: String = lineJson.getOrElse("maptype", "").toString
+    var operator: String = lineJson.getOrElse("operator", "").toString
+    var args: String = lineJson.getOrElse("args", "").toString
+    var maxhint: String = lineJson.getOrElse("maxhint", "").toString
+    var havedefault: String = lineJson.getOrElse("havedefault", "false").toString
+    var defaultvalue: String = lineJson.getOrElse("defaultvalue", "").toString
+    var drop: String = lineJson.getOrElse("drop", "false").toString
+
+    index = if (index.equals("")) "-1" else index
+    name = if (name.equals("")) "-1" else name
+    maxhint = if (maxhint.equals("")) "-1" else maxhint
+    havedefault = if (havedefault.equals("")) "false" else havedefault
+    drop = if (drop.equals("")) "false" else drop
+
+    assert(!index.equals("-1") && !name.equals("-1"),
+    "Feature's index and name can NOT be empty!\n" +
+      s"For line: ${lineJson.toString}")
+
+    assert(supportedMapType.contains(maptype.toLowerCase),
+      " MapType Found Error! \n" +
+      s"For line: ${lineJson} \n" +
+      s"Supported MapType : ${supportedMapType.mkString(",")} \n"
+    )
+
+    if(maptype.equals("enum")) {
+      assert(!maxhint.equals("") && !operator.equals(""),
+        "Maxhint And Operator can NOT be empty for maptype enum!\n" +
+          s"For line: ${lineJson.toString}")
+    }
+
+    if(havedefault.equals("true")) {
+      assert(!defaultvalue.equals(""),
+        "Defaultvalue can NOT be empty for havedefault being TRUE!\n" +
+          s"For line: ${lineJson.toString}")
+    }
+
+    (index.toDouble.toInt, name, maptype, operator, args, maxhint.toLong,
+      havedefault.toBoolean, defaultvalue, drop.toBoolean)
+  }
+
+case class DataConf(index: Int,
+                       name: String,
+                       maptype: String = "",
+                       operator: String = "",
+                       args: String = "",
+                       maxhint: Long = 0,
+                       havedefault: Boolean = false,
+                       defaultvalue: String = "",
+                       drop: Boolean = false) extends Serializable {
+}
+
+object DataConf {
+  def apply(r: Row): DataConf = {
+    assert(r.size == 9,
+      "Invalid row, this row MUST have 8 and only 8 fields.\n")
+
+    val index: Int = r.getInt(0)
+    val name: String = r.getString(1)
+    val maptype: String = r.getString(2)
+    val operator: String = r.getString(3)
+    val args: String = r.getString(4)
+    val maxhint: Long = r.getLong(5)
+    val havedefault: Boolean = r.getBoolean(6)
+    val defaultvalue: String = r.getString(7)
+    val drop: Boolean = r.getBoolean(8)
+
+    new DataConf(index, name, maptype, operator, args, maxhint, havedefault, defaultvalue, drop)
+  }
+}
+
+
+  val classSimpleName: String = this.getClass.getSimpleName
+  val supportedMapType = Array("persist","origin","bool","enum")
+
+  def parseDataConf(spark: SparkSession, dataPath: String): DataFlowType = {
+
+    val fileOnHdfs: Boolean = HdfsHelper.hdfsExists(dataConfPath)
+
+        val lines: Iterator[String] = fromFile(dataConfPath).getLines
+        import spark.implicits._
+: Array[DataConf]
+        val dataConfs = lines
+          .filter(!_.isEmpty)
+          .filter(!_.startsWith("#"))
+          .map{
+            case line: String =>
+              val validLine: String = line.trim
+              assert(validLine.startsWith("{") && validLine.endsWith("}"),
+                "Your data conf line is illegal, it must be a JSON string!\n" +
+                  s"${validLine}")
+              val lineJson: Map[String, Any] = scala.util.parsing.json.JSON.parseFull(validLine)
+                .getOrElse("")
+                .asInstanceOf[Map[String, Any]]
+
+              val (index, name, maptype, operator, args, maxhint, havedefault, defaultvalue, drop) =
+                getFields(lineJson)
+
+              assert(index != -1 && !name.isEmpty,
+                "Your data conf line is illegal, it must be a valid JSON string!\n" +
+                  s"${validLine}")
+
+              DataConf(index, name, maptype, operator, args, maxhint, havedefault, defaultvalue,
+                drop)
+          }.toArray
+
+        val dataConfDataFrame: DataFrame = spark.sparkContext.parallelize(dataConfs, 1).toDF()
+
+        WeiDataFrame(dataConfDataFrame)
+    }
+
+  }
+
+package com.weibo.datasys.engine.spark.input
+
+import scala.io.Source._
+
+import com.weibo.datasys.common.filesystem.HdfsHelper
+import com.weibo.datasys.dataflow.classbase.input.InputSpark
+import com.weibo.datasys.engine.spark.node.{DataFlowType, WeiDataFrame}
+
+import org.apache.spark.sql.{DataFrame, Row, SparkSession}
+
+/**
+  Created by wulei3 on 17/4/26.
+  */
+
+object InputSparkDataConf extends InputSpark {
+
+  var dataPath: String = ""
+  private val classSimpleName: String = this.getClass.getSimpleName
+  val supportedMapTypes = Array("","persist","origin","bool","enum")
+  val supportedOperators = Array(
+    "",
+    "log","loge","log10","intlog","intlog10",
+    "int","long",
+    "multiple","multiply",
+    "piecewise",
+    "descartes",
+    "combinehash",
+    "pickcat")
+
+  override def init(userConf: Map[String, String]): Unit = {
+    dataPath = userConf.getOrElse("dataPath", "")
+
+    assert(!dataPath.isEmpty,
+      s"Class ${classSimpleName} requires <dataPath>, forgot to specify?\n")
+  }
+
+  override def read(spark: SparkSession): DataFlowType = parseDataConf(spark, dataPath)
+
+  def parseDataConf(spark: SparkSession, dataPath: String): DataFlowType = {
+
+    val fileOnHdfs: Boolean = HdfsHelper.hdfsExists(dataPath)
+
+    fileOnHdfs match {
+      case true =>
+        val lines = spark.sparkContext.textFile(dataPath)
+        import spark.implicits._
+
+        val dataConfDataFrame: DataFrame = lines
+          .filter(!_.isEmpty)
+          .filter(!_.startsWith("#"))
+          .filter(!_.startsWith("@"))
+          .map{
+            case line: String =>
+              val validLine: String = line.trim
+              assert(validLine.startsWith("{") && validLine.endsWith("}"),
+                "Your data conf line is illegal, it must be a JSON string!\n" +
+                  s"${validLine}")
+              val lineJson: Map[String, Any] = scala.util.parsing.json.JSON.parseFull(validLine)
+                .getOrElse("")
+                .asInstanceOf[Map[String, Any]]
+
+              val (index, name, maptype, operator, args, maxhint, havedefault, defaultvalue, drop) =
+                getFields(lineJson)
+
+              assert(index != -1 && !name.isEmpty,
+                "Your data conf line is illegal, it must be a valid JSON string!\n" +
+                  s"${validLine}")
+
+              DataConf(index, name, maptype, operator, args, maxhint, havedefault, defaultvalue,
+                drop)
+          }.toDF()
+        assert(dataConfDataFrame.filter(_.getString(2).equals("persist")).count == 1,
+          "maptype of \"persist\" must be specified!"
+        )
+
+        WeiDataFrame(dataConfDataFrame)
+
+      case false =>
+        val lines: Iterator[String] = fromFile(dataPath).getLines
+        import spark.implicits._
+
+        val dataConfs: Array[DataConf] = lines
+          .filter(!_.isEmpty)
+          .filter(!_.startsWith("#"))
+          .map{
+            case line: String =>
+              val validLine: String = line.trim
+              assert(validLine.startsWith("{") && validLine.endsWith("}"),
+                "Your data conf line is illegal, it must be a JSON string!\n" +
+                  s"${validLine}")
+              val lineJson: Map[String, Any] = scala.util.parsing.json.JSON.parseFull(validLine)
+                .getOrElse("")
+                .asInstanceOf[Map[String, Any]]
+
+              val (index, name, maptype, operator, args, maxhint, havedefault, defaultvalue, drop) =
+                getFields(lineJson)
+
+              assert(index != -1 && !name.isEmpty,
+                "Your data conf line is illegal, it must be a valid JSON string!\n" +
+                  s"${validLine}")
+
+              DataConf(index, name, maptype, operator, args, maxhint, havedefault, defaultvalue,
+                drop)
+          }.toArray
+
+        val dataConfDataFrame: DataFrame = spark.sparkContext.parallelize(dataConfs, 1).toDF()
+
+        WeiDataFrame(dataConfDataFrame)
+    }
+
+
+  }
+
+  private def getFields(lineJson: Map[String, Any]):
+  (Int, String, String, String, String, Long, Boolean, String, Boolean) = {
+    var index: String = lineJson.getOrElse("index", "-1").toString
+    var name: String = lineJson.getOrElse("name", "-1").toString
+    var maptype: String = lineJson.getOrElse("maptype", "").toString
+    var operator: String = lineJson.getOrElse("operator", "").toString
+    var args: String = lineJson.getOrElse("args", "").toString
+    var maxhint: String = lineJson.getOrElse("maxhint", "").toString
+    var havedefault: String = lineJson.getOrElse("havedefault", "false").toString
+    var defaultvalue: String = lineJson.getOrElse("defaultvalue", "").toString
+    var drop: String = lineJson.getOrElse("drop", "false").toString
+
+    index = if (index.equals("")) "-1" else index
+    name = if (name.equals("")) "-1" else name
+    maxhint = if (maxhint.equals("")) "-1" else maxhint
+    havedefault = if (havedefault.equals("")) "false" else havedefault
+    drop = if (drop.equals("")) "false" else drop
+
+    assert(!index.equals("-1") && !name.equals("-1"),
+    "Feature's index and name can NOT be empty!\n" +
+      s"For line: ${lineJson.toString}")
+
+    assert(supportedMapTypes.contains(maptype.toLowerCase),
+      " MapType Found Error! \n" +
+      s"For line: ${lineJson} \n" +
+      s"Supported MapType : ${supportedMapTypes.mkString(",")} \n"
+    )
+
+
+    assert(supportedOperators.contains(operator.toLowerCase),
+      " Operator Found Error! \n" +
+        s"For line: ${lineJson} \n" +
+        s"Supported Operators : ${supportedOperators.mkString(",")} \n"
+    )
+
+    if(maptype.equals("enum")) {
+      assert(!maxhint.equals("") && !operator.equals(""),
+        "Maxhint And Operator can NOT be empty for maptype enum!\n" +
+          s"For line: ${lineJson.toString}")
+    }
+
+    if(havedefault.equals("true")) {
+      assert(!defaultvalue.equals(""),
+        "Defaultvalue can NOT be empty for havedefault being TRUE!\n" +
+          s"For line: ${lineJson.toString}")
+    }
+
+    (index.toDouble.toInt, name, maptype, operator, args, maxhint.toLong,
+      havedefault.toBoolean, defaultvalue, drop.toBoolean)
+  }
+}
+
+case class DataConf(index: Int,
+                       name: String,
+                       maptype: String = "",
+                       operator: String = "",
+                       args: String = "",
+                       maxhint: Long = 0,
+                       havedefault: Boolean = false,
+                       defaultvalue: String = "",
+                       drop: Boolean = false) extends Serializable {
+}
+
+object DataConf {
+
+  /* def apply(index: Int,
+            name: String,
+            maptype: String = "",
+            operator: String = "",
+            args: String = "",
+            maxhint: Long = 0,
+            havedefault: Boolean = false,
+            defaultvalue: String = ""): DataConf =
+    new DataConf(index, name, maptype, operator, args, maxhint, havedefault, defaultvalue)
+*/
+  def apply(r: Row): DataConf = {
+    assert(r.size == 9,
+      "Invalid row, this row MUST have 8 and only 8 fields.\n")
+
+    val index: Int = r.getInt(0)
+    val name: String = r.getString(1)
+    val maptype: String = r.getString(2)
+    val operator: String = r.getString(3)
+    val args: String = r.getString(4)
+    val maxhint: Long = r.getLong(5)
+    val havedefault: Boolean = r.getBoolean(6)
+    val defaultvalue: String = r.getString(7)
+    val drop: Boolean = r.getBoolean(8)
+
+    new DataConf(index, name, maptype, operator, args, maxhint, havedefault, defaultvalue, drop)
+  }
+}

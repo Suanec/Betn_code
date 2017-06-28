@@ -1,0 +1,9 @@
+suanec=/data1/users/shixi_enzhao
+suanecdf=/data1/users/shixi_enzhao/dataflow/2/wsp
+alias fsls='hadoop fs -ls '
+alias fsmv='hadoop fs -mv '
+alias fsrm='hadoop fs -rm '
+alias fslsme='hadoop fs -ls $hadopath'
+alias fscat='hadoop fs -cat '
+alias fs='hadoop fs'
+alias show='sh show.sh '

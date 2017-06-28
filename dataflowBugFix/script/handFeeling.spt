@@ -1,0 +1,77 @@
+scala -J-Xmx3g -cp "D:\Docs\Works_And_Jobs\Sina\Workspace\dataflow - wip\framework\bin\data-flow-2.0.0-SNAPSHOT-shade.jar"
+// D:\Docs\Works_And_Jobs\Sina\Betn_code\dataflowBugFix\dataflow\haibo2\data-flow-2.0.0-SNAPSHOT-shade.jar
+
+import com.weibo.datasys.dataflow.xmlparser.WeiFlow
+import com.weibo.datasys.engine.hive.node.NodeHiveImpl
+import com.weibo.datasys.engine.odps.node.NodeOdpsImpl
+import com.weibo.datasys.engine.python.node.NodePythonImpl
+import com.weibo.datasys.engine.shell.node.NodeShellImpl
+import com.weibo.datasys.engine.spark.node.NodeSparkImpl
+import com.weibo.datasys.dataflow.xmlparser.WeiFlow._
+
+// import com.weibo.datasys.common.Main._
+import com.weibo.datasys.dataflow.xmlparser._
+val xmlPath = """D:\Docs\Works_And_Jobs\Sina\Betn_code\dataflowBugFix\dataflow\haibo2\dataflow.xml"""
+val (jar: String, xmlConfig: String, nodeID: Int) = 
+  ("data-flow-2.0.0-SNAPSHOT-shade.jar", "dataflow.xml", 1)
+def constructAppArgs(cls: String,
+                     jar: String,
+                     xmlConfig: String,
+                     nodeID: Int): String = {
+  s"--class=$cls $jar $xmlConfig $nodeID"
+}
+val sparkArgs: String = constructAppArgs(
+  "com.weibo.datasys.engine.spark.node.NodeSparkRunner", jar,
+  xmlPath, nodeID)
+print(s"app args: ${sparkArgs}\n")
+
+
+// val arr : Array[Any] = Array(1,3d,"asdf",Array(33),Array("SE"))
+// arr.foreach{
+//   case n @ Int => println("Int : " + n)
+//   case n @ Double => println("Double : " + n)
+//   // case n @ testString => println("String : " + n)
+//   case n @ Array.empty[Int] => println("Array[Int] : " + n)
+//   case n @ Array[_] => println("Array[_] : " + n)
+//   case _ => println("others : " + _)
+// }
+// arr.foreach{
+//   case n : Int => println("Int : " + n)
+//   case n : Double => println("Double : " + n)
+//   case n : String => println("String : " + n)
+//   case n : Array[Int] => println("Array[Int] : " + n.getClass.getSimpleName)
+//   case n : Array[_] => println("Array[_] : " + n.getClass.getSimpleName)
+//   case _ => println("others.")
+// }
+
+
+// val xmlElem = xml.XML.load(xmlPath)
+// //解析xml Node 内容，同时检查内容是否重复。返回结果为blockName对应元素。
+// val nodesBlocks = HasUniqueBlock.checkDuplicate(c, "nodes")
+val tXml = scala.xml.XML.load(xmlPath)
+val nodesBlocks = HasUniqueBlock.checkDuplicate(tXml,"nodes")
+val nodes = Node(nodesBlocks)
+val weiflowBlocks = HasUniqueBlock.checkDuplicate(tXml, "weiflow")
+val flowsMap = Entry(weiflowBlocks).map(x => x.name -> x).toMap
+val t = nodes.head
+t.name
+t.toImpl.
+val nodeImpl = WeiFlow.read(xmlPath).filter(_.id == nodeID).map(_.node.toImpl())
+  // .foreach {
+  //   case n @ NodeSparkImpl => 
+  //     println("NodeSparkImpl");
+  //     //n.launch(sparkArgs)
+  //   case n @ NodeShellImpl => 
+  //     println("NodeShellImpl")
+  //     //n.launch("")
+  //   case n @ NodePythonImpl => 
+  //     println("NodePythonImpl")
+  //     //n.launch("")
+  //   case n @ NodeHiveImpl => 
+  //     println("NodeHiveImpl")
+  //     //n.launch("")
+  //   case n @ NodeOdpsImpl => 
+  //     println("NodeOdpsImpl"); //n.launch("")
+  // }
+val nodet = nodeImpl.head
+val nodeLaunch = NodeSparkImpl.launch(sparkArgs)

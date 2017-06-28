@@ -1,0 +1,122 @@
+scala -J-Xmx3g -cp "D:\Docs\Works_And_Jobs\Sina\Workspace\dataflow-wip\framework\bin\data-flow-2.0.0-SNAPSHOT-shade.jar"
+import scala.io.Source._
+
+import com.weibo.datasys.common.filesystem.HdfsHelper
+import com.weibo.datasys.dataflow.classbase.input.InputSpark
+import com.weibo.datasys.engine.spark.node.{DataFlowType, WeiDataFrame}
+import  com.weibo.datasys.engine.spark.input.InputSparkDataConf._// import org.apache.spark.sql.{DataFrame, Row, SparkSession}
+
+
+val dataPath = """D:\Docs\Works_And_Jobs\Sina\Betn_code\dataflowBugFix\res\122.0Error.conf"""
+
+val lines: Iterator[String] = scala.io.Source.fromFile(dataPath).getLines
+// import spark.implicits._
+val t = lines.toArray
+
+val tt = t  .filter(!_.isEmpty)  .filter(!_.startsWith("#"))
+val ts = tt.head 
+      val validLine: String = ts.trim
+
+      assert(validLine.startsWith("{") && validLine.endsWith("}"),
+        "Your data conf line is illegal, it must be a JSON string!\n" +
+          s"${validLine}")
+      val lineJson: Map[String, Any] = scala.util.parsing.json.JSON.parseFull(validLine)        .getOrElse("")        .asInstanceOf[Map[String, Any]]
+
+      val (index, name, maptype, operator, args, maxhint, havedefault, defaultvalue, drop) =
+        getFields(lineJson)
+
+      assert(index != -1 && !name.isEmpty,
+        "Your data conf line is illegal, it must be a valid JSON string!\n" +
+          s"${validLine}")
+
+      DataConf(index, name, maptype, operator, args, maxhint, havedefault, defaultvalue,
+        drop)
+  }.toArray
+
+val dataConfDataFrame: DataFrame = spark.sparkContext.parallelize(dataConfs, 1).toDF()
+
+WeiDataFrame(dataConfDataFrame)
+
+
+
+val dataConfPathOld = """D:\Docs\Works_And_Jobs\Sina\Betn_code\dataflowBugFix\dataflow\haibo\zhangtong_dataconf"""
+val lines: Iterator[String] = scala.io.Source.fromFile(dataConfPathOld).getLines
+// import spark.implicits._
+val t = lines.toArray
+
+val tt = t  .filter(!_.isEmpty)  .filter(!_.startsWith("#"))      .filter(!_.startsWith("@"))
+
+val ts = tt.tail.head 
+
+var index: Int = -1
+var name: String = "-1"
+var maptype: String = ""
+var operator: String = ""
+var args: String = ""
+var maxhint: Long = -1
+var havedefault: Boolean = false
+var defaultvalue: String = ""
+var drop: Boolean = false
+val validfields: Array[String] = ts.trim.split("@")
+val tDCF = validfields.size match {
+  case 2 =>
+    index = validfields(0).toInt
+    name = validfields(1)
+  case 3 =>
+    index = validfields(0).toInt
+    name = validfields(1)
+    maptype = validfields(2)
+  case 4 =>
+    index = validfields(0).toInt
+    name = validfields(1)
+    maptype = validfields(2)
+    operator = validfields(3)
+  case 5 =>
+    index = validfields(0).toInt
+    name = validfields(1)
+    maptype = validfields(2)
+    operator = validfields(3)
+    args = validfields(4)
+  case 6 =>
+    index = validfields(0).toInt
+    name = validfields(1)
+    maptype = validfields(2)
+    operator = validfields(3)
+    args = validfields(4)
+    maxhint = validfields(5).toLong
+  case 7 =>
+    index = validfields(0).toInt
+    name = validfields(1)
+    maptype = validfields(2)
+    operator = validfields(3)
+    args = validfields(4)
+    maxhint = validfields(5).toLong
+    havedefault = validfields(6).toBoolean
+  case 8 =>
+    index = validfields(0).toInt
+    name = validfields(1)
+    maptype = validfields(2)
+    operator = validfields(3)
+    args = validfields(4)
+    maxhint = validfields(5).toLong
+    havedefault = validfields(6).toBoolean
+    defaultvalue = validfields(7)
+  case 9 =>
+    index = validfields(0).toInt
+    name = validfields(1)
+    maptype = validfields(2)
+    operator = validfields(3)
+    args = validfields(4)
+    maxhint = validfields(5).toLong
+    havedefault = validfields(6).toBoolean
+    defaultvalue = validfields(7)
+    drop = validfields(8).toBoolean
+}
+  assert(index != -1 && !name.equals("-1"),
+    "Feature's index and name can NOT be empty!\n")
+
+  val rst = DataConf(index, name, maptype, operator, args, maxhint, havedefault, defaultvalue, drop)
+  println(rst,index, name, maptype, operator, args, maxhint, havedefault, defaultvalue, drop)
+
+
+

@@ -1,0 +1,941 @@
+[BEGIN] 2017/6/6 17:13:02
+[wulei3@75-1-131-hadoop wsp]$ sh weiflow.sh 2
+jar: data-flow-2.0.0-SNAPSHOT-shade.jar
+xml: dataflow.xml
+nodeID: 2
+app args: --class=com.weibo.datasys.engine.spark.node.NodeSparkRunner data-flow-2.0.0-SNAPSHOT-shade.jar dataflow.xml 2
+/data1/users/shixi_enzhao/dataflow/2/wsp
+work dir: 0/usr/local/spark/bin/spark-submit 
+          --master spark://10.77.16.120:7077
+          --deploy-mode client
+          --total-executor-cores 20
+          --executor-cores 2
+          --executor-memory 8g
+         --class=com.weibo.datasys.engine.spark.node.NodeSparkRunner data-flow-2.0.0-SNAPSHOT-shade.jar dataflow.xml 217/06/06 17:07:27 INFO spark.SparkContext: Running Spark version 2.0.2
+17/06/06 17:07:27 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+17/06/06 17:07:27 WARN spark.SparkConf: 
+SPARK_CLASSPATH was detected (set to ':/usr/local/hadoop/share/hadoop/common/hadoop-lzo-0.4.20.jar:/usr/local/xgboost/java/xgboost4j-spark-0.7-jar-with-dependencies.jar:/usr/local/hive/lib/mysql-connector-java-5.1.35-bin.jar').
+This is deprecated in Spark 1.0+.
+
+Please instead use:
+ - ./spark-submit with --driver-class-path to augment the driver classpath
+ - spark.executor.extraClassPath to augment the executor classpath
+        
+17/06/06 17:07:27 WARN spark.SparkConf: Setting 'spark.executor.extraClassPath' to ':/usr/local/hadoop/share/hadoop/common/hadoop-lzo-0.4.20.jar:/usr/local/xgboost/java/xgboost4j-spark-0.7-jar-with-dependencies.jar:/usr/local/hive/lib/mysql-connector-java-5.1.35-bin.jar' as a work-around.
+17/06/06 17:07:27 WARN spark.SparkConf: Setting 'spark.driver.extraClassPath' to ':/usr/local/hadoop/share/hadoop/common/hadoop-lzo-0.4.20.jar:/usr/local/xgboost/java/xgboost4j-spark-0.7-jar-with-dependencies.jar:/usr/local/hive/lib/mysql-connector-java-5.1.35-bin.jar' as a work-around.
+17/06/06 17:07:27 WARN spark.SparkConf: 
+SPARK_WORKER_INSTANCES was detected (set to '1').
+This is deprecated in Spark 1.0+.
+
+Please instead use:
+ - ./spark-submit with --num-executors to specify the number of executors
+ - Or set SPARK_EXECUTOR_INSTANCES
+ - spark.executor.instances to configure the number of instances in the spark config.
+        
+17/06/06 17:07:27 INFO spark.SecurityManager: Changing view acls to: wulei3,feed_weibo
+17/06/06 17:07:27 INFO spark.SecurityManager: Changing modify acls to: wulei3,feed_weibo
+17/06/06 17:07:27 INFO spark.SecurityManager: Changing view acls groups to: 
+17/06/06 17:07:27 INFO spark.SecurityManager: Changing modify acls groups to: 
+17/06/06 17:07:27 INFO spark.SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(wulei3, feed_weibo); groups with view permissions: Set(); users  with modify permissions: Set(wulei3, feed_weibo); groups with modify permissions: Set()
+17/06/06 17:07:28 INFO util.Utils: Successfully started service 'sparkDriver' on port 61228.
+17/06/06 17:07:28 INFO spark.SparkEnv: Registering MapOutputTracker
+17/06/06 17:07:28 INFO spark.SparkEnv: Registering BlockManagerMaster
+17/06/06 17:07:28 INFO storage.DiskBlockManager: Created local directory at /data1/spark/local/blockmgr-04f4a8c6-3741-41b5-abec-d4cb6e7a1a23
+17/06/06 17:07:28 INFO storage.DiskBlockManager: Created local directory at /data1/data2/spark/local/blockmgr-7db38217-8718-433f-989c-9b83bd2c0b0a
+17/06/06 17:07:28 INFO storage.DiskBlockManager: Created local directory at /data1/data3/spark/local/blockmgr-914e4e80-d98a-4c44-8a71-99af9a22ba43
+17/06/06 17:07:28 INFO storage.DiskBlockManager: Created local directory at /data1/data4/spark/local/blockmgr-649bd254-79f2-4be8-b6eb-01c454cbea42
+17/06/06 17:07:28 INFO storage.DiskBlockManager: Created local directory at /data1/data5/spark/local/blockmgr-d26548a7-f556-4626-a9b5-01a42c05e850
+17/06/06 17:07:28 INFO storage.DiskBlockManager: Created local directory at /data1/data6/spark/local/blockmgr-b09decb7-268c-4a4b-adca-31fa78dcc8cb
+17/06/06 17:07:28 INFO storage.DiskBlockManager: Created local directory at /data1/data7/spark/local/blockmgr-e14a4aeb-490e-44b6-a7d4-2d29646d096d
+17/06/06 17:07:28 INFO storage.DiskBlockManager: Created local directory at /data1/data8/spark/local/blockmgr-b7be7fb2-89ea-4a30-b3be-5175836fdd02
+17/06/06 17:07:28 INFO storage.DiskBlockManager: Created local directory at /data1/data9/spark/local/blockmgr-94641f23-54a1-462d-abd1-10418a58d5c4
+17/06/06 17:07:28 INFO storage.DiskBlockManager: Created local directory at /data1/data10/spark/local/blockmgr-0cd4cb8f-a2e2-4556-952d-39fc0ede5f9d
+17/06/06 17:07:28 INFO storage.DiskBlockManager: Created local directory at /data1/data11/spark/local/blockmgr-427ef04e-6282-419b-9f02-13aa7301bde5
+17/06/06 17:07:28 INFO memory.MemoryStore: MemoryStore started with capacity 366.3 MB
+17/06/06 17:07:28 INFO spark.SparkEnv: Registering OutputCommitCoordinator
+17/06/06 17:07:28 INFO util.log: Logging initialized @2120ms
+17/06/06 17:07:28 INFO server.Server: jetty-9.2.z-SNAPSHOT
+17/06/06 17:07:28 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@7cbee484{/jobs,null,AVAILABLE}
+17/06/06 17:07:28 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@7f811d00{/jobs/json,null,AVAILABLE}
+17/06/06 17:07:28 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@62923ee6{/jobs/job,null,AVAILABLE}
+17/06/06 17:07:28 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@4089713{/jobs/job/json,null,AVAILABLE}
+17/06/06 17:07:28 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@f19c9d2{/stages,null,AVAILABLE}
+17/06/06 17:07:28 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@7807ac2c{/stages/json,null,AVAILABLE}
+17/06/06 17:07:28 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@b91d8c4{/stages/stage,null,AVAILABLE}
+17/06/06 17:07:28 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@4b6166aa{/stages/stage/json,null,AVAILABLE}
+17/06/06 17:07:28 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@a77614d{/stages/pool,null,AVAILABLE}
+17/06/06 17:07:28 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@4fd4cae3{/stages/pool/json,null,AVAILABLE}
+17/06/06 17:07:28 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@4a067c25{/storage,null,AVAILABLE}
+17/06/06 17:07:28 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@a1217f9{/storage/json,null,AVAILABLE}
+17/06/06 17:07:28 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@3bde62ff{/storage/rdd,null,AVAILABLE}
+17/06/06 17:07:28 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@523424b5{/storage/rdd/json,null,AVAILABLE}
+17/06/06 17:07:28 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@2baa8d82{/environment,null,AVAILABLE}
+17/06/06 17:07:28 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@319dead1{/environment/json,null,AVAILABLE}
+17/06/06 17:07:28 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@791cbf87{/executors,null,AVAILABLE}
+17/06/06 17:07:28 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@a7e2d9d{/executors/json,null,AVAILABLE}
+17/06/06 17:07:28 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@754777cd{/executors/threadDump,null,AVAILABLE}
+17/06/06 17:07:28 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@2b52c0d6{/executors/threadDump/json,null,AVAILABLE}
+17/06/06 17:07:28 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@372ea2bc{/static,null,AVAILABLE}
+17/06/06 17:07:28 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@4cc76301{/,null,AVAILABLE}
+17/06/06 17:07:28 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@2f08c4b{/api,null,AVAILABLE}
+17/06/06 17:07:28 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@3f19b8b3{/stages/stage/kill,null,AVAILABLE}
+17/06/06 17:07:28 INFO server.ServerConnector: Started ServerConnector@16423501{HTTP/1.1}{0.0.0.0:4040}
+17/06/06 17:07:28 INFO server.Server: Started @2321ms
+17/06/06 17:07:28 INFO util.Utils: Successfully started service 'SparkUI' on port 4040.
+17/06/06 17:07:28 INFO ui.SparkUI: Bound SparkUI to 0.0.0.0, and started at http://10.75.1.131:4040
+17/06/06 17:07:28 INFO spark.SparkContext: Added JAR file:/data1/users/shixi_enzhao/dataflow/2/wsp/data-flow-2.0.0-SNAPSHOT-shade.jar at spark://10.75.1.131:61228/jars/data-flow-2.0.0-SNAPSHOT-shade.jar with timestamp 1496740048755
+17/06/06 17:07:28 INFO client.StandaloneAppClient$ClientEndpoint: Connecting to master spark://10.77.16.120:7077...
+17/06/06 17:07:28 INFO client.TransportClientFactory: Successfully created connection to /10.77.16.120:7077 after 39 ms (0 ms spent in bootstraps)
+17/06/06 17:07:29 INFO cluster.StandaloneSchedulerBackend: Connected to Spark cluster with app ID app-20170606170729-0079
+17/06/06 17:07:29 INFO client.StandaloneAppClient$ClientEndpoint: Executor added: app-20170606170729-0079/0 on worker-20170522174941-10.77.16.119-46575 (10.77.16.119:46575) with 2 cores
+17/06/06 17:07:29 INFO cluster.StandaloneSchedulerBackend: Granted executor ID app-20170606170729-0079/0 on hostPort 10.77.16.119:46575 with 2 cores, 8.0 GB RAM
+17/06/06 17:07:29 INFO client.StandaloneAppClient$ClientEndpoint: Executor added: app-20170606170729-0079/1 on worker-20170522174941-10.77.112.168-27306 (10.77.112.168:27306) with 2 cores
+17/06/06 17:07:29 INFO cluster.StandaloneSchedulerBackend: Granted executor ID app-20170606170729-0079/1 on hostPort 10.77.112.168:27306 with 2 cores, 8.0 GB RAM
+17/06/06 17:07:29 INFO client.StandaloneAppClient$ClientEndpoint: Executor added: app-20170606170729-0079/2 on worker-20170522174941-10.77.112.184-37264 (10.77.112.184:37264) with 2 cores
+17/06/06 17:07:29 INFO cluster.StandaloneSchedulerBackend: Granted executor ID app-20170606170729-0079/2 on hostPort 10.77.112.184:37264 with 2 cores, 8.0 GB RAM
+17/06/06 17:07:29 INFO client.StandaloneAppClient$ClientEndpoint: Executor added: app-20170606170729-0079/3 on worker-20170522174941-10.77.113.48-20986 (10.77.113.48:20986) with 2 cores
+17/06/06 17:07:29 INFO util.Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 35776.
+17/06/06 17:07:29 INFO cluster.StandaloneSchedulerBackend: Granted executor ID app-20170606170729-0079/3 on hostPort 10.77.113.48:20986 with 2 cores, 8.0 GB RAM
+17/06/06 17:07:29 INFO netty.NettyBlockTransferService: Server created on 10.75.1.131:35776
+17/06/06 17:07:29 INFO client.StandaloneAppClient$ClientEndpoint: Executor added: app-20170606170729-0079/4 on worker-20170522174941-10.77.16.121-10603 (10.77.16.121:10603) with 2 cores
+17/06/06 17:07:29 INFO cluster.StandaloneSchedulerBackend: Granted executor ID app-20170606170729-0079/4 on hostPort 10.77.16.121:10603 with 2 cores, 8.0 GB RAM
+17/06/06 17:07:29 INFO client.StandaloneAppClient$ClientEndpoint: Executor added: app-20170606170729-0079/5 on worker-20170522174941-10.77.113.54-55376 (10.77.113.54:55376) with 2 cores
+17/06/06 17:07:29 INFO cluster.StandaloneSchedulerBackend: Granted executor ID app-20170606170729-0079/5 on hostPort 10.77.113.54:55376 with 2 cores, 8.0 GB RAM
+17/06/06 17:07:29 INFO storage.BlockManagerMaster: Registering BlockManager BlockManagerId(driver, 10.75.1.131, 35776)
+17/06/06 17:07:29 INFO client.StandaloneAppClient$ClientEndpoint: Executor added: app-20170606170729-0079/6 on worker-20170522174941-10.77.112.177-38053 (10.77.112.177:38053) with 2 cores
+17/06/06 17:07:29 INFO cluster.StandaloneSchedulerBackend: Granted executor ID app-20170606170729-0079/6 on hostPort 10.77.112.177:38053 with 2 cores, 8.0 GB RAM
+17/06/06 17:07:29 INFO client.StandaloneAppClient$ClientEndpoint: Executor added: app-20170606170729-0079/7 on worker-20170522174941-10.77.112.181-18051 (10.77.112.181:18051) with 2 cores
+17/06/06 17:07:29 INFO cluster.StandaloneSchedulerBackend: Granted executor ID app-20170606170729-0079/7 on hostPort 10.77.112.181:18051 with 2 cores, 8.0 GB RAM
+17/06/06 17:07:29 INFO client.StandaloneAppClient$ClientEndpoint: Executor added: app-20170606170729-0079/8 on worker-20170522174940-10.77.16.128-64883 (10.77.16.128:64883) with 2 cores
+17/06/06 17:07:29 INFO cluster.StandaloneSchedulerBackend: Granted executor ID app-20170606170729-0079/8 on hostPort 10.77.16.128:64883 with 2 cores, 8.0 GB RAM
+17/06/06 17:07:29 INFO client.StandaloneAppClient$ClientEndpoint: Executor added: app-20170606170729-0079/9 on worker-20170522174941-10.77.96.154-32416 (10.77.96.154:32416) with 2 cores
+17/06/06 17:07:29 INFO cluster.StandaloneSchedulerBackend: Granted executor ID app-20170606170729-0079/9 on hostPort 10.77.96.154:32416 with 2 cores, 8.0 GB RAM
+17/06/06 17:07:29 INFO storage.BlockManagerMasterEndpoint: Registering block manager 10.75.1.131:35776 with 366.3 MB RAM, BlockManagerId(driver, 10.75.1.131, 35776)
+17/06/06 17:07:29 INFO storage.BlockManagerMaster: Registered BlockManager BlockManagerId(driver, 10.75.1.131, 35776)
+17/06/06 17:07:29 INFO client.StandaloneAppClient$ClientEndpoint: Executor updated: app-20170606170729-0079/3 is now RUNNING
+17/06/06 17:07:29 INFO client.StandaloneAppClient$ClientEndpoint: Executor updated: app-20170606170729-0079/0 is now RUNNING
+17/06/06 17:07:29 INFO client.StandaloneAppClient$ClientEndpoint: Executor updated: app-20170606170729-0079/2 is now RUNNING
+17/06/06 17:07:29 INFO client.StandaloneAppClient$ClientEndpoint: Executor updated: app-20170606170729-0079/1 is now RUNNING
+17/06/06 17:07:29 INFO client.StandaloneAppClient$ClientEndpoint: Executor updated: app-20170606170729-0079/8 is now RUNNING
+17/06/06 17:07:29 INFO client.StandaloneAppClient$ClientEndpoint: Executor updated: app-20170606170729-0079/6 is now RUNNING
+17/06/06 17:07:29 INFO client.StandaloneAppClient$ClientEndpoint: Executor updated: app-20170606170729-0079/4 is now RUNNING
+17/06/06 17:07:29 INFO client.StandaloneAppClient$ClientEndpoint: Executor updated: app-20170606170729-0079/5 is now RUNNING
+17/06/06 17:07:29 INFO client.StandaloneAppClient$ClientEndpoint: Executor updated: app-20170606170729-0079/7 is now RUNNING
+17/06/06 17:07:29 INFO client.StandaloneAppClient$ClientEndpoint: Executor updated: app-20170606170729-0079/9 is now RUNNING
+17/06/06 17:07:29 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@4604b900{/metrics/json,null,AVAILABLE}
+17/06/06 17:07:30 INFO scheduler.EventLoggingListener: Logging events to hdfs://emr-cluster/spark-history/app-20170606170729-0079
+17/06/06 17:07:30 INFO cluster.StandaloneSchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+17/06/06 17:07:30 WARN spark.SparkContext: Use an existing SparkContext, some configuration may not take effect.
+17/06/06 17:07:30 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@4b6d92e{/SQL,null,AVAILABLE}
+17/06/06 17:07:30 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@7899de11{/SQL/json,null,AVAILABLE}
+17/06/06 17:07:30 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@13d9261f{/SQL/execution,null,AVAILABLE}
+17/06/06 17:07:30 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@5300cac{/SQL/execution/json,null,AVAILABLE}
+17/06/06 17:07:30 INFO handler.ContextHandler: Started o.s.j.s.ServletContextHandler@2436ea2f{/static/sql,null,AVAILABLE}
+17/06/06 17:07:30 INFO internal.SharedState: Warehouse path is 'file:/data1/users/shixi_enzhao/dataflow/2/wsp/spark-warehouse'.
+d executor NettyRpcEndpointRef(null) (10.77.113.54:58506) with ID 5
+d executor NettyRpcEndpointRef(null) (10.77.113.48:64818) with ID 3
+d executor NettyRpcEndpointRef(null) (10.77.96.154:25222) with ID 9
+0.77.113.54:46740 with 4.1 GB RAM, BlockManagerId(5, 10.77.113.54, 46740)
+0.77.113.48:50715 with 4.1 GB RAM, BlockManagerId(3, 10.77.113.48, 50715)
+d executor NettyRpcEndpointRef(null) (10.77.16.128:23285) with ID 8
+d executor NettyRpcEndpointRef(null) (10.77.112.184:37436) with ID 2
+0.77.96.154:46631 with 4.1 GB RAM, BlockManagerId(9, 10.77.96.154, 46631)
+d executor NettyRpcEndpointRef(null) (10.77.112.181:57146) with ID 7
+d executor NettyRpcEndpointRef(null) (10.77.112.168:19191) with ID 1
+d executor NettyRpcEndpointRef(null) (10.77.112.177:53353) with ID 6
+d executor NettyRpcEndpointRef(null) (10.77.16.119:11629) with ID 0
+0.77.16.128:56131 with 4.1 GB RAM, BlockManagerId(8, 10.77.16.128, 56131)
+0.77.112.184:50617 with 4.1 GB RAM, BlockManagerId(2, 10.77.112.184, 50617)
+d executor NettyRpcEndpointRef(null) (10.77.16.121:63107) with ID 4
+0.77.112.181:12035 with 4.1 GB RAM, BlockManagerId(7, 10.77.112.181, 12035)
+0.77.112.168:31168 with 4.1 GB RAM, BlockManagerId(1, 10.77.112.168, 31168)
+0.77.112.177:47858 with 4.1 GB RAM, BlockManagerId(6, 10.77.112.177, 47858)
+0.77.16.119:55928 with 4.1 GB RAM, BlockManagerId(0, 10.77.16.119, 55928)
+0.77.16.121:49156 with 4.1 GB RAM, BlockManagerId(4, 10.77.16.121, 49156)
+Conf.scala:44
+eConf.scala:44) with 1 output partitions
+OutputSparkFeatureConf.scala:44)
+17/06/06 17:07:35 INFO scheduler.DAGScheduler: Parents of final stage: List()
+17/06/06 17:07:35 INFO scheduler.DAGScheduler: Missing parents: List()
+RDD[3] at collect at OutputSparkFeatureConf.scala:44), which has no missing parents
+y (estimated size 10.1 KB, free 366.3 MB)
+ memory (estimated size 4.8 KB, free 366.3 MB)
+ 10.75.1.131:35776 (size: 4.8 KB, free: 366.3 MB)
+heduler.scala:1012
+tage 0 (MapPartitionsRDD[3] at collect at OutputSparkFeatureConf.scala:44)
+17/06/06 17:07:35 INFO scheduler.TaskSchedulerImpl: Adding task set 0.0 with 1 tasks
+, 10.77.113.54, partition 0, PROCESS_LOCAL, 12516 bytes)
+ task 0 on executor id: 5 hostname: 10.77.113.54.
+ 10.77.113.54:46740 (size: 4.8 KB, free: 4.1 GB)
+) in 1593 ms on 10.77.113.54 (1/1)
+ave all completed, from pool 
+atureConf.scala:44) finished in 1.605 s
+eatureConf.scala:44, took 1.846073 s
+17/06/06 17:07:37 INFO codegen.CodeGenerator: Code generated in 341.967399 ms
+Feature in data.conf MUST have a maptype:
+persist
+origin
+bool
+enum
+
+down hook
+.1}{0.0.0.0:4040}
+f19b8b3{/stages/stage/kill,null,UNAVAILABLE}
+f08c4b{/api,null,UNAVAILABLE}
+cc76301{/,null,UNAVAILABLE}
+72ea2bc{/static,null,UNAVAILABLE}
+b52c0d6{/executors/threadDump/json,null,UNAVAILABLE}
+54777cd{/executors/threadDump,null,UNAVAILABLE}
+7e2d9d{/executors/json,null,UNAVAILABLE}
+91cbf87{/executors,null,UNAVAILABLE}
+19dead1{/environment/json,null,UNAVAILABLE}
+baa8d82{/environment,null,UNAVAILABLE}
+23424b5{/storage/rdd/json,null,UNAVAILABLE}
+bde62ff{/storage/rdd,null,UNAVAILABLE}
+1217f9{/storage/json,null,UNAVAILABLE}
+a067c25{/storage,null,UNAVAILABLE}
+fd4cae3{/stages/pool/json,null,UNAVAILABLE}
+77614d{/stages/pool,null,UNAVAILABLE}
+b6166aa{/stages/stage/json,null,UNAVAILABLE}
+91d8c4{/stages/stage,null,UNAVAILABLE}
+807ac2c{/stages/json,null,UNAVAILABLE}
+19c9d2{/stages,null,UNAVAILABLE}
+089713{/jobs/job/json,null,UNAVAILABLE}
+2923ee6{/jobs/job,null,UNAVAILABLE}
+f811d00{/jobs/json,null,UNAVAILABLE}
+cbee484{/jobs,null,UNAVAILABLE}
+17/06/06 17:07:37 INFO ui.SparkUI: Stopped Spark web UI at http://10.75.1.131:4040
+17/06/06 17:07:37 INFO cluster.StandaloneSchedulerBackend: Shutting down all executors
+ch executor to shut down
+point stopped!
+17/06/06 17:07:37 INFO memory.MemoryStore: MemoryStore cleared
+17/06/06 17:07:37 INFO storage.BlockManager: BlockManager stopped
+17/06/06 17:07:37 INFO storage.BlockManagerMaster: BlockManagerMaster stopped
+nt: OutputCommitCoordinator stopped!
+17/06/06 17:07:37 INFO spark.SparkContext: Successfully stopped SparkContext
+17/06/06 17:07:37 INFO util.ShutdownHookManager: Shutdown hook called
+/local/spark-7cd3e4ac-7bf7-468b-94ba-f032d9a0c11f
+/local/spark-2f980987-b669-453d-9b9f-43bfa6b9eea6
+/local/spark-4654c262-d10a-4b1e-b205-d387e6dd3846
+k/local/spark-191054e2-5321-4897-8cca-808b4b6954ef
+/local/spark-6a404a17-966f-4cb0-a81e-9910063ad9ce
+k/local/spark-046609f3-f3d3-4c99-87be-1cbbc4171cbc
+/spark-d1f9a73a-a6dd-4dbe-89d2-f04991e62bff
+/local/spark-bfb15ed6-c16c-436f-b1f2-f19c3a7d9517
+/local/spark-622859a6-41f4-4af7-977b-fe4070fbb2ee
+/local/spark-e07a33dd-bce4-4735-9242-b5c22267caa3
+/local/spark-2105a155-b795-40ef-bc77-b3d2392eacbc
+[wulei3@75-1-131-hadoop wsp]$ sh weiflow.sh 3
+jar: data-flow-2.0.0-SNAPSHOT-shade.jar
+xml: dataflow.xml
+nodeID: 3
+SNAPSHOT-shade.jar dataflow.xml 3
+/data1/users/shixi_enzhao/dataflow/2/wsp
+work dir: 0/usr/local/spark/bin/spark-submit 
+          --master yarn
+          --deploy-mode client
+          --num-executors 100
+          --executor-cores 4
+          --executor-memory 10g
+          --driver-memory 10g
+rk version 2.0.2
+ your platform... using builtin-java classes where applicable
+17/06/06 17:07:49 WARN spark.SparkConf: 
+r/local/hive/lib/mysql-connector-java-5.1.35-bin.jar').
+This is deprecated in Spark 1.0+.
+
+Please instead use:
+ - ./spark-submit with --driver-class-path to augment the driver classpath
+ - spark.executor.extraClassPath to augment the executor classpath
+        
+1.35-bin.jar' as a work-around.
+35-bin.jar' as a work-around.
+17/06/06 17:07:49 INFO spark.SecurityManager: Changing view acls to: wulei3,feed_weibo
+bo
+17/06/06 17:07:49 INFO spark.SecurityManager: Changing view acls groups to: 
+17/06/06 17:07:49 INFO spark.SecurityManager: Changing modify acls groups to: 
+ups with modify permissions: Set()
+47807.
+17/06/06 17:07:49 INFO spark.SparkEnv: Registering MapOutputTracker
+17/06/06 17:07:49 INFO spark.SparkEnv: Registering BlockManagerMaster
+rk/local/blockmgr-8a2ec529-1026-469c-a621-8a897aa5bc17
+a2/spark/local/blockmgr-d39bdf39-c270-469b-b8dc-7d7caa09d6ca
+a3/spark/local/blockmgr-4810a755-0be4-49dc-9a30-504526e506a8
+a4/spark/local/blockmgr-7da98511-33ca-4beb-81e0-e3de86825489
+a5/spark/local/blockmgr-1b43777c-9057-419a-aa16-64b665477339
+a6/spark/local/blockmgr-12296544-960d-4739-91e3-f55f5790fb3f
+a7/spark/local/blockmgr-e410918b-9a1c-4636-babc-8ef79173c739
+a8/spark/local/blockmgr-99683b25-bd7c-4bf4-b057-389ae0204d9e
+a9/spark/local/blockmgr-5512ccbc-cfb1-4213-8e46-6ca7e4cf9d08
+a10/spark/local/blockmgr-b365d907-6c01-4c9a-a4c9-807f645a0aa9
+a11/spark/local/blockmgr-afae235a-8271-46cd-b343-0740255e5442
+17/06/06 17:07:49 INFO memory.MemoryStore: MemoryStore started with capacity 5.2 GB
+17/06/06 17:07:49 INFO spark.SparkEnv: Registering OutputCommitCoordinator
+17/06/06 17:07:50 INFO util.log: Logging initialized @2421ms
+17/06/06 17:07:50 INFO server.Server: jetty-9.2.z-SNAPSHOT
+063d80a{/jobs,null,AVAILABLE}
+133ec6e{/jobs/json,null,AVAILABLE}
+55e34c7{/jobs/job,null,AVAILABLE}
+4709809{/jobs/job/json,null,AVAILABLE}
+a2da905{/stages,null,AVAILABLE}
+4f360b2{/stages/json,null,AVAILABLE}
+0cf80e7{/stages/stage,null,AVAILABLE}
+02fec27{/stages/stage/json,null,AVAILABLE}
+70d0ea6{/stages/pool,null,AVAILABLE}
+8c40605{/stages/pool/json,null,AVAILABLE}
+4107f42{/storage,null,AVAILABLE}
+b11ef33{/storage/json,null,AVAILABLE}
+76aac9{/storage/rdd,null,AVAILABLE}
+cea706c{/storage/rdd/json,null,AVAILABLE}
+bd7f8dc{/environment,null,AVAILABLE}
+f2bf0e2{/environment/json,null,AVAILABLE}
+eba372c{/executors,null,AVAILABLE}
+1ec5d87{/executors/json,null,AVAILABLE}
+5f9407e{/executors/threadDump,null,AVAILABLE}
+52518c3{/executors/threadDump/json,null,AVAILABLE}
+a69561c{/static,null,AVAILABLE}
+9aa20b3{/,null,AVAILABLE}
+63f6148{/api,null,AVAILABLE}
+b21844c{/stages/stage/kill,null,AVAILABLE}
+.1}{0.0.0.0:4040}
+17/06/06 17:07:50 INFO server.Server: Started @2598ms
+.
+75.1.131:4040
+-flow-2.0.0-SNAPSHOT-shade.jar with timestamp 1496740070254
+17/06/06 17:07:51 INFO client.ConfiguredRMFailoverProxyProvider: Failing over to rm2
+ NodeManagers
+han the maximum memory capability of the cluster (104832 MB per container)
+luding 384 MB overhead
+17/06/06 17:07:51 INFO yarn.Client: Setting up container launch context for our AM
+iner
+17/06/06 17:07:51 INFO yarn.Client: Preparing resources for our AM container
+set, falling back to uploading libraries under SPARK_HOME.
+994602785628899399.zip
+zip
+17/06/06 17:08:03 INFO spark.SecurityManager: Changing view acls to: wulei3,feed_weibo
+bo
+17/06/06 17:08:03 INFO spark.SecurityManager: Changing view acls groups to: 
+17/06/06 17:08:03 INFO spark.SecurityManager: Changing modify acls groups to: 
+ups with modify permissions: Set()
+437 to ResourceManager
+54990_0437
+vices with app application_1496171554990_0437 and attemptId None
+437 (state: ACCEPTED)
+17/06/06 17:08:05 INFO yarn.Client: 
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: N/A
+	 ApplicationMaster RPC port: -1
+	 queue: feed_weibo
+	 start time: 1496740083938
+	 final status: UNDEFINED
+54990_0437/
+	 user: feed_weibo
+437 (state: ACCEPTED)
+437 (state: ACCEPTED)
+Master registered as NettyRpcEndpointRef(null)
+6171554990_0437), /proxy/application_1496171554990_0437
+proxy.amfilter.AmIpFilter
+437 (state: RUNNING)
+17/06/06 17:08:08 INFO yarn.Client: 
+	 client token: N/A
+	 diagnostics: N/A
+	 ApplicationMaster host: 10.87.216.213
+	 ApplicationMaster RPC port: 0
+	 queue: feed_weibo
+	 start time: 1496740083938
+	 final status: UNDEFINED
+54990_0437/
+	 user: feed_weibo
+6171554990_0437 has started running.
+ork.netty.NettyBlockTransferService' on port 24124.
+24124
+erId(driver, 10.75.1.131, 24124)
+0.75.1.131:24124 with 5.2 GB RAM, BlockManagerId(driver, 10.75.1.131, 24124)
+rId(driver, 10.75.1.131, 24124)
+100d047{/metrics/json,null,AVAILABLE}
+uster/spark-history/application_1496171554990_0437
+cutor NettyRpcEndpointRef(null) (10.87.216.113:57354) with ID 5
+ter-40569, 34432)
+cutor NettyRpcEndpointRef(null) (10.87.217.123:51218) with ID 2
+uster-40569, 34685)
+cutor NettyRpcEndpointRef(null) (10.87.217.2:44056) with ID 1
+ter-40569, 36352)
+cutor NettyRpcEndpointRef(null) (10.87.216.245:33412) with ID 4
+uster-40569, 39556)
+cutor NettyRpcEndpointRef(null) (10.87.216.202:53498) with ID 3
+ter-40569, 44892)
+cutor NettyRpcEndpointRef(null) (10.87.217.90:52450) with ID 42
+luster-40569, 43599)
+cutor NettyRpcEndpointRef(null) (10.87.216.217:56740) with ID 7
+uster-40569, 46736)
+cutor NettyRpcEndpointRef(null) (10.87.217.45:34788) with ID 18
+cutor NettyRpcEndpointRef(null) (10.87.217.191:53362) with ID 66
+luster-40569, 43954)
+luster-40569, 37479)
+cutor NettyRpcEndpointRef(null) (10.87.217.197:41308) with ID 8
+uster-40569, 46577)
+cutor NettyRpcEndpointRef(null) (10.87.217.71:45816) with ID 93
+luster-40569, 37655)
+cutor NettyRpcEndpointRef(null) (10.87.217.184:44036) with ID 40
+luster-40569, 33820)
+cutor NettyRpcEndpointRef(null) (10.87.217.60:53556) with ID 20
+luster-40569, 40298)
+cutor NettyRpcEndpointRef(null) (10.87.216.239:35938) with ID 50
+ster-40569, 35166)
+cutor NettyRpcEndpointRef(null) (10.87.216.231:54396) with ID 12
+luster-40569, 37289)
+cutor NettyRpcEndpointRef(null) (10.87.217.208:54124) with ID 10
+luster-40569, 36164)
+cutor NettyRpcEndpointRef(null) (10.87.217.112:40314) with ID 94
+luster-40569, 36006)
+cutor NettyRpcEndpointRef(null) (10.87.217.200:35508) with ID 70
+cutor NettyRpcEndpointRef(null) (10.87.217.74:51038) with ID 31
+cutor NettyRpcEndpointRef(null) (10.87.216.92:37552) with ID 59
+luster-40569, 45807)
+luster-40569, 44579)
+ster-40569, 34668)
+cutor NettyRpcEndpointRef(null) (10.87.216.91:36276) with ID 16
+ster-40569, 36534)
+cutor NettyRpcEndpointRef(null) (10.87.216.133:60906) with ID 22
+ster-40569, 37863)
+cutor NettyRpcEndpointRef(null) (10.87.217.121:49676) with ID 45
+luster-40569, 33523)
+cutor NettyRpcEndpointRef(null) (10.87.217.6:56922) with ID 27
+ster-40569, 33936)
+cutor NettyRpcEndpointRef(null) (10.87.216.121:50400) with ID 52
+ster-40569, 35202)
+or scheduling beginning after waiting maxRegisteredResourcesWaitingTime: 30000(ms)
+ation may not take effect.
+6b859a6{/SQL,null,AVAILABLE}
+2aae04d{/SQL/json,null,AVAILABLE}
+426a448{/SQL/execution,null,AVAILABLE}
+456558{/SQL/execution/json,null,AVAILABLE}
+8fa5769{/static/sql,null,AVAILABLE}
+i_enzhao/dataflow/2/wsp/spark-warehouse'.
+cutor NettyRpcEndpointRef(null) (10.87.216.227:45074) with ID 69
+cutor NettyRpcEndpointRef(null) (10.87.216.234:56176) with ID 74
+cutor NettyRpcEndpointRef(null) (10.87.216.129:48338) with ID 35
+luster-40569, 43237)
+cutor NettyRpcEndpointRef(null) (10.87.217.37:59010) with ID 68
+cutor NettyRpcEndpointRef(null) (10.87.217.78:51892) with ID 53
+luster-40569, 36232)
+ster-40569, 40825)
+cutor NettyRpcEndpointRef(null) (10.87.216.119:34732) with ID 37
+luster-40569, 41700)
+luster-40569, 35893)
+cutor NettyRpcEndpointRef(null) (10.87.216.104:57928) with ID 29
+ster-40569, 44158)
+cutor NettyRpcEndpointRef(null) (10.87.216.132:54570) with ID 34
+er-40569, 36521)
+ster-40569, 44588)
+cutor NettyRpcEndpointRef(null) (10.87.217.187:38714) with ID 39
+luster-40569, 38096)
+cutor NettyRpcEndpointRef(null) (10.87.217.8:57784) with ID 90
+cutor NettyRpcEndpointRef(null) (10.87.217.76:40160) with ID 41
+cutor NettyRpcEndpointRef(null) (10.87.217.48:33398) with ID 36
+luster-40569, 46669)
+luster-40569, 42821)
+luster-40569, 38104)
+cutor NettyRpcEndpointRef(null) (10.87.216.179:59180) with ID 89
+cutor NettyRpcEndpointRef(null) (10.87.216.126:58452) with ID 14
+ster-40569, 42348)
+ster-40569, 37617)
+cutor NettyRpcEndpointRef(null) (10.87.217.188:57322) with ID 9
+cutor NettyRpcEndpointRef(null) (10.87.217.198:35200) with ID 78
+uster-40569, 33279)
+luster-40569, 44074)
+cutor NettyRpcEndpointRef(null) (10.87.217.180:40148) with ID 44
+luster-40569, 42526)
+cutor NettyRpcEndpointRef(null) (10.87.217.142:34000) with ID 24
+cutor NettyRpcEndpointRef(null) (10.87.217.135:55278) with ID 63
+cutor NettyRpcEndpointRef(null) (10.87.217.171:37338) with ID 48
+luster-40569, 37342)
+luster-40569, 41113)
+luster-40569, 33744)
+cutor NettyRpcEndpointRef(null) (10.87.217.31:54664) with ID 64
+cutor NettyRpcEndpointRef(null) (10.87.216.77:50884) with ID 65
+luster-40569, 32995)
+ster-40569, 34669)
+cutor NettyRpcEndpointRef(null) (10.87.216.81:40604) with ID 81
+cutor NettyRpcEndpointRef(null) (10.87.216.246:53736) with ID 96
+ster-40569, 37777)
+ster-40569, 43260)
+cutor NettyRpcEndpointRef(null) (10.87.216.192:46130) with ID 100
+cutor NettyRpcEndpointRef(null) (10.87.217.189:58600) with ID 82
+cutor NettyRpcEndpointRef(null) (10.87.216.252:39160) with ID 32
+cutor NettyRpcEndpointRef(null) (10.87.216.241:54542) with ID 47
+uster-40569, 44637)
+luster-40569, 37413)
+luster-40569, 34695)
+cutor NettyRpcEndpointRef(null) (10.87.216.242:34984) with ID 67
+luster-40569, 36493)
+luster-40569, 38088)
+cutor NettyRpcEndpointRef(null) (10.87.216.174:47958) with ID 83
+cutor NettyRpcEndpointRef(null) (10.87.217.15:56822) with ID 92
+ster-40569, 40560)
+ster-40569, 35160)
+cutor NettyRpcEndpointRef(null) (10.87.217.102:42892) with ID 71
+cutor NettyRpcEndpointRef(null) (10.87.217.68:34674) with ID 26
+luster-40569, 37459)
+luster-40569, 45940)
+cutor NettyRpcEndpointRef(null) (10.87.216.135:54776) with ID 73
+cutor NettyRpcEndpointRef(null) (10.87.217.58:46492) with ID 13
+cutor NettyRpcEndpointRef(null) (10.87.216.88:46794) with ID 56
+cutor NettyRpcEndpointRef(null) (10.87.217.12:50048) with ID 19
+ster-40569, 45091)
+ster-40569, 46520)
+luster-40569, 46650)
+luster-40569, 33517)
+cutor NettyRpcEndpointRef(null) (10.87.216.235:54074) with ID 23
+luster-40569, 40030)
+cutor NettyRpcEndpointRef(null) (10.87.217.92:60182) with ID 49
+luster-40569, 41627)
+cutor NettyRpcEndpointRef(null) (10.87.217.139:42052) with ID 77
+luster-40569, 45691)
+cutor NettyRpcEndpointRef(null) (10.87.216.216:35928) with ID 98
+luster-40569, 43864)
+cutor NettyRpcEndpointRef(null) (10.87.217.203:49670) with ID 76
+cutor NettyRpcEndpointRef(null) (10.87.217.177:40440) with ID 54
+luster-40569, 45638)
+y (estimated size 317.2 KB, free 5.2 GB)
+cutor NettyRpcEndpointRef(null) (10.87.217.167:48984) with ID 86
+luster-40569, 37614)
+cutor NettyRpcEndpointRef(null) (10.87.216.137:54262) with ID 51
+luster-40569, 38445)
+ster-40569, 36196)
+ memory (estimated size 26.2 KB, free 5.2 GB)
+ 10.75.1.131:24124 (size: 26.2 KB, free: 5.2 GB)
+ataFrame.scala:71
+cutor NettyRpcEndpointRef(null) (10.87.217.183:48008) with ID 6
+cutor NettyRpcEndpointRef(null) (10.87.216.118:59112) with ID 85
+cutor NettyRpcEndpointRef(null) (10.87.216.244:34500) with ID 15
+cutor NettyRpcEndpointRef(null) (10.87.216.170:49882) with ID 87
+cutor NettyRpcEndpointRef(null) (10.87.217.69:53418) with ID 79
+cutor NettyRpcEndpointRef(null) (10.87.216.110:40022) with ID 46
+uster-40569, 38735)
+ster-40569, 45703)
+luster-40569, 35295)
+luster-40569, 33332)
+ster-40569, 36776)
+ster-40569, 44332)
+cutor NettyRpcEndpointRef(null) (10.87.217.94:59662) with ID 99
+cutor NettyRpcEndpointRef(null) (10.87.216.94:43300) with ID 11
+luster-40569, 46641)
+ster-40569, 39716)
+cutor NettyRpcEndpointRef(null) (10.87.217.107:44272) with ID 55
+cutor NettyRpcEndpointRef(null) (10.87.217.35:48736) with ID 61
+cutor NettyRpcEndpointRef(null) (10.87.217.194:48758) with ID 60
+cutor NettyRpcEndpointRef(null) (10.87.216.219:59240) with ID 57
+cutor NettyRpcEndpointRef(null) (10.87.216.207:46546) with ID 30
+cutor NettyRpcEndpointRef(null) (10.87.217.52:59458) with ID 97
+cutor NettyRpcEndpointRef(null) (10.87.216.171:45974) with ID 38
+cutor NettyRpcEndpointRef(null) (10.87.216.167:57678) with ID 28
+luster-40569, 45993)
+luster-40569, 34254)
+luster-40569, 40618)
+cutor NettyRpcEndpointRef(null) (10.87.216.111:55832) with ID 95
+luster-40569, 35481)
+luster-40569, 38553)
+cutor NettyRpcEndpointRef(null) (10.87.216.89:52752) with ID 58
+ster-40569, 45319)
+luster-40569, 43431)
+ster-40569, 33219)
+cutor NettyRpcEndpointRef(null) (10.87.216.183:47174) with ID 25
+ster-40569, 34259)
+ster-40569, 43206)
+ster-40569, 46290)
+cutor NettyRpcEndpointRef(null) (10.87.217.195:55186) with ID 17
+luster-40569, 35076)
+cutor NettyRpcEndpointRef(null) (10.87.216.116:60512) with ID 33
+ster-40569, 36035)
+cutor NettyRpcEndpointRef(null) (10.87.217.99:33580) with ID 80
+luster-40569, 43141)
+cutor NettyRpcEndpointRef(null) (10.87.217.156:44238) with ID 72
+cutor NettyRpcEndpointRef(null) (10.87.216.107:38886) with ID 84
+luster-40569, 36644)
+er-40569, 46045)
+cutor NettyRpcEndpointRef(null) (10.87.216.195:41480) with ID 43
+cutor NettyRpcEndpointRef(null) (10.87.217.23:52102) with ID 62
+ster-40569, 41560)
+luster-40569, 40131)
+cutor NettyRpcEndpointRef(null) (10.87.217.96:52926) with ID 88
+luster-40569, 44238)
+cutor NettyRpcEndpointRef(null) (10.87.217.65:57646) with ID 21
+cutor NettyRpcEndpointRef(null) (10.87.216.97:54032) with ID 75
+luster-40569, 35055)
+ster-40569, 37184)
+cutor NettyRpcEndpointRef(null) (10.87.216.117:54746) with ID 91
+ster-40569, 42697)
+tract.scala:36
+xtract.scala:36) with 1 output partitions
+ProcessSparkDataExtract.scala:36)
+17/06/06 17:08:25 INFO scheduler.DAGScheduler: Parents of final stage: List()
+17/06/06 17:08:25 INFO scheduler.DAGScheduler: Missing parents: List()
+RDD[7] at collect at ProcessSparkDataExtract.scala:36), which has no missing parents
+y (estimated size 10.1 KB, free 5.2 GB)
+ memory (estimated size 4.8 KB, free 5.2 GB)
+ 10.75.1.131:24124 (size: 4.8 KB, free: 5.2 GB)
+heduler.scala:1012
+tage 0 (MapPartitionsRDD[7] at collect at ProcessSparkDataExtract.scala:36)
+17/06/06 17:08:25 INFO cluster.YarnScheduler: Adding task set 0.0 with 1 tasks
+, emr-worker-44.cluster-40569, partition 0, PROCESS_LOCAL, 12516 bytes)
+ 0 on executor id: 87 hostname: emr-worker-44.cluster-40569.
+ emr-worker-44.cluster-40569:36776 (size: 4.8 KB, free: 5.2 GB)
+) in 1513 ms on emr-worker-44.cluster-40569 (1/1)
+l completed, from pool 
+ataExtract.scala:36) finished in 1.523 s
+DataExtract.scala:36, took 1.614305 s
+17/06/06 17:08:27 INFO codegen.CodeGenerator: Code generated in 379.103099 ms
+.131:24124 in memory (size: 4.8 KB, free: 5.2 GB)
+ker-44.cluster-40569:36776 in memory (size: 4.8 KB, free: 5.2 GB)
+17/06/06 17:08:27 INFO execution.SparkSqlParser: Parsing command: table1
+1 as label from table1 where 
+0 as label from table1 where 
+eanFast.scala:34
+leanFast.scala:34) with 1 output partitions
+ProcessSparkDataCleanFast.scala:34)
+17/06/06 17:08:28 INFO scheduler.DAGScheduler: Parents of final stage: List()
+17/06/06 17:08:28 INFO scheduler.DAGScheduler: Missing parents: List()
+s
+y (estimated size 10.1 KB, free 5.2 GB)
+ memory (estimated size 4.8 KB, free 5.2 GB)
+ 10.75.1.131:24124 (size: 4.8 KB, free: 5.2 GB)
+heduler.scala:1012
+tage 1 (MapPartitionsRDD[12] at collect at ProcessSparkDataCleanFast.scala:34)
+17/06/06 17:08:28 INFO cluster.YarnScheduler: Adding task set 1.0 with 1 tasks
+, emr-worker-53.cluster-40569, partition 0, PROCESS_LOCAL, 12517 bytes)
+ 1 on executor id: 89 hostname: emr-worker-53.cluster-40569.
+ emr-worker-53.cluster-40569:42348 (size: 4.8 KB, free: 5.2 GB)
+) in 1422 ms on emr-worker-53.cluster-40569 (1/1)
+l completed, from pool 
+ataCleanFast.scala:34) finished in 1.425 s
+DataCleanFast.scala:34, took 1.438465 s
+y (estimated size 37.8 KB, free 5.2 GB)
+ memory (estimated size 2.4 KB, free 5.2 GB)
+ 10.75.1.131:24124 (size: 2.4 KB, free: 5.2 GB)
+ssSparkDataCleanFast.scala:36
+y (estimated size 40.0 B, free 5.2 GB)
+ memory (estimated size 103.0 B, free 5.2 GB)
+ 10.75.1.131:24124 (size: 103.0 B, free: 5.2 GB)
+ssSparkFeatureMapping.scala:53
+
+data_libsvm/dt=20170523.wulei3.fast!
+
+17/06/06 17:08:30 INFO spark.SparkContext: Invoking stop() from shutdown hook
+.1}{0.0.0.0:4040}
+b21844c{/stages/stage/kill,null,UNAVAILABLE}
+63f6148{/api,null,UNAVAILABLE}
+9aa20b3{/,null,UNAVAILABLE}
+a69561c{/static,null,UNAVAILABLE}
+52518c3{/executors/threadDump/json,null,UNAVAILABLE}
+5f9407e{/executors/threadDump,null,UNAVAILABLE}
+1ec5d87{/executors/json,null,UNAVAILABLE}
+eba372c{/executors,null,UNAVAILABLE}
+f2bf0e2{/environment/json,null,UNAVAILABLE}
+bd7f8dc{/environment,null,UNAVAILABLE}
+cea706c{/storage/rdd/json,null,UNAVAILABLE}
+76aac9{/storage/rdd,null,UNAVAILABLE}
+b11ef33{/storage/json,null,UNAVAILABLE}
+4107f42{/storage,null,UNAVAILABLE}
+8c40605{/stages/pool/json,null,UNAVAILABLE}
+70d0ea6{/stages/pool,null,UNAVAILABLE}
+02fec27{/stages/stage/json,null,UNAVAILABLE}
+0cf80e7{/stages/stage,null,UNAVAILABLE}
+4f360b2{/stages/json,null,UNAVAILABLE}
+a2da905{/stages,null,UNAVAILABLE}
+4709809{/jobs/job/json,null,UNAVAILABLE}
+55e34c7{/jobs/job,null,UNAVAILABLE}
+133ec6e{/jobs/json,null,UNAVAILABLE}
+063d80a{/jobs,null,UNAVAILABLE}
+17/06/06 17:08:30 INFO ui.SparkUI: Stopped Spark web UI at http://10.75.1.131:4040
+17/06/06 17:08:30 INFO cluster.YarnClientSchedulerBackend: Interrupting monitor thread
+17/06/06 17:08:30 INFO cluster.YarnClientSchedulerBackend: Shutting down all executors
+ecutor to shut down
+Services
+(serviceOption=None,
+ services=List(),
+ started=false)
+17/06/06 17:08:30 INFO cluster.YarnClientSchedulerBackend: Stopped
+point stopped!
+17/06/06 17:08:30 INFO memory.MemoryStore: MemoryStore cleared
+17/06/06 17:08:30 INFO storage.BlockManager: BlockManager stopped
+17/06/06 17:08:30 INFO storage.BlockManagerMaster: BlockManagerMaster stopped
+nt: OutputCommitCoordinator stopped!
+17/06/06 17:08:30 INFO spark.SparkContext: Successfully stopped SparkContext
+17/06/06 17:08:30 INFO util.ShutdownHookManager: Shutdown hook called
+/local/spark-a0654081-0506-4f6b-a783-308716d509a0
+k/local/spark-0c72af14-3c09-4b4b-a5ec-3ce8ef9cc8fa
+/local/spark-592c1763-5907-4b79-94ba-c5d83b211d3c
+/local/spark-4e8db3d2-5842-40be-a11b-fb99767db97b
+/spark-570e8d02-c14a-4af6-b398-de892b5dfde3
+/local/spark-5e9e3fed-27c2-4b4b-b85e-708346a59e7d
+k/local/spark-3c897449-b3bc-4005-aab0-5430ff111fe1
+/local/spark-612e4ac6-0bfd-4e79-bcea-f8fcdd66a193
+/local/spark-2e736144-9ead-487c-83a2-993ceb2ce71b
+/local/spark-1fb47a1f-dfda-41c7-b9a9-cf553db114b8
+/local/spark-5e6d2a6d-d187-4cd5-b677-2961d924cc47
+[wulei3@75-1-131-hadoop wsp]$ sh weiflow.sh 1,2,3
+jar: data-flow-2.0.0-SNAPSHOT-shade.jar
+xml: dataflow.xml
+nodeID: 1,2,3
+java.lang.NumberFormatException: For input string: "1,2,3"
+5)
+	at java.lang.Integer.parseInt(Integer.java:580)
+	at java.lang.Integer.parseInt(Integer.java:615)
+	at scala.collection.immutable.StringLike$class.toInt(StringLike.scala:272)
+	at scala.collection.immutable.StringOps.toInt(StringOps.scala:30)
+n$1(Main.scala:20)
+	at com.weibo.datasys.common.Main$delayedInit$body.apply(Main.scala:14)
+	at scala.Function0$class.apply$mcV$sp(Function0.scala:40)
+	at scala.runtime.AbstractFunction0.apply$mcV$sp(AbstractFunction0.scala:12)
+	at scala.App$$anonfun$main$1.apply(App.scala:76)
+	at scala.App$$anonfun$main$1.apply(App.scala:76)
+	at scala.collection.immutable.List.foreach(List.scala:381)
+arder.scala:35)
+	at scala.App$class.main(App.scala:76)
+	at com.weibo.datasys.common.Main$.main(Main.scala:14)
+	at com.weibo.datasys.common.Main.main(Main.scala)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+2)
+l.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+sLoader.scala:70)
+er.scala:31)
+ClassLoader.scala:101)
+la:70)
+oader.scala:101)
+	at scala.tools.nsc.CommonRunner$class.run(ObjectRunner.scala:22)
+	at scala.tools.nsc.ObjectRunner$.run(ObjectRunner.scala:39)
+	at scala.tools.nsc.CommonRunner$class.runAndCatch(ObjectRunner.scala:29)
+	at scala.tools.nsc.ObjectRunner$.runAndCatch(ObjectRunner.scala:39)
+	at scala.tools.nsc.MainGenericRunner.runTarget$1(MainGenericRunner.scala:65)
+	at scala.tools.nsc.MainGenericRunner.run$1(MainGenericRunner.scala:87)
+	at scala.tools.nsc.MainGenericRunner.process(MainGenericRunner.scala:98)
+	at scala.tools.nsc.MainGenericRunner$.main(MainGenericRunner.scala:103)
+	at scala.tools.nsc.MainGenericRunner.main(MainGenericRunner.scala)
+[wulei3@75-1-131-hadoop wsp]$ sh weiflow.sh 1 2 3
+jar: data-flow-2.0.0-SNAPSHOT-shade.jar
+xml: dataflow.xml
+nodeID: 1
+SNAPSHOT-shade.jar dataflow.xml 1
+/data1/users/shixi_enzhao/dataflow/2/wsp
+work dir: 0/usr/local/spark/bin/spark-submit 
+          --master spark://10.77.16.120:7077
+          --deploy-mode client
+          --total-executor-cores 20
+          --executor-cores 2
+          --executor-memory 8g
+rk version 2.0.2
+ your platform... using builtin-java classes where applicable
+17/06/06 17:08:54 WARN spark.SparkConf: 
+r/local/hive/lib/mysql-connector-java-5.1.35-bin.jar').
+This is deprecated in Spark 1.0+.
+
+Please instead use:
+ - ./spark-submit with --driver-class-path to augment the driver classpath
+ - spark.executor.extraClassPath to augment the executor classpath
+        
+1.35-bin.jar' as a work-around.
+35-bin.jar' as a work-around.
+17/06/06 17:08:54 WARN spark.SparkConf: 
+SPARK_WORKER_INSTANCES was detected (set to '1').
+This is deprecated in Spark 1.0+.
+
+Please instead use:
+ - ./spark-submit with --num-executors to specify the number of executors
+ - Or set SPARK_EXECUTOR_INSTANCES
+ - spark.executor.instances to configure the number of instances in the spark config.
+        
+17/06/06 17:08:54 INFO spark.SecurityManager: Changing view acls to: wulei3,feed_weibo
+bo
+17/06/06 17:08:54 INFO spark.SecurityManager: Changing view acls groups to: 
+17/06/06 17:08:54 INFO spark.SecurityManager: Changing modify acls groups to: 
+ups with modify permissions: Set()
+36664.
+17/06/06 17:08:54 INFO spark.SparkEnv: Registering MapOutputTracker
+17/06/06 17:08:54 INFO spark.SparkEnv: Registering BlockManagerMaster
+rk/local/blockmgr-51f5aacd-2925-4de0-a765-d7de876e711c
+a2/spark/local/blockmgr-303fe425-8719-4ab7-a470-dbcf89d126c8
+a3/spark/local/blockmgr-4a38e9b1-35ca-40d2-b04e-2e8a89e55a0c
+a4/spark/local/blockmgr-83837f04-80ff-44cd-9a81-7839c7a0cedc
+a5/spark/local/blockmgr-405c9848-e6c7-4c36-9a3d-ec8512b7c47c
+a6/spark/local/blockmgr-e964d756-bf47-47e5-a7fa-2a38576083c7
+a7/spark/local/blockmgr-890bb0bf-3df1-42a8-a936-ff6b363526e5
+a8/spark/local/blockmgr-f161439f-f950-46ac-bc41-e151f3a16435
+a9/spark/local/blockmgr-bc67621c-1d02-4f41-8769-c75a85311809
+a10/spark/local/blockmgr-757e75bd-4e71-4541-83b4-e29bed9a03b9
+a11/spark/local/blockmgr-3cb2f42a-7ce5-43f9-9d60-f03bbecf1c08
+17/06/06 17:08:54 INFO memory.MemoryStore: MemoryStore started with capacity 366.3 MB
+17/06/06 17:08:54 INFO spark.SparkEnv: Registering OutputCommitCoordinator
+17/06/06 17:08:54 INFO util.log: Logging initialized @2083ms
+17/06/06 17:08:55 INFO server.Server: jetty-9.2.z-SNAPSHOT
+cbee484{/jobs,null,AVAILABLE}
+f811d00{/jobs/json,null,AVAILABLE}
+2923ee6{/jobs/job,null,AVAILABLE}
+089713{/jobs/job/json,null,AVAILABLE}
+19c9d2{/stages,null,AVAILABLE}
+807ac2c{/stages/json,null,AVAILABLE}
+91d8c4{/stages/stage,null,AVAILABLE}
+b6166aa{/stages/stage/json,null,AVAILABLE}
+77614d{/stages/pool,null,AVAILABLE}
+fd4cae3{/stages/pool/json,null,AVAILABLE}
+a067c25{/storage,null,AVAILABLE}
+1217f9{/storage/json,null,AVAILABLE}
+bde62ff{/storage/rdd,null,AVAILABLE}
+23424b5{/storage/rdd/json,null,AVAILABLE}
+baa8d82{/environment,null,AVAILABLE}
+19dead1{/environment/json,null,AVAILABLE}
+91cbf87{/executors,null,AVAILABLE}
+7e2d9d{/executors/json,null,AVAILABLE}
+54777cd{/executors/threadDump,null,AVAILABLE}
+b52c0d6{/executors/threadDump/json,null,AVAILABLE}
+72ea2bc{/static,null,AVAILABLE}
+cc76301{/,null,AVAILABLE}
+f08c4b{/api,null,AVAILABLE}
+f19b8b3{/stages/stage/kill,null,AVAILABLE}
+.1}{0.0.0.0:4040}
+17/06/06 17:08:55 INFO server.Server: Started @2268ms
+.
+75.1.131:4040
+-flow-2.0.0-SNAPSHOT-shade.jar with timestamp 1496740135181
+ spark://10.77.16.120:7077...
+to /10.77.16.120:7077 after 36 ms (0 ms spent in bootstraps)
+with app ID app-20170606170855-0080
+ with 2 cores
+70606170855-0080/0 on hostPort 10.77.16.119:46575 with 2 cores, 8.0 GB RAM
+6) with 2 cores
+70606170855-0080/1 on hostPort 10.77.112.168:27306 with 2 cores, 8.0 GB RAM
+4) with 2 cores
+70606170855-0080/2 on hostPort 10.77.112.184:37264 with 2 cores, 8.0 GB RAM
+ with 2 cores
+70606170855-0080/3 on hostPort 10.77.113.48:20986 with 2 cores, 8.0 GB RAM
+ork.netty.NettyBlockTransferService' on port 39122.
+39122
+ with 2 cores
+70606170855-0080/4 on hostPort 10.77.16.121:10603 with 2 cores, 8.0 GB RAM
+ with 2 cores
+70606170855-0080/5 on hostPort 10.77.113.54:55376 with 2 cores, 8.0 GB RAM
+erId(driver, 10.75.1.131, 39122)
+3) with 2 cores
+70606170855-0080/6 on hostPort 10.77.112.177:38053 with 2 cores, 8.0 GB RAM
+1) with 2 cores
+70606170855-0080/7 on hostPort 10.77.112.181:18051 with 2 cores, 8.0 GB RAM
+ with 2 cores
+70606170855-0080/8 on hostPort 10.77.16.128:64883 with 2 cores, 8.0 GB RAM
+0.75.1.131:39122 with 366.3 MB RAM, BlockManagerId(driver, 10.75.1.131, 39122)
+ with 2 cores
+70606170855-0080/9 on hostPort 10.77.96.154:32416 with 2 cores, 8.0 GB RAM
+rId(driver, 10.75.1.131, 39122)
+p-20170606170855-0080/3 is now RUNNING
+p-20170606170855-0080/2 is now RUNNING
+p-20170606170855-0080/0 is now RUNNING
+p-20170606170855-0080/4 is now RUNNING
+p-20170606170855-0080/1 is now RUNNING
+p-20170606170855-0080/8 is now RUNNING
+p-20170606170855-0080/6 is now RUNNING
+p-20170606170855-0080/5 is now RUNNING
+p-20170606170855-0080/7 is now RUNNING
+p-20170606170855-0080/9 is now RUNNING
+604b900{/metrics/json,null,AVAILABLE}
+uster/spark-history/app-20170606170855-0080
+or scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+ation may not take effect.
+b6d92e{/SQL,null,AVAILABLE}
+899de11{/SQL/json,null,AVAILABLE}
+3d9261f{/SQL/execution,null,AVAILABLE}
+300cac{/SQL/execution/json,null,AVAILABLE}
+436ea2f{/static/sql,null,AVAILABLE}
+i_enzhao/dataflow/2/wsp/spark-warehouse'.
+d executor NettyRpcEndpointRef(null) (10.77.113.54:13343) with ID 5
+0.77.113.54:17198 with 4.1 GB RAM, BlockManagerId(5, 10.77.113.54, 17198)
+d executor NettyRpcEndpointRef(null) (10.77.96.154:53166) with ID 9
+d executor NettyRpcEndpointRef(null) (10.77.113.48:43289) with ID 3
+0.77.96.154:41405 with 4.1 GB RAM, BlockManagerId(9, 10.77.96.154, 41405)
+0.77.113.48:25621 with 4.1 GB RAM, BlockManagerId(3, 10.77.113.48, 25621)
+d executor NettyRpcEndpointRef(null) (10.77.112.181:14987) with ID 7
+d executor NettyRpcEndpointRef(null) (10.77.16.128:33540) with ID 8
+d executor NettyRpcEndpointRef(null) (10.77.112.168:13570) with ID 1
+d executor NettyRpcEndpointRef(null) (10.77.112.177:44458) with ID 6
+d executor NettyRpcEndpointRef(null) (10.77.112.184:25231) with ID 2
+d executor NettyRpcEndpointRef(null) (10.77.16.121:28235) with ID 4
+d executor NettyRpcEndpointRef(null) (10.77.16.119:11719) with ID 0
+0.77.112.181:57440 with 4.1 GB RAM, BlockManagerId(7, 10.77.112.181, 57440)
+0.77.16.128:41176 with 4.1 GB RAM, BlockManagerId(8, 10.77.16.128, 41176)
+0.77.112.168:27953 with 4.1 GB RAM, BlockManagerId(1, 10.77.112.168, 27953)
+0.77.112.177:36440 with 4.1 GB RAM, BlockManagerId(6, 10.77.112.177, 36440)
+0.77.16.119:36271 with 4.1 GB RAM, BlockManagerId(0, 10.77.16.119, 36271)
+0.77.112.184:40387 with 4.1 GB RAM, BlockManagerId(2, 10.77.112.184, 40387)
+0.77.16.121:30947 with 4.1 GB RAM, BlockManagerId(4, 10.77.16.121, 30947)
+17/06/06 17:09:01 INFO codegen.CodeGenerator: Code generated in 265.186827 ms
+f.scala:42
+nf.scala:42) with 1 output partitions
+OutputSparkDataConf.scala:42)
+17/06/06 17:09:01 INFO scheduler.DAGScheduler: Parents of final stage: List()
+17/06/06 17:09:01 INFO scheduler.DAGScheduler: Missing parents: List()
+RDD[4] at collect at OutputSparkDataConf.scala:42), which has no missing parents
+y (estimated size 8.4 KB, free 366.3 MB)
+ memory (estimated size 4.5 KB, free 366.3 MB)
+ 10.75.1.131:39122 (size: 4.5 KB, free: 366.3 MB)
+heduler.scala:1012
+tage 0 (MapPartitionsRDD[4] at collect at OutputSparkDataConf.scala:42)
+17/06/06 17:09:01 INFO scheduler.TaskSchedulerImpl: Adding task set 0.0 with 1 tasks
+, 10.77.16.119, partition 0, PROCESS_LOCAL, 9384 bytes)
+ task 0 on executor id: 0 hostname: 10.77.16.119.
+ 10.77.16.119:36271 (size: 4.5 KB, free: 4.1 GB)
+) in 1564 ms on 10.77.16.119 (1/1)
+ave all completed, from pool 
+taConf.scala:42) finished in 1.576 s
+ataConf.scala:42, took 1.742841 s
+17/06/06 17:09:02 INFO codegen.CodeGenerator: Code generated in 21.218995 ms
+.131:39122 in memory (size: 4.5 KB, free: 366.3 MB)
+6.119:36271 in memory (size: 4.5 KB, free: 4.1 GB)
+17/06/06 17:09:02 INFO spark.SparkContext: Invoking stop() from shutdown hook
+.1}{0.0.0.0:4040}
+f19b8b3{/stages/stage/kill,null,UNAVAILABLE}
+f08c4b{/api,null,UNAVAILABLE}
+cc76301{/,null,UNAVAILABLE}
+72ea2bc{/static,null,UNAVAILABLE}
+b52c0d6{/executors/threadDump/json,null,UNAVAILABLE}
+54777cd{/executors/threadDump,null,UNAVAILABLE}
+7e2d9d{/executors/json,null,UNAVAILABLE}
+91cbf87{/executors,null,UNAVAILABLE}
+19dead1{/environment/json,null,UNAVAILABLE}
+baa8d82{/environment,null,UNAVAILABLE}
+23424b5{/storage/rdd/json,null,UNAVAILABLE}
+bde62ff{/storage/rdd,null,UNAVAILABLE}
+1217f9{/storage/json,null,UNAVAILABLE}
+a067c25{/storage,null,UNAVAILABLE}
+fd4cae3{/stages/pool/json,null,UNAVAILABLE}
+77614d{/stages/pool,null,UNAVAILABLE}
+b6166aa{/stages/stage/json,null,UNAVAILABLE}
+91d8c4{/stages/stage,null,UNAVAILABLE}
+807ac2c{/stages/json,null,UNAVAILABLE}
+19c9d2{/stages,null,UNAVAILABLE}
+089713{/jobs/job/json,null,UNAVAILABLE}
+2923ee6{/jobs/job,null,UNAVAILABLE}
+f811d00{/jobs/json,null,UNAVAILABLE}
+cbee484{/jobs,null,UNAVAILABLE}
+17/06/06 17:09:02 INFO ui.SparkUI: Stopped Spark web UI at http://10.75.1.131:4040
+17/06/06 17:09:03 INFO cluster.StandaloneSchedulerBackend: Shutting down all executors
+ch executor to shut down
+point stopped!
+17/06/06 17:09:03 INFO memory.MemoryStore: MemoryStore cleared
+17/06/06 17:09:03 INFO storage.BlockManager: BlockManager stopped
+17/06/06 17:09:03 INFO storage.BlockManagerMaster: BlockManagerMaster stopped
+nt: OutputCommitCoordinator stopped!
+17/06/06 17:09:03 INFO spark.SparkContext: Successfully stopped SparkContext
+17/06/06 17:09:03 INFO util.ShutdownHookManager: Shutdown hook called
+k/local/spark-cdb3d14b-2506-4e88-81b7-b7cdcfdc0e54
+/local/spark-8aa131bd-98b6-4f6c-8324-8b39aea90ada
+/local/spark-2940a248-6abe-49c6-8dba-f04c871eaa57
+k/local/spark-a675e1c9-5f77-469b-a50b-0a8c56b4d17b
+/spark-b8c27b2e-43f9-4c8e-b276-a0a3bd1814ee
+/local/spark-291bc047-67c8-4e52-a7db-0e1ab9e483cc
+/local/spark-86005a34-0009-4a3c-b037-97239603aaa0
+/local/spark-c7e98563-66ca-478f-a5be-2ac499502ca6
+/local/spark-668c182b-eea9-4093-afde-d26c02d6684a
+/local/spark-61a737c7-3981-48da-bb00-a37de19e1257
+/local/spark-08eeae47-5d54-4db7-b9d0-c2be34430a03
+
+[END] 2017/6/6 17:14:52
