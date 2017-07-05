@@ -1,0 +1,41 @@
+val tables = scala.io.Source.fromFile("tables").getLines.toArray.filter(_.size > 2)
+val nohup = scala.io.Source.fromFile("nohup").getLines.toArray.mkString("\n")
+val arrs = nohup.split("Logging initialized using configuration in file").filter(_.size > 20).filter(!_.contains("FAILED: RuntimeException MetaException(message:java.lang.ClassNotFoundException Class org.apache.hadoop.hive.contrib.serde2.JsonSerde not found)")).
+  map{
+  tableElem =>
+    // println(tableElem)
+    val contents = tableElem.split("OK").tail
+    val Array(cols,details) = contents.head.split("Detailed Table Information")
+    val csacsp = cols.split("# Partition Information")
+    val Array(colsAll,colsPartition) = csacsp.size match {
+      case 1 => csacsp :+ ""
+      case 2 => csacsp
+    }
+    val colsPair = colsAll.split("\n").map(_.split('\t').filter(_.size > 1)).filter(_.size > 0).map{
+      x => 
+        // println(x.head)
+        x.size match{
+          case 2 => (x.head.trim,x.last.trim.trim,"")
+          case 3 => (x.head.trim,x(1).trim,x.last.trim)
+
+        }
+      }
+    val csp = colsPartition.split('\n').filter(x => x.trim.size > 0 && !x.contains("#")).map(_.split(' ').head)
+    val partitionPair = colsPair.map{
+      x =>
+        if(csp.contains(x._1)) x._1 + "," + x._2 + "," + x._3 + "," + "Partition"
+        else x._1 + "," + x._2 + "," + x._3 + "," + ""
+    }
+    val tableName = details.split(',').filter(_.contains("tableName")).map(_.split(':')).last.last
+    val rst = "############################\n" + tableName + "\n" + partitionPair.mkString("\n")
+    tableName -> rst
+}
+val rsts = arrs.filter(x => tables.contains(x._1)).map(_._2)
+val containsName = arrs.filter(x => tables.contains(x._1)).map(_._1)
+val notContains = tables.filter(xs => xs.contains(arrs.filter(x => tables.contains(x._1)).map(_._1)))
+println(rsts.size)
+val p = new java.io.PrintWriter("tableNameColsContents.rst")
+p.write(rsts.mkString("\n"))
+p.flush
+p.close
+
