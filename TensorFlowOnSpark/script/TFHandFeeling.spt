@@ -1,3 +1,181 @@
 useradd -d /home/suanec -m suanec -p Weibo_bigdata_tf4p
 echo 'Weibo_bigdata_tf4p' | passwd --stdin suanec
 echo 'Weibo_bigdata_hdfs4feed' | passwd --stdin hadoop 
+
+# root .bashrc
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias suanec='source /home/shixi_enzhao/suanec/scripts/env.sh'
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+fi
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-8.0/lib64/
+
+# added by Anaconda2 4.4.0 installer
+export PATH="/usr/local/anaconda2/bin:$PATH"
+
+# user mod
+usermod -a -G hadoop suanec
+chgrp -R hadoop suanec/
+
+# env.sh
+echo 'export JAVA_HOME=/home/hadoop/libs/jdk1.8.0_131' > /home/suanec/libs/env.sh
+echo 'export CLASSPATH=.:$JAVA_HOME/jre/lib/rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar' >> /home/suanec/libs/env.sh
+echo 'export PATH=$PATH:$JAVA_HOME/bin' >> /home/suanec/libs/env.sh
+echo 'export HADOOP_HOME=/home/hadoop/libs/hadoop-2.7.3' >> /home/suanec/libs/env.sh
+echo 'export PATH=$PATH:$HADOOP_HOME/bin;' >> /home/suanec/libs/env.sh
+echo 'export PATH=$PATH:$HADOOP_HOME/sbin' >> /home/suanec/libs/env.sh
+echo 'export HADOOP_MAPRED_HOME=$HADOOP_HOME' >> /home/suanec/libs/env.sh
+echo 'export HADOOP_COMMON_HOME=$HADOOP_HOME' >> /home/suanec/libs/env.sh
+echo 'export HADOOP_HDFS_HOME=$HADOOP_HOME' >> /home/suanec/libs/env.sh
+echo 'export YARN_HOME=$HADOOP_HOME' >> /home/suanec/libs/env.sh
+echo 'export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/native' >> /home/suanec/libs/env.sh
+echo 'export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib:$HADOOP_HOME/lib/native"' >> /home/suanec/libs/env.sh
+echo 'export JAVA_LIBRARY_PATH=$HADOOP_HOME/lib/native:$JAVA_LIBRARY_PATH' >> /home/suanec/libs/env.sh
+echo 'export SCALA_HOME=/home/hadoop/libs/scala-2.11.8' >> /home/suanec/libs/env.sh
+echo 'export SPARK_HOME=/home/hadoop/libs/spark-2.0.2-bin-hadoop2.7' >> /home/suanec/libs/env.sh
+echo 'export PATH=$PATH:$SPARK_HOME/bin:$SCALA_HOME/bin' >> /home/suanec/libs/env.sh
+echo 'alias hadoop-stop=${HADOOP_HOME}/sbin/stop-all.sh' >> /home/suanec/libs/env.sh
+echo 'alias hadoop-start=${HADOOP_HOME}/sbin/start-all.sh' >> /home/suanec/libs/env.sh
+echo 'alias hadoop-restart="hadoop-stop;hadoop-start"' >> /home/suanec/libs/env.sh
+echo 'alias spark-example=${SPARK_HOME}/bin/run-example' >> /home/suanec/libs/env.sh
+echo 'export PATH="/usr/local/anaconda2/bin:$PATH:/usr/local/cuda-8.0/bin "' >> /home/suanec/libs/env.sh
+echo 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-8.0/lib64/' >> /home/suanec/libs/env.sh
+
+
+echo "alias fsls='hadoop fs -ls '" >> /home/suanec/libs/env.sh
+echo "alias fsmv='hadoop fs -mv '" >> /home/suanec/libs/env.sh
+echo "alias fsrm='hadoop fs -rm '" >> /home/suanec/libs/env.sh
+echo "alias fslsme='hadoop fs -ls $hadopath'" >> /home/suanec/libs/env.sh
+echo "alias fscat='hadoop fs -cat '" >> /home/suanec/libs/env.sh
+echo "alias fs='hadoop fs'" >> /home/suanec/libs/env.sh
+echo "alias fsmkdir='hadoop fs -mkdir'" >> /home/suanec/libs/env.sh
+echo "alias show='sh show.sh '" >> /home/suanec/libs/env.sh
+echo "alias suanec='source /home/shixi_enzhao/suanec/scripts/env.sh'" >> /home/suanec/libs/env.sh
+
+source ~/libs/env.sh
+
+# install tensorflow-gpu
+pip install tensorflow-gpu
+conda create -n tensorflow
+source activate tensorflow
+tar -xvf cudnn-8.0-linux-x64-v5.1.tgz -C /usr/local
+
+# ipython code autoencoder
+import tensorflow as tf
+from tensorflow.examples.tutorials.mnist import input_data
+mnist = input_data.read_data_sets("MNIST_data/", one_hot = True)
+
+def weight_variable(shape, name):
+    return tf.Variable(tf.truncated_normal(shape = shape, stddev = 0.1), name)
+def bias_variable(shape, name):
+    return tf.Variable(tf.constant(0.1, shape = shape), name)
+
+x = tf.placeholder(tf.float32, shape = [None, 784])
+e_W_1 = weight_variable([784, 300], "e_W_1")
+e_b_1 = bias_variable([300], "e_b_1")
+e_layer1 = tf.nn.relu(tf.matmul(x, e_W_1) + e_b_1)
+e_W_2 = weight_variable([300, 100], "e_W_2")
+e_b_2 = bias_variable([100], "e_b_2")
+e_layer2 = tf.nn.relu(tf.matmul(e_layer1, e_W_2) + e_b_2)
+e_W_3 = weight_variable([100, 20], "e_W_3")
+e_b_3 = bias_variable([20], "e_b_3")
+code_layer = tf.nn.relu(tf.matmul(e_layer2, e_W_3) + e_b_3)
+d_W_1 = weight_variable([20, 100], "d_W_1")
+d_b_1 = bias_variable([100], "d_b_1")
+d_layer1 = tf.nn.relu(tf.matmul(code_layer, d_W_1) + d_b_1)
+d_W_2 = weight_variable([100, 300], "d_W_2")
+d_b_2 = bias_variable([300], "d_b_2")
+d_layer2 = tf.nn.relu(tf.matmul(d_layer1, d_W_2) + d_b_2)
+d_W_3 = weight_variable([300, 784], "d_W_3")
+d_b_3 = bias_variable([784], "d_b_3")
+output_layer = tf.nn.relu(tf.matmul(d_layer2, d_W_3) + d_b_3)
+
+
+
+loss = tf.reduce_mean(tf.pow(output_layer - x, 2))
+optimizer = tf.train.RMSPropOptimizer(0.01).minimize(loss)
+init_op = tf.global_variables_initializer()
+
+
+
+sess = tf.InteractiveSession()
+sess.run(init_op)
+for i in range(10000):
+    batch = mnist.train.next_batch(50)
+    if i%100 == 0:
+        print("step %d, loss %g"%(i, loss.eval(feed_dict={x:batch[0]})))
+    optimizer.run(feed_dict={x: batch[0]})
+
+
+
+print("final loss %g" % loss.eval(feed_dict={x: mnist.test.images}))
+
+# python cnn with mnist
+import numpy as np
+import tensorflow as tf
+import matplotlib.pyplot as plt
+import math
+%matplotlib inline
+from tensorflow.examples.tutorials.mnist import input_data
+mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
+sess = tf.InteractiveSession()
+x = tf.placeholder(tf.float32, shape=[None, 784])
+y_ = tf.placeholder(tf.float32, shape=[None, 10])
+def weight_variable(shape):
+    initial = tf.truncated_normal(shape, stddev=0.1)
+    return tf.Variable(initial)
+def bias_variable(shape):
+    initial = tf.constant(0.1, shape = shape)
+    return tf.Variable(initial)
+
+def conv2d(x, W):
+    return tf.nn.conv2d(x, W, strides=[1, 1, 1, 1], padding = 'SAME')
+
+def max_pool_2x2(x):
+    return tf.nn.max_pool(x, ksize=[1,2,2,1], strides=[1,2,2,1], padding = 'SAME')
+W_conv1 = weight_variable([5, 5, 1, 32])
+b_conv1 = bias_variable([32])
+
+
+x_image = tf.reshape(x, [-1, 28, 28, 1])
+h_conv1 = tf.nn.relu(conv2d(x_image, W_conv1) + b_conv1)
+h_pool1 = max_pool_2x2(h_conv1)
+W_conv2 = weight_variable([5, 5, 32, 64])
+b_conv2 = bias_variable([64])
+
+h_conv2 = tf.nn.relu(conv2d(h_pool1, W_conv2) + b_conv2)
+h_pool2 = max_pool_2x2(h_conv2)
+W_fc1 = weight_variable([7 * 7 * 64, 1024])
+b_fc1 = bias_variable([1024])
+
+h_pool2_flat = tf.reshape(h_pool2, [-1, 7 * 7 * 64])
+h_fc1 = tf.nn.relu(tf.matmul(h_pool2_flat, W_fc1) + b_fc1)
+keep_prob = tf.placeholder(tf.float32)
+h_fc1_drop = tf.nn.dropout(h_fc1, keep_prob)
+
+W_fc2 = weight_variable([1024, 10])
+b_fc2 = bias_variable([10])
+
+y_conv = tf.matmul(h_fc1_drop, W_fc2) + b_fc2
+cross_entropy = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(y_conv, y_))
+train_step = tf.train.AdamOptimizer(1e-4).minimize(cross_entropy)
+correct_prediction = tf.equal(tf.argmax(y_conv,1), tf.argmax(y_,1))
+accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
+saver = tf.train.Saver()
+sess.run(tf.global_variables_initializer())
+for i in range(20000):
+  batch = mnist.train.next_batch(50)
+  if i%100 == 0:
+    train_accuracy = accuracy.eval(feed_dict={
+        x:batch[0], y_: batch[1], keep_prob: 1.0})
+    print("step %d, training accuracy %g"%(i, train_accuracy))
+  train_step.run(feed_dict={x: batch[0], y_: batch[1], keep_prob: 0.5})
+
+print("test accuracy %g"%accuracy.eval(feed_dict={
+    x: mnist.test.images, y_: mnist.test.labels, keep_prob: 1.0}))
+

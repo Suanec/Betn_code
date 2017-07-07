@@ -56,3 +56,8 @@ LimitProbing/PressureTest-2016/rst/SGD-2Y-10W-161214-2107.out
 LimitProbing/PressureTest-2016/rst/
 LimitProbing/PressureTest-20170620-EMR/rst/
 LimitProbing/data/
+LimitProbing/PressureTest-20170620-EMR/res/data-flow-2.0.0-SNAPSHOT-shade.jar
+LimitProbing/PressureTest-20170620-EMR/res/data.conf
+LimitProbing/PressureTest-20170620-EMR/res/dataflow.tar
+LimitProbing/PressureTest-20170620-EMR/res/feature.conf
+LimitProbing/PressureTest-20170620-EMR/res/pipeline.xml
